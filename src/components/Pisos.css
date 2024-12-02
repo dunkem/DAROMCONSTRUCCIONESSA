@@ -1,0 +1,140 @@
+/* Variables CSS */
+:root {
+    --primary-color: #000000; /* Rojo */
+    --hover-color: #ff0000; /* Rojo oscuro */
+    --background-color: #f9f9f9; /* Color de fondo */
+    --container-bg-color-custom: rgba(255, 255, 255, 0.3); /* Fondo semitransparente más claro */
+    --border-color: #ddd; /* Color de borde */
+    --text-color: #000000; /* Texto en un color más oscuro para mejor legibilidad */
+}
+
+/* Contenedor general */
+.pisos-materiales-container-custom {
+    padding: 2rem;
+    background: transparent; /* Hacer el contenedor completamente transparente */
+    color: var(--text-color);
+    position: relative;
+    z-index: 1; /* Asegura que esté por encima del vídeo */
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem; /* Aumentar tamaño de texto */
+}
+
+.pisos-title-custom {
+    width: 100%;
+    text-align: left;
+    color: var(--primary-color); /* Título en rojo */
+    font-size: 2.5rem; /* Mayor tamaño para el título */
+    font-weight: 700;
+}
+
+/* Botón "Adjunta tu lista" */
+.pisos-adjunta-lista-container-custom {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: var(--container-bg-color-custom);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2; /* Asegura que esté por encima de otros elementos */
+}
+
+.pisos-adjunta-lista-btn-custom {
+    background-color: #ff0000;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px; /* Texto más grande */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pisos-adjunta-lista-btn-custom:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.pisos-adjunta-lista-text-custom {
+    font-size: 18px; /* Texto más grande */
+    color: var(--text-color);
+    margin-top: 10px;
+    text-align: right; /* Alinear texto a la derecha */
+}
+
+/* Estilo de los productos */
+.pisos-material-card-custom {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    font-size: 1.2rem; /* Aumentar tamaño de texto */
+    background-color: var(--container-bg-color-custom); /* Fondo de las tarjetas */
+    position: relative; /* Para manejar el posicionamiento de las imágenes */
+}
+
+.pisos-material-card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(145, 71, 71, 0.3);
+    border: 2px solid var(--hover-color);
+}
+
+/* Estilo de las imágenes */
+.pisos-image-custom {
+    max-width: 400px; /* Tamaño máximo de las imágenes */
+    height: auto; /* Asegura que la altura sea automática */
+    display: block;
+    margin: 10px; /* Margen para espacio alrededor de las imágenes */
+    border-radius: 10px; /* Bordes redondeados para imágenes */
+    box-shadow: 0 2px 8px rgba(129, 129, 129, 0.2);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    :root {
+        --padding-container: 1rem;
+        --margin-card: 1rem 0;
+    }
+
+    .pisos-footer-section-custom {
+        padding: 1rem 0;
+    }
+
+    .pisos-materiales-container-custom {
+        padding: var(--padding-container);
+    }
+
+    .pisos-material-card-custom {
+        margin-bottom: var(--margin-card);
+    }
+
+    .pisos-image-custom {
+        max-width: 100%; /* Asegura que las imágenes ocupen todo el ancho en móviles */
+        height: auto;
+    }
+
+    .pisos-adjunta-lista-container-custom {
+        position: relative; /* Cambiar a posición relativa en móviles */
+        top: auto; /* Resetear top */
+        right: auto; /* Resetear right */
+        margin-top: 20px; /* Agregar margen para separación */
+    }
+}
+
+/* Estilos para el video de fondo */
+.pisos-video-background-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5; /* Ajustar opacidad del video */
+}

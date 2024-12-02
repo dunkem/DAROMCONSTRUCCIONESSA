@@ -1,0 +1,36 @@
+/* Footer.css */
+.footer-section {
+    background-color: #f8f9fa; /* Color de fondo */
+    color: #343a40; /* Color de texto */
+    padding: 20px 0;
+}
+
+.footer-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer-link {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: #ff0000;
+}
+
+.footer-design {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6c757d;
+}

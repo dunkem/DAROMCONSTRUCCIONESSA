@@ -1,0 +1,102 @@
+/* Contact.css */
+
+.contact-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-title {
+    color: #ff0000; /* Rojo */
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    animation: fadeInDown 1s ease;
+}
+
+.contact-form label {
+    color: #000; /* Negro */
+}
+
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid #000; /* Negro */
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff0000; /* Rojo */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.contact-submit-button {
+    background-color: #ff0000; /* Rojo */
+    border-color: #ff0000; /* Rojo */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-submit-button:hover {
+    background-color: #d40000; /* Rojo más oscuro */
+    transform: scale(1.05);
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.contact-info h5 {
+    color: #ff0000; /* Rojo */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #000; /* Negro */
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact-social-buttons button {
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+.contact-social-buttons button:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 20px;
+    }
+
+    .contact-title {
+        font-size: 28px;
+    }
+
+    .contact-info h5 {
+        font-size: 20px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+}

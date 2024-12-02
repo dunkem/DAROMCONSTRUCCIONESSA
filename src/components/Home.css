@@ -1,0 +1,342 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    background-color: #f0f0f0; /* Color de fondo más suave */
+}
+
+/* Sección Hero */
+.hero-section {
+    background: url('C:\Users\Dev\Desktop\PAGINAS\my-app\public\portada.jpg') no-repeat center center;
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido */
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 20px; /* Espaciado interno */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Menos opacidad para el fondo oscuro */
+    z-index: 1;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+/* Animación de entrada de derecha a izquierda */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    animation: slideInRight 1s ease-in; /* Aplicar la animación */
+}
+
+.hero-subtitle {
+    font-size: 1.5rem; /* Ajustado para que se vea mejor en móvil */
+    color: #ffffff;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    animation: slideInRight 1s ease-in 0.3s; /* Aplicar la animación con un retraso */
+}
+
+/* Estilos para el logo en la sección hero */
+.logo-hero {
+    width: 200px; 
+    height: auto;
+    margin-left: 20px; /* Alinear a la derecha */
+    filter: brightness(1.5); /* Aumentar el brillo del logo para que resalte más */
+    z-index: 3; /* Asegura que el logo esté por encima del fondo */
+}
+
+/* Títulos de secciones */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000; 
+    padding: 5px 15px; 
+    margin: 5px 0; 
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #ff0000; 
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Carruseles */
+.carousel {
+    margin: 20px 0;
+    position: relative;
+}
+
+.carousel-item {
+    padding: 20px; /* Espaciado entre las tarjetas */
+}
+
+/* Estilos para los productos y proveedores en el carrusel */
+.product-card, .supplier-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Espaciado interno */
+    background-color: #fff;
+}
+
+.product-card:hover, .supplier-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.product-img, .supplier-logo {
+    max-height: 150px; /* Altura ajustada para que las imágenes se vean completas */
+    width: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Ajusta la imagen para que se ajuste al contenedor */
+    border-radius: 10px;
+    margin-bottom: 10px; /* Espaciado entre imagen y texto */
+}
+
+/* Flechas del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(255, 0, 0, 0.7); /* Fondo rojo con opacidad */
+    border-radius: 50%; /* Flechas redondeadas */
+    width: 30px; /* Tamaño de las flechas */
+    height: 30px; /* Tamaño de las flechas */
+}
+
+.carousel-control-prev {
+    left: 10px; /* Ajustar posición de la flecha izquierda */
+}
+
+.carousel-control-next {
+    right: 10px; /* Ajustar posición de la flecha derecha */
+}
+
+/* Compromiso con el Cliente */
+.commitment-description {
+    font-size: 1.2rem; /* Aumentar tamaño de las descripciones */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Tarjetas de servicio */
+.service-card {
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.service-image-container {
+    position: relative;
+    height: 260px; 
+    overflow: hidden;
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.service-body {
+    padding: 20px;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.service-title {
+    font-size: 2rem; 
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #000; 
+}
+
+.service-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.backup-info {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backup-logo {
+    width: 50px;
+    height: auto;
+    margin-left: 5px;
+}
+
+.service-footer {
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.service-card:hover .service-footer {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.service-button {
+    background-color: #ff0000; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.service-button:hover {
+    background-color: #c40000; 
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 50vh; /* Ajustar altura en móvil */
+        padding: 20px 10px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem; /* Ajustar tamaño del subtítulo en móvil */
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .product-card, .supplier-card {
+        padding: 5px; /* Menos espaciado interno en móvil */
+    }
+
+    .product-img, .supplier-logo {
+        max-height: 100px; /* Ajustar tamaño en móvil */
+    }
+
+    .service-img {
+        height: 200px; 
+    }
+
+    .backup-info {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .backup-logo {
+        width: 40px;
+    }
+}
+
+/* Empresa */
+.company-section {
+    background-color: #fff; 
+    padding: 40px 20px;
+    text-align: center;
+    margin: 40px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.company-description {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.delivery-area-image {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Estilos responsivos para la sección de entregas */
+@media (max-width: 768px) {
+    .delivery-area-image {
+        width: 100%; /* Asegura que la imagen ocupe todo el ancho en móviles */
+        height: auto; /* Mantiene la proporción de la imagen */
+    }
+}

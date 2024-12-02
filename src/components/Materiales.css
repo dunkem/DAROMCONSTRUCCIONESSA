@@ -1,0 +1,129 @@
+/* Variables CSS */
+:root {
+    --primary-color: #ff4d4d; /* Rojo principal */
+    --hover-color: #e63939; /* Rojo más oscuro al pasar el mouse */
+    --background-color: #f9f9f9; /* Fondo gris claro */
+    --container-bg-color: #ffffff; /* Fondo blanco para contenedores */
+    --border-color: #ddd; /* Color de borde */
+    --text-color: #555; /* Color de texto gris */
+    --header-text-color: #000; /* Color de texto negro para encabezados */
+}
+
+/* Contenedor general */
+.materiales-container {
+    padding: 2rem;
+    background-color: var(--background-color);
+}
+
+/* Título de materiales */
+.materiales-title {
+    margin-top: 10px; /* Añadir margen superior */
+    margin-bottom: 5px; /* Espacio debajo del título */
+    text-align: center; /* Centrar título */
+    color: var(--header-text-color); /* Color del texto */
+}
+
+/* Botón "Adjunta tu lista" */
+.adjunta-lista-container {
+    margin: 20px auto; /* Mantener margen superior e inferior */
+    padding: 10px; /* Reducir padding del contenedor */
+    background-color: var(--container-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.adjunta-lista-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px; /* Reducir padding del botón */
+    font-size: 14px; /* Ajustar tamaño de fuente del botón */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.adjunta-lista-text {
+    font-size: 12px; /* Mantener tamaño de texto más pequeño si es necesario */
+    color: var(--header-text-color);
+    margin-top: 5px; /* Reducir margen superior */
+}
+
+.adjunta-lista-btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Estilo de los productos */
+.material-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color); /* Borde para las tarjetas */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px; /* Espacio entre cartas */
+    display: flex; /* Usar flex para alinear elementos */
+    flex-direction: column; /* Alinear elementos en columna */
+    height: 100%; /* Asegurar que todas las tarjetas tengan la misma altura */
+}
+
+.material-card img {
+    width: 100%; /* Ajustar imagen al 100% del ancho */
+    height: 150px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Mantener la proporción de la imagen */
+    margin: 10px 0; /* Añadir margen arriba y abajo */
+}
+
+/* Estilo del cuerpo de la tarjeta */
+.material-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio entre el título y el botón */
+    height: 100%; /* Asegurar que ocupe todo el espacio disponible */
+}
+
+/* Estilo de texto dentro de las tarjetas */
+.material-card .text-danger {
+    color: var(--primary-color); /* Texto en rojo */
+}
+
+/* Estilo de botones dentro de las tarjetas */
+.material-card .btn {
+    background-color: #000; /* Botón negro */
+    color: white; /* Texto blanco */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.material-card .btn:hover {
+    background-color: #333; /* Botón negro más oscuro al pasar el mouse */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    :root {
+        --padding-container: 1rem;
+        --margin-card: 1rem 0;
+    }
+
+    .materiales-container {
+        padding: var(--padding-container);
+    }
+
+    .material-card {
+        margin-bottom: var(--margin-card);
+    }
+
+    .adjunta-lista-btn {
+        font-size: 14px; /* Tamaño de fuente más pequeño en móviles */
+        padding: 8px 16px; /* Ajustar padding en móviles */
+    }
+
+    .adjunta-lista-text {
+        font-size: 12px; /* Tamaño de texto más pequeño en móviles */
+    }
+}

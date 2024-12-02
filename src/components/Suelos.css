@@ -1,0 +1,162 @@
+/* Suelos.css */
+
+/* Variables CSS */
+:root {
+    --primary-color: #ff4d4d; /* Rojo */
+    --hover-color: #d32f2f; /* Rojo oscuro */
+    --background-color: #f9f9f9; /* Color de fondo */
+    --border-color: #ddd; /* Color de borde */
+    --text-color: #333; /* Color de texto */
+}
+
+/* Contenedor principal */
+.suelos-container {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.suelos-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.suelos-header-left {
+    text-align: left;
+}
+
+.suelos-header-right {
+    text-align: right;
+}
+
+.suelos-title {
+    color: var(--primary-color);
+    font-size: 36px;
+    text-transform: uppercase;
+    animation: fadeInDown 1s ease;
+}
+
+.suelos-description {
+    color: #555;
+    font-size: 16px;
+    animation: fadeIn 1s ease;
+}
+
+/* Botón "Adjunta tu lista" */
+.suelos-upload-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    max-width: 150px;
+    padding: 10px 0;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.suelos-upload-button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+/* Títulos */
+.suelos-section-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.suelos-section-title:hover {
+    color: var(--hover-color);
+    transform: translateY(-3px);
+}
+
+/* Texto */
+.suelos-paragraph {
+    color: #555;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.suelos-subtitle {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.suelos-list {
+    padding-left: 1rem;
+}
+
+.suelos-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo del carrusel */
+.suelos-carousel-image {
+    border-radius: 8px;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .suelos-carousel-image {
+        max-height: 300px;
+    }
+
+    .suelos-title {
+        font-size: 28px;
+    }
+
+    .suelos-section-title {
+        font-size: 24px;
+    }
+
+    .suelos-description {
+        font-size: 14px;
+    }
+
+    .suelos-paragraph {
+        font-size: 14px;
+    }
+
+    .suelos-subtitle {
+        font-size: 1.2rem;
+    }
+
+    /* Ajustes para el botón en móviles */
+    .suelos-upload-button {
+        width: 100%; /* Hacer el botón más amplio en móviles */
+        margin-top: 20px; /* Separación del contenido superior */
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
