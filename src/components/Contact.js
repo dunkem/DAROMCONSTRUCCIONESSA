@@ -7,6 +7,7 @@ function Contact() {
     const [validated, setValidated] = useState(false);
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [file, setFile] = useState(null); // Estado para el archivo
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (event) => {
@@ -16,6 +17,8 @@ function Contact() {
             event.stopPropagation();
         } else {
             setSubmitted(true);
+            // Aquí puedes manejar el envío del archivo si es necesario
+            console.log('Archivo:', file);
         }
         setValidated(true);
     };
@@ -60,6 +63,13 @@ function Contact() {
                                 Por favor ingresa un mensaje.
                             </Form.Control.Feedback>
                         </Form.Group>
+                        <Form.Group controlId="formFile">
+                            <Form.Label>Adjuntar Archivo</Form.Label>
+                            <Form.Control 
+                                type="file" 
+                                onChange={(e) => setFile(e.target.files[0])} // Manejo de archivo
+                            />
+                        </Form.Group>
                         <Button variant="primary" type="submit" className="contact-submit-button mt-3">
                             Enviar
                         </Button>
@@ -69,7 +79,7 @@ function Contact() {
                 <Col md={6} className="contact-info p-4 text-center">
                     <h5>INFORMACIÓN</h5>
                     <p><i className="fas fa-phone"></i> Teléfono: <a href="tel:08103334567">0810-333-4567</a></p>
-                    <p><i className="fas fa-envelope"></i> Email: <a href="mailto:ventas@darom.com">ventas@darom.com</a>, <a href="mailto:proveedores@darom.com">proveedores@darom.com</a>, <a href="mailto:pagos@daromsa">pagos@daromsa</a></p>
+                    <p><i className="fas fa-envelope"></i> Email: <a href="mailto:ventas@daromsa.com.ar">ventas@darom.com</a>, <a href="mailto:proveedores@daromsa.com.ar">proveedores@darom.com</a>, <a href="mailto:pagos@daromsa.com.ar">pagos@daromsa</a></p>
                     <p><i className="fas fa-map-marker-alt"></i> Oficina: C. 152 6352, B1885 Guillermo Enrique Hudson</p>
                     <iframe
                         title="Ubicación Oficina"

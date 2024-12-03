@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaShoppingCart } from '
 import { CartProvider, CartContext } from './contexts/CartContext';
 import Home from './components/Home';
 import About from './components/About';
-import Contact from './components/Contact';
+import Contact from './components/Contact'; // Importa el componente Contact
 import Cart from './components/Cart';
 import Hormigon from './components/Hormigon';
 import Materiales from './components/Materiales';
@@ -65,8 +65,11 @@ function App() {
                 </Routes>
 
                 <a href="https://wa.me/5492215739000" target="_blank" rel="noopener noreferrer" className="whatsapp-float" title="Chat on WhatsApp">
-                    <FaWhatsapp size={50} className="whatsapp-icon" /> {/* Asegúrate de que el icono tenga el tamaño correcto */}
+                    <FaWhatsapp size={50} className="whatsapp-icon" />
                 </a>
+
+                {/* Sección de contacto de la empresa justo arriba del Footer */}
+                <Contact />
 
                 {/* Footer global */}
                 <Footer />

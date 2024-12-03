@@ -10,7 +10,7 @@ function Cart() {
     const handleSendToWhatsApp = () => {
         const orderDetails = cart.map(item => `${item.name} - $${item.price}`).join('\n');
         const message = `Pedido:\n${orderDetails}\n\nTotal: $${totalPrice}`;
-        const phone = '1234567890'; // Número de WhatsApp del vendedor
+        const phone = '5492215739000'; // Número de WhatsApp del vendedor
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
         window.open(url, '_blank');

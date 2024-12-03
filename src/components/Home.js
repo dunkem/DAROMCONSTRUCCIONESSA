@@ -203,7 +203,7 @@ function Home({ setLoading }) {
       <Row className="mb-4 align-items-center" style={{ backgroundColor: '#e9ecef', padding: '10px 0' }}>
         <Col md={{ span: 8, offset: 2 }} className="d-flex flex-column flex-md-row align-items-center">
           <Col md={4} className="d-flex justify-content-center mb-3 mb-md-0">
-            <Image src="/ZONAS2.png" alt="Zonas de Entrega" fluid className="delivery-area-image" />
+            <Image src="/ZONAS3.png" alt="Zonas de Entrega" fluid className="delivery-area-image" />
           </Col>
           <Col md={8} className="text-center text-md-left">
             <h2 className="section-title">ÁREA DE ENTREGAS</h2>

@@ -4,7 +4,6 @@ import { FaFileUpload } from 'react-icons/fa';
 import './Suelos.css';
 
 function Suelos() {
-
     useEffect(() => {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
     }, []);
@@ -55,11 +54,8 @@ function Suelos() {
             <Row className="suelos-header">
                 <Col md={6} className="suelos-header-left">
                     <h1 className="suelos-title">ESTUDIO DE SUELOS</h1>
-                    <p className="suelos-description lead">
-                    ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
-                    </p>
                 </Col>
-                <Col md={6} className="suelos-header-right">
+                <Col md={6} className="suelos-header-right d-flex flex-column align-items-end">
                     <Button 
                         className="suelos-upload-button" 
                         onClick={() => alert('Funcionalidad para adjuntar lista de precios aquí.')}
@@ -67,14 +63,12 @@ function Suelos() {
                         <FaFileUpload className="mr-2" />
                         ADJUNTA TU LISTA
                     </Button>
+                    <p className="suelos-description lead mt-2">
+                        ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
+                    </p>
                 </Col>
             </Row>
             
-            <Row className="align-items-start mb-3">
-                <Col xs={12}>
-                    <h1 className="suelos-section-title">ESTUDIO DE SUELOS</h1>
-                </Col>
-            </Row>
             <Row>
                 <Col xs={12}>
                     <p className="suelos-paragraph">

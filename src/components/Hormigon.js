@@ -9,10 +9,10 @@ function Hormigon() {
     }, []);
     // Beneficios ofrecidos
     const benefits = [
-        { src: '/elegirnoslaboratorio.png', title: 'ASESORAMIENTO TÉCNICO', description: 'Recibe orientación experta para elegir los mejores materiales y técnicas.' },
-{ src: '/elegirnosticket.png', title: 'TICKET DE PESADA', description: 'Garantizamos transparencia y precisión en cada entrega con nuestro sistema de pesaje.' },
-{ src: '/elegirnoscargaprecintada.png', title: 'CARGA PRECINTADA', description: 'Todos nuestros productos son precintados para asegurar su integridad.' },
-{ src: '/elegirnosseguimiento.png', title: 'RASTREO SATELITAL', description: 'Monitorea el estado y la ubicación de tus pedidos en tiempo real.' },
+        { src: '/elegirnoslaboratorio.png', title: 'LABORATORIO EN OBRA', description: 'Disponemos de un laboratorio de hormigones equipado, con asistencia técnica y controles de calidad realizados por profesionales experimentados, ofreciendo atención personalizada.' },
+{ src: '/elegirnosticket.png', title: 'TICKET DE PESADA', description: 'Realizamos el peso de los camiones hormigoneros en planta, donde el cliente recibirá un comprobante con el peso de la carga correspondiente.' },
+{ src: '/elegirnoscargaprecintada.png', title: 'CARGA PRECINTADA', description: 'La carga de hormigón será pesada y precintada con el objetivo de evitar adulteraciones y entregar la cantidad exacta de hormigón solicitada por el cliente.' },
+{ src: '/elegirnosseguimiento.png', title: 'RASTREO SATELITAL', description: 'La carga puede ser controlada minuto a minuto con seguimiento satelital desde dispositivos móviles, desde la planta hasta pie de obra.' },
     ];
 
     // Datos de los proveedores

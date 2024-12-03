@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Button, Image } from 'react-bootstrap';
-import { FaFileUpload } from 'react-icons/fa';
+import { Container, Image } from 'react-bootstrap';
 import './Pisos.css';
 
 function Pisos() {
@@ -18,20 +17,7 @@ function Pisos() {
             <div className="pisos-materiales-container-custom">
                 <h1 className="display-4 pisos-title-custom">PISOS INDUSTRIALES DE HORMIGÓN ELABORADO</h1>
                 
-                {/* Información adicional */}
-                <div className="pisos-adjunta-lista-container-custom">
-                    <Button 
-                        className="pisos-adjunta-lista-btn-custom" 
-                        onClick={() => alert('Funcionalidad para adjuntar lista de precios aquí.')}
-                    >
-                        <FaFileUpload style={{ marginRight: '5px' }} />
-                        ADJUNTA TU LISTA
-                    </Button>
-                </div>
-
-                <p className="lead pisos-adjunta-lista-text-custom">
-                ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
-                </p>
+                
 
                 <div className="pisos-material-card-custom">
                     <p>
