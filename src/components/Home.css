@@ -20,17 +20,15 @@ body {
 }
 
 .hero-section {
-    background: url('C:\Users\Damian\OneDrive\Escritorio\DD\DAROM\DAROMCONSTRUCCIONESSA\public\portada.jpg') no-repeat center center;
-    background-size: cover;
-    height: 60vh;
+    height: 60vh; /* Mantener la altura */
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrar contenido */
+    justify-content: center;
     color: #fff;
     position: relative;
     overflow: hidden;
-    padding: 20px; /* Espaciado interno */
-    animation: fadeIn 1.5s ease-in; /* Aplicar la animación de desvanecimiento */
+    padding: 20px;
+    animation: fadeIn 1.5s ease-in;
 }
 
 .hero-section::before {

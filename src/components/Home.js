@@ -1,7 +1,7 @@
-import { Container, Row, Col, Card, Carousel, Button, Image } from 'react-bootstrap'; // Asegúrate de importar Image
+import { Container, Row, Col, Card, Carousel, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import { FaCheckCircle, FaBuilding, FaVials } from 'react-icons/fa'; // Importar íconos
+import { FaCheckCircle, FaBuilding, FaVials } from 'react-icons/fa';
 import { FaHandshakeSimple, FaUserGroup } from 'react-icons/fa6';
 import Contact from './Contact';
 
@@ -90,18 +90,22 @@ function Home({ setLoading }) {
 
   return (
     <Container fluid className="main-container">
-      {/* Sección de Portada */}
-      <Row className="hero-section text-center">
-        <Col md={8} className="hero-content-wrapper">
-          <div className="hero-content animated fadeIn">
+      <Row className="hero-section text-center" style={{ 
+    backgroundImage: 'url(/portada.jpg)', 
+    backgroundSize: 'cover', // Asegura que la imagen cubra toda la sección
+    backgroundPosition: 'center', // Centra la imagen
+    height: '60vh'
+}}>
+    <Col md={8} className="hero-content-wrapper">
+        <div className="hero-content animated fadeIn">
             <h2 className="hero-title">COMPROMETIDOS CON LA CALIDAD Y LA CONFIANZA</h2>
             <h3 className="hero-subtitle">TRANSFORMA TUS PROYECTOS CON NUESTRA EXPERIENCIA E INNOVACIÓN EN CADA ETAPA DE CONSTRUCCIÓN.</h3>
-          </div>
-        </Col>
-        <Col md={4} className="d-flex align-items-center justify-content-end">
-          <img src="/logolomanegra.png" alt="Logo Loma Negra" className="logo-hero" />
-        </Col>
-      </Row>
+        </div>
+    </Col>
+    <Col md={4} className="d-flex align-items-center justify-content-end">
+        <img src="/logolomanegra.png" alt="Logo Loma Negra" className="logo-hero" />
+    </Col>
+</Row>
 
       {/* Compromiso con el Cliente */}
       <Row className="text-center mb-4" style={{ backgroundColor: '#e9ecef', padding: '40px 0' }}>
