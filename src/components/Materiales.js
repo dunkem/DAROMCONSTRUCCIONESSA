@@ -4,6 +4,7 @@ import { Container, Row, Col, Button, Card, ButtonGroup } from 'react-bootstrap'
 import { CartContext } from '../contexts/CartContext';
 import { FaFileUpload } from 'react-icons/fa';
 import './Materiales.css';
+import Contact from './Contact';
 
 function Materiales() {
     useEffect(() => {
@@ -221,6 +222,7 @@ function Materiales() {
                     )}
                 </Col>
             </Row>
+            <Contact showContact={true} />
         </Container>
     );
 }

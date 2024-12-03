@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col, Button, Carousel } from 'react-bootstrap';
 import { FaFileUpload } from 'react-icons/fa';
 import './Suelos.css';
+import Contact from './Contact';
 
 function Suelos() {
     useEffect(() => {
@@ -76,9 +77,9 @@ function Suelos() {
                     </p>
                     <h5 className="suelos-subtitle">Datos Técnicos:</h5>
                     <ul className="suelos-list">
-                        <li><strong>Profundidad de estudio:</strong> Hasta 20 metros.</li>
+                       
                         <li><strong>Tipo de análisis:</strong> Ensayos de penetración estándar (SPT), ensayos de compresión y corte.</li>
-                        <li><strong>Características del suelo:</strong> Identificación de estratos, tipo de roca, permeabilidad y capacidad de carga.</li>
+                        <li><strong>Características del suelo:</strong> Identificación de estratos, tipo de roca, permeabilidad, capacidad de carga y compactacíón.</li>
                         <li><strong>Informe detallado:</strong> Incluye gráficas, recomendaciones específicas para la cimentación y análisis de riesgos.</li>
                         <li><strong>Plazo de entrega:</strong> Resultados en 5-7 días hábiles.</li>
                     </ul>
@@ -100,10 +101,9 @@ function Suelos() {
                     </p>
                     <h5 className="suelos-subtitle">Datos Técnicos:</h5>
                     <ul className="suelos-list">
-                        <li><strong>Tipos de maquinaria:</strong> Excavadoras, bulldozers y compactadoras.</li>
-                        <li><strong>Capacidad de movimiento:</strong> Hasta 500 m³/día.</li>
-                        <li><strong>Servicios incluidos:</strong> Excavaciones, nivelaciones, compactaciones y remoción de escombros.</li>
-                        <li><strong>Control de calidad:</strong> Monitoreo constante de la compactación y análisis de la tierra.</li>
+                        <li><strong>Tipos de maquinaria:</strong> Excavadoras, bulldozers y compactadoras.</li>                       
+                        <li><strong>Servicios incluidos:</strong> Excavaciones, relleno, nivelaciones, compactaciones, demolición y remoción de escombros.</li>
+                        <li><strong>Control de calidad:</strong> Monitoreo constante de la compactación y análisis del suelo.</li>
                         <li><strong>Plazo de ejecución:</strong> Dependiendo del tamaño del proyecto, generalmente entre 1-3 semanas.</li>
                     </ul>
                 </Col>
@@ -115,6 +115,7 @@ function Suelos() {
                     </Carousel>
                 </Col>
             </Row>
+            <Contact showContact={true} />
         </Container>
     );
 }

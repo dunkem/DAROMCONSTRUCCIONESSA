@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import { FaCheckCircle, FaBuilding, FaVials } from 'react-icons/fa'; // Importar íconos
 import { FaHandshakeSimple, FaUserGroup } from 'react-icons/fa6';
+import Contact from './Contact';
 
 function Home({ setLoading }) {
   // Servicios ofrecidos
@@ -213,6 +214,7 @@ function Home({ setLoading }) {
           </Col>
         </Col>
       </Row>
+      <Contact showContact={true} />
     </Container>
   );
 }

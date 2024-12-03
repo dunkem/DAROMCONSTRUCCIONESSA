@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { FaFileUpload } from 'react-icons/fa';
 import './Hormigon.css';
 
+
 function Hormigon() {
     useEffect(() => {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
@@ -92,9 +93,10 @@ function Hormigon() {
 
     return (
         <div className="video-background hormigon">
-            <video autoPlay loop muted className="video-element">
-                <source src="/IMG_20241112132439373.mp4" type="video/mp4" />
-            </video>
+            <video preload="auto" autoPlay loop muted className="video-element">
+    <source src="/IMG_20241112132439373.mp4" type="video/mp4" />
+    Tu navegador no soporta el elemento de video.
+</video>
             <div className="overlay">
                 <Container className="mt-4">
                     <Row>
@@ -225,10 +227,18 @@ function Hormigon() {
                             </p>
                         </Col>
                     </Row>
+                    
+                    
                 </Container>
+                
             </div>
+            
         </div>
+        
+        
     );
+    
+    
 }
 
 export default Hormigon;

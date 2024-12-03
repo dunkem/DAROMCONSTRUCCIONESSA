@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Image } from 'react-bootstrap';
 import './Pisos.css';
+import Contact from './Contact';
 
 function Pisos() {
 
@@ -10,10 +11,11 @@ function Pisos() {
 
     return (
         <Container className="mt-4 position-relative">
-            <video autoPlay loop muted className="pisos-video-background-custom">
-                <source src="/IMG_20241112132439452.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            <video preload="auto" autoPlay loop muted className="pisos-video-background-custom">
+    <source src="/IMG_20241112132439452.mp4" type="video/mp4" />
+    Tu navegador no soporta el elemento de video.
+</video>
+            
             <div className="pisos-materiales-container-custom">
                 <h1 className="display-4 pisos-title-custom">PISOS INDUSTRIALES DE HORMIGÓN ELABORADO</h1>
                 
@@ -69,6 +71,7 @@ function Pisos() {
                     </p>
                 </div>
             </div>
+            <Contact showContact={true} />
         </Container>
     );
 }

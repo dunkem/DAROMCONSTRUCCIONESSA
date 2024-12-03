@@ -1,5 +1,6 @@
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import './About.css';
+import Contact from './Contact';
 
 function About() {
     const obras = [
@@ -81,7 +82,9 @@ function About() {
                     </Carousel>
                 </Col>
             </Row>
+            <Contact showContact={true} />
         </Container>
+        
     );
 }
 

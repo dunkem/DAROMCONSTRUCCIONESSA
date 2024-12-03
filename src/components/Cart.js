@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Container, Row, Col, Button, Table } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
 import { FaWhatsapp } from 'react-icons/fa';
+import Contact from './Contact';
 
 function Cart() {
     const { cart, removeFromCart } = useContext(CartContext);
@@ -51,6 +52,7 @@ function Cart() {
                     )}
                 </Col>
             </Row>
+            <Contact showContact={true} />
         </Container>
     );
 }
