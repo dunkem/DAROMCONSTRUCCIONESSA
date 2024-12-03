@@ -20,6 +20,7 @@ function Contact() {
     const [message, setMessage] = useState('');
     const [file, setFile] = useState(null); 
     const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -28,7 +29,9 @@ function Contact() {
             event.stopPropagation();
         } else {
             setSubmitted(true);
+            setError('');
             console.log('Archivo:', file);
+            // Aquí podrías enviar el formulario a un servidor.
         }
         setValidated(true);
     };
@@ -84,6 +87,7 @@ function Contact() {
                             Enviar
                         </Button>
                         {submitted && <p className="mt-3 text-success">Su mensaje ha sido enviado con éxito.</p>}
+                        {error && <p className="mt-3 text-danger">{error}</p>}
                     </Form>
                 </Col>
                 <Col md={6} className="contact-info p-4 text-center">

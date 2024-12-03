@@ -12,7 +12,7 @@ function Pisos() {
     return (
         <Container className="mt-4 position-relative">
             <video preload="auto" autoPlay loop muted className="pisos-video-background-custom">
-    <source src="/IMG_20241112132439452.mp4" type="video/mp4" />
+    <source src="\IMG_3315.mp4" type="video/mp4" />
     Tu navegador no soporta el elemento de video.
 </video>
             

@@ -10,6 +10,15 @@ body {
 }
 
 /* Sección Hero */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .hero-section {
     background: url('C:\Users\Damian\OneDrive\Escritorio\DD\DAROM\DAROMCONSTRUCCIONESSA\public\portada.jpg') no-repeat center center;
     background-size: cover;
@@ -21,6 +30,7 @@ body {
     position: relative;
     overflow: hidden;
     padding: 20px; /* Espaciado interno */
+    animation: fadeIn 1.5s ease-in; /* Aplicar la animación de desvanecimiento */
 }
 
 .hero-section::before {
@@ -152,14 +162,6 @@ body {
     border-radius: 50%; /* Flechas redondeadas */
     width: 30px; /* Tamaño de las flechas */
     height: 30px; /* Tamaño de las flechas */
-}
-
-.carousel-control-prev {
-    left: 10px; /* Ajustar posición de la flecha izquierda */
-}
-
-.carousel-control-next {
-    right: 10px; /* Ajustar posición de la flecha derecha */
 }
 
 /* Compromiso con el Cliente */

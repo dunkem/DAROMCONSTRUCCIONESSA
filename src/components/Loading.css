@@ -16,16 +16,10 @@
 
 .loading img {
     width: 150px; /* Aumenta el tamaño del logo */
-    animation: fadeIn 1s ease-in; /* Añade un efecto de desvanecimiento */
+    animation: fadeIn 2s ease-in; /* Añade un efecto de desvanecimiento */
 }
 
-.loading h2 {
-    margin-top: 20px;
-    font-size: 24px; /* Tamaño del texto */
-    color: #333; /* Color del texto */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra para mayor efecto */
-    animation: fadeIn 1s ease-in; /* Añade un efecto de desvanecimiento */
-}
+
 
 @keyframes fadeIn {
     from { opacity: 0; }
