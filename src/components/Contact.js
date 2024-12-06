@@ -63,8 +63,7 @@ function Contact() {
                       name="contact" 
                       method="POST" 
                       data-netlify="true" 
-                      data-netlify-honeypot="bot-field" // Anti-spam
-                      encType="multipart/form-data" // Permitir archivos adjuntos
+                      data-netlify-honeypot="bot-field"
                       noValidate 
                       validated={validated} 
                       onSubmit={handleSubmit} 
@@ -85,7 +84,7 @@ function Contact() {
                             <Form.Label>Email</Form.Label>
                             <Form.Control 
                                 type="email" 
-                                name="email" 
+                                name="email"
                                 placeholder="Ingrese su email" 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -99,8 +98,8 @@ function Contact() {
                             <Form.Label>Mensaje</Form.Label>
                             <Form.Control 
                                 as="textarea" 
-                                name="message"
                                 rows={3} 
+                                name="message"
                                 placeholder="Escriba su mensaje" 
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
