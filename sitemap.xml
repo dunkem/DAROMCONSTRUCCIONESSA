@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <!-- Página principal -->
+  <url>
+    <loc>https://daromsa.com.ar/</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <!-- Ejemplo de imágenes -->
+    <image:image>
+      <image:loc>https://daromsa.com.ar/images/logo.png</image:loc>
+      <image:caption>Logo de Daromsa</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Página "Sobre Nosotros" -->
+  <url>
+    <loc>https://daromsa.com.ar/about</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Página de Servicios -->
+  <url>
+    <loc>https://daromsa.com.ar/services</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Página de Contacto -->
+  <url>
+    <loc>https://daromsa.com.ar/contact</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+    <!-- Ejemplo de video -->
+    <video:video>
+      <video:content_loc>https://daromsa.com.ar/</video:content_loc>
+      <video:title>Primer Post de Blog</video:title>
+      <video:description>Descripción del video del primer post de blog.</video:description>
+    </video:video>
+  </url>
+
+  <!-- Añadir más URLs con imágenes y videos aquí -->
+</urlset>
