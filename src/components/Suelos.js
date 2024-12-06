@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button, Carousel } from 'react-bootstrap';
 import { FaFileUpload } from 'react-icons/fa';
 import './Suelos.css';
@@ -57,13 +58,7 @@ function Suelos() {
                     <h1 className="suelos-title">ESTUDIO DE SUELOS</h1>
                 </Col>
                 <Col md={6} className="suelos-header-right d-flex flex-column align-items-end">
-                    <Button 
-                        className="suelos-upload-button" 
-                        onClick={() => alert('Funcionalidad para adjuntar lista de precios aquí.')}
-                    >
-                        <FaFileUpload className="mr-2" />
-                        ADJUNTA TU LISTA
-                    </Button>
+                <Button as={Link} to="/contact" className="upload-button"> <FaFileUpload className="upload-icon" /> ADJUNTA TU LISTA </Button>
                     <p className="suelos-description lead mt-2">
                         ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
                     </p>

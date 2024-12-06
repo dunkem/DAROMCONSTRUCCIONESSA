@@ -41,7 +41,17 @@ function Contact() {
             <Row className="contact-background mb-4">
                 <Col md={6} className="p-4">
                     <h2 className="contact-title">CONTACTANOS</h2>
-                    <Form noValidate validated={validated} onSubmit={handleSubmit} className="contact-form">
+                    <Form 
+                      name="contact" 
+                      method="POST" 
+                      data-netlify="true" 
+                      encType="multipart/form-data" // Añadir este atributo para permitir archivos adjuntos
+                      noValidate 
+                      validated={validated} 
+                      onSubmit={handleSubmit} 
+                      className="contact-form"
+                    >
+                        <input type="hidden" name="form-name" value="contact" />
                         <Form.Group controlId="formName">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control required type="text" placeholder="Ingresa tu nombre" />

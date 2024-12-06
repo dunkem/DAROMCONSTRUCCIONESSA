@@ -1,5 +1,6 @@
 
 import React, { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button, Card, ButtonGroup } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
 import { FaFileUpload } from 'react-icons/fa';
@@ -151,13 +152,7 @@ function Materiales() {
         <Container className="mt-4 materiales-container">
             {/* Botón "Adjunta tu lista" */}
             <div className="adjunta-lista-container">
-                <Button
-                    className="adjunta-lista-btn"
-                    onClick={() => alert('Funcionalidad para adjuntar lista de precios aquí.')}
-                >
-                    <FaFileUpload className="mr-2" />
-                    ADJUNTA TU LISTA
-                </Button>
+            <Button as={Link} to="/contact" className="upload-button"> <FaFileUpload className="upload-icon" /> ADJUNTA TU LISTA </Button>
                 <p className="lead text-black">
                     ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
                 </p>

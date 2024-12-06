@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Helmet } from 'react-helmet'; // Importa react-helmet
 import { Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaShoppingCart } from 'react-icons/fa';
@@ -29,6 +30,17 @@ function App() {
 
     return (
         <CartProvider>
+            <Helmet>
+    <title>Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción</title>
+    <meta name="description" content="Daromsa ofrece hormigón elaborado, materiales de construcción y servicios de movimiento de suelos, pisos industriales, respaldados por años de experiencia y calidad." />
+    <meta name="keywords" content="hormigón, materiales de construcción, estudio de suelos, movimiento de suelos, pisos industriales, servicios de bombeo, construcción, Daromsa" />
+    <meta property="og:title" content="Daromsa - Hormigón, Materiales y Servicios de Construcción" />
+    <meta property="og:description" content="Transforma tus proyectos con Daromsa, tu proveedor confiable de hormigón elaborado, materiales de construcción y más." />
+    <meta property="og:url" content="https://daromsa.com.ar" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://daromsa.com.ar/portada.jpg" />
+</Helmet>
+
             {loading ? (
                 <Loading /> // Muestra el componente de carga
             ) : (

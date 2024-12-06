@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card, Button, Image, Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { FaFileUpload } from 'react-icons/fa';
 import './Hormigon.css';
@@ -26,7 +27,6 @@ function Hormigon() {
         { src: '/logoctibor.png', alt: 'Ctibor' },
         { src: '/logofanelli.png', alt: 'Fanelli' },
         { src: '/LOGOBLINKI.png', alt: 'Blinki' },
-        { src: '/LOGOCANTERAS.jpg', alt: 'Canteras Argentinas' },
     ];
 
     // Datos de los tipos de hormigón
@@ -101,13 +101,7 @@ function Hormigon() {
                 <Container className="mt-4">
                     <Row>
                         <Col xs={12} md={6} className="text-right">
-                            <Button 
-                                className="upload-button" 
-                                onClick={() => alert('Funcionalidad para adjuntar lista de precios aquí.')}
-                            >
-                                <FaFileUpload className="upload-icon" />
-                                ADJUNTA TU LISTA
-                            </Button>
+                        <Button as={Link} to="/contact" className="upload-button"> <FaFileUpload className="upload-icon" /> ADJUNTA TU LISTA </Button>
                             <p className="lead text-highlight">
                             ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
                             </p>

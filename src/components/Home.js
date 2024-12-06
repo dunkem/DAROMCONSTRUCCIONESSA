@@ -1,5 +1,6 @@
 import { Container, Row, Col, Card, Carousel, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet'; // Importa react-helmet
 import './Home.css';
 import { FaCheckCircle, FaBuilding, FaVials } from 'react-icons/fa';
 import { FaHandshakeSimple, FaUserGroup } from 'react-icons/fa6';
@@ -57,7 +58,6 @@ function Home({ setLoading }) {
     { src: '/logoctibor.png', alt: 'Ctibor' },
     { src: '/logofanelli.png', alt: 'Fanelli' },
     { src: '/LOGOBLINKI.png', alt: 'Blinki' },
-    { src: '/LOGOCANTERAS.jpg', alt: 'Canteras Argentinas' }
   ];
 
   // Renderiza los elementos del carrusel
@@ -90,6 +90,17 @@ function Home({ setLoading }) {
 
   return (
     <Container fluid className="main-container">
+      <Helmet>
+        <title>Daromsa - Inicio</title>
+        <meta name="description" content="Daromsa, tu fuente confiable de hormigón elaborado, materiales de construcción y más." />
+        <meta name="keywords" content="hormigón, materiales de construcción, suelos, pisos industriales" />
+        <meta property="og:title" content="Daromsa - Inicio" />
+        <meta property="og:description" content="Transforma tus proyectos con Daromsa, tu fuente de calidad y confianza." />
+        <meta property="og:url" content="https://daromsa.com.ar" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://daromsa.com.ar/portada.jpg" />
+      </Helmet>
+      
       <Row className="hero-section text-center" style={{ 
     backgroundImage: 'url(/portada.jpg)', 
     backgroundSize: 'cover', // Asegura que la imagen cubra toda la sección
@@ -134,8 +145,8 @@ function Home({ setLoading }) {
         </Col>
       </Row>
 
-      {/* Servicios Section */}
-      <Row className="text-center mb-4" style={{ backgroundColor: '#f8f9fa', padding: '20px 0' }}>
+            {/* Servicios Section */}
+            <Row className="text-center mb-4" style={{ backgroundColor: '#f8f9fa', padding: '20px 0' }}>
         <Col>
           <h2 className="section-title">NUESTROS SERVICIOS</h2>
           <div className="line-divider"></div>
