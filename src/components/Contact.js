@@ -31,10 +31,8 @@ function Contact() {
             setSubmitted(true);
             setError('');
 
-            const formData = new FormData();
+            const formData = new FormData(form);
             formData.append('form-name', 'contact');
-            formData.append('email', email);
-            formData.append('message', message);
             if (file) {
                 formData.append('file', file);
             }
@@ -43,7 +41,10 @@ function Contact() {
                 method: 'POST',
                 body: formData,
             })
-            .then(() => console.log('Formulario enviado'))
+            .then(() => {
+                setSubmitted(true);
+                setError('');
+            })
             .catch(error => setError('Error al enviar el formulario'));
 
             setEmail('');
@@ -71,7 +72,7 @@ function Contact() {
                     >
                         <input type="hidden" name="form-name" value="contact" />
                         <p hidden>
-                            <label>Don’t fill this out: <input name="bot-field" /></label>
+                            <label>No llenar este campo: <input name="bot-field" /></label>
                         </p>
                         <Form.Group controlId="formName">
                             <Form.Label>Nombre</Form.Label>
@@ -117,7 +118,7 @@ function Contact() {
                         <Button variant="primary" type="submit" className="contact-submit-button mt-3">
                             Enviar
                         </Button>
-                        {submitted && <p className="mt-3 text-success">Su mensaje ha sido enviado con éxito.</p>}
+                        {submitted && !error && <p className="mt-3 text-success">Su mensaje ha sido enviado con éxito.</p>}
                         {error && <p className="mt-3 text-danger">{error}</p>}
                     </Form>
                 </Col>
