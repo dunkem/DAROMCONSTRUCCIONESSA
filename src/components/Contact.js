@@ -23,15 +23,32 @@ function Contact() {
     const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
+        event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            event.preventDefault();
             event.stopPropagation();
         } else {
             setSubmitted(true);
             setError('');
-            console.log('Archivo:', file);
-            // Aquí podrías enviar el formulario a un servidor.
+
+            const formData = new FormData();
+            formData.append('form-name', 'contact');
+            formData.append('email', email);
+            formData.append('message', message);
+            if (file) {
+                formData.append('file', file);
+            }
+
+            fetch('/', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(() => console.log('Formulario enviado'))
+            .catch(error => setError('Error al enviar el formulario'));
+
+            setEmail('');
+            setMessage('');
+            setFile(null);
         }
         setValidated(true);
     };
@@ -45,13 +62,17 @@ function Contact() {
                       name="contact" 
                       method="POST" 
                       data-netlify="true" 
-                      encType="multipart/form-data" // Añadir este atributo para permitir archivos adjuntos
+                      data-netlify-honeypot="bot-field" // Anti-spam
+                      encType="multipart/form-data" // Permitir archivos adjuntos
                       noValidate 
                       validated={validated} 
                       onSubmit={handleSubmit} 
                       className="contact-form"
                     >
                         <input type="hidden" name="form-name" value="contact" />
+                        <p hidden>
+                            <label>Don’t fill this out: <input name="bot-field" /></label>
+                        </p>
                         <Form.Group controlId="formName">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control required type="text" placeholder="Ingresa tu nombre" />
