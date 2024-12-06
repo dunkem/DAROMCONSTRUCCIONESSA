@@ -76,7 +76,7 @@ function Contact() {
                         </p>
                         <Form.Group controlId="formName">
                             <Form.Label>Nombre</Form.Label>
-                            <Form.Control required type="text" placeholder="Ingresa tu nombre" />
+                            <Form.Control required type="text" name="name" placeholder="Ingresa tu nombre" />
                             <Form.Control.Feedback type="invalid">
                                 Por favor ingresa tu nombre.
                             </Form.Control.Feedback>
@@ -85,6 +85,7 @@ function Contact() {
                             <Form.Label>Email</Form.Label>
                             <Form.Control 
                                 type="email" 
+                                name="email" 
                                 placeholder="Ingrese su email" 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -98,6 +99,7 @@ function Contact() {
                             <Form.Label>Mensaje</Form.Label>
                             <Form.Control 
                                 as="textarea" 
+                                name="message"
                                 rows={3} 
                                 placeholder="Escriba su mensaje" 
                                 value={message}
@@ -112,6 +114,7 @@ function Contact() {
                             <Form.Label>Adjuntar Archivo</Form.Label>
                             <Form.Control 
                                 type="file" 
+                                name="file"
                                 onChange={(e) => setFile(e.target.files[0])}
                             />
                         </Form.Group>
