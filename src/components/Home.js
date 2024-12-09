@@ -24,7 +24,7 @@ function Home({ setLoading }) {
     },
     {
       src: '/portadamovofi.jpg',
-      title: 'ESTUDIO Y MOVIMIENTO DE SUELO',
+      title: 'ESTUDIO Y MOVIMIENTO DE SUELOS',
       description: 'Realizamos estudios de suelos precisos y movimientos de tierra con eficiencia.',
       link: '/services/suelos'
     },
