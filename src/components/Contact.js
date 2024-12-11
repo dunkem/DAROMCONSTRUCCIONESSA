@@ -7,7 +7,7 @@ const contactInfo = {
     emails: [
         'ventas@daromsa.com.ar',
         'proveedores@daromsa.com.ar',
-        'pagos@daromsa.com.ar'
+        'administracion@daromsa.com.ar'
     ],
     officeAddress: 'C. 152 6352, B1885 Guillermo Enrique Hudson',
     plantAddress: 'Parque industrial tecnológico de Florencio Varela',
@@ -40,12 +40,14 @@ function Contact() {
             .then(() => {
                 setSubmitted(true);
                 setError('');
+                setEmail('');
+                setMessage('');
+                setFile(null);
             })
-            .catch(error => setError('Error al enviar el formulario'));
-
-            setEmail('');
-            setMessage('');
-            setFile(null);
+            .catch(error => {
+                setError('Error al enviar el formulario');
+                console.error('Error:', error); // Para depuración
+            });
         }
         setValidated(true);
     };
