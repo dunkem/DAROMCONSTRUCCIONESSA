@@ -1,9 +1,8 @@
 
 import React, { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button, Card, ButtonGroup } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
-import { FaFileUpload } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Materiales.css';
 import Contact from './Contact';
 
@@ -151,12 +150,7 @@ function Materiales() {
     return (
         <Container className="mt-4 materiales-container">
             {/* Botón "Adjunta tu lista" */}
-            <div className="adjunta-lista-container">
-            <Button as={Link} to="/contact" className="upload-button"> <FaFileUpload className="upload-icon" /> ADJUNTA TU LISTA </Button>
-                <p className="lead text-black">
-                    ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
-                </p>
-            </div>
+            <div className="adjunta-lista-container"> <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button" > <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor </Button> <p className="lead text-black"> ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones. </p> </div>
 
             {/* Lista de productos */}
             <Row>

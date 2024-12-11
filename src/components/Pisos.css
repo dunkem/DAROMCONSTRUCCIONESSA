@@ -1,17 +1,17 @@
 /* Variables CSS */
 :root {
-    --primary-color: #000000; /* Rojo */
-    --hover-color: #ff0000; /* Rojo oscuro */
+    --primary-color: #000000; /* Color principal */
+    --hover-color: #ff0000; /* Color de hover */
     --background-color: #f9f9f9; /* Color de fondo */
-    --container-bg-color-custom: rgba(255, 255, 255, 0.3); /* Fondo semitransparente más claro */
+    --container-bg-color-custom: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
     --border-color: #ddd; /* Color de borde */
-    --text-color: #000000; /* Texto en un color más oscuro para mejor legibilidad */
+    --text-color: #000000; /* Color del texto */
 }
 
 /* Contenedor general */
 .pisos-materiales-container-custom {
     padding: 2rem;
-    background: transparent; /* Hacer el contenedor completamente transparente */
+    background: transparent; /* Fondo transparente */
     color: var(--text-color);
     position: relative;
     z-index: 1; /* Asegura que esté por encima del vídeo */
@@ -23,7 +23,7 @@
 .pisos-title-custom {
     width: 100%;
     text-align: left;
-    color: var(--primary-color); /* Título en rojo */
+    color: var(--primary-color); /* Color del título */
     font-size: 2.5rem; /* Mayor tamaño para el título */
     font-weight: 700;
 }
@@ -76,7 +76,8 @@
     margin-bottom: 20px;
     font-size: 1.2rem; /* Aumentar tamaño de texto */
     background-color: var(--container-bg-color-custom); /* Fondo de las tarjetas */
-    position: relative; /* Para manejar el posicionamiento de las imágenes */
+    display: flex; /* Usar flexbox para alinear el contenido */
+    flex-wrap: wrap; /* Permitir que el contenido se ajuste en múltiples líneas */
 }
 
 .pisos-material-card-custom:hover {
@@ -85,14 +86,31 @@
     border: 2px solid var(--hover-color);
 }
 
-/* Estilo de las imágenes */
-.pisos-image-custom {
-    max-width: 400px; /* Tamaño máximo de las imágenes */
+.pisos-text {
+    flex: 1 1 60%; /* Ocupa el 60% del ancho disponible */
+    padding: 10px;
+}
+
+.pisos-image-left {
+    max-width: 35%; /* Tamaño máximo de las imágenes */
     height: auto; /* Asegura que la altura sea automática */
     display: block;
     margin: 10px; /* Margen para espacio alrededor de las imágenes */
     border-radius: 10px; /* Bordes redondeados para imágenes */
     box-shadow: 0 2px 8px rgba(129, 129, 129, 0.2);
+    flex: 1 1 35%; /* Ocupa el 35% del ancho disponible */
+    float: left; /* Alinear las imágenes a la izquierda */
+}
+
+.pisos-image-right {
+    max-width: 35%; /* Tamaño máximo de las imágenes */
+    height: auto; /* Asegura que la altura sea automática */
+    display: block;
+    margin: 10px; /* Margen para espacio alrededor de las imágenes */
+    border-radius: 10px; /* Bordes redondeados para imágenes */
+    box-shadow: 0 2px 8px rgba(129, 129, 129, 0.2);
+    flex: 1 1 35%; /* Ocupa el 35% del ancho disponible */
+    float: right; /* Alinear las imágenes a la derecha */
 }
 
 /* Responsividad */
@@ -112,11 +130,12 @@
 
     .pisos-material-card-custom {
         margin-bottom: var(--margin-card);
+        flex-direction: column; /* Alinear en columna en móviles */
     }
 
-    .pisos-image-custom {
-        max-width: 100%; /* Asegura que las imágenes ocupen todo el ancho en móviles */
-        height: auto;
+    .pisos-text, .pisos-image-right {
+        flex: 1 1 100%; /* Ocupa el 100% del ancho disponible */
+        margin: 10px 0; /* Espacio entre elementos en móviles */
     }
 
     .pisos-adjunta-lista-container-custom {
@@ -137,4 +156,41 @@
     object-fit: cover;
     z-index: -1;
     opacity: 0.5; /* Ajustar opacidad del video */
+}
+.mt-4 {
+    margin-top: 4rem !important;
+}
+
+.upload-button {
+    background-color: #ff0000; /* Color verde de WhatsApp */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.upload-button:hover {
+    background-color: #1DA851; /* Color de hover más oscuro */
+    text-decoration: none;
+}
+
+.upload-icon {
+    margin-right: 5px;
+}
+
+.text-black {
+    color: #000; /* Cambiar el color del texto a negro */
+    font-weight: 300;
+}
+
+.contact-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2; /* Asegura que esté por encima de otros elementos */
 }

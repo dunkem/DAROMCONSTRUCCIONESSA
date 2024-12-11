@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import './Contact.css';
 
-// Datos de contacto
 const contactInfo = {
     phone: '0810-333-4567',
     emails: [
@@ -28,9 +27,6 @@ function Contact() {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
-            setSubmitted(true);
-            setError('');
-
             const formData = new FormData(form);
             formData.append('form-name', 'contact');
             if (file) {

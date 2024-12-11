@@ -1,7 +1,6 @@
 import { Container, Row, Col, Card, Button, Image, Carousel } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import { FaFileUpload } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Hormigon.css';
 
 
@@ -100,12 +99,7 @@ function Hormigon() {
             <div className="overlay">
                 <Container className="mt-4">
                     <Row>
-                        <Col xs={12} md={6} className="text-right">
-                        <Button as={Link} to="/contact" className="upload-button"> <FaFileUpload className="upload-icon" /> ADJUNTA TU LISTA </Button>
-                            <p className="lead text-highlight">
-                            ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
-                            </p>
-                        </Col>
+                    <Col xs={12} md={6} className="text-right"> <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button" > <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor </Button> <p className="lead text-highlight"> ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones. </p> </Col>
                         <Col xs={12} md={6} className="text-center">
                             <h1 className="display-4 font-weight-bold title-highlight">HORMIGÓN ELABORADO Y SERVICIO DE BOMBEO</h1>
                             <p className="lead text-highlight">
