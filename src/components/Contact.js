@@ -15,23 +15,18 @@ const contactInfo = {
 
 function Contact() {
     const [validated, setValidated] = useState(false);
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [file, setFile] = useState(null); 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
+
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
             const formData = new FormData(form);
             formData.append('form-name', 'contact');
-            if (file) {
-                formData.append('file', file);
-            }
 
             fetch('/', {
                 method: 'POST',
@@ -40,13 +35,11 @@ function Contact() {
             .then(() => {
                 setSubmitted(true);
                 setError('');
-                setEmail('');
-                setMessage('');
-                setFile(null);
+                form.reset(); // Resetea el formulario después del envío
             })
             .catch(error => {
                 setError('Error al enviar el formulario');
-                console.error('Error:', error); // Para depuración
+                console.error('Error:', error);
             });
         }
         setValidated(true);
@@ -74,50 +67,23 @@ function Contact() {
                         <Form.Group controlId="formName">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control required type="text" name="name" placeholder="Ingresa tu nombre" />
-                            <Form.Control.Feedback type="invalid">
-                                Por favor ingresa tu nombre.
-                            </Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Por favor ingresa tu nombre.</Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control 
-                                type="email" 
-                                name="email"
-                                placeholder="Ingrese su email" 
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Por favor ingresa un email válido.
-                            </Form.Control.Feedback>
+                            <Form.Control required type="email" name="email" placeholder="Ingrese su email" />
+                            <Form.Control.Feedback type="invalid">Por favor ingresa un email válido.</Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formMessage">
                             <Form.Label>Mensaje</Form.Label>
-                            <Form.Control 
-                                as="textarea" 
-                                rows={3} 
-                                name="message"
-                                placeholder="Escriba su mensaje" 
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                                required
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Por favor ingresa un mensaje.
-                            </Form.Control.Feedback>
+                            <Form.Control required as="textarea" rows={3} name="message" placeholder="Escriba su mensaje" />
+                            <Form.Control.Feedback type="invalid">Por favor ingresa un mensaje.</Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formFile">
                             <Form.Label>Adjuntar Archivo</Form.Label>
-                            <Form.Control 
-                                type="file" 
-                                name="file"
-                                onChange={(e) => setFile(e.target.files[0])}
-                            />
+                            <Form.Control type="file" name="file" />
                         </Form.Group>
-                        <Button variant="primary" type="submit" className="contact-submit-button mt-3">
-                            Enviar
-                        </Button>
+                        <Button variant="primary" type="submit" className="contact-submit-button mt-3">Enviar</Button>
                         {submitted && !error && <p className="mt-3 text-success">Su mensaje ha sido enviado con éxito.</p>}
                         {error && <p className="mt-3 text-danger">{error}</p>}
                     </Form>
