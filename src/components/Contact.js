@@ -1,32 +1,15 @@
 import React, { useState } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import './Contact.css';
 
-const contactInfo = {
-    phone: '0810-333-4567',
-    emails: [
-        'ventas@daromsa.com.ar',
-        'proveedores@daromsa.com.ar',
-        'administracion@daromsa.com.ar'
-    ],
-    officeAddress: 'C. 152 6352, B1885 Guillermo Enrique Hudson',
-    plantAddress: 'Parque industrial tecnológico de Florencio Varela',
-};
-
-function Contact() {
+const Contact = () => {
     const [file, setFile] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const form = event.currentTarget;
-
-        const formData = new FormData(form);
-        formData.append('form-name', 'contact');
-        if (file) {
-            formData.append('file', file);
-        }
+        const formData = new FormData(event.target);
 
         fetch('/', {
             method: 'POST',
@@ -35,7 +18,7 @@ function Contact() {
         .then(() => {
             setSubmitted(true);
             setError('');
-            form.reset();
+            event.target.reset(); // Resetea el formulario después del envío
             setFile(null);
         })
         .catch(() => {
@@ -44,78 +27,41 @@ function Contact() {
     };
 
     return (
-        <Container className="contact-container mt-5">
-            <Row className="contact-background mb-4">
-                <Col md={6} className="p-4">
-                    <h2 className="contact-title">CONTACTANOS</h2>
-                    <Form 
-                        name="contact" 
-                        method="POST" 
-                        data-netlify="true" 
-                        data-netlify-honeypot="bot-field"
-                        onSubmit={handleSubmit} 
-                        noValidate 
-                    >
-                        <input type="hidden" name="form-name" value="contact" />
-                        <p hidden>
-                            <label>No llenar este campo: <input name="bot-field" /></label>
-                        </p>
-                        <Form.Group>
-                            <Form.Label>Nombre</Form.Label>
-                            <Form.Control required type="text" name="name" placeholder="Ingresa tu nombre" />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control required type="email" name="email" placeholder="Ingrese su email" />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Mensaje</Form.Label>
-                            <Form.Control required as="textarea" rows={3} name="message" placeholder="Escriba su mensaje" />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Adjuntar Archivo</Form.Label>
-                            <Form.Control type="file" onChange={(e) => setFile(e.target.files[0])} />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">Enviar</Button>
-                        {submitted && <p className="mt-3 text-success">Su mensaje ha sido enviado con éxito.</p>}
-                        {error && <p className="mt-3 text-danger">{error}</p>}
-                    </Form>
-                </Col>
-                <Col md={6} className="contact-info p-4 text-center">
-                    <h5>¿CÓMO ENCONTRARNOS?</h5>
-                    <p><i className="fas fa-phone"></i> Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></p>
-                    <p>
-                        <i className="fas fa-envelope"></i> Email: {
-                            contactInfo.emails.map((email, index) => (
-                                <span key={index}>
-                                    <a href={`mailto:${email}`}>{email}</a>{index < contactInfo.emails.length - 1 ? ', ' : ''}
-                                </span>
-                            ))
-                        }
-                    </p>
-                    <p><i className="fas fa-map-marker-alt"></i> Oficina: {contactInfo.officeAddress}</p>
-                    <MapEmbed title="Ubicación Oficina" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13104.533593321816!2d-58.1568298!3d-34.8025856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64e395cdcd1%3A0xc9be6643f683c85!2sDarom%20Construcciones%20SRL!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar" />
-                    <p className="mt-3"><i className="fas fa-industry"></i> Planta: {contactInfo.plantAddress}</p>
-                    <MapEmbed title="Ubicación Planta" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13097.319712146147!2d-58.1930728!3d-34.8479364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2d7ff2e248f6b%3A0x13a6d078d9f675a2!2sPitec%20-%20Parque%20Industrial%20y%20Tecnol%C3%B3gico%20Florencio%20Varela!5e0!3m2!1ses!2sar!4v1732899985240!5m2!1ses!2sar" />
-                </Col>
-            </Row>
+        <Container>
+            <h2>CONTACTANOS</h2>
+            <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} enctype="multipart/form-data">
+                <input type="hidden" name="form-name" value="contact" />
+                
+                <p>
+                    <label>Nombre: <input type="text" name="name" required /></label>
+                </p>
+                <p>
+                    <label>Email: <input type="email" name="email" required /></label>
+                </p>
+                <p>
+                    <label>Mensaje: <textarea name="message" required></textarea></label>
+                </p>
+                <p>
+                    <label>Adjuntar Archivo: <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} /></label>
+                </p>
+                <p>
+                    <Button type="submit">Enviar</Button>
+                </p>
+            </form>
+            {submitted && <p>Su mensaje ha sido enviado con éxito.</p>}
+            {error && <p className="text-danger">{error}</p>}
+            
+            <h5>¿CÓMO ENCONTRARNOS?</h5>
+            <p>Teléfono: <a href="tel:08103334567">0810-333-4567</a></p>
+            <p>Email: 
+                <a href="mailto:ventas@daromsa.com.ar">ventas@daromsa.com.ar</a>, 
+                <a href="mailto:proveedores@daromsa.com.ar">proveedores@daromsa.com.ar</a>, 
+                <a href="mailto:administracion@daromsa.com.ar">administracion@daromsa.com.ar</a>
+            </p>
+            <p>Oficina: C. 152 6352, B1885 Guillermo Enrique Hudson</p>
+            <p>Planta: Parque industrial tecnológico de Florencio Varela</p>
         </Container>
     );
-}
-
-// Componente para embebido del mapa
-const MapEmbed = ({ title, src }) => (
-    <iframe
-        title={title}
-        src={src}
-        width="100%"
-        height="150"
-        frameBorder="0"
-        style={{ border: '0' }}
-        allowFullScreen=""
-        aria-hidden="false"
-        tabIndex="0"
-    ></iframe>
-);
+};
 
 export default Contact;
