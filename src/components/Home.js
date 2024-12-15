@@ -100,23 +100,23 @@ function Home({ setLoading }) {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://daromsa.com.ar/portada.jpg" />
       </Helmet>
-      
+
       <Row className="hero-section text-center" style={{ 
-    backgroundImage: 'url(/portada.jpg)', 
-    backgroundSize: 'cover', // Asegura que la imagen cubra toda la sección
-    backgroundPosition: 'center', // Centra la imagen
-    height: '60vh'
-}}>
-    <Col md={8} className="hero-content-wrapper">
-        <div className="hero-content animated fadeIn">
+        backgroundImage: 'url(/portada.jpg)', 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        height: '60vh'
+      }}>
+        <Col md={8} className="hero-content-wrapper">
+          <div className="hero-content animated fadeIn">
             <h2 className="hero-title">COMPROMETIDOS CON LA CALIDAD Y LA CONFIANZA</h2>
             <h3 className="hero-subtitle">TRANSFORMA TUS PROYECTOS CON NUESTRA EXPERIENCIA E INNOVACIÓN EN CADA ETAPA DE CONSTRUCCIÓN.</h3>
-        </div>
-    </Col>
-    <Col md={4} className="d-flex align-items-center justify-content-end">
-        <img src="/logolomanegra.png" alt="Logo Loma Negra" className="logo-hero" />
-    </Col>
-</Row>
+          </div>
+        </Col>
+        <Col md={4} className="d-flex align-items-center justify-content-end">
+          <img src="/logolomanegra.png" alt="Logo Loma Negra" className="logo-hero" />
+        </Col>
+      </Row>
 
       {/* Compromiso con el Cliente */}
       <Row className="text-center mb-4" style={{ backgroundColor: '#e9ecef', padding: '40px 0' }}>
@@ -145,8 +145,8 @@ function Home({ setLoading }) {
         </Col>
       </Row>
 
-            {/* Servicios Section */}
-            <Row className="text-center mb-4" style={{ backgroundColor: '#f8f9fa', padding: '20px 0' }}>
+      {/* Servicios Section */}
+      <Row className="text-center mb-4" style={{ backgroundColor: '#f8f9fa', padding: '20px 0' }}>
         <Col>
           <h2 className="section-title">NUESTROS SERVICIOS</h2>
           <div className="line-divider"></div>

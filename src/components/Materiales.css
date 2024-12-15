@@ -1,4 +1,5 @@
-/* Variables CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
 :root {
     --primary-color: #ff4d4d; /* Rojo principal */
     --hover-color: #e63939; /* Rojo más oscuro al pasar el mouse */
@@ -9,24 +10,60 @@
     --header-text-color: #000; /* Color de texto negro para encabezados */
 }
 
-/* Contenedor general */
+/* Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: var(--text-color);
+    background-color: var(--background-color); /* Color de fondo */
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .materiales-container {
     padding: 2rem;
     background-color: var(--background-color);
+    animation: fadeInUp 1s ease both;
 }
 
-/* Título de materiales */
 .materiales-title {
-    margin-top: 10px; /* Añadir margen superior */
-    margin-bottom: 5px; /* Espacio debajo del título */
-    text-align: center; /* Centrar título */
-    color: var(--header-text-color); /* Color del texto */
+    margin-top: 10px;
+    margin-bottom: 20px; /* Espacio más amplio debajo del título */
+    text-align: center;
+    color: var(--header-text-color);
+    font-size: 2.5rem; /* Tamaño mayor para el título */
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease both;
 }
 
-/* Botón "Adjunta tu lista" */
 .adjunta-lista-container {
-    margin: 20px auto; /* Mantener margen superior e inferior */
-    padding: 10px; /* Reducir padding del contenedor */
+    margin: 20px auto;
+    padding: 10px;
     background-color: var(--container-bg-color);
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -35,75 +72,96 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: fadeInUp 1.2s ease both;
 }
 
 .adjunta-lista-btn {
-    background-color: #ff0000;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 8px 16px; /* Reducir padding del botón */
-    font-size: 14px; /* Ajustar tamaño de fuente del botón */
+    padding: 12px 24px; /* Ajustar padding del botón */
+    font-size: 16px; /* Ajustar tamaño de fuente del botón */
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1.4s ease both;
 }
 
 .adjunta-lista-text {
-    font-size: 12px; /* Mantener tamaño de texto más pequeño si es necesario */
+    font-size: 14px; /* Tamaño de texto más grande */
     color: var(--header-text-color);
-    margin-top: 5px; /* Reducir margen superior */
+    margin-top: 10px;
+    animation: fadeInUp 1.6s ease both;
 }
 
 .adjunta-lista-btn:hover {
     background-color: var(--hover-color);
     transform: translateY(-2px);
+    animation: pulse 1s infinite; /* Efecto de pulso */
 }
 
-/* Estilo de los productos */
 .material-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color); /* Borde para las tarjetas */
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 20px; /* Espacio entre cartas */
-    display: flex; /* Usar flex para alinear elementos */
-    flex-direction: column; /* Alinear elementos en columna */
-    height: 100%; /* Asegurar que todas las tarjetas tengan la misma altura */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--container-bg-color);
+    animation: fadeInUp 1.8s ease both;
 }
 
 .material-card img {
-    width: 100%; /* Ajustar imagen al 100% del ancho */
-    height: 150px; /* Altura fija para todas las imágenes */
-    object-fit: cover; /* Mantener la proporción de la imagen */
-    margin: 10px 0; /* Añadir margen arriba y abajo */
+    width: 100%;
+    height: 200px; /* Altura ajustada para todas las imágenes */
+    object-fit: cover;
+    margin: 0;
 }
 
-/* Estilo del cuerpo de la tarjeta */
 .material-card .card-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espacio entre el título y el botón */
-    height: 100%; /* Asegurar que ocupe todo el espacio disponible */
+    justify-content: space-between;
+    padding: 20px; /* Añadir padding */
+    height: 100%;
 }
 
-/* Estilo de texto dentro de las tarjetas */
 .material-card .text-danger {
-    color: var(--primary-color); /* Texto en rojo */
+    color: var(--primary-color);
 }
 
-/* Estilo de botones dentro de las tarjetas */
 .material-card .btn {
-    background-color: #000; /* Botón negro */
-    color: white; /* Texto blanco */
+    background-color: #000;
+    color: white;
     border-radius: 5px;
+    padding: 10px 20px; /* Añadir padding */
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .material-card .btn:hover {
-    background-color: #333; /* Botón negro más oscuro al pasar el mouse */
+    background-color: #333;
 }
 
-/* Responsividad */
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.material-card h4 {
+    font-weight: 700;
+    margin: 10px 0;
+    text-transform: uppercase;
+    color: var(--header-text-color);
+}
+
+.material-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
 @media (max-width: 768px) {
     :root {
         --padding-container: 1rem;
@@ -119,11 +177,11 @@
     }
 
     .adjunta-lista-btn {
-        font-size: 14px; /* Tamaño de fuente más pequeño en móviles */
-        padding: 8px 16px; /* Ajustar padding en móviles */
+        font-size: 14px;
+        padding: 8px 16px;
     }
 
     .adjunta-lista-text {
-        font-size: 12px; /* Tamaño de texto más pequeño en móviles */
+        font-size: 12px;
     }
 }

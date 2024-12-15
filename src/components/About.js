@@ -29,7 +29,7 @@ function About() {
                                     <img
                                         className="d-block w-100 carousel-image"
                                         src={obra.src}
-                                        alt={obra.title}
+                                        alt={`Imagen de ${obra.title}`}
                                     />
                                     <Carousel.Caption className="carousel-caption">
                                         <h5 className="carousel-caption-title">{obra.title}</h5>
@@ -48,27 +48,27 @@ function About() {
         <Container className="about-container mt-4">
             <Row>
                 <Col>
-                    <h1 className="about-title">LA EMPRESA</h1>
+                    <h1 className="about-title">La Empresa</h1>
                     <p className="about-paragraph">
                         Desde el año 1978, los actuales socios de Darom SA incursionan en la actividad de la construcción, habiendo comenzado como proveedor de Hormigón Elaborado para Zona Sur. Actualmente, la empresa se ha expandido en toda la Provincia de Buenos Aires, comercializando sus productos y servicios en diversas localidades.
                     </p>
-                    <h2 className="about-section-title">Historia</h2>
                     <p className="about-paragraph">
-                        DAROM ha iniciado sus actividades como un emprendimiento familiar, y al día de hoy ha podido expandir su negocio trabajando en distintos proyectos (obras públicas, civiles y particulares). La empresa cuenta con una planta de elaboración de Hormigón ubicada en la localidad de Bosques y, así mismo, centraliza sus operaciones en las oficinas administrativas en el partido de Hudson y La Plata.
+                        Darom ha iniciado sus actividades como un emprendimiento familiar, y al día de hoy ha podido expandir su negocio trabajando en distintos proyectos (obras públicas, civiles y particulares). La empresa cuenta con una planta de elaboración de hormigón ubicada en la localidad de Bosques y, así mismo, centraliza sus operaciones en las oficinas administrativas en el partido de Hudson y La Plata.
+                    </p>
+                    <p className="about-paragraph">
+                        En Darom, nos comprometemos con la calidad, la integridad y la innovación. Creemos en la importancia de ofrecer productos y servicios de alta calidad, y mantenemos relaciones éticas y transparentes con nuestros clientes y proveedores.
+                    </p>
+                    <p className="about-paragraph">
+                        Nuestro equipo está compuesto por profesionales altamente capacitados y comprometidos con la excelencia. Cada miembro de Darom aporta su experiencia y dedicación para garantizar que cada proyecto se realice con los más altos estándares de calidad.
                     </p>
                 </Col>
             </Row>
             <Row className="mt-4">
                 <Col>
-                    <h2 className="about-section-title">Misión</h2>
+                    <h2 className="about-section-title">Misión y Visión</h2>
                     <p className="about-paragraph">
-                        Elaboramos Hormigón y comercializamos materiales para distintos tipos de operaciones. Nos diferenciamos en el mercado por el servicio ofrecido a nuestros clientes, brindando un soporte pre y post compra que asegurará la correcta satisfacción de sus necesidades.
+                        Elaboramos hormigón y comercializamos materiales para distintos tipos de operaciones. Nos diferenciamos en el mercado por el servicio ofrecido a nuestros clientes, brindando un soporte pre y post compra que asegurará la correcta satisfacción de sus necesidades.
                     </p>
-                </Col>
-            </Row>
-            <Row className="mt-4">
-                <Col>
-                    <h2 className="about-section-title">Visión</h2>
                     <p className="about-paragraph">
                         Comercializar nuestros materiales y servicios para toda la República Argentina con el objetivo de ser los líderes del mercado a nivel nacional.
                     </p>
@@ -76,7 +76,7 @@ function About() {
             </Row>
             <Row className="mt-4">
                 <Col>
-                    <h2 className="about-section-title">NUESTRAS OBRAS</h2>
+                    <h2 className="about-section-title">Nuestras Obras</h2>
                     <Carousel>
                         {renderCarouselItems(obras)}
                     </Carousel>
@@ -84,7 +84,6 @@ function About() {
             </Row>
             <Contact showContact={true} />
         </Container>
-        
     );
 }
 

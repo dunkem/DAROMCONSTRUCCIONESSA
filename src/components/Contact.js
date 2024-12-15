@@ -7,7 +7,7 @@ const contactInfo = {
     emails: [
         'ventas@daromsa.com.ar',
         'proveedores@daromsa.com.ar',
-        'pagos@daromsa.com.ar'
+        'administracion@daromsa.com.ar'
     ],
     officeAddress: 'C. 152 6352, B1885 Guillermo Enrique Hudson',
     plantAddress: 'Parque industrial tecnológico de Florencio Varela',
@@ -54,16 +54,16 @@ function Contact() {
         <Container className="contact-container mt-5">
             <Row className="contact-background mb-4">
                 <Col md={6} className="p-4">
-                    <h2 className="contact-title">CONTACTANOS</h2>
+                    <h2 className="contact-title">Contáctanos</h2>
                     <Form 
-                      name="contact" 
-                      method="POST" 
-                      data-netlify="true" 
-                      data-netlify-honeypot="bot-field"
-                      noValidate 
-                      validated={validated} 
-                      onSubmit={handleSubmit} 
-                      className="contact-form"
+                        name="contact" 
+                        method="POST" 
+                        data-netlify="true" 
+                        data-netlify-honeypot="bot-field"
+                        noValidate 
+                        validated={validated} 
+                        onSubmit={handleSubmit} 
+                        className="contact-form"
                     >
                         <input type="hidden" name="form-name" value="contact" />
                         <p hidden>
@@ -121,7 +121,7 @@ function Contact() {
                     </Form>
                 </Col>
                 <Col md={6} className="contact-info p-4 text-center">
-                    <h5>¿CÓMO ENCONTRARNOS?</h5>
+                    <h5>¿Cómo encontrarnos?</h5>
                     <p><i className="fas fa-phone"></i> Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></p>
                     <p>
                         <i className="fas fa-envelope"></i> Email: {

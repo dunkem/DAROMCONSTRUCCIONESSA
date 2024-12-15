@@ -3,17 +3,17 @@ import React, { useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import './Hormigon.css';
 
-
 function Hormigon() {
     useEffect(() => {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
     }, []);
+
     // Beneficios ofrecidos
     const benefits = [
         { src: '/elegirnoslaboratorio.png', title: 'LABORATORIO EN OBRA', description: 'Disponemos de un laboratorio de hormigones equipado, con asistencia técnica y controles de calidad realizados por profesionales experimentados, ofreciendo atención personalizada.' },
-{ src: '/elegirnosticket.png', title: 'TICKET DE PESADA', description: 'Realizamos el peso de los camiones hormigoneros en planta, donde el cliente recibirá un comprobante con el peso de la carga correspondiente.' },
-{ src: '/elegirnoscargaprecintada.png', title: 'CARGA PRECINTADA', description: 'La carga de hormigón será pesada y precintada con el objetivo de evitar adulteraciones y entregar la cantidad exacta de hormigón solicitada por el cliente.' },
-{ src: '/elegirnosseguimiento.png', title: 'RASTREO SATELITAL', description: 'La carga puede ser controlada minuto a minuto con seguimiento satelital desde dispositivos móviles, desde la planta hasta pie de obra.' },
+        { src: '/elegirnosticket.png', title: 'TICKET DE PESADA', description: 'Realizamos el peso de los camiones hormigoneros en planta, donde el cliente recibirá un comprobante con el peso de la carga correspondiente.' },
+        { src: '/elegirnoscargaprecintada.png', title: 'CARGA PRECINTADA', description: 'La carga de hormigón será pesada y precintada con el objetivo de evitar adulteraciones y entregar la cantidad exacta de hormigón solicitada por el cliente.' },
+        { src: '/elegirnosseguimiento.png', title: 'RASTREO SATELITAL', description: 'La carga puede ser controlada minuto a minuto con seguimiento satelital desde dispositivos móviles, desde la planta hasta pie de obra.' },
     ];
 
     // Datos de los proveedores
@@ -31,10 +31,10 @@ function Hormigon() {
     // Datos de los tipos de hormigón
     const hormigonTypes = [
         { title: 'TRADICIONALES', text: 'H8, H13, H17, H21, H25, H30, H40, H47' },
-        { title: 'BOMBEABLES', text: 'H17 , H21 , H25 , H30 , H38 ' },       
+        { title: 'BOMBEABLES', text: 'H17, H21, H25, H30, H38' },
         { title: 'GUNITADOS', text: 'H21 Gunitado, H30 Gunitado, H38 Gunitado' },
         { title: 'RDC', text: 'RDC 100, RDC 150, RDC 200, RDC 250, RDC 300' },
-        { title: 'ESPECIALES', text: 'Ultra livianos, Vistos, Con hidrófugo, Con macrofibra, Fast track, Cemento por TN' },       
+        { title: 'ESPECIALES', text: 'Ultra livianos, Vistos, Con hidrófugo, Con macrofibra, Fast track, Cemento por TN' },
     ];
 
     const renderHormigonCarouselItems = () => {
@@ -91,17 +91,18 @@ function Hormigon() {
     };
 
     return (
-        <div className="video-background hormigon">
-            <video preload="auto" autoPlay loop muted className="video-element">
-    <source src="/IMG_20241112132439373.mp4" type="video/mp4" />
-    Tu navegador no soporta el elemento de video.
-</video>
+        <section className="hormigon" aria-labelledby="hormigon-heading">
             <div className="overlay">
                 <Container className="mt-4">
                     <Row>
-                    <Col xs={12} md={6} className="text-right"> <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button" > <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor </Button> <p className="lead text-highlight"> ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones. </p> </Col>
+                        <Col xs={12} md={6} className="text-right">
+                            <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button" aria-label="Contactar a un asesor por WhatsApp">
+                                <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
+                            </Button>
+                            <p className="lead text-highlight">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
+                        </Col>
                         <Col xs={12} md={6} className="text-center">
-                            <h1 className="display-4 font-weight-bold title-highlight">HORMIGÓN ELABORADO Y SERVICIO DE BOMBEO</h1>
+                            <h1 id="hormigon-heading" className="display-4 font-weight-bold title-highlight">HORMIGÓN ELABORADO Y SERVICIO DE BOMBEO</h1>
                             <p className="lead text-highlight">
                                 <strong>La Solución Perfecta</strong> para tus Proyectos de Construcción. Estamos capacitados para producir una amplia variedad de mezclas de hormigón que se adaptan a las distintas necesidades y proyectos de nuestros clientes. Además, ofrecemos una gran variedad de beneficios en todas las etapas de construcción.
                             </p>
@@ -215,18 +216,10 @@ function Hormigon() {
                             </p>
                         </Col>
                     </Row>
-                    
-                    
                 </Container>
-                
             </div>
-            
-        </div>
-        
-        
+        </section>
     );
-    
-    
 }
 
 export default Hormigon;

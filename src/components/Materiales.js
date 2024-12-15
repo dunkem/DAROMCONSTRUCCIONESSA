@@ -1,4 +1,3 @@
-
 import React, { useContext, useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Card, ButtonGroup } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
@@ -138,7 +137,7 @@ function Materiales() {
           ]
       };
       
-    const handleSubrubroSelect = (subrubro) => {
+      const handleSubrubroSelect = (subrubro) => {
         setSelectedSubrubro(subrubro);
         setVisibleProducts(8); // Reinicia la cantidad de productos visibles al cambiar de subrubro
     };
@@ -149,8 +148,13 @@ function Materiales() {
 
     return (
         <Container className="mt-4 materiales-container">
-            {/* Botón "Adjunta tu lista" */}
-            <div className="adjunta-lista-container"> <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button" > <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor </Button> <p className="lead text-black"> ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones. </p> </div>
+            {/* Botón "Contáctate con un Asesor" */}
+            <div className="adjunta-lista-container">
+                <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button">
+                    <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
+                </Button>
+                <p className="lead text-black">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
+            </div>
 
             {/* Lista de productos */}
             <Row>
@@ -170,38 +174,37 @@ function Materiales() {
                     </ButtonGroup>
                 </Col>
                 <Col md={9}>
-                <h1 className="display-4 font-weight-bold text-uppercase materiales-title">
-    Materiales de Corralón
-</h1>
+                    <h1 className="display-4 font-weight-bold text-uppercase materiales-title">Materiales de Corralón</h1>
+                    <p className="lead text-black">Encuentra los mejores materiales para tus proyectos de construcción, todos de calidad garantizada.</p>
+
                     <Row className="d-flex justify-content-center">
-                        {materiales[selectedSubrubro]
-                            .slice(0, visibleProducts) // Muestra solo los productos visibles
-                            .map((material) => (
-                                <Col
-                                    xs={12}
-                                    sm={6}
-                                    md={4}
-                                    lg={3}
-                                    key={material.id}
-                                    className="mb-4 d-flex align-items-stretch"
-                                >
-                                    <Card className="material-card">
-                                        <Card.Img variant="top" src={material.img} alt={material.name} />
-                                        <Card.Body>
-                                            <Card.Title className="text-center text-uppercase text-danger">{material.name}</Card.Title>
-                                            <Button
-                                                variant="dark"
-                                                size="sm"
-                                                onClick={() => addToCart(material)}
-                                                className="w-100"
-                                            >
-                                                Agregar al Carrito
-                                            </Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            ))}
+                        {materiales[selectedSubrubro].slice(0, visibleProducts).map((material) => (
+                            <Col
+                                xs={12}
+                                sm={6}
+                                md={4}
+                                lg={3}
+                                key={material.id}
+                                className="mb-4 d-flex align-items-stretch"
+                            >
+                                <Card className="material-card">
+                                    <Card.Img variant="top" src={material.img} alt={material.name} />
+                                    <Card.Body>
+                                        <Card.Title className="text-center text-uppercase text-danger">{material.name}</Card.Title>
+                                        <Button
+                                            variant="dark"
+                                            size="sm"
+                                            onClick={() => addToCart(material)}
+                                            className="w-100"
+                                        >
+                                            Agregar al Carrito
+                                        </Button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        ))}
                     </Row>
+
                     {visibleProducts < materiales[selectedSubrubro].length && (
                         <div className="text-center mt-4">
                             <Button variant="outline-danger" onClick={handleLoadMore}>
@@ -211,6 +214,7 @@ function Materiales() {
                     )}
                 </Col>
             </Row>
+
             <Contact showContact={true} />
         </Container>
     );

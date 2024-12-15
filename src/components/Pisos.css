@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
 /* Variables CSS */
 :root {
     --primary-color: #000000; /* Color principal */
@@ -6,6 +8,16 @@
     --container-bg-color-custom: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
     --border-color: #ddd; /* Color de borde */
     --text-color: #000000; /* Color del texto */
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 /* Contenedor general */
@@ -22,52 +34,15 @@
 
 .pisos-title-custom {
     width: 100%;
-    text-align: left;
+    text-align: center;
     color: var(--primary-color); /* Color del título */
     font-size: 2.5rem; /* Mayor tamaño para el título */
     font-weight: 700;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    animation: fadeInDown 1s ease both;
 }
 
-/* Botón "Adjunta tu lista" */
-.pisos-adjunta-lista-container-custom {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px;
-    background-color: var(--container-bg-color-custom);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 2; /* Asegura que esté por encima de otros elementos */
-}
-
-.pisos-adjunta-lista-btn-custom {
-    background-color: #ff0000;
-    color: var(--text-color);
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 20px; /* Texto más grande */
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.pisos-adjunta-lista-btn-custom:hover {
-    background-color: var(--hover-color);
-    transform: translateY(-2px);
-}
-
-.pisos-adjunta-lista-text-custom {
-    font-size: 18px; /* Texto más grande */
-    color: var(--text-color);
-    margin-top: 10px;
-    text-align: right; /* Alinear texto a la derecha */
-}
-
-/* Estilo de los productos */
 .pisos-material-card-custom {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
@@ -78,6 +53,7 @@
     background-color: var(--container-bg-color-custom); /* Fondo de las tarjetas */
     display: flex; /* Usar flexbox para alinear el contenido */
     flex-wrap: wrap; /* Permitir que el contenido se ajuste en múltiples líneas */
+    animation: fadeInUp 1s ease both;
 }
 
 .pisos-material-card-custom:hover {
@@ -91,25 +67,23 @@
     padding: 10px;
 }
 
-.pisos-image-left {
+.pisos-image-left, .pisos-image-right {
     max-width: 35%; /* Tamaño máximo de las imágenes */
+    width: 100%; /* Ajustar ancho a 100% */
     height: auto; /* Asegura que la altura sea automática */
     display: block;
-    margin: 10px; /* Margen para espacio alrededor de las imágenes */
+    margin: 10px auto; /* Margen para espacio alrededor de las imágenes */
     border-radius: 10px; /* Bordes redondeados para imágenes */
     box-shadow: 0 2px 8px rgba(129, 129, 129, 0.2);
     flex: 1 1 35%; /* Ocupa el 35% del ancho disponible */
+    animation: fadeInUp 1.5s ease both;
+}
+
+.pisos-image-left {
     float: left; /* Alinear las imágenes a la izquierda */
 }
 
 .pisos-image-right {
-    max-width: 35%; /* Tamaño máximo de las imágenes */
-    height: auto; /* Asegura que la altura sea automática */
-    display: block;
-    margin: 10px; /* Margen para espacio alrededor de las imágenes */
-    border-radius: 10px; /* Bordes redondeados para imágenes */
-    box-shadow: 0 2px 8px rgba(129, 129, 129, 0.2);
-    flex: 1 1 35%; /* Ocupa el 35% del ancho disponible */
     float: right; /* Alinear las imágenes a la derecha */
 }
 
@@ -133,9 +107,13 @@
         flex-direction: column; /* Alinear en columna en móviles */
     }
 
-    .pisos-text, .pisos-image-right {
+    .pisos-text, .pisos-image-right, .pisos-image-left {
         flex: 1 1 100%; /* Ocupa el 100% del ancho disponible */
         margin: 10px 0; /* Espacio entre elementos en móviles */
+    }
+
+    .pisos-image-left, .pisos-image-right {
+        max-width: 100%; /* Ajustar ancho máximo a 100% en móviles */
     }
 
     .pisos-adjunta-lista-container-custom {
@@ -146,23 +124,12 @@
     }
 }
 
-/* Estilos para el video de fondo */
-.pisos-video-background-custom {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.5; /* Ajustar opacidad del video */
-}
 .mt-4 {
     margin-top: 4rem !important;
 }
 
 .upload-button {
-    background-color: #ff0000; /* Color verde de WhatsApp */
+    background-color: #ff0000; /* Color de botón */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -193,4 +160,27 @@
     top: 20px;
     right: 20px;
     z-index: 2; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
