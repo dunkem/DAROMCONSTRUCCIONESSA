@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import './Contact.css';
+import { Container, Form, Button, Alert, Row, Col } from 'react-bootstrap';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import './Contact.css'; // Asegúrate de importar el CSS
 
 const contactInfo = {
     phone: '0810-333-4567',
@@ -17,37 +18,37 @@ function Contact() {
     const [validated, setValidated] = useState(false);
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [file, setFile] = useState(null); 
+    const [file, setFile] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const form = event.currentTarget;
+        setValidated(true);
+
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
             const formData = new FormData(form);
-            formData.append('form-name', 'contact');
-            if (file) {
-                formData.append('file', file);
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData,
+                });
+                if (response.ok) {
+                    setSubmitted(true);
+                    setError('');
+                    event.target.reset();
+                } else {
+                    throw new Error('Error al enviar el formulario');
+                }
+            } catch (err) {
+                setError(err.message);
             }
-
-            fetch('/', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(() => {
-                setSubmitted(true);
-                setError('');
-            })
-            .catch(error => setError('Error al enviar el formulario'));
-
-            setEmail('');
-            setMessage('');
-            setFile(null);
         }
-        setValidated(true);
     };
 
     return (
@@ -55,14 +56,14 @@ function Contact() {
             <Row className="contact-background mb-4">
                 <Col md={6} className="p-4">
                     <h2 className="contact-title">Contáctanos</h2>
-                    <Form 
-                        name="contact" 
-                        method="POST" 
-                        data-netlify="true" 
+                    <Form
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
                         data-netlify-honeypot="bot-field"
-                        noValidate 
-                        validated={validated} 
-                        onSubmit={handleSubmit} 
+                        noValidate
+                        validated={validated}
+                        onSubmit={handleSubmit}
                         className="contact-form"
                     >
                         <input type="hidden" name="form-name" value="contact" />
@@ -78,10 +79,10 @@ function Contact() {
                         </Form.Group>
                         <Form.Group controlId="formEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control 
-                                type="email" 
+                            <Form.Control
+                                type="email"
                                 name="email"
-                                placeholder="Ingrese su email" 
+                                placeholder="Ingrese su email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -92,11 +93,11 @@ function Contact() {
                         </Form.Group>
                         <Form.Group controlId="formMessage">
                             <Form.Label>Mensaje</Form.Label>
-                            <Form.Control 
-                                as="textarea" 
-                                rows={3} 
+                            <Form.Control
+                                as="textarea"
+                                rows={3}
                                 name="message"
-                                placeholder="Escriba su mensaje" 
+                                placeholder="Escriba su mensaje"
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                                 required
@@ -107,8 +108,8 @@ function Contact() {
                         </Form.Group>
                         <Form.Group controlId="formFile">
                             <Form.Label>Adjuntar Archivo</Form.Label>
-                            <Form.Control 
-                                type="file" 
+                            <Form.Control
+                                type="file"
                                 name="file"
                                 onChange={(e) => setFile(e.target.files[0])}
                             />
@@ -116,45 +117,62 @@ function Contact() {
                         <Button variant="primary" type="submit" className="contact-submit-button mt-3">
                             Enviar
                         </Button>
-                        {submitted && !error && <p className="mt-3 text-success">Su mensaje ha sido enviado con éxito.</p>}
-                        {error && <p className="mt-3 text-danger">{error}</p>}
+                        {submitted && !error && <Alert variant="success" className="mt-3">Su mensaje ha sido enviado con éxito.</Alert>}
+                        {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
                     </Form>
                 </Col>
                 <Col md={6} className="contact-info p-4 text-center">
-                    <h5>¿Cómo encontrarnos?</h5>
-                    <p><i className="fas fa-phone"></i> Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></p>
-                    <p>
-                        <i className="fas fa-envelope"></i> Email: {
-                            contactInfo.emails.map((email, index) => (
+                    <h5>¿CÓMO ENCONTRARNOS?</h5>
+                    <div className="info-item">
+                        <FaPhone /> 
+                        <span>Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></span>
+                    </div>
+                    <div className="info-item">
+                        <FaEnvelope /> 
+                        <span>Email: 
+                            {contactInfo.emails.map((email, index) => (
                                 <span key={index}>
                                     <a href={`mailto:${email}`}>{email}</a>{index < contactInfo.emails.length - 1 ? ', ' : ''}
                                 </span>
-                            ))
-                        }
-                    </p>
-                    <p><i className="fas fa-map-marker-alt"></i> Oficina: {contactInfo.officeAddress}</p>
-                    <MapEmbed title="Ubicación Oficina" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13104.533593321816!2d-58.1568298!3d-34.8025856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64e395cdcd1%3A0xc9be6643f683c85!2sDarom%20Construcciones%20SRL!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar" />
-                    <p className="mt-3"><i className="fas fa-industry"></i> Planta: {contactInfo.plantAddress}</p>
-                    <MapEmbed title="Ubicación Planta" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13097.319712146147!2d-58.1930728!3d-34.8479364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2d7ff2e248f6b%3A0x13a6d078d9f675a2!2sPitec%20-%20Parque%20Industrial%20y%20Tecnol%C3%B3gico%20Florencio%20Varela!5e0!3m2!1ses!2sar!4v1732899985240!5m2!1ses!2sar" />
+                            ))}
+                        </span>
+                    </div>
+                    <div className="info-item">
+                        <FaMapMarkerAlt /> 
+                        <span>Oficina: {contactInfo.officeAddress}</span>
+                    </div>
+                    <div className="info-item">
+                        <FaMapMarkerAlt /> 
+                        <span>Planta: {contactInfo.plantAddress}</span>
+                    </div>
+                    <div className="map-container">
+                        <h6>Ubicación de la Oficina</h6>
+                        <iframe
+                            title="Ubicación Oficina"
+                            width="100%"
+                            height="200"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13104.533593321816!2d-58.1568298!3d-34.8025856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64e395cdcd1%3A0xc9be6643f683c85!2sDarom%20Construcciones%20SRL!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                    <div className="map-container">
+                        <h6>Ubicación de la Planta</h6>
+                        <iframe
+                            title="Ubicación Planta"
+                            width="100%"
+                            height="200"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13097.319712146147!2d-58.1930728!3d-34.8479364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2d7ff2e248f6b%3A0x13a6d078d9f675a2!2sPitec%20-%20Parque%20Industrial%20y%20Tecnol%C3%B3gico%20Florencio%20Varela!5e0!3m2!1ses!2sar!4v1732899985240!5m2!1ses!2sar"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                        ></iframe>
+                    </div>
                 </Col>
             </Row>
         </Container>
     );
 }
-
-// Componente para embebido del mapa
-const MapEmbed = ({ title, src }) => (
-    <iframe
-        title={title}
-        src={src}
-        width="100%"
-        height="150"
-        frameBorder="0"
-        style={{ border: '0' }}
-        allowFullScreen=""
-        aria-hidden="false"
-        tabIndex="0"
-    ></iframe>
-);
 
 export default Contact;

@@ -12,7 +12,7 @@ function Home({ setLoading }) {
     {
       src: '/portadaplumamixer.jpg',
       title: 'HORMIGÓN ELABORADO Y SERVICIOS DE BOMBEO',
-      description: 'Proveemos hormigón de alta calidad, asegurando resistencia y durabilidad en cada aplicación.',
+      description: 'Proveemos hormigón de calidad superior, servicios de bombeo eficientes y especializados.',
       backup: { text: 'RESPALDADOS POR', logo: '/logolomanegra.png' },
       link: '/services/hormigon'
     },
@@ -25,13 +25,13 @@ function Home({ setLoading }) {
     {
       src: '/portadamovofi.jpg',
       title: 'ESTUDIO Y MOVIMIENTO DE SUELOS',
-      description: 'Realizamos estudios de suelos precisos y movimientos de tierra con eficiencia.',
+      description: 'Realizamos estudio y movimiento de suelos, obteniendo resultados precisos y confiables para tus proyectos.',
       link: '/services/suelos'
     },
     {
       src: '/portadapisosindustriales.png',
       title: 'PISOS INDUSTRIALES Y ACABADOS SUPERFICIALES',
-      description: 'Transformamos superficies con pisos llanos y acabados de alta calidad.',
+      description: 'Transformamos superficies con pisos llaneados y acabados de alta calidad.',
       backup: { text: 'RESPALDADOS POR', logo: '/LOGOMAPEI.png' },
       link: '/services/pisos'
     }
