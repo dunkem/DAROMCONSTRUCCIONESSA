@@ -137,37 +137,37 @@ function Contact() {
                             ))}
                         </span>
                     </div>
-                    <div className="info-item">
+                    
+                    <div className="office-info">
                         <FaMapMarkerAlt /> 
                         <span>Oficina: {contactInfo.officeAddress}</span>
+                        <div className="map-container">
+                            <iframe
+                                title="Ubicación Oficina"
+                                width="100%"
+                                height="200"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13104.533593321816!2d-58.1568298!3d-34.8025856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64e395cdcd1%3A0xc9be6643f683c85!2sDarom%20Construcciones%20SRL!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                            ></iframe>
+                        </div>
                     </div>
-                    <div className="info-item">
+
+                    <div className="plant-info">
                         <FaMapMarkerAlt /> 
                         <span>Planta: {contactInfo.plantAddress}</span>
-                    </div>
-                    <div className="map-container">
-                        <h6>Ubicación de la Oficina</h6>
-                        <iframe
-                            title="Ubicación Oficina"
-                            width="100%"
-                            height="200"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13104.533593321816!2d-58.1568298!3d-34.8025856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64e395cdcd1%3A0xc9be6643f683c85!2sDarom%20Construcciones%20SRL!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar"
-                            style={{ border: 0 }}
-                            allowFullScreen=""
-                            loading="lazy"
-                        ></iframe>
-                    </div>
-                    <div className="map-container">
-                        <h6>Ubicación de la Planta</h6>
-                        <iframe
-                            title="Ubicación Planta"
-                            width="100%"
-                            height="200"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13097.319712146147!2d-58.1930728!3d-34.8479364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2d7ff2e248f6b%3A0x13a6d078d9f675a2!2sPitec%20-%20Parque%20Industrial%20y%20Tecnol%C3%B3gico%20Florencio%20Varela!5e0!3m2!1ses!2sar!4v1732899985240!5m2!1ses!2sar"
-                            style={{ border: 0 }}
-                            allowFullScreen=""
-                            loading="lazy"
-                        ></iframe>
+                        <div className="map-container">
+                            <iframe
+                                title="Ubicación Planta"
+                                width="100%"
+                                height="200"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13097.319712146147!2d-58.1930728!3d-34.8479364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2d7ff2e248f6b%3A0x13a6d078d9f675a2!2sPitec%20-%20Parque%20Industrial%20y%20Tecnol%C3%B3gico%20Florencio%20Varela!5e0!3m2!1ses!2sar!4v1732899985240!5m2!1ses!2sar"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                            ></iframe>
+                        </div>
                     </div>
                 </Col>
             </Row>

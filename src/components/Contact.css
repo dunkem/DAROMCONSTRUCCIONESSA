@@ -77,9 +77,12 @@ body {
     color: var(--primary-color);
 }
 
-.contact-info p {
+.contact-info p, .info-item {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-info a {
@@ -90,6 +93,11 @@ body {
 
 .contact-info a:hover {
     color: var(--hover-color);
+}
+
+.map-container {
+    margin-top: 1rem;
+    animation: fadeIn 1.2s ease both;
 }
 
 @media (max-width: 768px) {
@@ -113,7 +121,7 @@ body {
         font-size: 1.2rem;
     }
 
-    .contact-info p {
+    .contact-info p, .info-item {
         font-size: 0.9rem;
     }
 }
