@@ -60,11 +60,9 @@ function Contact() {
                         name="contact"
                         method="POST"
                         data-netlify="true"
-                        data-netlify-honeypot="bot-field"
                         noValidate
                         validated={validated}
                         onSubmit={handleSubmit}
-                        className="contact-form"
                     >
                         <input type="hidden" name="form-name" value="contact" />
                         <p hidden>
@@ -73,38 +71,29 @@ function Contact() {
                         <Form.Group controlId="formName">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control required type="text" name="name" placeholder="Ingresa tu nombre" />
-                            <Form.Control.Feedback type="invalid">
-                                Por favor ingresa tu nombre.
-                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
+                                required
                                 type="email"
                                 name="email"
                                 placeholder="Ingrese su email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                required
                             />
-                            <Form.Control.Feedback type="invalid">
-                                Por favor ingresa un email válido.
-                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formMessage">
                             <Form.Label>Mensaje</Form.Label>
                             <Form.Control
+                                required
                                 as="textarea"
                                 rows={3}
                                 name="message"
                                 placeholder="Escriba su mensaje"
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
-                                required
                             />
-                            <Form.Control.Feedback type="invalid">
-                                Por favor ingresa un mensaje.
-                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formFile">
                             <Form.Label>Adjuntar Archivo</Form.Label>
