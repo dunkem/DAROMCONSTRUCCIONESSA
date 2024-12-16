@@ -1,12 +1,13 @@
 import { Container, Row, Col, Card, Carousel, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet'; // Importa react-helmet
+import { Helmet } from 'react-helmet';
 import './Home.css';
 import { FaCheckCircle, FaBuilding, FaVials } from 'react-icons/fa';
 import { FaHandshakeSimple, FaUserGroup } from 'react-icons/fa6';
 import Contact from './Contact';
+import React from 'react';
 
-function Home({ setLoading }) {
+function Home() {
   // Servicios ofrecidos
   const services = [
     {
