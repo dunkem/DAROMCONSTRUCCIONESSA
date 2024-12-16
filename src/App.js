@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Helmet } from 'react-helmet'; // Importa react-helmet
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaShoppingCart } from 'react-icons/fa';
 import { CartProvider, CartContext } from './contexts/CartContext';
@@ -18,6 +18,8 @@ import './App.css';
 
 function App() {
     const [loading, setLoading] = useState(true);
+    const [expanded, setExpanded] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         // Simula la carga de la aplicación
@@ -28,40 +30,44 @@ function App() {
         return () => clearTimeout(timer);
     }, []);
 
+    useEffect(() => {
+        setExpanded(false); // Cierra el menú cuando la ubicación cambia
+    }, [location]);
+
     return (
         <CartProvider>
             <Helmet>
-    <title>Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción</title>
-    <meta name="description" content="Daromsa ofrece hormigón elaborado, materiales de construcción y servicios de movimiento de suelos, pisos industriales, respaldados por años de experiencia y calidad." />
-    <meta name="keywords" content="hormigón, materiales de construcción, estudio de suelos, movimiento de suelos, pisos industriales, servicios de bombeo, construcción, Daromsa" />
-    <meta property="og:title" content="Daromsa - Hormigón, Materiales y Servicios de Construcción" />
-    <meta property="og:description" content="Transforma tus proyectos con Daromsa, tu proveedor confiable de hormigón elaborado, materiales de construcción y más." />
-    <meta property="og:url" content="https://daromsa.com.ar" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://daromsa.com.ar/portada.jpg" />
-</Helmet>
+                <title>Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción</title>
+                <meta name="description" content="Daromsa ofrece hormigón elaborado, materiales de construcción y servicios de movimiento de suelos, pisos industriales, respaldados por años de experiencia y calidad." />
+                <meta name="keywords" content="hormigón, materiales de construcción, estudio de suelos, movimiento de suelos, pisos industriales, servicios de bombeo, construcción, Daromsa" />
+                <meta property="og:title" content="Daromsa - Hormigón, Materiales y Servicios de Construcción" />
+                <meta property="og:description" content="Transforma tus proyectos con Daromsa, tu proveedor confiable de hormigón elaborado, materiales de construcción y más." />
+                <meta property="og:url" content="https://daromsa.com.ar" />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://daromsa.com.ar/portada.jpg" />
+            </Helmet>
 
             {loading ? (
                 <Loading /> // Muestra el componente de carga
             ) : (
                 <Container fluid>
-                    <Navbar bg="light" expand="lg" className="shadow-sm mb-3 rounded navbar-custom">
+                    <Navbar bg="light" expand="lg" className="shadow-sm mb-3 rounded navbar-custom" expanded={expanded}>
                         <Container fluid className="d-flex justify-content-between align-items-center">
                             <div className="d-flex align-items-center">
                                 <Navbar.Brand as={Link} to="/" className="me-2">
                                     <img src="/ultimologodarom.png" alt="Darom SA" className="img-fluid" style={{ height: 50 }} />
                                 </Navbar.Brand>
-                                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                                <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
                             </div>
                             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                                 <Nav className="ms-auto nav-links">
-                                    <Nav.Link as={Link} to="/" className="mx-2">Inicio</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/hormigon" className="mx-2">Hormigón Elaborado</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/materiales" className="mx-2">Materiales</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/suelos" className="mx-2">Estudio y Movimiento de Suelos</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/pisos" className="mx-2">Pisos Industriales</Nav.Link>
-                                    <Nav.Link as={Link} to="/about" className="mx-2">Sobre Nosotros</Nav.Link>
-                                    <Nav.Link as={Link} to="/contact" className="mx-2">Contacto</Nav.Link>
+                                    <Nav.Link as={Link} to="/" className="mx-2" onClick={() => setExpanded(false)}>Inicio</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/hormigon" className="mx-2" onClick={() => setExpanded(false)}>Hormigón Elaborado</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/materiales" className="mx-2" onClick={() => setExpanded(false)}>Materiales</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/suelos" className="mx-2" onClick={() => setExpanded(false)}>Estudio y Movimiento de Suelos</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/pisos" className="mx-2" onClick={() => setExpanded(false)}>Pisos Industriales</Nav.Link>
+                                    <Nav.Link as={Link} to="/about" className="mx-2" onClick={() => setExpanded(false)}>Sobre Nosotros</Nav.Link>
+                                    <Nav.Link as={Link} to="/contact" className="mx-2" onClick={() => setExpanded(false)}>Contacto</Nav.Link>
                                     <Nav className="social-icons ms-2">
                                         <Nav.Link href="https://www.facebook.com/DAROMSRL/?locale=es_LA" target="_blank" rel="noopener noreferrer" className="mx-1">
                                             <FaFacebook size={25} />

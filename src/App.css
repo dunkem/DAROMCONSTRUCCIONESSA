@@ -1,129 +1,146 @@
-.body {
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* Variables CSS */
+:root {
+    --primary-color: #ff0000; /* Rojo */
+    --hover-color: #c70000; /* Rojo oscuro para hover */
+    --background-color: #ffffff; /* Blanco */
+    --container-bg-color: #f9f9f9; /* Fondo gris claro */
+    --text-color: #000000; /* Negro para el texto */
+    --border-color: #ddd; /* Color de borde */
+    --whatsapp-color: #25D366; /* Verde de WhatsApp */
+    --whatsapp-hover-color: #128C7E; /* Verde oscuro de WhatsApp */
 }
 
+/* Estilos Generales */
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Navbar */
 .navbar-custom {
-  background-color: #000000 !important; /* Barra de navegación negra */
-  width: 100%;
-  padding: 0.1rem 1rem; /* Hace la altura del fondo negro más delgada */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
-  display: flex; /* Alineación horizontal */
-  align-items: center; /* Centra verticalmente los elementos */
-  justify-content: space-between; /* Espacio entre logo y botón */
+    background-color: var(--text-color) !important; /* Barra de navegación negra */
+    width: 100%;
+    padding: 0.1rem 1rem; /* Altura del fondo negro más delgada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    display: flex; /* Alineación horizontal */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre logo y botón */
 }
 
 .navbar-brand img {
-  height: 50px; /* Ajusta la altura del logo */
+    height: 50px; /* Altura del logo */
 }
 
 .navbar-nav {
-  flex-wrap: wrap;
-  justify-content: flex-end; /* Alinea los enlaces a la derecha */
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Alinea los enlaces a la derecha */
 }
 
 .nav-link {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #ffffff !important; /* Texto blanco */
-  transition: color 0.3s ease, background-color 0.3s ease; /* Animación suave */
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem; /* Espaciado entre enlaces */
-  border-radius: 5px; /* Bordes redondeados para un efecto moderno */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--background-color) !important; /* Texto blanco */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Animación suave */
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem; /* Espaciado entre enlaces */
+    border-radius: 5px; /* Bordes redondeados para un efecto moderno */
 }
 
 .nav-link:hover {
-  color: #ff0000 !important; /* Color rojo en hover */
-  background-color: rgba(255, 0, 0, 0.1); /* Fondo rojo translúcido en hover */
+    color: var(--primary-color) !important; /* Color rojo en hover */
+    background-color: rgba(255, 0, 0, 0.1); /* Fondo rojo translúcido en hover */
 }
 
 .navbar-toggler {
-  border: 1px solid rgba(255, 0, 0, 0.7); /* Borde en rojo */
-  padding: 0.25rem 0.5rem; /* Ajusta el padding del botón */
-  background-color: rgba(255, 0, 0, 0.7); /* Fondo en rojo */
-  margin-left: 1rem; /* Espacio entre el logo y el botón */
+    border: 1px solid rgba(255, 0, 0, 0.7); /* Borde en rojo */
+    padding: 0.25rem 0.5rem; /* Padding del botón */
+    background-color: rgba(255, 0, 0, 0.7); /* Fondo en rojo */
+    margin-left: 1rem; /* Espacio entre el logo y el botón */
 }
 
 .navbar-toggler-icon {
-  width: 20px; /* Ajusta el ancho de las líneas del icono */
-  height: 20px; /* Ajusta la altura de las líneas del icono */
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Líneas del botón en blanco */
+    width: 20px; /* Ancho de las líneas del icono */
+    height: 20px; /* Altura de las líneas del icono */
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Líneas del botón en blanco */
 }
 
 .social-icons {
-  display: flex;
-  justify-content: flex-end;
-  margin-left: auto; /* Asegura que los iconos de redes sociales estén a la derecha */
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto; /* Asegura que los iconos de redes sociales estén a la derecha */
 }
 
 .social-icons a {
-  color: #ffffff !important; /* Iconos blancos */
-  margin: 0 0.5rem;
-  transition: color 0.3s ease;
+    color: var(--background-color) !important; /* Iconos blancos */
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #ff0000 !important; /* Color rojo en hover */
+    color: var(--primary-color) !important; /* Color rojo en hover */
 }
 
 /* Estilo del NavDropdown */
 .navbar-nav .nav-item .dropdown-menu {
-  background-color: #000; /* Fondo negro */
-  color: #fff; /* Texto blanco */
+    background-color: var(--text-color); /* Fondo negro */
+    color: var(--background-color); /* Texto blanco */
 }
 
 .navbar-nav .nav-item .dropdown-item {
-  color: #fff; /* Texto blanco */
+    color: var(--background-color); /* Texto blanco */
 }
 
 .navbar-nav .nav-item .dropdown-item:hover {
-  background-color: rgba(255, 0, 0, 0.1); /* Fondo rojo translúcido en hover */
-  color: #ff0000; /* Texto rojo en hover */
+    background-color: rgba(255, 0, 0, 0.1); /* Fondo rojo translúcido en hover */
+    color: var(--primary-color); /* Texto rojo en hover */
 }
 
+/* Botón de Whatsapp Flotante */
 .whatsapp-float {
-  position: fixed;
-  bottom: 50px;
-  right: 20px;
-  background-color: #25D366; /* Color verde clásico de WhatsApp */
-  border-radius: 50%; /* Bordes redondeados */
-  padding: 15px; /* Tamaño ajustado */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  display: flex; /* Para centrar el icono dentro del botón */
-  align-items: center; /* Alineación vertical */
-  justify-content: center; /* Alineación horizontal */
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    background-color: var(--whatsapp-color); /* Color verde clásico de WhatsApp */
+    border-radius: 50%; /* Bordes redondeados */
+    padding: 15px; /* Tamaño ajustado */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex; /* Para centrar el icono dentro del botón */
+    align-items: center; /* Alineación vertical */
+    justify-content: center; /* Alineación horizontal */
 }
 
 .whatsapp-float:hover {
-  background-color: #128C7E; /* Color más oscuro al pasar el ratón */
-  transform: scale(1.1); /* Efecto de agrandamiento */
+    background-color: var(--whatsapp-hover-color); /* Color más oscuro al pasar el ratón */
+    transform: scale(1.1); /* Efecto de agrandamiento */
 }
 
 .whatsapp-icon {
-  color: #ffffff !important; /* Color blanco */
+    color: #ffffff !important; /* Color blanco */
 }
 
 @media (max-width: 767px) {
-  .navbar-nav {
-    flex-direction: column;
-    align-items: center; /* Alinea verticalmente los enlaces */
-  }
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center; /* Alinea verticalmente los enlaces */
+    }
 
-  .nav-link {
-    padding: 0.5rem 0;
-    margin: 0.5rem 0; /* Espaciado vertical para enlaces en móviles */
-  }
+    .nav-link {
+        padding: 0.5rem 0;
+        margin: 0.5rem 0; /* Espaciado vertical para enlaces en móviles */
+    }
 
-  .social-icons {
-    justify-content: center;
-    margin-top: 1rem;
-    flex-direction: row;
-  }
+    .social-icons {
+        justify-content: center;
+        margin-top: 1rem;
+        flex-direction: row;
+    }
 
-  .navbar-toggler {
-    margin-left: auto; /* Asegura que el botón esté alineado a la derecha */
-  }
+    .navbar-toggler {
+        margin-left: auto; /* Asegura que el botón esté alineado a la derecha */
+    }
 }

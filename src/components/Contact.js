@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Alert, Row, Col } from 'react-bootstrap';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import './Contact.css'; // Asegúrate de importar el CSS
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import './Contact.css';
 
 const contactInfo = {
     phone: '0810-333-4567',
@@ -53,8 +53,8 @@ function Contact() {
 
     return (
         <Container className="contact-container mt-5">
-            <Row className="contact-background mb-4">
-                <Col md={6} className="p-4">
+            <Row className="contact-row">
+                <Col md={6} className="contact-form-column">
                     <h2 className="contact-title">Contáctanos</h2>
                     <Form
                         name="contact"
@@ -121,14 +121,14 @@ function Contact() {
                         {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
                     </Form>
                 </Col>
-                <Col md={6} className="contact-info p-4 text-center">
-                    <h5>¿CÓMO ENCONTRARNOS?</h5>
-                    <div className="info-item">
-                        <FaPhone /> 
+                <Col md={6} className="contact-info-column">
+                    <h5 className="contact-info-title">¿CÓMO ENCONTRARNOS?</h5>
+                    <div className="contact-info-item">
+                        <FaPhoneAlt className="contact-icon" /> 
                         <span>Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></span>
                     </div>
-                    <div className="info-item">
-                        <FaEnvelope /> 
+                    <div className="contact-info-item">
+                        <FaEnvelope className="contact-icon" /> 
                         <span>Email: 
                             {contactInfo.emails.map((email, index) => (
                                 <span key={index}>
@@ -137,10 +137,9 @@ function Contact() {
                             ))}
                         </span>
                     </div>
-                    
-                    <div className="office-info">
-                        <FaMapMarkerAlt /> 
-                        <span>Oficina: {contactInfo.officeAddress}</span>
+                    <div className="contact-location">
+                        <h6 className="location-title"><FaMapMarkerAlt /> Oficina</h6>
+                        <span>{contactInfo.officeAddress}</span>
                         <div className="map-container">
                             <iframe
                                 title="Ubicación Oficina"
@@ -153,10 +152,9 @@ function Contact() {
                             ></iframe>
                         </div>
                     </div>
-
-                    <div className="plant-info">
-                        <FaMapMarkerAlt /> 
-                        <span>Planta: {contactInfo.plantAddress}</span>
+                    <div className="contact-location">
+                        <h6 className="location-title"><FaMapMarkerAlt /> Planta</h6>
+                        <span>{contactInfo.plantAddress}</span>
                         <div className="map-container">
                             <iframe
                                 title="Ubicación Planta"

@@ -23,22 +23,34 @@ body {
 /* Contenedor de Contacto */
 .contact-container {
     background-color: var(--container-bg-color);
-    padding: 2rem;
+    padding: 1rem 2rem; /* Reducir padding vertical */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.8s ease both;
 }
 
+/* Título del Formulario de Contacto */
 .contact-title {
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: 2rem; /* Reducido el tamaño de fuente */
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; /* Reducido el margen inferior */
     text-transform: uppercase;
     text-align: center;
     animation: fadeInDown 1s ease both;
 }
 
+/* Título de Información de Contacto */
+.contact-info-title {
+    font-size: 1.5rem; /* Reducido el tamaño de fuente */
+    font-weight: 700;
+    margin-bottom: 0.5rem; /* Reducido el margen inferior */
+    color: var(--primary-color);
+    text-align: center;
+    animation: fadeInDown 1s ease both;
+}
+
+/* Elementos del Formulario de Contacto */
 .contact-form {
     animation: fadeInUp 1s ease both;
 }
@@ -46,83 +58,105 @@ body {
 .contact-form .form-control {
     border-radius: 5px;
     border: 1px solid var(--border-color);
+    margin-bottom: 0.8rem; /* Reducido el margen inferior */
+    font-size: 0.9rem; /* Reducido el tamaño de fuente */
 }
 
+/* Botón de Envío del Formulario */
 .contact-submit-button {
     background-color: var(--primary-color);
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 15px; /* Reducido el padding */
     border-radius: 5px;
     font-weight: 500;
     transition: background-color 0.3s ease;
+    width: 100%; /* Ancho completo del botón */
+    font-size: 1rem; /* Reducido el tamaño de fuente */
 }
 
 .contact-submit-button:hover {
     background-color: var(--hover-color);
 }
 
-.contact-info {
+/* Elementos de Información de Contacto */
+.contact-info-column {
     background-color: var(--background-color);
-    padding: 2rem;
+    padding: 1rem 1.5rem; /* Reducir padding vertical */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1s ease both;
 }
 
-.contact-info h5 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.contact-info p, .info-item {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.contact-info-item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 0.5rem; /* Reducido el margen */
+    animation: fadeIn 1.2s ease both;
+    font-size: 0.9rem; /* Reducido el tamaño de fuente */
 }
 
-.contact-info a {
+.contact-icon {
     color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 1.2rem; /* Reducido el tamaño de fuente */
+}
+
+.contact-info-item a {
+    color: var(--text-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.contact-info a:hover {
-    color: var(--hover-color);
+.contact-info-item a:hover {
+    color: var(--primary-color);
+}
+
+/* Ubicaciones de Contacto */
+.contact-location {
+    margin-top: 1.5rem; /* Reducido el margen superior */
+    animation: fadeIn 1.2s ease both;
+}
+
+.location-title {
+    display: flex;
+    align-items: center;
+    font-size: 1rem; /* Reducido el tamaño de fuente */
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.location-title svg {
+    margin-right: 0.5rem;
 }
 
 .map-container {
     margin-top: 1rem;
-    animation: fadeIn 1.2s ease both;
 }
 
 @media (max-width: 768px) {
     .contact-container {
-        padding: 1rem;
+        padding: 0.5rem 1rem; /* Ajuste de padding para dispositivos móviles */
     }
 
     .contact-title {
-        font-size: 2rem;
+        font-size: 1.5rem; /* Ajuste de tamaño de fuente para dispositivos móviles */
+    }
+
+    .contact-info-title {
+        font-size: 1.2rem; /* Ajuste de tamaño de fuente para dispositivos móviles */
     }
 
     .contact-form .form-control {
-        font-size: 0.9rem;
+        font-size: 0.8rem; /* Ajuste de tamaño de fuente para dispositivos móviles */
     }
 
-    .contact-info {
-        padding: 1rem;
+    .contact-info-column {
+        padding: 0.5rem 1rem; /* Ajuste de padding para dispositivos móviles */
     }
 
-    .contact-info h5 {
-        font-size: 1.2rem;
-    }
-
-    .contact-info p, .info-item {
-        font-size: 0.9rem;
+    .contact-info-item {
+        font-size: 0.8rem; /* Ajuste de tamaño de fuente para dispositivos móviles */
     }
 }
 
