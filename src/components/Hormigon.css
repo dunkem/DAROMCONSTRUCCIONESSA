@@ -17,8 +17,11 @@ body.hormigon {
     flex-direction: column;
     justify-content: center;
     padding: 40px;
-    color: #fff;
+    color: #fff; /* Texto de la portada en blanco */
     transition: background 0.3s; /* Transición suave para el fondo */
+    text-align: center; /* Centrar texto en móviles */
+    background-size: cover; /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center; /* Centrar la imagen de fondo */
 }
 
 .overlay:hover {
@@ -27,33 +30,30 @@ body.hormigon {
 
 /* Animaciones */
 @keyframes fadeInUp {
-    0% {
+    from {
         opacity: 0;
         transform: translateY(20px);
     }
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
 @keyframes pulse {
-    0% {
+    0%, 100% {
         transform: scale(1);
     }
     50% {
         transform: scale(1.05);
     }
-    100% {
-        transform: scale(1);
-    }
 }
 
 @keyframes lineExpand {
-    0% {
+    from {
         width: 0;
     }
-    100% {
+    to {
         width: 100%;
     }
 }
@@ -62,6 +62,7 @@ body.hormigon {
     margin-top: 4rem !important;
 }
 
+/* Botón de Carga */
 .upload-button {
     background-color: #ff0000; /* Color rojo */
     color: #fff;
@@ -87,62 +88,57 @@ body.hormigon {
     margin-right: 5px;
 }
 
+/* Títulos y Texto */
 .text-highlight {
-    color: #ffffff;
+    color: #fff; /* Texto de la portada en blanco */
     font-weight: 300;
 }
 
 .title-highlight {
-    font-size: 2.7rem; /* Aumentado el tamaño */
     font-weight: 700;
+    color: #fff; /* Título específico en blanco */
+    position: relative;
     margin-bottom: 20px;
-    color: #ffffff;
+    font-size: 2.7rem; /* Aumentado el tamaño */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease both;
-    position: relative;
-}
-
-.title-highlight::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    height: 2px;
-    width: 0;
-    background-color: #ff0000;
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.title-highlight:hover::after {
-    width: 100%;
-    left: 0;
 }
 
 .section-htitle {
-    font-size: 2.2rem; /* Aumentado el tamaño */
     font-weight: 700;
-    margin-bottom: 20px;
-    color: #ffffff;
-    animation: fadeInUp 1.5s ease both;
+    color: #fff; /* Título específico en blanco */
     position: relative;
+    margin-bottom: 20px;
+    font-size: 2.2rem; /* Aumentado el tamaño */
+    animation: fadeInUp 1.5s ease both;
 }
 
-.section-htitle::after {
+/* Otros Títulos en Negro */
+.other-title {
+    font-weight: 700;
+    color: #000; /* Otros títulos en negro */
+    position: relative;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease both;
+}
+
+.other-title::after {
     content: '';
     position: absolute;
     left: 50%;
     bottom: -5px;
     height: 2px;
     width: 0;
-    background-color: #ff0000;
+    background-color: #ff0000; /* Subrayado rojo */
     transition: width 0.3s ease, left 0.3s ease;
 }
 
-.section-htitle:hover::after {
+.other-title:hover::after {
     width: 100%;
     left: 0;
 }
 
+/* Tarjetas de Hormigón */
 .hormigon-cards {
     display: flex;
     flex-wrap: wrap;
@@ -153,12 +149,11 @@ body.hormigon {
 
 .hormigon-card {
     background: rgba(255, 255, 255, 0.9);
-    border: none;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     padding: 20px;
     flex: 1 1 240px;
-    color: #000000;
+    color: #000; /* Color de texto ajustado */
     transition: transform 0.3s, box-shadow 0.3s; /* Añadir transición para sombra */
     text-align: center;
     min-width: 240px;
@@ -195,15 +190,16 @@ body.hormigon {
 
 .hormigon-card p {
     font-size: 1rem;
-    color: var(--text-color);
+    color: #333; /* Color de texto ajustado */
 }
 
+/* Contenedor de Beneficios */
 .benefit-container {
     background: rgba(255, 255, 255, 0.85);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    color: #000000;
+    color: #000; /* Color de texto ajustado */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -231,6 +227,7 @@ body.hormigon {
     animation: fadeInUp 3s ease both;
 }
 
+/* Imagen de Ancho Completo */
 .full-width-image {
     width: 100%;
     border-radius: 10px;
@@ -238,9 +235,10 @@ body.hormigon {
     animation: fadeInUp 3.2s ease both;
 }
 
+/* Descripción de la Compañía */
 .company-hdescription {
     font-size: 1.2rem;
-    color: #ffffff;
+    color: #000; /* Cambiado a negro */
     animation: fadeInUp 3.4s ease both;
 }
 
@@ -249,22 +247,31 @@ body.hormigon {
     .overlay {
         padding: 20px;
         justify-content: flex-start;
+        text-align: center; /* Centrar texto en móviles */
+        background-size: contain; /* Cambiar a contain para mejor visualización */
+        background-repeat: no-repeat; /* Evitar que la imagen se repita */
     }
 
     .upload-button {
         width: 100%;
+        padding: 12px; /* Ajustar padding para móviles */
+        font-size: 1rem; /* Ajustar tamaño de fuente */
     }
 
     .title-highlight {
-        font-size: 2rem;
+        font-size: 2.2rem; /* Ajustar tamaño de fuente para móviles */
     }
 
     .section-htitle {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Ajustar tamaño de fuente para móviles */
+    }
+
+    .other-title {
+        font-size: 1.5rem; /* Ajustar tamaño de fuente para móviles */
     }
 
     .hormigon-cards {
-        flex-direction: column;
+        flex-direction: column; /* Cambiar a columna en móviles */
         align-items: center;
         width: 100%;
     }
@@ -272,10 +279,19 @@ body.hormigon {
     .hormigon-card {
         max-width: 100%;
         margin-bottom: 30px;
+        padding: 15px; /* Ajustar padding para móviles */
     }
 
     .carousel-item .hormigon-card {
         flex: 1 1 100%;
         margin: 5px;
+    }
+
+    .benefit-title {
+        font-size: 1.2rem; /* Ajustar tamaño de fuente para móviles */
+    }
+
+    .benefit-description {
+        font-size: 0.9rem; /* Ajustar tamaño de fuente para móviles */
     }
 }

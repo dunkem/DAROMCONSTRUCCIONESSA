@@ -99,7 +99,7 @@ function Home() {
         <meta property="og:description" content="Transforma tus proyectos con Daromsa, tu fuente de calidad y confianza." />
         <meta property="og:url" content="https://daromsa.com.ar" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://daromsa.com.ar/portada.jpg" />
+        <meta property="og:image" content="https://daromsa.com.ar/portada.webp" />
       </Helmet>
 
       <Row className="hero-section text-center" style={{ 
