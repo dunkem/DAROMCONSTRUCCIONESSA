@@ -14,6 +14,7 @@ function Materiales() {
     const [selectedSubrubro, setSelectedSubrubro] = useState('hidrofugos');
     const [visibleProducts, setVisibleProducts] = useState(8); // Cantidad inicial de productos visibles
 
+
     const materiales = {
         hidrofugos: [
             { id: 1, name: "Hidrofugo Sika 1 Tambor x 200 Kg", img: "/mathidrofugosika200lts.jpg" },
@@ -148,7 +149,7 @@ function Materiales() {
 
     const trackConversion = () => {
         window.gtag('event', 'conversion', {
-            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
         });
     };
 
@@ -158,7 +159,7 @@ function Materiales() {
             <div className="adjunta-lista-container">
                 <Button 
                     as="a" 
-                    href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
+                    href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+materiales.&type=phone_number&app_absent=0" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="upload-button"
@@ -208,7 +209,10 @@ function Materiales() {
                                         <Button
                                             variant="dark"
                                             size="sm"
-                                            onClick={() => addToCart(material)}
+                                            onClick={() => {
+                                                addToCart(material);
+                                                trackConversion(); // Rastrear conversión al agregar al carrito
+                                            }}
                                             className="w-100"
                                         >
                                             Agregar al Carrito

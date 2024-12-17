@@ -1,4 +1,6 @@
+import React from 'react';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import { Helmet } from 'react-helmet';
 import './About.css';
 import Contact from './Contact';
 
@@ -46,6 +48,41 @@ function About() {
 
     return (
         <Container className="about-container mt-4">
+            <Helmet>
+                <title>Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción</title>
+                <meta name="description" content="Daromsa ofrece hormigón elaborado, materiales de construcción y servicios." />
+                <meta name="keywords" content="hormigón, materiales, construcción, Daromsa" />
+                {/* Etiqueta de Google */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
+                <script>
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-717135166');
+                    `}
+                </script>
+                {/* Fragmento de evento de conversión */}
+                <script>
+                    {`
+                        function gtag_report_conversion(url) {
+                            var callback = function () {
+                                if (typeof(url) != 'undefined') {
+                                    window.location = url;
+                                }
+                            };
+                            gtag('event', 'conversion', {
+                                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+                                'value': 1.0,
+                                'currency': 'ARS',
+                                'event_callback': callback
+                            });
+                            return false;
+                        }
+                    `}
+                </script>
+            </Helmet>
+
             <Row>
                 <Col>
                     <h1 className="about-title">La Empresa</h1>

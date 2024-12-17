@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Alert, Row, Col } from 'react-bootstrap';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 import './Contact.css';
 
 const contactInfo = {
@@ -22,6 +23,14 @@ function Contact() {
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
 
+    const gtag_report_conversion = () => {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+            'value': 1.0,
+            'currency': 'ARS',
+        });
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const form = event.currentTarget;
@@ -42,6 +51,7 @@ function Contact() {
                     setSubmitted(true);
                     setError('');
                     event.target.reset();
+                    gtag_report_conversion(); // Llamar a la función de conversión
                 } else {
                     setSubmitted(false);
                     setError('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
@@ -55,6 +65,21 @@ function Contact() {
 
     return (
         <Container className="contact-container mt-5">
+            <Helmet>
+                <title>Contacto - Daromsa</title>
+                <meta name="description" content="Contáctanos para más información sobre nuestros productos y servicios." />
+                {/* Etiqueta de Google */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
+                <script>
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-717135166');
+                    `}
+                </script>
+            </Helmet>
+
             <Row className="contact-row">
                 <Col md={6} className="contact-form-column">
                     <h2 className="contact-title">Contáctanos</h2>

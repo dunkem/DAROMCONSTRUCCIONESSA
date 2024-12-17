@@ -1,6 +1,7 @@
 import { Container, Row, Col, Card, Button, Image, Carousel } from 'react-bootstrap';
 import React, { useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 import './Hormigon.css';
 
 function Hormigon() {
@@ -89,14 +90,55 @@ function Hormigon() {
         return slides;
     };
 
-    const trackConversion = () => {
+    const gtag_report_conversion = (url) => {
+        const callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
         window.gtag('event', 'conversion', {
-            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+            'value': 1.0,
+            'currency': 'ARS',
+            'event_callback': callback
         });
+        return false;
     };
 
     return (
         <section className="hormigon" aria-labelledby="hormigon-heading">
+            <Helmet>
+                <title>Hormigón Elaborado - Daromsa</title>
+                <meta name="description" content="Ofrecemos hormigón elaborado de alta calidad y servicios de bombeo." />
+                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
+                <script>
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-717135166');
+                    `}
+                </script>
+                <script>
+                    {`
+                        function gtag_report_conversion(url) {
+                            var callback = function () {
+                                if (typeof(url) != 'undefined') {
+                                    window.location = url;
+                                }
+                            };
+                            gtag('event', 'conversion', {
+                                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+                                'value': 1.0,
+                                'currency': 'ARS',
+                                'event_callback': callback
+                            });
+                            return false;
+                        }
+                    `}
+                </script>
+            </Helmet>
+
             <div style={{
                 backgroundImage: 'url(/IMG_2913.webp)',
                 backgroundSize: 'cover',
@@ -123,7 +165,7 @@ function Hormigon() {
                                 rel="noopener noreferrer" 
                                 className="upload-button" 
                                 aria-label="Contactar a un asesor por WhatsApp"
-                                onClick={trackConversion}
+                                onClick={() => gtag_report_conversion()}
                             >
                                 <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                             </Button>

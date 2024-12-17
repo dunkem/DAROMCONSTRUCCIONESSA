@@ -25,7 +25,7 @@ function App() {
 
     const trackWhatsAppClick = () => {
         window.gtag('event', 'conversion', {
-            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
         });
     };
 

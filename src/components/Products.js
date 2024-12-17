@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Table, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import productsData from '../productsData';
 import SearchBar from './SearchBar';
+import { FaWhatsapp } from 'react-icons/fa';
 
 function Products() {
     const [filteredProducts, setFilteredProducts] = React.useState(productsData);
@@ -12,6 +13,12 @@ function Products() {
             product.name.toLowerCase().includes(query.toLowerCase())
         );
         setFilteredProducts(filtered);
+    };
+
+    const trackConversion = () => {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
+        });
     };
 
     return (
@@ -40,6 +47,16 @@ function Products() {
                     ))}
                 </tbody>
             </Table>
+            <Button 
+                as="a" 
+                href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en sus productos.&type=phone_number&app_absent=0" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3"
+                onClick={trackConversion}
+            >
+                <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
+            </Button>
         </Container>
     );
 }

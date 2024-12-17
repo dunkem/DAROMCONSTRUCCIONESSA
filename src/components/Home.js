@@ -5,9 +5,13 @@ import './Home.css';
 import { FaCheckCircle, FaBuilding, FaVials } from 'react-icons/fa';
 import { FaHandshakeSimple, FaUserGroup } from 'react-icons/fa6';
 import Contact from './Contact';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Desplazar a la parte superior de la página
+  }, []);
+
   // Servicios ofrecidos
   const services = [
     {
@@ -61,6 +65,22 @@ function Home() {
     { src: '/LOGOBLINKI.png', alt: 'Blinki' },
   ];
 
+  // Función de seguimiento de conversiones
+  const gtag_report_conversion = (url) => {
+    const callback = function () {
+      if (typeof(url) !== 'undefined') {
+        window.location = url;
+      }
+    };
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+      'value': 1.0,
+      'currency': 'ARS',
+      'event_callback': callback
+    });
+    return false;
+  };
+
   // Renderiza los elementos del carrusel
   const renderCarouselItems = (items, isSupplier = false) => {
     const itemsPerSlide = 4; // Mantener 4 elementos por diapositiva
@@ -77,6 +97,9 @@ function Home() {
                     <Card.Body>
                       <Card.Title>{item.title || item.name}</Card.Title>
                       <Card.Text>{item.description}</Card.Text>
+                      <Link to={item.link}>
+                        <Button className="service-button" onClick={() => gtag_report_conversion()}>Ver Más</Button>
+                      </Link>
                     </Card.Body>
                   )}
                 </Card>
@@ -100,6 +123,17 @@ function Home() {
         <meta property="og:url" content="https://daromsa.com.ar" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://daromsa.com.ar/portada.webp" />
+
+        {/* Google Ads Tag */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-717135166');
+          `}
+        </script>
       </Helmet>
 
       <Row className="hero-section text-center" style={{ 
@@ -171,7 +205,7 @@ function Home() {
                 <Card.Title className="service-title">{service.title}</Card.Title>
                 <Card.Text className="service-description">{service.description}</Card.Text>
                 <Link to={service.link}>
-                  <Button className="service-button">Ver Más</Button>
+                  <Button className="service-button" onClick={() => gtag_report_conversion()}>Ver Más</Button>
                 </Link>
               </Card.Body>
             </Card>
