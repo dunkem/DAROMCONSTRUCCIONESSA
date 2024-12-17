@@ -36,7 +36,7 @@ function Contact() {
             try {
                 const response = await fetch('/', {
                     method: 'POST',
-                    body: formData,
+                    body: formData
                 });
                 if (response.ok) {
                     setSubmitted(true);
@@ -60,6 +60,7 @@ function Contact() {
                         name="contact"
                         method="POST"
                         data-netlify="true"
+                        data-netlify-honeypot="bot-field"
                         noValidate
                         validated={validated}
                         onSubmit={handleSubmit}

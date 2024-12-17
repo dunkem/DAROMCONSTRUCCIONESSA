@@ -2,7 +2,7 @@
   "name": "daromsa",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://daromsa.com.ar",
+  "homepage": "https://www.daromsa.com.ar",
   "author": "Dtecno",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
