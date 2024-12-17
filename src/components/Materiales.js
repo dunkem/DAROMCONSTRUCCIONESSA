@@ -146,11 +146,25 @@ function Materiales() {
         setVisibleProducts((prev) => prev + 8); // Incrementa la cantidad visible en lotes de 8
     };
 
+    const trackConversion = () => {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+        });
+    };
+
     return (
         <Container className="mt-4 materiales-container">
             {/* Botón "Contáctate con un Asesor" */}
             <div className="adjunta-lista-container">
-                <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button">
+                <Button 
+                    as="a" 
+                    href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="upload-button"
+                    aria-label="Contactar a un asesor por WhatsApp"
+                    onClick={trackConversion}
+                >
                     <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                 </Button>
                 <p className="lead text-black">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>

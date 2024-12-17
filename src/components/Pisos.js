@@ -9,6 +9,12 @@ function Pisos() {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
     }, []);
 
+    const trackConversion = () => {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+        });
+    };
+
     return (
         <Container className="mt-4 position-relative">
             <div className="pisos-materiales-container-custom">
@@ -33,7 +39,9 @@ function Pisos() {
                             as="a" 
                             href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="upload-button mt-3"
+                            onClick={trackConversion}
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>
@@ -59,7 +67,9 @@ function Pisos() {
                             as="a" 
                             href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="upload-button mt-3"
+                            onClick={trackConversion}
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>
@@ -93,7 +103,9 @@ function Pisos() {
                             as="a" 
                             href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="upload-button mt-3"
+                            onClick={trackConversion}
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>

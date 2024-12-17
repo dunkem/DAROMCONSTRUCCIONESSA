@@ -89,6 +89,12 @@ function Hormigon() {
         return slides;
     };
 
+    const trackConversion = () => {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+        });
+    };
+
     return (
         <section className="hormigon" aria-labelledby="hormigon-heading">
             <div style={{
@@ -110,7 +116,15 @@ function Hormigon() {
                 <Container className="mt-4" style={{ position: 'relative', zIndex: 1 }}>
                     <Row>
                         <Col xs={12} md={6} className="text-right">
-                            <Button as="a" href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" target="_blank" className="upload-button" aria-label="Contactar a un asesor por WhatsApp">
+                            <Button 
+                                as="a" 
+                                href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="upload-button" 
+                                aria-label="Contactar a un asesor por WhatsApp"
+                                onClick={trackConversion}
+                            >
                                 <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                             </Button>
                             <p className="lead text-highlight">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>

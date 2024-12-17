@@ -23,6 +23,12 @@ function App() {
         setExpanded(false);
     }, [location]);
 
+    const trackWhatsAppClick = () => {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+        });
+    };
+
     return (
         <CartProvider>
             <Helmet>
@@ -73,18 +79,25 @@ function App() {
 
                 {/* Rutas de la aplicación */}
                 <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/services/materiales" element={<Materiales />} />
-    <Route path="/services/hormigon" element={<Hormigon />} />
-    <Route path="/services/suelos" element={<Suelos />} />
-    <Route path="/services/pisos" element={<Pisos />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/contact" element={<Contact />} />
-    <Route path="/cart" element={<Cart />} />
-</Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/services/materiales" element={<Materiales />} />
+                    <Route path="/services/hormigon" element={<Hormigon />} />
+                    <Route path="/services/suelos" element={<Suelos />} />
+                    <Route path="/services/pisos" element={<Pisos />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/cart" element={<Cart />} />
+                </Routes>
 
-                <a href="https://wa.me/5492215739000" target="_blank" rel="noopener noreferrer" className="whatsapp-float" title="Chat on WhatsApp">
-                    <FaWhatsapp size={50} className="whatsapp-icon" />
+                <a 
+                    href="https://wa.me/5492215739000" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="whatsapp-float" 
+                    title="Chat on WhatsApp"
+                    onClick={trackWhatsAppClick}
+                >
+                    <FaWhatsapp size={60} className="whatsapp-icon" style={{ width: '70px', height: '70px' }} />
                 </a>
 
                 {/* Footer global */}

@@ -50,6 +50,12 @@ function Suelos() {
         return items;
     };
 
+    const trackConversion = () => {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/EVENT_LABEL'
+        });
+    };
+
     return (
         <Container className="mt-4 suelos-container">
             <Row className="suelos-header">
@@ -59,9 +65,11 @@ function Suelos() {
                 <Col md={6} className="suelos-header-right d-flex flex-column align-items-end">
                     <Button 
                         as="a" 
-                        href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
+                        href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+servicios+de+estudio+de+suelos.&type=phone_number&app_absent=0" 
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="upload-button"
+                        onClick={trackConversion}
                     >
                         <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                     </Button>

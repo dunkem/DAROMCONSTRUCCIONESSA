@@ -295,3 +295,7 @@ body.hormigon {
         font-size: 0.9rem; /* Ajustar tamaño de fuente para móviles */
     }
 }
+.hormigon {
+    position: relative; /* Asegura un contexto de apilamiento correcto */
+    z-index: 1; /* Asegura que esté debajo del botón de WhatsApp */
+}

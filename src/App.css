@@ -100,6 +100,7 @@ body {
 }
 
 /* Botón de Whatsapp Flotante */
+
 .whatsapp-float {
     position: fixed;
     bottom: 50px;
@@ -112,6 +113,7 @@ body {
     display: flex; /* Para centrar el icono dentro del botón */
     align-items: center; /* Alineación vertical */
     justify-content: center; /* Alineación horizontal */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
 
 .whatsapp-float:hover {
