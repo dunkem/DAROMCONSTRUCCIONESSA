@@ -29,5 +29,12 @@
     Necesitas habilitar JavaScript para ejecutar esta aplicación.
   </noscript>
   <div id="root"></div>
+
+  <!-- Formulario oculto para Netlify Forms -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
 </body>
 </html>
