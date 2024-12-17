@@ -43,10 +43,12 @@ function Contact() {
                     setError('');
                     event.target.reset();
                 } else {
-                    throw new Error('Error al enviar el formulario');
+                    setSubmitted(false);
+                    setError('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
                 }
             } catch (err) {
-                setError(err.message);
+                setSubmitted(false);
+                setError('Error al enviar el formulario: ' + err.message);
             }
         }
     };
@@ -72,6 +74,9 @@ function Contact() {
                         <Form.Group controlId="formName">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control required type="text" name="name" placeholder="Ingresa tu nombre" />
+                            <Form.Control.Feedback type="invalid">
+                                Por favor ingresa tu nombre.
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formEmail">
                             <Form.Label>Email</Form.Label>
@@ -83,6 +88,9 @@ function Contact() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                            <Form.Control.Feedback type="invalid">
+                                Por favor ingresa un email válido.
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formMessage">
                             <Form.Label>Mensaje</Form.Label>
@@ -95,6 +103,9 @@ function Contact() {
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                             />
+                            <Form.Control.Feedback type="invalid">
+                                Por favor ingresa un mensaje.
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group controlId="formFile">
                             <Form.Label>Adjuntar Archivo</Form.Label>
