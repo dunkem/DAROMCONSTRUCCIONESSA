@@ -14,6 +14,9 @@ function Cart() {
         const phone = '5492215739000'; // Número de WhatsApp del vendedor
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
+        // Llamar a la función de seguimiento de conversión
+        gtag_report_conversion();
+
         window.open(url, '_blank');
     };
 
@@ -56,5 +59,21 @@ function Cart() {
         </Container>
     );
 }
+
+// Definición de la función de seguimiento de conversión
+window.gtag_report_conversion = function(url) {
+    var callback = function () {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    };
+    window.gtag('event', 'conversion', {
+        'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+        'value': 1.0,
+        'currency': 'ARS',
+        'event_callback': callback
+    });
+    return false;
+};
 
 export default Cart;

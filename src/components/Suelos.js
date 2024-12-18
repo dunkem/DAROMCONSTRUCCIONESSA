@@ -69,7 +69,9 @@ function Suelos() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="upload-button"
-                        onClick={trackConversion}
+                        onClick={() => {
+                            trackConversion(); // Seguimiento de conversión
+                        }}
                     >
                         <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                     </Button>

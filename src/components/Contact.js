@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, Alert, Row, Col } from 'react-bootstrap';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import { Helmet } from 'react-helmet';
 import './Contact.css';
 
 const contactInfo = {
@@ -47,11 +46,12 @@ function Contact() {
                     method: 'POST',
                     body: formData
                 });
+
                 if (response.ok) {
                     setSubmitted(true);
                     setError('');
                     event.target.reset();
-                    gtag_report_conversion(); // Llamar a la función de conversión
+                    gtag_report_conversion(); // Llamar a la función de conversión al enviar el formulario
                 } else {
                     setSubmitted(false);
                     setError('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
@@ -63,23 +63,24 @@ function Contact() {
         }
     };
 
+    const handleMapClick = () => {
+        gtag_report_conversion(); // Registrar la conversión al hacer clic en el mapa
+    };
+
+    useEffect(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-717135166');
+    }, []);
+
     return (
         <Container className="contact-container mt-5">
-            <Helmet>
-                <title>Contacto - Daromsa</title>
-                <meta name="description" content="Contáctanos para más información sobre nuestros productos y servicios." />
-                {/* Etiqueta de Google */}
-                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
-                <script>
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'AW-717135166');
-                    `}
-                </script>
-            </Helmet>
-
             <Row className="contact-row">
                 <Col md={6} className="contact-form-column">
                     <h2 className="contact-title">Contáctanos</h2>
@@ -145,6 +146,11 @@ function Contact() {
                         </Button>
                         {submitted && !error && <Alert variant="success" className="mt-3">Su mensaje ha sido enviado con éxito.</Alert>}
                         {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
+                        
+                        {/* Logo debajo del botón Enviar */}
+                        <div className="logo-container mt-3">
+                            <img src="/logodaromtransparente.png" alt="Logo Darom" className="img-fluid" />
+                        </div>
                     </Form>
                 </Col>
                 <Col md={6} className="contact-info-column">
@@ -175,6 +181,7 @@ function Contact() {
                                 style={{ border: 0 }}
                                 allowFullScreen=""
                                 loading="lazy"
+                                onClick={handleMapClick} // Agregar la función de clic aquí
                             ></iframe>
                         </div>
                     </div>
@@ -190,6 +197,7 @@ function Contact() {
                                 style={{ border: 0 }}
                                 allowFullScreen=""
                                 loading="lazy"
+                                onClick={handleMapClick} // Agregar la función de clic aquí
                             ></iframe>
                         </div>
                     </div>

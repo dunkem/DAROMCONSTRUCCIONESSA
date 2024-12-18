@@ -41,7 +41,7 @@ function Pisos() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="upload-button mt-3"
-                            onClick={trackConversion}
+                            onClick={trackConversion} // Seguimiento de conversión
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>
@@ -69,7 +69,7 @@ function Pisos() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="upload-button mt-3"
-                            onClick={trackConversion}
+                            onClick={trackConversion} // Seguimiento de conversión
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>
@@ -105,7 +105,7 @@ function Pisos() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="upload-button mt-3"
-                            onClick={trackConversion}
+                            onClick={trackConversion} // Seguimiento de conversión
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>

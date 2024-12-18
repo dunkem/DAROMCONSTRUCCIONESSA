@@ -119,24 +119,6 @@ function Hormigon() {
                         gtag('config', 'AW-717135166');
                     `}
                 </script>
-                <script>
-                    {`
-                        function gtag_report_conversion(url) {
-                            var callback = function () {
-                                if (typeof(url) != 'undefined') {
-                                    window.location = url;
-                                }
-                            };
-                            gtag('event', 'conversion', {
-                                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-                                'value': 1.0,
-                                'currency': 'ARS',
-                                'event_callback': callback
-                            });
-                            return false;
-                        }
-                    `}
-                </script>
             </Helmet>
 
             <div style={{
@@ -165,7 +147,7 @@ function Hormigon() {
                                 rel="noopener noreferrer" 
                                 className="upload-button" 
                                 aria-label="Contactar a un asesor por WhatsApp"
-                                onClick={() => gtag_report_conversion()}
+                                onClick={() => gtag_report_conversion()} // Seguimiento de conversión
                             >
                                 <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                             </Button>

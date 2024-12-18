@@ -87,30 +87,32 @@ function About() {
                 <Col>
                     <h1 className="about-title">La Empresa</h1>
                     <p className="about-paragraph">
-                        Desde el año 1978, los actuales socios de Darom SA incursionan en la actividad de la construcción, habiendo comenzado como proveedor de Hormigón Elaborado para Zona Sur. Actualmente, la empresa se ha expandido en toda la Provincia de Buenos Aires, comercializando sus productos y servicios en diversas localidades.
+                        Desde 1978, los socios actuales de Darom SA incursionan en la actividad de la construcción, comenzando como proveedores de Hormigón Elaborado para Zona Sur. Hoy, la empresa se ha expandido por toda la Provincia de Buenos Aires, comercializando sus productos y servicios en diversas localidades.
                     </p>
                     <p className="about-paragraph">
-                        Darom ha iniciado sus actividades como un emprendimiento familiar, y al día de hoy ha podido expandir su negocio trabajando en distintos proyectos (obras públicas, civiles y particulares). La empresa cuenta con una planta de elaboración de hormigón ubicada en la localidad de Bosques y, así mismo, centraliza sus operaciones en las oficinas administrativas en el partido de Hudson y La Plata.
+                        Iniciamos como un emprendimiento familiar y hemos crecido trabajando en distintos proyectos, desde obras públicas hasta civiles y particulares. Contamos con una planta de elaboración de hormigón en Bosques y oficinas administrativas en Hudson y La Plata.
                     </p>
                     <p className="about-paragraph">
-                        En Darom, nos comprometemos con la calidad, la integridad y la innovación. Creemos en la importancia de ofrecer productos y servicios de alta calidad, y mantenemos relaciones éticas y transparentes con nuestros clientes y proveedores.
+                        En Darom, nos comprometemos con la calidad, integridad e innovación. Creemos en ofrecer productos y servicios de alta calidad, manteniendo relaciones éticas y transparentes con nuestros clientes y proveedores.
                     </p>
                     <p className="about-paragraph">
-                        Nuestro equipo está compuesto por profesionales altamente capacitados y comprometidos con la excelencia. Cada miembro de Darom aporta su experiencia y dedicación para garantizar que cada proyecto se realice con los más altos estándares de calidad.
+                        Nuestro equipo está compuesto por profesionales altamente capacitados y comprometidos con la excelencia, asegurando que cada proyecto se ejecute con los más altos estándares.
                     </p>
                 </Col>
             </Row>
+
             <Row className="mt-4">
                 <Col>
                     <h2 className="about-section-title">Misión y Visión</h2>
                     <p className="about-paragraph">
-                        Elaboramos hormigón y comercializamos materiales para distintos tipos de operaciones. Nos diferenciamos en el mercado por el servicio ofrecido a nuestros clientes, brindando un soporte pre y post compra que asegurará la correcta satisfacción de sus necesidades.
+                        Elaboramos hormigón y comercializamos materiales para diversas operaciones. Nos diferenciamos en el mercado por el servicio ofrecido, brindando soporte pre y post compra para asegurar la satisfacción de nuestros clientes.
                     </p>
                     <p className="about-paragraph">
-                        Comercializar nuestros materiales y servicios para toda la República Argentina con el objetivo de ser los líderes del mercado a nivel nacional.
+                        Nuestro objetivo es comercializar nuestros materiales y servicios en toda la República Argentina, aspirando a ser líderes del mercado a nivel nacional.
                     </p>
                 </Col>
             </Row>
+
             <Row className="mt-4">
                 <Col>
                     <h2 className="about-section-title">Nuestras Obras</h2>
@@ -119,6 +121,7 @@ function About() {
                     </Carousel>
                 </Col>
             </Row>
+
             <Contact showContact={true} />
         </Container>
     );

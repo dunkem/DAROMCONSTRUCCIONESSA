@@ -98,7 +98,12 @@ function Home() {
                       <Card.Title>{item.title || item.name}</Card.Title>
                       <Card.Text>{item.description}</Card.Text>
                       <Link to={item.link}>
-                        <Button className="service-button" onClick={() => gtag_report_conversion()}>Ver Más</Button>
+                        <Button 
+                          className="service-button" 
+                          onClick={() => gtag_report_conversion()} // Seguimiento de conversión
+                        >
+                          Ver Más
+                        </Button>
                       </Link>
                     </Card.Body>
                   )}
@@ -205,7 +210,12 @@ function Home() {
                 <Card.Title className="service-title">{service.title}</Card.Title>
                 <Card.Text className="service-description">{service.description}</Card.Text>
                 <Link to={service.link}>
-                  <Button className="service-button" onClick={() => gtag_report_conversion()}>Ver Más</Button>
+                  <Button 
+                    className="service-button" 
+                    onClick={() => gtag_report_conversion()} // Seguimiento de conversión
+                  >
+                    Ver Más
+                  </Button>
                 </Link>
               </Card.Body>
             </Card>

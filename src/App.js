@@ -34,8 +34,8 @@ function App() {
             <Helmet>
                 <title>Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción</title>
                 <meta name="description" content="Daromsa ofrece hormigón elaborado, materiales de construcción y servicios de movimiento de suelos, pisos industriales, respaldados por años de experiencia y calidad." />
-                <meta name="keywords" content="hormigón, materiales de construcción, estudio de suelos, movimiento de suelos, pisos industriales, servicios de bombeo, construcción, Daromsa" />
-                <meta property="og:title" content="Daromsa - Hormigón, Materiales y Servicios de Construcción" />
+                <meta name="keywords" content="hormigón, materiales de construcción, estudio de suelos, movimiento de suelos, pisos industriales, servicios de bombeo, construcción en todo zona sur, Darom sa" />
+                <meta property="og:title" content="Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción en toda zona sur" />
                 <meta property="og:description" content="Transforma tus proyectos con Daromsa, tu proveedor confiable de hormigón elaborado, materiales de construcción y más." />
                 <meta property="og:url" content="https://daromsa.com.ar" />
                 <meta property="og:type" content="website" />

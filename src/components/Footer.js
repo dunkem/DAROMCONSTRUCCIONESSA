@@ -5,6 +5,10 @@ import { Helmet } from 'react-helmet';
 import './Footer.css'; // Opcional: si necesitas estilos personalizados
 
 const Footer = () => {
+    const handleContactClick = () => {
+        gtag_report_conversion(); // Llamar a la función de seguimiento de conversión
+    };
+
     return (
         <>
             <Helmet>
@@ -32,7 +36,7 @@ const Footer = () => {
                             <i className="fas fa-file-contract"></i> Términos de Servicio
                         </Link>
                         <span>|</span>
-                        <Link to="/contact" className="footer-link mx-2">
+                        <Link to="/contact" className="footer-link mx-2" onClick={handleContactClick}>
                             <i className="fas fa-envelope"></i> Contáctanos
                         </Link>
                     </div>
@@ -46,3 +50,19 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// Asegúrate de incluir la función global para el seguimiento de conversiones
+window.gtag_report_conversion = function(url) {
+    var callback = function () {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    };
+    window.gtag('event', 'conversion', {
+        'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+        'value': 1.0,
+        'currency': 'ARS',
+        'event_callback': callback
+    });
+    return false;
+};
