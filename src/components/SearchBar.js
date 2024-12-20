@@ -1,26 +1,21 @@
-// components/SearchBar.js
-import React, { useState } from 'react';
-import { Form, FormControl, Button } from 'react-bootstrap';
+// SearchBar.js
+import React from 'react';
+import { Form } from 'react-bootstrap';
 
-function SearchBar({ onSearch }) {
-    const [query, setQuery] = useState('');
-
-    const handleSearch = () => {
-        onSearch(query);
+const SearchBar = ({ onSearch }) => {
+    const handleChange = (event) => {
+        onSearch(event.target.value);
     };
 
     return (
-        <Form inline>
-            <FormControl
+        <Form>
+            <Form.Control
                 type="text"
-                placeholder="Buscar productos..."
-                className="mr-sm-2"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Buscar..."
+                onChange={handleChange}
             />
-            <Button variant="outline-success" onClick={handleSearch}>Buscar</Button>
         </Form>
     );
-}
+};
 
 export default SearchBar;

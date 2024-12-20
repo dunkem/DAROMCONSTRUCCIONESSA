@@ -27,7 +27,7 @@ function Cart() {
                     <h1>Carrito</h1>
                     {cart.length > 0 ? (
                         <>
-                            <Table striped bordered hover>
+                            <Table striped bordered hover responsive>
                                 <thead>
                                     <tr>
                                         <th>Producto</th>
@@ -63,7 +63,7 @@ function Cart() {
 // Definición de la función de seguimiento de conversión
 window.gtag_report_conversion = function(url) {
     var callback = function () {
-        if (typeof(url) != 'undefined') {
+        if (typeof(url) !== 'undefined') {
             window.location = url;
         }
     };

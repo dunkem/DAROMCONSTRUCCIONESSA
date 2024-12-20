@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container, Image, Button } from 'react-bootstrap';
-import { FaWhatsapp } from 'react-icons/fa'; // Importar FaWhatsapp
+import { FaWhatsapp } from 'react-icons/fa';
 import './Pisos.css';
 import Contact from './Contact';
 
@@ -26,6 +26,7 @@ function Pisos() {
                         alt="Hormigón llaneado" 
                         fluid 
                         className="pisos-image-left"
+                        loading="lazy" // Carga diferida
                     />
                     <div className="pisos-text">
                         <h2>HORMIGÓN LLANEADO</h2>
@@ -41,7 +42,7 @@ function Pisos() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="upload-button mt-3"
-                            onClick={trackConversion} // Seguimiento de conversión
+                            onClick={trackConversion}
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>
@@ -54,6 +55,7 @@ function Pisos() {
                         alt="Proceso de llaneado" 
                         fluid 
                         className="pisos-image-right"
+                        loading="lazy" // Carga diferida
                     />
                     <div className="pisos-text">
                         <h2>TRAYECTORIA Y EXPERIENCIA</h2>
@@ -69,7 +71,7 @@ function Pisos() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="upload-button mt-3"
-                            onClick={trackConversion} // Seguimiento de conversión
+                            onClick={trackConversion}
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>
@@ -82,6 +84,7 @@ function Pisos() {
                         alt="Innovación y Calidad" 
                         fluid 
                         className="pisos-image-right"
+                        loading="lazy" // Carga diferida
                     />
                     <div className="pisos-text">
                         <h2>INNOVACIÓN Y CALIDAD</h2>
@@ -105,7 +108,7 @@ function Pisos() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="upload-button mt-3"
-                            onClick={trackConversion} // Seguimiento de conversión
+                            onClick={trackConversion}
                         >
                             <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                         </Button>

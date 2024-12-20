@@ -25,21 +25,24 @@ function App() {
 
     const trackWhatsAppClick = () => {
         window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
+            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC'
         });
     };
 
     return (
         <CartProvider>
             <Helmet>
-                <title>Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción</title>
+                <title>Daromsa - Hormigón Elaborado, Materiales y Servicios de Construcción</title>
                 <meta name="description" content="Daromsa ofrece hormigón elaborado, materiales de construcción y servicios de movimiento de suelos, pisos industriales, respaldados por años de experiencia y calidad." />
-                <meta name="keywords" content="hormigón, materiales de construcción, estudio de suelos, movimiento de suelos, pisos industriales, servicios de bombeo, construcción en todo zona sur, Darom sa" />
-                <meta property="og:title" content="Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción en toda zona sur" />
+                <meta name="keywords" content="hormigón, materiales de construcción, estudio de suelos, movimiento de suelos, pisos industriales, servicios de bombeo, construcción en zona sur, Darom sa" />
+                <meta name="author" content="Darom SA" />
+                <meta name="robots" content="index, follow" />
+                <meta property="og:title" content="Daromsa - Hormigón Elaborado, Materiales y Servicios de Construcción" />
                 <meta property="og:description" content="Transforma tus proyectos con Daromsa, tu proveedor confiable de hormigón elaborado, materiales de construcción y más." />
                 <meta property="og:url" content="https://daromsa.com.ar" />
                 <meta property="og:type" content="website" />
                 <meta property="og:image" content="https://daromsa.com.ar/portada.jpg" />
+                <meta property="og:image:alt" content="Daromsa - Hormigón Elaborado" />
             </Helmet>
 
             <Container fluid>
@@ -47,7 +50,7 @@ function App() {
                     <Container fluid className="d-flex justify-content-between align-items-center">
                         <div className="d-flex align-items-center">
                             <Navbar.Brand as={Link} to="/" className="me-2">
-                                <img src="/ultimologodarom.png" alt="Darom SA" className="img-fluid" style={{ height: 50 }} />
+                                <img src="/ultimologodarom.png" alt="Darom SA" className="img-fluid" style={{ height: 50 }} loading="lazy" />
                             </Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
                         </div>
@@ -64,7 +67,7 @@ function App() {
                                     <Nav.Link href="https://www.facebook.com/DAROMSRL/?locale=es_LA" target="_blank" rel="noopener noreferrer" className="mx-1">
                                         <FaFacebook size={25} />
                                     </Nav.Link>
-                                    <Nav.Link href="https://www.instagram.com/daromsrl/?hl=es-la" target="_blank" rel="noopener noreferrer" className="mx-1">
+                                    <Nav.Link href="https://www.instagram.com/daromsa/?hl=es-la" target="_blank" rel="noopener noreferrer" className="mx-1">
                                         <FaInstagram size={25} />
                                     </Nav.Link>
                                     <Nav.Link href="https://www.youtube.com/watch?v=--7y8f63ZPk" target="_blank" rel="noopener noreferrer" className="mx-1">

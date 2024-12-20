@@ -54,7 +54,7 @@ export default Footer;
 // Asegúrate de incluir la función global para el seguimiento de conversiones
 window.gtag_report_conversion = function(url) {
     var callback = function () {
-        if (typeof(url) != 'undefined') {
+        if (typeof(url) !== 'undefined') {
             window.location = url;
         }
     };

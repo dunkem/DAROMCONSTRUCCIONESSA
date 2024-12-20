@@ -13,7 +13,7 @@ function Hormigon() {
     const benefits = [
         { src: '/elegirnoslaboratorio.png', title: 'LABORATORIO EN OBRA', description: 'Disponemos de un laboratorio de hormigones equipado, con asistencia técnica y controles de calidad realizados por profesionales experimentados, ofreciendo atención personalizada.' },
         { src: '/elegirnosticket.png', title: 'TICKET DE PESADA', description: 'Realizamos el peso de los camiones hormigoneros en planta, donde el cliente recibirá un comprobante con el peso de la carga correspondiente.' },
-        { src: '/elegirnoscargaprecintada.png', title: 'CARGA PRECINTADA', description: 'La carga de hormigón será pesada y precintada con el objetivo de evitar adulteraciones y entregar la cantidad exacta de hormigón solicitada por el cliente.' },
+        { src: '/elegirnoscargaprecintada.png', title: 'CARGA PRECINTADA', description: 'La carga de hormigón será pesada y precintada para evitar adulteraciones, asegurando la cantidad exacta solicitada.' },
         { src: '/elegirnosseguimiento.png', title: 'RASTREO SATELITAL', description: 'La carga puede ser controlada minuto a minuto con seguimiento satelital desde dispositivos móviles, desde la planta hasta pie de obra.' },
     ];
 
@@ -79,6 +79,7 @@ function Hormigon() {
                                         src={item.src} 
                                         alt={item.alt} 
                                         className="supplier-logo" 
+                                        loading="lazy" // Carga diferida para optimizar rendimiento
                                     />
                                 </Card>
                             </Col>
@@ -92,7 +93,7 @@ function Hormigon() {
 
     const gtag_report_conversion = (url) => {
         const callback = function () {
-            if (typeof(url) != 'undefined') {
+            if (typeof(url) !== 'undefined') {
                 window.location = url;
             }
         };
@@ -109,7 +110,9 @@ function Hormigon() {
         <section className="hormigon" aria-labelledby="hormigon-heading">
             <Helmet>
                 <title>Hormigón Elaborado - Daromsa</title>
-                <meta name="description" content="Ofrecemos hormigón elaborado de alta calidad y servicios de bombeo." />
+                <meta name="description" content="Ofrecemos hormigón elaborado de alta calidad y servicios de bombeo. Contacto rápido por WhatsApp." />
+                <meta name="keywords" content="hormigón, construcción, bombeo, calidad, servicio" />
+                <link rel="canonical" href="https://tusitio.com/hormigon" /> {/* Cambia la URL a tu dominio */}
                 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
                 <script>
                     {`
@@ -185,7 +188,6 @@ function Hormigon() {
                 </Container>
             </div>
 
-            {/* Resto del contenido aquí */}
             <Container className="mt-4">
                 {/* Beneficios Section */}
                 <Row className="text-center mb-4">
@@ -198,7 +200,7 @@ function Hormigon() {
                     {benefits.map((benefit, index) => (
                         <Col md={3} sm={6} key={index} className="mb-4">
                             <div className="benefit-container text-center">
-                                <img src={benefit.src} alt={benefit.title} className="benefit-logo-large" />
+                                <img src={benefit.src} alt={benefit.title} className="benefit-logo-large" loading="lazy" />
                                 <h4 className="font-weight-bold">{benefit.title}</h4>
                                 <p>{benefit.description}</p>
                             </div>
@@ -206,7 +208,7 @@ function Hormigon() {
                     ))}
                 </Row>
 
-                {/* Sección bombas */}
+                {/* Sección Bombas */}
                 <Row className="text-center mb-4">
                     <Col>
                         <h2 className="section-htitle other-title">FLOTA DE BOMBAS</h2>
@@ -220,6 +222,7 @@ function Hormigon() {
                             alt="Bomba Arrastre" 
                             fluid 
                             className="full-width-image" 
+                            loading="lazy" 
                         />
                         <p>
                             <strong>6 BOMBAS ESTACIONARIAS - CIFA - SP 750</strong>: capacidades de bombeo de entre 50 y 100 m³/h. Ideal para aplicaciones en terrenos difíciles.
@@ -235,6 +238,7 @@ function Hormigon() {
                             alt="Bomba Pluma" 
                             fluid 
                             className="full-width-image" 
+                            loading="lazy" 
                         />
                         <p>
                             <strong>3 BOMBAS PLUMA - SX36/32</strong>: Eficiente en espacios reducidos.

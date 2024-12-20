@@ -6,7 +6,7 @@ import Contact from './Contact';
 
 function Suelos() {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0); // Desplazar a la parte superior de la página
     }, []);
     
     const estudios = [
@@ -40,6 +40,7 @@ function Suelos() {
                                     className="d-block w-100 suelos-carousel-image"
                                     src={src}
                                     alt={`Imagen ${i + index + 1}`}
+                                    loading="lazy" // Carga diferida para mejorar la carga
                                 />
                             </Col>
                         ))}
@@ -69,9 +70,7 @@ function Suelos() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="upload-button"
-                        onClick={() => {
-                            trackConversion(); // Seguimiento de conversión
-                        }}
+                        onClick={trackConversion}
                     >
                         <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                     </Button>

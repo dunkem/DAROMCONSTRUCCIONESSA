@@ -2,18 +2,23 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Card, ButtonGroup } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
 import { FaWhatsapp } from 'react-icons/fa';
+import SearchBar from './SearchBar';
 import './Materiales.css';
 import Contact from './Contact';
 
 function Materiales() {
+    const { addToCart } = useContext(CartContext);
+    const [selectedSubrubro, setSelectedSubrubro] = useState(localStorage.getItem('selectedSubrubro') || 'hidrofugos');
+    const [visibleProducts, setVisibleProducts] = useState(8);
+    const [searchQuery, setSearchQuery] = useState('');
+
     useEffect(() => {
-        window.scrollTo(0, 0); // Desplazar a la parte superior de la página
+        window.scrollTo(0, 0);
     }, []);
 
-    const { addToCart } = useContext(CartContext);
-    const [selectedSubrubro, setSelectedSubrubro] = useState('hidrofugos');
-    const [visibleProducts, setVisibleProducts] = useState(8); // Cantidad inicial de productos visibles
-
+    useEffect(() => {
+        localStorage.setItem('selectedSubrubro', selectedSubrubro);
+    }, [selectedSubrubro]);
 
     const materiales = {
         hidrofugos: [
@@ -140,22 +145,33 @@ function Materiales() {
       
       const handleSubrubroSelect = (subrubro) => {
         setSelectedSubrubro(subrubro);
-        setVisibleProducts(8); // Reinicia la cantidad de productos visibles al cambiar de subrubro
+        setVisibleProducts(8);
+        setSearchQuery(''); // Reinicia la búsqueda al cambiar de rubro
     };
 
     const handleLoadMore = () => {
-        setVisibleProducts((prev) => prev + 8); // Incrementa la cantidad visible en lotes de 8
+        setVisibleProducts((prev) => prev + 8);
     };
+
+    const normalizeString = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+    const handleSearch = (query) => {
+        setSearchQuery(query);
+        setVisibleProducts(8); // Reinicia la cantidad de productos visibles al buscar
+    };
+
+    const filteredProducts = materiales[selectedSubrubro].filter(material =>
+        normalizeString(material.name).includes(normalizeString(searchQuery.trim()))
+    );
 
     const trackConversion = () => {
         window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
+            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC'
         });
     };
 
     return (
         <Container className="mt-4 materiales-container">
-            {/* Botón "Contáctate con un Asesor" */}
             <div className="adjunta-lista-container">
                 <Button 
                     as="a" 
@@ -171,7 +187,8 @@ function Materiales() {
                 <p className="lead text-black">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
             </div>
 
-            {/* Lista de productos */}
+            <SearchBar onSearch={handleSearch} />
+
             <Row>
                 <Col md={3} className="sidebar">
                     <h2 className="text-uppercase text-danger">Productos</h2>
@@ -189,11 +206,11 @@ function Materiales() {
                     </ButtonGroup>
                 </Col>
                 <Col md={9}>
-                    <h1 className="display-4 font-weight-bold text-uppercase materiales-title">Materiales de Corralón</h1>
+                    <h1 className="display-4 font-weight-bold text-uppercase materiales-title">MATERIALES DE CORRALÓN</h1>
                     <p className="lead text-black">Encuentra los mejores materiales para tus proyectos de construcción, todos de calidad garantizada.</p>
 
                     <Row className="d-flex justify-content-center">
-                        {materiales[selectedSubrubro].slice(0, visibleProducts).map((material) => (
+                        {filteredProducts.slice(0, visibleProducts).map((material) => (
                             <Col
                                 xs={12}
                                 sm={6}
@@ -203,7 +220,7 @@ function Materiales() {
                                 className="mb-4 d-flex align-items-stretch"
                             >
                                 <Card className="material-card">
-                                    <Card.Img variant="top" src={material.img} alt={material.name} />
+                                    <Card.Img variant="top" src={material.img} alt={`Imagen de ${material.name}`} loading="lazy" />
                                     <Card.Body>
                                         <Card.Title className="text-center text-uppercase text-danger">{material.name}</Card.Title>
                                         <Button
@@ -211,7 +228,7 @@ function Materiales() {
                                             size="sm"
                                             onClick={() => {
                                                 addToCart(material);
-                                                trackConversion(); // Rastrear conversión al agregar al carrito
+                                                trackConversion();
                                             }}
                                             className="w-100"
                                         >
@@ -223,7 +240,7 @@ function Materiales() {
                         ))}
                     </Row>
 
-                    {visibleProducts < materiales[selectedSubrubro].length && (
+                    {visibleProducts < filteredProducts.length && (
                         <div className="text-center mt-4">
                             <Button variant="outline-danger" onClick={handleLoadMore}>
                                 Cargar más

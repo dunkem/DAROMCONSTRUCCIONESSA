@@ -44,13 +44,13 @@ function Home() {
 
   // Productos destacados
   const featuredProducts = [
-    { src: '/mathidrofugosika20l.jpg', name: 'Hidrofugo Sika 20 lts', link: '/products/hidrofugo-sika-200' },
-    { src: '/matlad12.jpg', name: 'Ladrillo 12x12x18', link: '/products/ladrillo-comun' },
-    { src: '/matbolsonarena.jpg', name: 'Arena en Bolsón', link: '/products/arena-gruesa' },
-    { src: '/matcementoloma50kg.jpg', name: 'Cemento Loma Negra 50kg', link: '/products/cemento-portland' },
-    { src: '/matcalcaciquemax30kg.jpg', name: 'Cal Hidratada x 30kg', link: '/products/cal-hidratada' },
-    { src: '/matvarillashierro.png', name: 'Hierro de Construcción', link: '/products/hierro-construccion' },
-    { src: '/matpiedra620.jpg', name: 'Piedra en Bolsón', link: '/products/piedra-bolson' }
+    { src: '/mathidrofugosika20l.jpg', name: 'Hidrofugo Sika 20 lts', link: '/services/materiales' },
+    { src: '/matlad12.jpg', name: 'Ladrillo 12x12x18', link: '/services/materiales' },
+    { src: '/matbolsonarena.jpg', name: 'Arena en Bolsón', link: '/services/materiales' },
+    { src: '/matcementoloma50kg.jpg', name: 'Cemento Loma Negra 50kg', link: '/services/materiales' },
+    { src: '/matcalcaciquemax30kg.jpg', name: 'Cal Hidratada x 30kg', link: '/services/materiales' },
+    { src: '/matvarillashierro.png', name: 'Hierro de Construcción', link: '/services/materiales' },
+    { src: '/matpiedra620.jpg', name: 'Piedra en Bolsón', link: '/services/materiales' }
   ];
 
   // Proveedores
@@ -92,11 +92,10 @@ function Home() {
             {items.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((item, idx) => (
               <Col md={isSupplier ? 2 : 3} sm={6} key={idx} className="mb-2">
                 <Card className={isSupplier ? "supplier-card text-center" : "product-card text-center"} style={{ width: '100%' }}>
-                  <Card.Img variant="top" src={item.src} alt={item.alt} className={isSupplier ? "supplier-logo" : "product-img"} />
+                  <Card.Img variant="top" src={item.src} alt={item.alt || item.name} className={isSupplier ? "supplier-logo" : "product-img"} loading="lazy" />
                   {!isSupplier && (
                     <Card.Body>
-                      <Card.Title>{item.title || item.name}</Card.Title>
-                      <Card.Text>{item.description}</Card.Text>
+                      <Card.Title>{item.name}</Card.Title>
                       <Link to={item.link}>
                         <Button 
                           className="service-button" 
@@ -128,6 +127,7 @@ function Home() {
         <meta property="og:url" content="https://daromsa.com.ar" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://daromsa.com.ar/portada.webp" />
+        <meta property="og:image:alt" content="Daromsa - Hormigón Elaborado" />
 
         {/* Google Ads Tag */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
@@ -154,7 +154,7 @@ function Home() {
           </div>
         </Col>
         <Col md={4} className="d-flex align-items-center justify-content-end">
-          <img src="/logolomanegra.png" alt="Logo Loma Negra" className="logo-hero" />
+          <img src="/logolomanegra.png" alt="Logo Loma Negra" className="logo-hero" loading="lazy" />
         </Col>
       </Row>
 
@@ -198,11 +198,11 @@ function Home() {
           <Col md={3} sm={6} key={index} className="mb-4 d-flex align-items-stretch">
             <Card className="service-card">
               <div className="service-image-container">
-                <Card.Img variant="top" src={service.src} className="service-img" style={{ height: '300px' }} />
+                <Card.Img variant="top" src={service.src} alt={service.title} className="service-img" style={{ height: '300px' }} loading="lazy" />
                 {service.backup && (
                   <div className="backup-info">
                     <p>{service.backup.text}</p>
-                    <img src={service.backup.logo} alt="Logo" className="backup-logo" />
+                    <img src={service.backup.logo} alt="Logo" className="backup-logo" loading="lazy" />
                   </div>
                 )}
               </div>
@@ -264,7 +264,7 @@ function Home() {
       <Row className="mb-4 align-items-center" style={{ backgroundColor: '#e9ecef', padding: '10px 0' }}>
         <Col md={{ span: 8, offset: 2 }} className="d-flex flex-column flex-md-row align-items-center">
           <Col md={4} className="d-flex justify-content-center mb-3 mb-md-0">
-            <Image src="/ZONAS3.png" alt="Zonas de Entrega" fluid className="delivery-area-image" />
+            <Image src="/ZONAS3.png" alt="Zonas de Entrega" fluid className="delivery-area-image" loading="lazy" />
           </Col>
           <Col md={8} className="text-center text-md-left">
             <h2 className="section-title">ÁREA DE ENTREGAS</h2>
