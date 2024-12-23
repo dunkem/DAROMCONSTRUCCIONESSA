@@ -141,26 +141,24 @@ function Hormigon() {
                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 }}></div>
                 <Container className="mt-4" style={{ position: 'relative', zIndex: 1 }}>
-                    <Row>
-                        <Col xs={12} md={6} className="text-right">
+                    <Row className="text-center">
+                        <Col xs={12}>
+                            <h1 id="hormigon-heading" className="display-4 font-weight-bold title-highlight">HORMIGÓN ELABORADO Y SERVICIO DE BOMBEO</h1>
+                            <p className="lead text-highlight">
+                                <strong>La Solución Perfecta</strong> para tus Proyectos de Construcción. Estamos capacitados para producir una amplia variedad de mezclas de hormigón que se adaptan a las distintas necesidades y proyectos de nuestros clientes.
+                            </p>
                             <Button 
                                 as="a" 
                                 href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="upload-button" 
+                                className="upload-button my-4" 
                                 aria-label="Contactar a un asesor por WhatsApp"
                                 onClick={() => gtag_report_conversion()} // Seguimiento de conversión
                             >
                                 <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                             </Button>
                             <p className="lead text-highlight">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
-                        </Col>
-                        <Col xs={12} md={6} className="text-center">
-                            <h1 id="hormigon-heading" className="display-4 font-weight-bold title-highlight">HORMIGÓN ELABORADO Y SERVICIO DE BOMBEO</h1>
-                            <p className="lead text-highlight">
-                                <strong>La Solución Perfecta</strong> para tus Proyectos de Construcción. Estamos capacitados para producir una amplia variedad de mezclas de hormigón que se adaptan a las distintas necesidades y proyectos de nuestros clientes. Además, ofrecemos una gran variedad de beneficios en todas las etapas de construcción.
-                            </p>
                         </Col>
                     </Row>
 

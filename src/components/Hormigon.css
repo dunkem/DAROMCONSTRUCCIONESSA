@@ -49,15 +49,6 @@ body.hormigon {
     }
 }
 
-@keyframes lineExpand {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
 .mt-4 {
     margin-top: 4rem !important;
 }
@@ -71,9 +62,10 @@ body.hormigon {
     border-radius: 5px;
     display: flex;
     align-items: center;
+    justify-content: center; /* Centrar contenido del botón */
     font-weight: 500;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-bottom: 20px;
+    margin: 20px auto; /* Centrar el botón */
     width: fit-content;
     animation: fadeInUp 0.5s ease both;
 }
@@ -256,6 +248,7 @@ body.hormigon {
         width: 100%;
         padding: 12px; /* Ajustar padding para móviles */
         font-size: 1rem; /* Ajustar tamaño de fuente */
+        margin: 20px 0; /* Asegurar margen vertical */
     }
 
     .title-highlight {
@@ -295,6 +288,7 @@ body.hormigon {
         font-size: 0.9rem; /* Ajustar tamaño de fuente para móviles */
     }
 }
+
 .hormigon {
     position: relative; /* Asegura un contexto de apilamiento correcto */
     z-index: 1; /* Asegura que esté debajo del botón de WhatsApp */
