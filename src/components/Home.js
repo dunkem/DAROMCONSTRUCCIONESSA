@@ -119,7 +119,7 @@ function Home() {
   return (
     <Container fluid className="main-container">
       <Helmet>
-        <title>Daromsa - Inicio</title>
+        <title>Darom SA</title>
         <meta name="description" content="Daromsa, tu fuente confiable de hormigón elaborado, materiales de construcción y más." />
         <meta name="keywords" content="hormigón, materiales de construcción, suelos, pisos industriales" />
         <meta property="og:title" content="Daromsa - Inicio" />

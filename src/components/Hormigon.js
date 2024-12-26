@@ -109,10 +109,10 @@ function Hormigon() {
     return (
         <section className="hormigon" aria-labelledby="hormigon-heading">
             <Helmet>
-                <title>Hormigón Elaborado - Daromsa</title>
+                <title>Hormigón Elaborado - Darom SA</title>
                 <meta name="description" content="Ofrecemos hormigón elaborado de alta calidad y servicios de bombeo. Contacto rápido por WhatsApp." />
                 <meta name="keywords" content="hormigón, construcción, bombeo, calidad, servicio" />
-                <link rel="canonical" href="https://tusitio.com/hormigon" /> {/* Cambia la URL a tu dominio */}
+                <link rel="canonical" href="https://daromsa.com.ar/hormigon" /> {/* Cambia la URL a tu dominio */}
                 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
                 <script>
                     {`
@@ -244,6 +244,7 @@ function Hormigon() {
                             <strong>Longitud de Pluma:</strong> Aproximadamente 36 metros. 
                             <br />
                             <strong>Capacidad de Bombeo:</strong> Hasta 130 m³/h, dependiendo del modelo y condiciones de operación.
+                            <br />
                             <strong>Aplicaciones:</strong> Construcción de edificios comerciales e industriales. Proyectos de infraestructura como presas y carreteras.
                         </p>
                     </Col>

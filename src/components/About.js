@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'; // Importa Helmet
 import './About.css';
 import Contact from './Contact';
 
@@ -50,7 +50,7 @@ function About() {
     return (
         <Container className="about-container mt-4">
             <Helmet>
-                <title>Daromsa - Hormigón elaborado, Materiales y Servicios de Construcción</title>
+                <title>Empresa - Darom SA</title> {/* Establece el nuevo título aquí */}
                 <meta name="description" content="Daromsa ofrece hormigón elaborado, materiales de construcción y servicios." />
                 <meta name="keywords" content="hormigón, materiales, construcción, Daromsa" />
             </Helmet>

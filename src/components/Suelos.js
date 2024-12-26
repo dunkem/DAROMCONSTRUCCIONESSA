@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Row, Col, Button, Carousel } from 'react-bootstrap';
 import { FaWhatsapp } from 'react-icons/fa';
+import { Helmet } from 'react-helmet'; // Importa Helmet
 import './Suelos.css';
 import Contact from './Contact';
 
@@ -59,6 +60,13 @@ function Suelos() {
 
     return (
         <Container className="mt-4 suelos-container">
+            <Helmet>
+                <title>Estudio y Movimiento de Suelos - Darom SA</title> {/* Establece el título aquí */}
+                <meta name="description" content="Ofrecemos estudios detallados de suelos y movimientos de tierras para tus proyectos de construcción." />
+                <meta name="keywords" content="estudio de suelos, movimientos de suelos, construcción" />
+                <link rel="canonical" href="https://daromsa.com.ar/suelos" />
+            </Helmet>
+
             <Row className="suelos-header">
                 <Col md={6} className="suelos-header-left">
                     <h1 className="suelos-title">Estudio de Suelos</h1>

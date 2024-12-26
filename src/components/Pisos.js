@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Image, Button } from 'react-bootstrap';
 import { FaWhatsapp } from 'react-icons/fa';
+import { Helmet } from 'react-helmet'; // Importa Helmet
 import './Pisos.css';
 import Contact from './Contact';
 
@@ -17,6 +18,10 @@ function Pisos() {
 
     return (
         <Container className="mt-4 position-relative">
+            <Helmet>
+                <title>Pisos Industriales - Darom SA</title> {/* Establece el título de la pestaña */}
+            </Helmet>
+
             <div className="pisos-materiales-container-custom">
                 <h1 className="display-4 pisos-title-custom">PISOS INDUSTRIALES DE HORMIGÓN ELABORADO</h1>
 

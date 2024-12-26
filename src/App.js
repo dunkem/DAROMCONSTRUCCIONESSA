@@ -50,7 +50,7 @@ function App() {
                     <Container fluid className="d-flex justify-content-between align-items-center">
                         <div className="d-flex align-items-center">
                             <Navbar.Brand as={Link} to="/" className="me-2">
-                                <img src="/ultimologodarom.png" alt="Darom SA" className="img-fluid" style={{ height: 50 }} loading="lazy" />
+                                <img src="/ultimologodarom.png" alt="Logo de Darom SA" className="img-fluid" style={{ height: 50 }} loading="lazy" />
                             </Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
                         </div>

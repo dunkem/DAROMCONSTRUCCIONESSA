@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Card, ButtonGroup } from 'react-bootstrap'
 import { CartContext } from '../contexts/CartContext';
 import { FaWhatsapp } from 'react-icons/fa';
 import SearchBar from './SearchBar';
+import { Helmet } from 'react-helmet'; // Importa Helmet
 import './Materiales.css';
 import Contact from './Contact';
 
@@ -12,10 +13,12 @@ function Materiales() {
     const [visibleProducts, setVisibleProducts] = useState(8);
     const [searchQuery, setSearchQuery] = useState('');
 
+    // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    // Save selected subrubro to local storage
     useEffect(() => {
         localStorage.setItem('selectedSubrubro', selectedSubrubro);
     }, [selectedSubrubro]);
@@ -146,18 +149,19 @@ function Materiales() {
       const handleSubrubroSelect = (subrubro) => {
         setSelectedSubrubro(subrubro);
         setVisibleProducts(8);
-        setSearchQuery(''); // Reinicia la búsqueda al cambiar de rubro
+        setSearchQuery('');
     };
 
     const handleLoadMore = () => {
         setVisibleProducts((prev) => prev + 8);
     };
 
-    const normalizeString = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const normalizeString = (str) => 
+        str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     const handleSearch = (query) => {
         setSearchQuery(query);
-        setVisibleProducts(8); // Reinicia la cantidad de productos visibles al buscar
+        setVisibleProducts(8); // Reiniciar productos visibles al buscar
     };
 
     const filteredProducts = materiales[selectedSubrubro].filter(material =>
@@ -172,6 +176,13 @@ function Materiales() {
 
     return (
         <Container className="mt-4 materiales-container">
+            <Helmet>
+                <title>Materiales - Darom SA</title> {/* Establece el título aquí */}
+                <meta name="description" content="Encuentra los mejores materiales para tus proyectos de construcción." />
+                <meta name="keywords" content="materiales, construcción, hidrofugos, ladrillos, áridos" />
+                <link rel="canonical" href="https://daromsa.com.ar/materiales" />
+            </Helmet>
+
             <div className="adjunta-lista-container">
                 <Button 
                     as="a" 
@@ -211,14 +222,7 @@ function Materiales() {
 
                     <Row className="d-flex justify-content-center">
                         {filteredProducts.slice(0, visibleProducts).map((material) => (
-                            <Col
-                                xs={12}
-                                sm={6}
-                                md={4}
-                                lg={3}
-                                key={material.id}
-                                className="mb-4 d-flex align-items-stretch"
-                            >
+                            <Col xs={12} sm={6} md={4} lg={3} key={material.id} className="mb-4 d-flex align-items-stretch">
                                 <Card className="material-card">
                                     <Card.Img variant="top" src={material.img} alt={`Imagen de ${material.name}`} loading="lazy" />
                                     <Card.Body>
