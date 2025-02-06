@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Card, ButtonGroup } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card, ButtonGroup, Carousel } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
 import { FaWhatsapp } from 'react-icons/fa';
 import SearchBar from './SearchBar';
-import { Helmet } from 'react-helmet'; // Importa Helmet
+import { Helmet } from 'react-helmet';
 import './Materiales.css';
 import Contact from './Contact';
 
@@ -174,10 +174,48 @@ function Materiales() {
         });
     };
 
+    // Proveedores
+    const suppliers = [
+        { src: '/logolomanegra.png', alt: 'Loma Negra' },
+        { src: '/LOGOMAPEI.png', alt: 'Mapei' },
+        { src: '/LOGOSIKA.png', alt: 'Sika' },
+        { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
+        { src: '/logoweber.png', alt: 'Weber' },
+        { src: '/logoctibor.png', alt: 'Ctibor' },
+        { src: '/logofanelli.png', alt: 'Fanelli' },
+        { src: '/LOGOBLINKI.png', alt: 'Blinki' },
+      ];
+
+    // Renderiza los elementos del carrusel
+      const renderCarouselItems = (items, isSupplier = false) => {
+        const itemsPerSlide = 4; // 4 elementos por diapositiva
+        const slides = [];
+        for (let i = 0; i < Math.ceil(items.length / itemsPerSlide); i++) {
+          slides.push(
+            <Carousel.Item key={i}>
+              <Row className="justify-content-center">
+                {items.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((item, idx) => (
+                  <Col md={isSupplier ? 2 : 3} sm={6} key={idx} className="mb-2">
+                    {isSupplier ? (
+                      <Card className="supplier-card text-center">
+                        <Card.Img variant="top" src={item.src} alt={item.alt} className="supplier-logo" loading="lazy" />
+                      </Card>
+                    ) : (
+                      <ProductCard product={item} />
+                    )}
+                  </Col>
+                ))}
+              </Row>
+            </Carousel.Item>
+          );
+        }
+        return slides;
+      };
+
     return (
         <Container className="mt-4 materiales-container">
             <Helmet>
-                <title>Materiales - Darom SA</title> {/* Establece el título aquí */}
+                <title>Materiales - Darom SA</title>
                 <meta name="description" content="Encuentra los mejores materiales para tus proyectos de construcción." />
                 <meta name="keywords" content="materiales, construcción, hidrofugos, ladrillos, áridos" />
                 <link rel="canonical" href="https://daromsa.com.ar/materiales" />
@@ -211,7 +249,7 @@ function Materiales() {
                                 onClick={() => handleSubrubroSelect(subrubro)}
                                 className="mb-2 text-uppercase"
                             >
-                                {subrubro}
+                                {subrubro.replace(/([A-Z])/g, ' $1').trim()} {/* Espaciado entre palabras */}
                             </Button>
                         ))}
                     </ButtonGroup>
@@ -253,6 +291,17 @@ function Materiales() {
                     )}
                 </Col>
             </Row>
+
+            {/* Sección logos proveedores */}
+                  <Row className="text-center mb-4">
+                    <Col>
+                      <h2 className="section-title">NUESTROS PROVEEDORES</h2>
+                      <div className="line-divider"></div>
+                    </Col>
+                  </Row>
+                  <Carousel className="mb-4">
+                    {renderCarouselItems(suppliers, true)}
+                  </Carousel>
 
             <Contact showContact={true} />
         </Container>

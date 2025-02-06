@@ -40,70 +40,53 @@ function Hormigon() {
 
     const renderHormigonCarouselItems = () => {
         const itemsPerSlide = 2; // Muestra 2 tipos de hormigón por slide
-        const slides = [];
-
-        for (let i = 0; i < Math.ceil(hormigonTypes.length / itemsPerSlide); i++) {
-            slides.push(
-                <Carousel.Item key={i}>
-                    <Row className="justify-content-center">
-                        {hormigonTypes.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((type, idx) => (
-                            <Col xs={12} md={10} className="text-center" key={idx}>
-                                <Card className="hormigon-card">
-                                    <Card.Body>
-                                        <Card.Title className="font-weight-bold other-title">{type.title}</Card.Title>
-                                        <Card.Text>{type.text}</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
-                </Carousel.Item>
-            );
-        }
-        return slides;
+        return Array.from({ length: Math.ceil(hormigonTypes.length / itemsPerSlide) }, (_, i) => (
+            <Carousel.Item key={i}>
+                <Row className="justify-content-center">
+                    {hormigonTypes.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((type, idx) => (
+                        <Col xs={12} md={10} className="text-center" key={idx}>
+                            <Card className="hormigon-card">
+                                <Card.Body>
+                                    <Card.Title className="font-weight-bold other-title">{type.title}</Card.Title>
+                                    <Card.Text>{type.text}</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+            </Carousel.Item>
+        ));
     };
 
     const renderCarouselItems = (items) => {
         const itemsPerSlide = 4; // Número de elementos por carrusel
-        const slides = [];
-
-        for (let i = 0; i < Math.ceil(items.length / itemsPerSlide); i++) {
-            slides.push(
-                <Carousel.Item key={i}>
-                    <Row className="justify-content-center">
-                        {items.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((item, idx) => (
-                            <Col md={3} sm={6} key={idx} className="mb-4">
-                                <Card className="supplier-card text-center">
-                                    <Card.Img 
-                                        variant="top" 
-                                        src={item.src} 
-                                        alt={item.alt} 
-                                        className="supplier-logo" 
-                                        loading="lazy" // Carga diferida para optimizar rendimiento
-                                    />
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
-                </Carousel.Item>
-            );
-        }
-        return slides;
+        return Array.from({ length: Math.ceil(items.length / itemsPerSlide) }, (_, i) => (
+            <Carousel.Item key={i}>
+                <Row className="justify-content-center">
+                    {items.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((item, idx) => (
+                        <Col md={3} sm={6} key={idx} className="mb-4">
+                            <Card className="supplier-card text-center">
+                                <Card.Img 
+                                    variant="top" 
+                                    src={item.src} 
+                                    alt={item.alt} 
+                                    className="supplier-logo" 
+                                    loading="lazy" // Carga diferida para optimizar rendimiento
+                                />
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+            </Carousel.Item>
+        ));
     };
 
-    const gtag_report_conversion = (url) => {
-        const callback = function () {
-            if (typeof(url) !== 'undefined') {
-                window.location = url;
-            }
-        };
+    const gtag_report_conversion = () => {
         window.gtag('event', 'conversion', {
             'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
             'value': 1.0,
             'currency': 'ARS',
-            'event_callback': callback
         });
-        return false;
     };
 
     return (
@@ -113,15 +96,6 @@ function Hormigon() {
                 <meta name="description" content="Ofrecemos hormigón elaborado de alta calidad y servicios de bombeo. Contacto rápido por WhatsApp." />
                 <meta name="keywords" content="hormigón, construcción, bombeo, calidad, servicio" />
                 <link rel="canonical" href="https://daromsa.com.ar/hormigon" /> {/* Cambia la URL a tu dominio */}
-                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
-                <script>
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'AW-717135166');
-                    `}
-                </script>
             </Helmet>
 
             <div style={{
@@ -147,18 +121,6 @@ function Hormigon() {
                             <p className="lead text-highlight">
                                 <strong>La Solución Perfecta</strong> para tus Proyectos de Construcción. Estamos capacitados para producir una amplia variedad de mezclas de hormigón que se adaptan a las distintas necesidades y proyectos de nuestros clientes.
                             </p>
-                            <Button 
-                                as="a" 
-                                href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="upload-button my-4" 
-                                aria-label="Contactar a un asesor por WhatsApp"
-                                onClick={() => gtag_report_conversion()} // Seguimiento de conversión
-                            >
-                                <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
-                            </Button>
-                            <p className="lead text-highlight">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
                         </Col>
                     </Row>
 
@@ -181,6 +143,24 @@ function Hormigon() {
                                     ))}
                                 </div>
                             </div>
+                        </Col>
+                    </Row>
+
+                    {/* Botón de contacto */}
+                    <Row className="text-center mb-4">
+                        <Col xs={12}>
+                            <Button 
+                                as="a" 
+                                href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="upload-button my-4" 
+                                aria-label="Contactar a un asesor por WhatsApp"
+                                onClick={gtag_report_conversion} // Seguimiento de conversión
+                            >
+                                <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
+                            </Button>
+                            <p className="lead text-highlight">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
                         </Col>
                     </Row>
                 </Container>

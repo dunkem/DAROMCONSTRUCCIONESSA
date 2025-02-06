@@ -25,6 +25,7 @@ function Pisos() {
             <div className="pisos-materiales-container-custom">
                 <h1 className="display-4 pisos-title-custom">PISOS INDUSTRIALES DE HORMIGÓN ELABORADO</h1>
 
+                {/* Primera Tarjeta */}
                 <div className="pisos-material-card-custom">
                     <Image 
                         src="/portadapisosindustriales.png" 
@@ -41,19 +42,22 @@ function Pisos() {
                         <p>
                             El proceso de llaneado implica la aplicación de <strong>endurecedores</strong> o <strong>pigmentos</strong>, seguido de un acabado con llana mecánica. Los endurecedores mejoran la <strong>durabilidad</strong>, <strong>resistencia</strong> y facilitan la limpieza del piso, mientras que los pigmentos permiten una <strong>terminación estética</strong> personalizable.
                         </p>
-                        <Button 
-                            as="a" 
-                            href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="upload-button mt-3"
-                            onClick={trackConversion}
-                        >
-                            <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
-                        </Button>
                     </div>
+                    {/* Botón de contacto */}
+                <Button 
+                    as="a" 
+                    href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="upload-button mt-4"
+                    onClick={trackConversion}
+                >
+                    <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
+                </Button>
                 </div>
+                
 
+                {/* Segunda Tarjeta */}
                 <div className="pisos-material-card-custom">
                     <Image 
                         src="/portadapisollaneado2.jpeg" 
@@ -70,19 +74,10 @@ function Pisos() {
                         <p>
                             En <strong>Darom</strong>, la <strong>tecnología</strong> es clave. Utilizamos equipos de última generación y técnicas avanzadas para garantizar que cada piso cumpla con los más altos estándares de seguridad y rendimiento.
                         </p>
-                        <Button 
-                            as="a" 
-                            href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="upload-button mt-3"
-                            onClick={trackConversion}
-                        >
-                            <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
-                        </Button>
                     </div>
                 </div>
 
+                {/* Tercera Tarjeta */}
                 <div className="pisos-material-card-custom">
                     <Image 
                         src="/portadaverticalpisos.jpg" 
@@ -102,23 +97,22 @@ function Pisos() {
                             <li><strong>Versatilidad:</strong> Aplicaciones en almacenes, plantas de producción y áreas comerciales.</li>
                         </ul>
                         <p>
-                            Nos mantenemos a la vanguardia, utilizando métodos de instalación que minimizan el tiempo de inactividad y maximizan la eficiencia.
-                        </p>
-                        <p>
                             <strong>Conclusión:</strong> Confía en <strong>Darom</strong> para transformar tus espacios industriales con pisos llaneados de calidad superior. Nuestra dedicación a la excelencia garantiza un producto final <strong>funcional y estéticamente atractivo</strong>.
                         </p>
-                        <Button 
-                            as="a" 
-                            href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="upload-button mt-3"
-                            onClick={trackConversion}
-                        >
-                            <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
-                        </Button>
                     </div>
                 </div>
+
+                {/* Botón de contacto */}
+                <Button 
+                    as="a" 
+                    href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="upload-button mt-4"
+                    onClick={trackConversion}
+                >
+                    <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
+                </Button>
             </div>
             <Contact showContact={true} />
         </Container>

@@ -67,23 +67,61 @@ function Home() {
 
   // Función de seguimiento de conversiones
   const gtag_report_conversion = (url) => {
-    const callback = function () {
-      if (typeof(url) !== 'undefined') {
-        window.location = url;
-      }
-    };
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-      'value': 1.0,
-      'currency': 'ARS',
-      'event_callback': callback
-    });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+        'value': 1.0,
+        'currency': 'ARS',
+        'event_callback': () => {
+          if (url) window.location.href = url;
+        }
+      });
+    }
     return false;
   };
 
+  // Componente para tarjetas de servicios
+  const ServiceCard = ({ service }) => (
+    <Card className="service-card shadow-sm">
+      <div className="service-image-container">
+        <Card.Img variant="top" src={service.src} alt={service.title} className="service-img" loading="lazy" />
+        {service.backup && (
+          <div className="backup-info">
+            <p>{service.backup.text}</p>
+            <img src={service.backup.logo} alt="Logo" className="backup-logo" loading="lazy" />
+          </div>
+        )}
+      </div>
+      <Card.Body className="service-body">
+        <Card.Title className="service-title">{service.title}</Card.Title>
+        <Card.Text className="service-description">{service.description}</Card.Text>
+        <Link to={service.link}>
+          <Button className="service-button" onClick={() => gtag_report_conversion()}>
+            Ver Más
+          </Button>
+        </Link>
+      </Card.Body>
+    </Card>
+  );
+
+  // Componente para tarjetas de productos
+  const ProductCard = ({ product }) => (
+    <Card className="product-card text-center shadow-sm">
+      <Card.Img variant="top" src={product.src} alt={product.name} className="product-img" loading="lazy" />
+      <Card.Body>
+        <Card.Title>{product.name}</Card.Title>
+        <Link to={product.link}>
+          <Button className="service-button" onClick={() => gtag_report_conversion()}>
+            Ver Más
+          </Button>
+        </Link>
+      </Card.Body>
+    </Card>
+  );
+
   // Renderiza los elementos del carrusel
   const renderCarouselItems = (items, isSupplier = false) => {
-    const itemsPerSlide = 4; // Mantener 4 elementos por diapositiva
+    const itemsPerSlide = 4; // 4 elementos por diapositiva
     const slides = [];
     for (let i = 0; i < Math.ceil(items.length / itemsPerSlide); i++) {
       slides.push(
@@ -91,22 +129,13 @@ function Home() {
           <Row className="justify-content-center">
             {items.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((item, idx) => (
               <Col md={isSupplier ? 2 : 3} sm={6} key={idx} className="mb-2">
-                <Card className={isSupplier ? "supplier-card text-center" : "product-card text-center"} style={{ width: '100%' }}>
-                  <Card.Img variant="top" src={item.src} alt={item.alt || item.name} className={isSupplier ? "supplier-logo" : "product-img"} loading="lazy" />
-                  {!isSupplier && (
-                    <Card.Body>
-                      <Card.Title>{item.name}</Card.Title>
-                      <Link to={item.link}>
-                        <Button 
-                          className="service-button" 
-                          onClick={() => gtag_report_conversion()} // Seguimiento de conversión
-                        >
-                          Ver Más
-                        </Button>
-                      </Link>
-                    </Card.Body>
-                  )}
-                </Card>
+                {isSupplier ? (
+                  <Card className="supplier-card text-center">
+                    <Card.Img variant="top" src={item.src} alt={item.alt} className="supplier-logo" loading="lazy" />
+                  </Card>
+                ) : (
+                  <ProductCard product={item} />
+                )}
               </Col>
             ))}
           </Row>
@@ -128,24 +157,15 @@ function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://daromsa.com.ar/portada.webp" />
         <meta property="og:image:alt" content="Daromsa - Hormigón Elaborado" />
-
-        {/* Google Ads Tag */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-717135166"></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-717135166');
-          `}
-        </script>
       </Helmet>
 
+      {/* Sección Hero */}
       <Row className="hero-section text-center" style={{ 
         backgroundImage: 'url(/portada.jpg)', 
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
-        height: '60vh'
+        height: '60vh',
+        color: 'white' 
       }}>
         <Col md={8} className="hero-content-wrapper">
           <div className="hero-content animated fadeIn">
@@ -172,7 +192,6 @@ function Home() {
           </p>
         </Col>
         <Col md={6}>
-          {/* Video de YouTube */}
           <iframe
             width="100%"
             height="315"
@@ -181,6 +200,7 @@ function Home() {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            aria-label="Video de Compromiso"
           ></iframe>
         </Col>
       </Row>
@@ -192,33 +212,10 @@ function Home() {
           <div className="line-divider"></div>
         </Col>
       </Row>
-
       <Row className="mb-4">
         {services.map((service, index) => (
           <Col md={3} sm={6} key={index} className="mb-4 d-flex align-items-stretch">
-            <Card className="service-card">
-              <div className="service-image-container">
-                <Card.Img variant="top" src={service.src} alt={service.title} className="service-img" style={{ height: '300px' }} loading="lazy" />
-                {service.backup && (
-                  <div className="backup-info">
-                    <p>{service.backup.text}</p>
-                    <img src={service.backup.logo} alt="Logo" className="backup-logo" loading="lazy" />
-                  </div>
-                )}
-              </div>
-              <Card.Body className="service-body">
-                <Card.Title className="service-title">{service.title}</Card.Title>
-                <Card.Text className="service-description">{service.description}</Card.Text>
-                <Link to={service.link}>
-                  <Button 
-                    className="service-button" 
-                    onClick={() => gtag_report_conversion()} // Seguimiento de conversión
-                  >
-                    Ver Más
-                  </Button>
-                </Link>
-              </Card.Body>
-            </Card>
+            <ServiceCard service={service} />
           </Col>
         ))}
       </Row>

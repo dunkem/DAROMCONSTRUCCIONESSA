@@ -24,11 +24,8 @@ body {
 .navbar-custom {
     background-color: var(--text-color) !important; /* Barra de navegación negra */
     width: 100%;
-    padding: 0.1rem 1rem; /* Altura del fondo negro más delgada */
+    padding: 0.5rem 1rem; /* Altura del fondo negro */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-    display: flex; /* Alineación horizontal */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: space-between; /* Espacio entre logo y botón */
 }
 
 .navbar-brand img {
@@ -63,8 +60,8 @@ body {
 }
 
 .navbar-toggler-icon {
-    width: 20px; /* Ancho de las líneas del icono */
-    height: 20px; /* Altura de las líneas del icono */
+    width: 24px; /* Ancho de las líneas del icono */
+    height: 24px; /* Altura de las líneas del icono */
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Líneas del botón en blanco */
 }
 
@@ -100,10 +97,9 @@ body {
 }
 
 /* Botón de Whatsapp Flotante */
-
 .whatsapp-float {
     position: fixed;
-    bottom: 50px;
+    bottom: 70px; /* Ajuste de la posición */
     right: 20px;
     background-color: var(--whatsapp-color); /* Color verde clásico de WhatsApp */
     border-radius: 50%; /* Bordes redondeados */
@@ -125,6 +121,27 @@ body {
     color: #ffffff !important; /* Color blanco */
 }
 
+/* Botón Flotante para Subir al Inicio */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px; /* Posición desde el fondo */
+    left: 20px; /* Posición desde la izquierda */
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid var(--primary-color); /* Borde rojo */
+    border-radius: 50%; /* Forma redonda */
+    padding: 10px; /* Espaciado interno */
+    color: var(--primary-color); /* Color del icono */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.scroll-to-top:hover {
+    background-color: var(--hover-color); /* Color más oscuro al pasar el ratón */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+/* Media Queries */
 @media (max-width: 767px) {
     .navbar-nav {
         flex-direction: column;

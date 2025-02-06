@@ -10,6 +10,7 @@ body.hormigon {
     background-color: #f4f4f4; /* Color de fondo suave */
 }
 
+/* Overlay */
 .overlay {
     position: relative;
     background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para mejor contraste */
@@ -17,7 +18,7 @@ body.hormigon {
     flex-direction: column;
     justify-content: center;
     padding: 40px;
-    color: #fff; /* Texto de la portada en blanco */
+    color: #fff; /* Texto en blanco */
     transition: background 0.3s; /* Transición suave para el fondo */
     text-align: center; /* Centrar texto en móviles */
     background-size: cover; /* Asegura que la imagen de fondo cubra todo el contenedor */
@@ -68,6 +69,7 @@ body.hormigon {
     margin: 20px auto; /* Centrar el botón */
     width: fit-content;
     animation: fadeInUp 0.5s ease both;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
 }
 
 .upload-button:hover {
@@ -91,7 +93,7 @@ body.hormigon {
     color: #fff; /* Título específico en blanco */
     position: relative;
     margin-bottom: 20px;
-    font-size: 2.7rem; /* Aumentado el tamaño */
+    font-size: 2.7rem; /* Tamaño aumentado */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease both;
 }
@@ -101,7 +103,7 @@ body.hormigon {
     color: #fff; /* Título específico en blanco */
     position: relative;
     margin-bottom: 20px;
-    font-size: 2.2rem; /* Aumentado el tamaño */
+    font-size: 2.2rem; /* Tamaño aumentado */
     animation: fadeInUp 1.5s ease both;
 }
 

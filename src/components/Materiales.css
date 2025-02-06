@@ -32,18 +32,6 @@ body {
     }
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
 .materiales-container {
     padding: 2rem;
     background-color: var(--background-color);
@@ -51,19 +39,19 @@ body {
 }
 
 .materiales-title {
-    margin-top: 10px;
-    margin-bottom: 20px; /* Espacio más amplio debajo del título */
+    margin: 10px 0 20px;
     text-align: center;
     color: var(--header-text-color);
-    font-size: 2.5rem; /* Tamaño mayor para el título */
+    font-size: 2.5rem;
     font-weight: 700;
     text-transform: uppercase;
-    animation: fadeInUp 1s ease both;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Contenedor adjunto */
 .adjunta-lista-container {
     margin: 20px auto;
-    padding: 10px;
+    padding: 15px;
     background-color: var(--container-bg-color);
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -72,32 +60,24 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: fadeInUp 1.2s ease both;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Botones */
 .adjunta-lista-btn {
     background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 12px 24px; /* Ajustar padding del botón */
-    font-size: 16px; /* Ajustar tamaño de fuente del botón */
+    padding: 12px 24px;
+    font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    animation: fadeInUp 1.4s ease both;
-}
-
-.adjunta-lista-text {
-    font-size: 14px; /* Tamaño de texto más grande */
-    color: var(--header-text-color);
-    margin-top: 10px;
-    animation: fadeInUp 1.6s ease both;
 }
 
 .adjunta-lista-btn:hover {
     background-color: var(--hover-color);
     transform: translateY(-2px);
-    animation: pulse 1s infinite; /* Efecto de pulso */
 }
 
 .material-card {
@@ -106,39 +86,31 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     background-color: var(--container-bg-color);
-    animation: fadeInUp 1.8s ease both;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .material-card img {
     width: 100%;
     height: 200px; /* Altura ajustada para todas las imágenes */
-    object-fit: cover;
-    margin: 0;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-bottom: 1px solid var(--border-color); /* Borde inferior */
 }
 
 .material-card .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px; /* Añadir padding */
-    height: 100%;
-}
-
-.material-card .text-danger {
-    color: var(--primary-color);
+    padding: 20px;
 }
 
 .material-card .btn {
     background-color: #000;
     color: white;
     border-radius: 5px;
-    padding: 10px 20px; /* Añadir padding */
+    padding: 10px 20px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .material-card .btn:hover {
@@ -162,18 +134,28 @@ body {
     color: var(--text-color);
 }
 
-@media (max-width: 768px) {
-    :root {
-        --padding-container: 1rem;
-        --margin-card: 1rem 0;
-    }
+/* Estilos para el carrusel de proveedores */
+.supplier-card {
+    background-color: var(--container-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+.supplier-logo {
+    width: 100%;
+    height: 100px; /* Ajustar altura para los logos */
+    object-fit: contain; /* Mantiene la proporción del logo */
+    padding: 10px; /* Espacio alrededor del logo */
+}
+
+@media (max-width: 768px) {
     .materiales-container {
-        padding: var(--padding-container);
+        padding: 1rem;
     }
 
     .material-card {
-        margin-bottom: var(--margin-card);
+        margin-bottom: 1rem;
     }
 
     .adjunta-lista-btn {

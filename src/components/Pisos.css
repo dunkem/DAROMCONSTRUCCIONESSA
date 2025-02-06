@@ -36,7 +36,7 @@ body {
     width: 100%;
     text-align: center;
     color: var(--primary-color); /* Color del título */
-    font-size: 2.5rem; /* Mayor tamaño para el título */
+    font-size: 2.2rem; /* Mayor tamaño para el título */
     font-weight: 700;
     margin-bottom: 2rem;
     text-transform: uppercase;
@@ -59,7 +59,6 @@ body {
 .pisos-material-card-custom:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(145, 71, 71, 0.3);
-    border: 2px solid var(--hover-color);
 }
 
 .pisos-text {
@@ -68,42 +67,18 @@ body {
 }
 
 .pisos-image-left, .pisos-image-right {
-    max-width: 35%; /* Tamaño máximo de las imágenes */
+    max-width: 40%; /* Tamaño máximo de las imágenes */
     width: 100%; /* Ajustar ancho a 100% */
     height: auto; /* Asegura que la altura sea automática */
     display: block;
     margin: 10px auto; /* Margen para espacio alrededor de las imágenes */
     border-radius: 10px; /* Bordes redondeados para imágenes */
     box-shadow: 0 2px 8px rgba(129, 129, 129, 0.2);
-    flex: 1 1 35%; /* Ocupa el 35% del ancho disponible */
-    animation: fadeInUp 1.5s ease both;
-}
-
-.pisos-image-left {
-    float: left; /* Alinear las imágenes a la izquierda */
-}
-
-.pisos-image-right {
-    float: right; /* Alinear las imágenes a la derecha */
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
-    :root {
-        --padding-container: 1rem;
-        --margin-card: 1rem 0;
-    }
-
-    .pisos-footer-section-custom {
-        padding: 1rem 0;
-    }
-
-    .pisos-materiales-container-custom {
-        padding: var(--padding-container);
-    }
-
     .pisos-material-card-custom {
-        margin-bottom: var(--margin-card);
         flex-direction: column; /* Alinear en columna en móviles */
     }
 
@@ -115,51 +90,29 @@ body {
     .pisos-image-left, .pisos-image-right {
         max-width: 100%; /* Ajustar ancho máximo a 100% en móviles */
     }
-
-    .pisos-adjunta-lista-container-custom {
-        position: relative; /* Cambiar a posición relativa en móviles */
-        top: auto; /* Resetear top */
-        right: auto; /* Resetear right */
-        margin-top: 20px; /* Agregar margen para separación */
-    }
-}
-
-.mt-4 {
-    margin-top: 4rem !important;
 }
 
 .upload-button {
     background-color: #ff0000; /* Color de botón */
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Ajustar padding */
     border-radius: 5px;
     display: flex;
     align-items: center;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+    font-weight: 600; /* Aumentar el peso de la fuente */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Añadir transición para transform */
     text-decoration: none;
+    margin: 20px auto; /* Centrar el botón */
 }
 
 .upload-button:hover {
     background-color: #1DA851; /* Color de hover más oscuro */
-    text-decoration: none;
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
 }
 
 .upload-icon {
-    margin-right: 5px;
-}
-
-.text-black {
-    color: #000; /* Cambiar el color del texto a negro */
-    font-weight: 300;
-}
-
-.contact-button-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 2; /* Asegura que esté por encima de otros elementos */
+    margin-right: 8px; /* Aumentar el margen para mejor separación */
 }
 
 /* Animaciones */
