@@ -13,24 +13,82 @@ const contactInfo = {
         'corralon@daromsa.com.ar'
     ],
     officeAddress: 'C. 152 6352, B1885 Guillermo Enrique Hudson',
-    plantAddress: 'Planta Hormigón DAROM, Parque industrial tecnológico de Florencio Varela',
+    plantAddress: 'Parque industrial tecnológico de Florencio Varela',
 };
+
+const LocationMap = ({ title, address, mapSrc, onMapClick }) => (
+    <div className="contact-location">
+        <h6 className="location-title"><FaMapMarkerAlt /> {title}</h6>
+        <span>{address}</span>
+        <div className="map-container">
+            <iframe
+                title={`Ubicación ${title}`}
+                width="100%"
+                height="200"
+                src={mapSrc}
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                onClick={onMapClick}
+                aria-label={`Mapa de ${title}`}
+            ></iframe>
+        </div>
+    </div>
+);
+
+const ContactInfo = () => (
+    <>
+        <h5 className="contact-info-title">¿CÓMO ENCONTRARNOS?</h5>
+        <div className="contact-info-item">
+            <FaPhoneAlt className="contact-icon" />
+            <span>Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></span>
+        </div>
+        <div className="contact-info-item">
+            <FaEnvelope className="contact-icon" />
+            <span>Email: 
+                {contactInfo.emails.map((email, index) => (
+                    <span key={index}>
+                        <a href={`mailto:${email}`}>{email}</a>{index < contactInfo.emails.length - 1 ? ', ' : ''}
+                    </span>
+                ))}
+            </span>
+        </div>
+    </>
+);
 
 function Contact() {
     const [validated, setValidated] = useState(false);
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [file, setFile] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
 
+    // Función para reportar conversiones
     const gtag_report_conversion = () => {
-        window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-            'value': 1.0,
-            'currency': 'ARS',
-        });
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+                'value': 1.0,
+                'currency': 'ARS',
+            });
+        }
     };
+
+    // Cargar Google Tag Manager y gtag
+    useEffect(() => {
+        // Cargar GTM si no está ya cargado
+        if (!document.getElementById('gtm-script')) {
+            const gtmScript = document.createElement('script');
+            gtmScript.id = 'gtm-script';
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+        }
+
+        // Inicializar gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-717135166');
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -41,20 +99,21 @@ function Contact() {
             event.stopPropagation();
         } else {
             const formData = new FormData(form);
-            formData.append('file', file);
 
             try {
                 const response = await fetch('/', {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json',
+                    },
                 });
 
                 if (response.ok) {
                     setSubmitted(true);
                     setError('');
-                    event.target.reset();
-                    setFile(null); // Limpiar el archivo
-                    gtag_report_conversion();
+                    form.reset();
+                    gtag_report_conversion(); // Reportar conversión
                 } else {
                     setSubmitted(false);
                     setError('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
@@ -66,19 +125,9 @@ function Contact() {
         }
     };
 
-    useEffect(() => {
-        if (!window.gtag) {
-            const gtagScript = document.createElement('script');
-            gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
-            gtagScript.async = true;
-            document.head.appendChild(gtagScript);
-
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function() { dataLayer.push(arguments); };
-            window.gtag('js', new Date());
-            window.gtag('config', 'AW-717135166');
-        }
-    }, []);
+    const handleMapClick = () => {
+        gtag_report_conversion(); // Reportar conversión al hacer clic en el mapa
+    };
 
     return (
         <Container className="contact-container mt-5">
@@ -112,8 +161,6 @@ function Contact() {
                                 type="email"
                                 name="email"
                                 placeholder="Ingrese su email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <Form.Control.Feedback type="invalid">
                                 Por favor ingresa un email válido.
@@ -127,8 +174,6 @@ function Contact() {
                                 rows={3}
                                 name="message"
                                 placeholder="Escriba su mensaje"
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
                             />
                             <Form.Control.Feedback type="invalid">
                                 Por favor ingresa un mensaje.
@@ -139,7 +184,6 @@ function Contact() {
                             <Form.Control
                                 type="file"
                                 name="file"
-                                onChange={(e) => setFile(e.target.files[0])}
                             />
                         </Form.Group>
                         <Button variant="primary" type="submit" className="contact-submit-button mt-3">
@@ -154,51 +198,19 @@ function Contact() {
                     </Form>
                 </Col>
                 <Col md={6} className="contact-info-column">
-                    <h5 className="contact-info-title">¿CÓMO ENCONTRARNOS?</h5>
-                    <div className="contact-info-item">
-                        <FaPhoneAlt className="contact-icon" style={{ fontSize: '1.5rem' }} /> 
-                        <span>Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></span>
-                    </div>
-                    <div className="contact-info-item">
-                        <FaEnvelope className="contact-icon" style={{ fontSize: '1.5rem' }} /> 
-                        <span>Email: 
-                            {contactInfo.emails.map((email, index) => (
-                                <span key={index} className="email-item">
-                                    <a href={`mailto:${email}`}>{email}</a>{index < contactInfo.emails.length - 1 ? ', ' : ''}
-                                </span>
-                            ))}
-                        </span>
-                    </div>
-                    <div className="contact-location">
-                        <h6 className="location-title"><FaMapMarkerAlt style={{ fontSize: '1.5rem' }} /> Oficina</h6>
-                        <span>{contactInfo.officeAddress}</span>
-                        <div className="map-container">
-                            <iframe
-                                title="Ubicación Oficina"
-                                width="100%"
-                                height="200"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13104.533593321816!2d-58.1568298!3d-34.8025856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64e395cdcd1%3A0xc9be6643f683c85!2sDarom%20Construcciones%20SRL!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar"
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                            ></iframe>
-                        </div>
-                    </div>
-                    <div className="contact-location">
-                        <h6 className="location-title"><FaMapMarkerAlt style={{ fontSize: '1.5rem' }} /> Planta</h6>
-                        <span>{contactInfo.plantAddress}</span>
-                        <div className="map-container">
-                            <iframe
-                                title="Ubicación Planta"
-                                width="100%"
-                                height="200"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13097.319712146147!2d-58.1930728!3d-34.8479364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329a582dd67a1%3A0xcc2bb374e1f248bd!2sPlanta%20Hormig%C3%B3n%20DAROM!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar"
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                            ></iframe>
-                        </div>
-                    </div>
+                    <ContactInfo />
+                    <LocationMap
+                        title="Oficina"
+                        address={contactInfo.officeAddress}
+                        mapSrc="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13104.533593321816!2d-58.1568298!3d-34.8025856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e64e395cdcd1%3A0xc9be6643f683c85!2sDarom%20Construcciones%20SRL!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar"
+                        onMapClick={handleMapClick}
+                    />
+                    <LocationMap
+                        title="Planta"
+                        address={contactInfo.plantAddress}
+                        mapSrc="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13097.319712146147!2d-58.1930728!3d-34.8479364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329a582dd67a1%3A0xcc2bb374e1f248bd!2sPlanta%20Hormig%C3%B3n%20DAROM!5e0!3m2!1ses!2sar!4v1732900240146!5m2!1ses!2sar"
+                        onMapClick={handleMapClick}
+                    />
                 </Col>
             </Row>
         </Container>

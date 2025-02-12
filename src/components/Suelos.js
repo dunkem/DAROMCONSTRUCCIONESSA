@@ -8,8 +8,23 @@ import Contact from './Contact';
 function Suelos() {
     useEffect(() => {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
+
+        // Cargar Google Tag Manager y gtag
+        if (!document.getElementById('gtm-script')) {
+            const gtmScript = document.createElement('script');
+            gtmScript.id = 'gtm-script';
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+        }
+
+        // Inicializar gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-717135166');
     }, []);
-    
+
     const estudios = [
         '/estudiosuelo.jpg',
         '/estudiosuelo2.jpg',
@@ -42,6 +57,7 @@ function Suelos() {
                                     src={src}
                                     alt={`Imagen ${i + index + 1}`}
                                     loading="lazy" // Carga diferida para mejorar la carga
+                                    aria-label={`Imagen ${i + index + 1}`}
                                 />
                             </Col>
                         ))}
@@ -53,9 +69,11 @@ function Suelos() {
     };
 
     const trackConversion = () => {
-        window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
-        });
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
+            });
+        }
     };
 
     return (
@@ -79,6 +97,7 @@ function Suelos() {
                         rel="noopener noreferrer"
                         className="upload-button"
                         onClick={trackConversion}
+                        aria-label="Contactar a un asesor por WhatsApp"
                     >
                         <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
                     </Button>

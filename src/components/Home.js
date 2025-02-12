@@ -10,6 +10,21 @@ import React, { useEffect } from 'react';
 function Home() {
   useEffect(() => {
     window.scrollTo(0, 0); // Desplazar a la parte superior de la página
+
+    // Cargar Google Tag Manager y gtag
+    if (!document.getElementById('gtm-script')) {
+      const gtmScript = document.createElement('script');
+      gtmScript.id = 'gtm-script';
+      gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+      gtmScript.async = true;
+      document.head.appendChild(gtmScript);
+    }
+
+    // Inicializar gtag
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', 'AW-717135166');
   }, []);
 
   // Servicios ofrecidos
@@ -66,18 +81,14 @@ function Home() {
   ];
 
   // Función de seguimiento de conversiones
-  const gtag_report_conversion = (url) => {
+  const gtag_report_conversion = () => {
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
         'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
         'value': 1.0,
         'currency': 'ARS',
-        'event_callback': () => {
-          if (url) window.location.href = url;
-        }
       });
     }
-    return false;
   };
 
   // Componente para tarjetas de servicios
@@ -96,7 +107,7 @@ function Home() {
         <Card.Title className="service-title">{service.title}</Card.Title>
         <Card.Text className="service-description">{service.description}</Card.Text>
         <Link to={service.link}>
-          <Button className="service-button" onClick={() => gtag_report_conversion()}>
+          <Button className="service-button" onClick={gtag_report_conversion}>
             Ver Más
           </Button>
         </Link>
@@ -111,7 +122,7 @@ function Home() {
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
         <Link to={product.link}>
-          <Button className="service-button" onClick={() => gtag_report_conversion()}>
+          <Button className="service-button" onClick={gtag_report_conversion}>
             Ver Más
           </Button>
         </Link>

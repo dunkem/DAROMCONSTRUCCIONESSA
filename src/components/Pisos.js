@@ -8,18 +8,38 @@ import Contact from './Contact';
 function Pisos() {
     useEffect(() => {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
+
+        // Cargar Google Tag Manager y gtag
+        if (!document.getElementById('gtm-script')) {
+            const gtmScript = document.createElement('script');
+            gtmScript.id = 'gtm-script';
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+        }
+
+        // Inicializar gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-717135166');
     }, []);
 
     const trackConversion = () => {
-        window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
-        });
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC' // ID de conversión y etiqueta
+            });
+        }
     };
 
     return (
         <Container className="mt-4 position-relative">
             <Helmet>
                 <title>Pisos Industriales - Darom SA</title> {/* Establece el título de la pestaña */}
+                <meta name="description" content="Pisos industriales de hormigón llaneado de alta calidad. Ofrecemos durabilidad, resistencia y acabados personalizados." />
+                <meta name="keywords" content="pisos industriales, hormigón llaneado, endurecedores, pigmentos, Darom SA" />
+                <link rel="canonical" href="https://daromsa.com.ar/pisos" /> {/* Cambia la URL a tu dominio */}
             </Helmet>
 
             <div className="pisos-materiales-container-custom">
@@ -43,19 +63,7 @@ function Pisos() {
                             El proceso de llaneado implica la aplicación de <strong>endurecedores</strong> o <strong>pigmentos</strong>, seguido de un acabado con llana mecánica. Los endurecedores mejoran la <strong>durabilidad</strong>, <strong>resistencia</strong> y facilitan la limpieza del piso, mientras que los pigmentos permiten una <strong>terminación estética</strong> personalizable.
                         </p>
                     </div>
-                    {/* Botón de contacto */}
-                <Button 
-                    as="a" 
-                    href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+pisos+industriales.&type=phone_number&app_absent=0" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="upload-button mt-4"
-                    onClick={trackConversion}
-                >
-                    <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
-                </Button>
                 </div>
-                
 
                 {/* Segunda Tarjeta */}
                 <div className="pisos-material-card-custom">
@@ -110,6 +118,7 @@ function Pisos() {
                     rel="noopener noreferrer"
                     className="upload-button mt-4"
                     onClick={trackConversion}
+                    aria-label="Contactar a un asesor por WhatsApp"
                 >
                     <FaWhatsapp className="upload-icon" /> CONTÁCTATE CON UN ASESOR
                 </Button>

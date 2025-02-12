@@ -7,6 +7,21 @@ import './Hormigon.css';
 function Hormigon() {
     useEffect(() => {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
+
+        // Cargar Google Tag Manager y gtag
+        if (!document.getElementById('gtm-script')) {
+            const gtmScript = document.createElement('script');
+            gtmScript.id = 'gtm-script';
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+        }
+
+        // Inicializar gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-717135166');
     }, []);
 
     // Beneficios ofrecidos
@@ -38,6 +53,18 @@ function Hormigon() {
         { title: 'ESPECIALES', text: 'Ultra livianos, Vistos, Con hidrófugo, Con macrofibra, Fast track, Cemento por TN' },
     ];
 
+    // Función de seguimiento de conversiones
+    const gtag_report_conversion = () => {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+                'value': 1.0,
+                'currency': 'ARS',
+            });
+        }
+    };
+
+    // Renderiza los elementos del carrusel de tipos de hormigón
     const renderHormigonCarouselItems = () => {
         const itemsPerSlide = 2; // Muestra 2 tipos de hormigón por slide
         return Array.from({ length: Math.ceil(hormigonTypes.length / itemsPerSlide) }, (_, i) => (
@@ -58,6 +85,7 @@ function Hormigon() {
         ));
     };
 
+    // Renderiza los elementos del carrusel de proveedores
     const renderCarouselItems = (items) => {
         const itemsPerSlide = 4; // Número de elementos por carrusel
         return Array.from({ length: Math.ceil(items.length / itemsPerSlide) }, (_, i) => (
@@ -79,14 +107,6 @@ function Hormigon() {
                 </Row>
             </Carousel.Item>
         ));
-    };
-
-    const gtag_report_conversion = () => {
-        window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-            'value': 1.0,
-            'currency': 'ARS',
-        });
     };
 
     return (
