@@ -12,19 +12,18 @@ function Home() {
     window.scrollTo(0, 0); // Desplazar a la parte superior de la página
 
     // Cargar Google Tag Manager y gtag
-    if (!document.getElementById('gtm-script')) {
+    if (window.location.hostname !== 'localhost' && !document.getElementById('gtm-script')) {
       const gtmScript = document.createElement('script');
       gtmScript.id = 'gtm-script';
       gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
       gtmScript.async = true;
       document.head.appendChild(gtmScript);
+  
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function() { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'AW-717135166');
     }
-
-    // Inicializar gtag
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function() { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', 'AW-717135166');
   }, []);
 
   // Servicios ofrecidos

@@ -38,7 +38,7 @@ const LocationMap = ({ title, address, mapSrc, onMapClick }) => (
 
 const ContactInfo = () => (
     <>
-        <h5 className="contact-info-title">¿CÓMO ENCONTRARNOS?</h5>
+        <h5 className="contact-info-title">¿DÓNDE ENCONTRARNOS?</h5>
         <div className="contact-info-item">
             <FaPhoneAlt className="contact-icon" />
             <span>Teléfono: <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></span>
@@ -99,6 +99,16 @@ function Contact() {
             event.stopPropagation();
         } else {
             const formData = new FormData(form);
+
+            // Verificar los valores del formulario antes de enviar
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+
+            if (!name || !email || !message) {
+                setError('Por favor, completa todos los campos requeridos.');
+                return;
+            }
 
             try {
                 const response = await fetch('/', {
@@ -178,13 +188,6 @@ function Contact() {
                             <Form.Control.Feedback type="invalid">
                                 Por favor ingresa un mensaje.
                             </Form.Control.Feedback>
-                        </Form.Group>
-                        <Form.Group controlId="formFile">
-                            <Form.Label>Adjuntar Archivo</Form.Label>
-                            <Form.Control
-                                type="file"
-                                name="file"
-                            />
                         </Form.Group>
                         <Button variant="primary" type="submit" className="contact-submit-button mt-3">
                             Enviar

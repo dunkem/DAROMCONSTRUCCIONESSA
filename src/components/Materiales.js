@@ -16,6 +16,21 @@ function Materiales() {
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        // Cargar Google Tag Manager y gtag
+        if (!document.getElementById('gtm-script')) {
+            const gtmScript = document.createElement('script');
+            gtmScript.id = 'gtm-script';
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+        }
+
+        // Inicializar gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-717135166');
     }, []);
 
     // Save selected subrubro to local storage
@@ -30,8 +45,8 @@ function Materiales() {
             { id: 3, name: "Hidrofugo Sika 1 Bidón x 10 Kg", img: "/matsikahidrofugo.jpg" },
             { id: 4, name: "Hidrófugo Sika 1 x 4 Lts.", img: "/matsikahidrofugo.jpg" },
             { id: 5, name: "Hidrófugo Darapel 19 Grace", img: "/matsikahidrofugo.jpg" }
-          ],
-          ladrillos: [
+        ],
+        ladrillos: [
             { id: 11, name: "Ladrillo Comun", img: "/matladcomun.png" },
             { id: 12, name: "LADRILLO HUECO 8x18x33 CTIBOR [216 X PALLET]", img: "/matladhueco8x18x33-1.jpg" },
             { id: 13, name: "LADRILLO HUECO 12x18x33 [9A] FANELLI [144 X PALLET]", img: "/matladhueco12.jpg" },
@@ -47,13 +62,13 @@ function Materiales() {
             { id: 23, name: "Ladrillo Doble Pared 27x18x33 FANELLI [54 X PALLET]", img: "/matladdoblemuro27x18x33.jpg" },
             { id: 24, name: "Ladrillo ECONOBLOCK-27x19x20 Ctibor", img: "/matladbloque.jpeg" },
             { id: 25, name: "Ladrillo ECONOBLOCK-20x19x27 CTIBOR [80 X PALLET]", img: "/matladbloque.jpeg" },
-            { id: 26, name: "LADRILLO HUECO 18X18X33 MOLDE NUEVO [90 X PALLET]", img: "/matladmolde18x18x33.jpg" },
+            { id: 26, name: "LADRILLO HUECO 18X18X33 MOLDE NUEVO [90 X PALLET]", img: "/matladhueco18.jpg" },
             { id: 27, name: "Ladrillo Doble Pared 20x18x33 [90 X PALLET]", img: "/matladhuecodoble20x18.png" },
             { id: 28, name: "LADRILLO HUECO 8X18X33 FANELLI [198 X PALLET]", img: "/matladhueco8x18x33-1.jpg" },
             { id: 29, name: "LADRILLO HUECO 12X18X33 [9A] CTIBOR [144 X PALLET]", img: "/matladhueco12.jpg" },
             { id: 30, name: "LADRILLO HUECO 18X18X33 CTIBOR [90 X PALLET]", img: "/matladhueco18.jpg" }
-          ],
-          aridos: [
+        ],
+        aridos: [
             { id: 31, name: "ARENA GRUESA EN BOLSÓN", img: "/matbolsonarena.jpg" },
             { id: 32, name: "Tosca a Granel x m3", img: "/mattoscaagranel.png" },
             { id: 33, name: "Tosca en Bolsón x m3", img: "/mattoscaenbolson.jpg" },
@@ -73,8 +88,8 @@ function Materiales() {
             { id: 47, name: "Arena en Bolsa x 30 Kg.", img: "/mataridoenbolsa.jpg" },
             { id: 48, name: "Piedra Granza Blanca Mar Del Plata en Bolsón", img: "/matpiedra620.jpg" },
             { id: 49, name: "Piedra Granza Blanca Mar Del Plata en Bolsa x 30 kg.", img: "/mataridoenbolsa.jpg" }
-          ],
-          cementoscales: [
+        ],
+        cementoscales: [
             { id: 50, name: "Cemento Loma Negra x 50 Kg", img: "/matcementoloma50kg.jpg" },
             { id: 51, name: "Cemento a Granel x Kg", img: "/TOLVA.jpg" },
             { id: 52, name: "Plasticor x 40 Kg", img: "/matplasticor.jpg" },
@@ -83,8 +98,8 @@ function Materiales() {
             { id: 55, name: "Cal Cacique Plus x 20kg", img: "/matcalcaciquemax30kg.jpg" },
             { id: 56, name: "CAL SANTA ELENA x 20 Kg", img: "/matcalsantaelena.jpg" },
             { id: 57, name: "CAL UTIL VIAL EN BIG BAG X TONELADA", img: "/matcalcaciquemax30kg.jpg" }
-          ],
-          hierros: [
+        ],
+        hierros: [
             { id: 58, name: "Hierro Ø 4.2 mm", img: "/matvarillashierro.png" },
             { id: 59, name: "Hierro Ø 6 mm Acindar", img: "/matvarillashierro.png" },
             { id: 60, name: "Hierro Ø 8 mm Acindar", img: "/matvarillashierro.png" },
@@ -94,8 +109,8 @@ function Materiales() {
             { id: 64, name: "Hierro Ø 20 mm Acindar", img: "/matvarillashierro.png" },
             { id: 65, name: "Hierro Ø 25 mm Acindar", img: "/matvarillashierro.png" },
             { id: 66, name: "HIERRO X KG - ACINDAR", img: "/matvarillashierro.png" }
-          ],
-          mallas: [
+        ],
+        mallas: [
             { id: 67, name: "Malla # 4 [15x25] 2x3 mts [Trafilada]", img: "/matmallas.jpg" },
             { id: 68, name: "Malla # 4 [15x15] 2x5 mts [Trafilada]", img: "/matmallas.jpg" },
             { id: 69, name: "Malla # 5.1 [15x25] 2x5 mts [Trafilada]", img: "/matmallas.jpg" },
@@ -108,18 +123,17 @@ function Materiales() {
             { id: 76, name: "malla # 4 [15x15] 2x3 mts [Trifilada]", img: "/matmallas.jpg" },
             { id: 77, name: "MALLA 8 [15X15] 2x5", img: "/matmallas.jpg" },
             { id: 78, name: "MALLA 4 [15X25] 2X6", img: "/matmallas.jpg" }
-          ],
-          yeso: [
+        ],
+        yeso: [
             { id: 79, name: "Yeso Sika 30 Kg", img: "/matyeso.jpg" },
-           
-          ],
-          pegamentos: [
+        ],
+        pegamentos: [
             { id: 82, name: "Pegamento SikaCeram Flex x 20 kg", img: "/matpegamentoporcelanato.jpg" },
             { id: 83, name: "Pegamento SikaCeram Tradicional x 30 kg", img: "/matsikaceram.jpg" },
             { id: 84, name: "Pegamento Cerámica 5 kg", img: "/matsikaceram.jpg" },
             { id: 85, name: "Pegamento Para Cerámica x 25 Kg", img: "/matsikaceramflexible.jpg" }
-          ],
-          viguetas: [
+        ],
+        viguetas: [
             { id: 86, name: "Vigueta 6 x 12", img: "/matvigasdobles.jpg" },
             { id: 87, name: "Vigueta 4 x 10", img: "/matvigasdobles.jpg" },
             { id: 88, name: "Vigueta 6 x 10", img: "/matvigasdobles.jpg" },
@@ -127,26 +141,25 @@ function Materiales() {
             { id: 90, name: "Vigueta 5 x 10", img: "/matvigasdobles.jpg" },
             { id: 91, name: "Vigueta 4 x 12", img: "/matvigasdobles.jpg" },
             { id: 92, name: "Vigueta 4 x 8", img: "/matvigasdobles.jpg" }
-          ],
-          cañosdehormigon: [
+        ],
+        cañosdehormigon: [
             { id: 93, name: "CAÑO DE HORMIGÓN 150X300", img: "/matcañosdecemento.png" },
             { id: 94, name: "CAÑO DE HORMIGÓN 200X400", img: "/matcañosdecemento.png" }
-          ],
-          membranas: [
+        ],
+        membranas: [
             { id: 95, name: "Membrana Liquida x 20kg", img: "/matmembranaliquidasika.jpg" },
             { id: 96, name: "Membrana Polimérica x 4mm", img: "/matmembrana.jpg" }
-          ],
-          separadores: [
+        ],
+        separadores: [
             { id: 97, name: "Separador de Hormigón", img: "/matseparadores.jpg" },
-            
-          ],
-          fijaciones: [
+        ],
+        fijaciones: [
             { id: 99, name: "Fijación de hormigón", img: "/matfijacioneshormigon.jpg" },
             { id: 100, name: "Fijaciónes para construccion en seco", img: "/matfijacionesdur.jpg" }
-          ]
-      };
-      
-      const handleSubrubroSelect = (subrubro) => {
+        ]
+    };
+
+    const handleSubrubroSelect = (subrubro) => {
         setSelectedSubrubro(subrubro);
         setVisibleProducts(8);
         setSearchQuery('');
@@ -169,9 +182,11 @@ function Materiales() {
     );
 
     const trackConversion = () => {
-        window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC'
-        });
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC'
+            });
+        }
     };
 
     // Proveedores
@@ -184,33 +199,31 @@ function Materiales() {
         { src: '/logoctibor.png', alt: 'Ctibor' },
         { src: '/logofanelli.png', alt: 'Fanelli' },
         { src: '/LOGOBLINKI.png', alt: 'Blinki' },
-      ];
+    ];
 
     // Renderiza los elementos del carrusel
-      const renderCarouselItems = (items, isSupplier = false) => {
-        const itemsPerSlide = 4; // 4 elementos por diapositiva
-        const slides = [];
-        for (let i = 0; i < Math.ceil(items.length / itemsPerSlide); i++) {
-          slides.push(
+    const renderCarouselItems = (items) => {
+        const itemsPerSlide = 4; // Número de elementos por carrusel
+        return Array.from({ length: Math.ceil(items.length / itemsPerSlide) }, (_, i) => (
             <Carousel.Item key={i}>
-              <Row className="justify-content-center">
-                {items.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((item, idx) => (
-                  <Col md={isSupplier ? 2 : 3} sm={6} key={idx} className="mb-2">
-                    {isSupplier ? (
-                      <Card className="supplier-card text-center">
-                        <Card.Img variant="top" src={item.src} alt={item.alt} className="supplier-logo" loading="lazy" />
-                      </Card>
-                    ) : (
-                      <ProductCard product={item} />
-                    )}
-                  </Col>
-                ))}
-              </Row>
+                <Row className="justify-content-center">
+                    {items.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((item, idx) => (
+                        <Col md={3} sm={6} key={idx} className="mb-2">
+                            <Card className="supplier-card text-center">
+                                <Card.Img 
+                                    variant="top" 
+                                    src={item.src} 
+                                    alt={item.alt} 
+                                    className="supplier-logo" 
+                                    loading="lazy" 
+                                />
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
             </Carousel.Item>
-          );
-        }
-        return slides;
-      };
+        ));
+    };
 
     return (
         <Container className="mt-4 materiales-container">
@@ -293,15 +306,15 @@ function Materiales() {
             </Row>
 
             {/* Sección logos proveedores */}
-                  <Row className="text-center mb-4">
-                    <Col>
-                      <h2 className="section-title">NUESTROS PROVEEDORES</h2>
-                      <div className="line-divider"></div>
-                    </Col>
-                  </Row>
-                  <Carousel className="mb-4">
-                    {renderCarouselItems(suppliers, true)}
-                  </Carousel>
+            <Row className="text-center mb-4">
+                <Col>
+                    <h2 className="section-title">NUESTROS PROVEEDORES</h2>
+                    <div className="line-divider"></div>
+                </Col>
+            </Row>
+            <Carousel className="mb-4">
+                {renderCarouselItems(suppliers)}
+            </Carousel>
 
             <Contact showContact={true} />
         </Container>

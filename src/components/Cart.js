@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Container, Row, Col, Button, Table } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -7,6 +7,24 @@ import Contact from './Contact';
 function Cart() {
     const { cart, removeFromCart } = useContext(CartContext);
     const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+
+    // Cargar Google Tag Manager y gtag
+    useEffect(() => {
+        // Cargar GTM si no está ya cargado
+        if (!document.getElementById('gtm-script')) {
+            const gtmScript = document.createElement('script');
+            gtmScript.id = 'gtm-script';
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+        }
+
+        // Inicializar gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-717135166');
+    }, []);
 
     const handleSendToWhatsApp = () => {
         const orderDetails = cart.map(item => `${item.name} - $${item.price}`).join('\n');
@@ -18,6 +36,16 @@ function Cart() {
         gtag_report_conversion();
 
         window.open(url, '_blank');
+    };
+
+    const gtag_report_conversion = () => {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
+                'value': 1.0,
+                'currency': 'ARS',
+            });
+        }
     };
 
     return (
@@ -59,21 +87,5 @@ function Cart() {
         </Container>
     );
 }
-
-// Definición de la función de seguimiento de conversión
-window.gtag_report_conversion = function(url) {
-    var callback = function () {
-        if (typeof(url) !== 'undefined') {
-            window.location = url;
-        }
-    };
-    window.gtag('event', 'conversion', {
-        'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-        'value': 1.0,
-        'currency': 'ARS',
-        'event_callback': callback
-    });
-    return false;
-};
 
 export default Cart;

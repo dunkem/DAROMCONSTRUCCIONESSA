@@ -24,15 +24,19 @@ function App() {
     }, [location]);
 
     const trackWhatsAppClick = () => {
-        window.gtag('event', 'conversion', {
-            'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC'
-        });
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC'
+            });
+        }
     };
 
     const trackNavigation = (page) => {
-        window.gtag('event', 'navigation', {
-            'page': page
-        });
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'navigation', {
+                'page': page
+            });
+        }
     };
 
     const scrollToTop = () => {
@@ -94,6 +98,7 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                 </Routes>
 
+                {/* Botón flotante de WhatsApp */}
                 <a 
                     href="https://wa.me/5492215739000" 
                     target="_blank" 

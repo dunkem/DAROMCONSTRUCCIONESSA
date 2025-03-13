@@ -26,6 +26,8 @@ body {
     width: 100%;
     padding: 0.5rem 1rem; /* Altura del fondo negro */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    position: relative;
+    z-index: 1000; /* Asegura que la barra esté por encima del video */
 }
 
 .navbar-brand img {
@@ -162,4 +164,17 @@ body {
     .navbar-toggler {
         margin-left: auto; /* Asegura que el botón esté alineado a la derecha */
     }
+}
+
+/* Video de fondo */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* El video está detrás de todo */
+    opacity: 0.5; /* Efecto translúcido */
+    pointer-events: none; /* Permite que los clics pasen a través del video */
 }

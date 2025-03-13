@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Row, Col, Button, Carousel } from 'react-bootstrap';
 import { FaWhatsapp } from 'react-icons/fa';
-import { Helmet } from 'react-helmet'; // Importa Helmet
+import { Helmet } from 'react-helmet';
 import './Suelos.css';
 import Contact from './Contact';
 
@@ -76,34 +76,39 @@ function Suelos() {
         }
     };
 
+    const ContactButton = () => (
+        <Button 
+            as="a" 
+            href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+servicios+de+estudio+de+suelos.&type=phone_number&app_absent=0" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="upload-button"
+            onClick={trackConversion}
+            aria-label="Contactar a un asesor por WhatsApp"
+        >
+            <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
+        </Button>
+    );
+
+    const ContactDescription = () => (
+        <p className="suelos-description lead mt-2">
+            ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
+        </p>
+    );
+
     return (
         <Container className="mt-4 suelos-container">
             <Helmet>
-                <title>Estudio y Movimiento de Suelos - Darom SA</title> {/* Establece el título aquí */}
+                <title>Estudio y Movimiento de Suelos - Darom SA</title>
                 <meta name="description" content="Ofrecemos estudios detallados de suelos y movimientos de tierras para tus proyectos de construcción." />
                 <meta name="keywords" content="estudio de suelos, movimientos de suelos, construcción" />
                 <link rel="canonical" href="https://daromsa.com.ar/suelos" />
             </Helmet>
 
+            {/* Sección de Estudio de Suelos */}
             <Row className="suelos-header">
-                <Col md={6} className="suelos-header-left">
+                <Col>
                     <h1 className="suelos-title">Estudio de Suelos</h1>
-                </Col>
-                <Col md={6} className="suelos-header-right d-flex flex-column align-items-end">
-                    <Button 
-                        as="a" 
-                        href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+servicios+de+estudio+de+suelos.&type=phone_number&app_absent=0" 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="upload-button"
-                        onClick={trackConversion}
-                        aria-label="Contactar a un asesor por WhatsApp"
-                    >
-                        <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
-                    </Button>
-                    <p className="suelos-description lead mt-2">
-                        ¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.
-                    </p>
                 </Col>
             </Row>
             
@@ -130,6 +135,15 @@ function Suelos() {
                 </Col>
             </Row>
 
+            {/* Botón y descripción para Estudio de Suelos */}
+            <Row className="mt-4 text-center">
+                <Col>
+                    <ContactButton />
+                    <ContactDescription />
+                </Col>
+            </Row>
+
+            {/* Sección de Movimiento de Suelos */}
             <Row className="mt-4">
                 <Col xs={12}>
                     <h1 className="suelos-section-title">Movimiento de Suelos</h1>
@@ -151,6 +165,14 @@ function Suelos() {
                     <Carousel>
                         {renderCarouselItems(movimientos)}
                     </Carousel>
+                </Col>
+            </Row>
+
+            {/* Botón y descripción para Movimiento de Suelos */}
+            <Row className="mt-4 text-center">
+                <Col>
+                    <ContactButton />
+                    <ContactDescription />
                 </Col>
             </Row>
 

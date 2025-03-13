@@ -1,27 +1,19 @@
 import { Container, Row, Col, Card, Button, Image, Carousel } from 'react-bootstrap';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
 import './Hormigon.css';
 
 function Hormigon() {
+    const videoRef = useRef(null); // Referencia para el video de fondo
+
     useEffect(() => {
         window.scrollTo(0, 0); // Desplazar a la parte superior de la página
 
-        // Cargar Google Tag Manager y gtag
-        if (!document.getElementById('gtm-script')) {
-            const gtmScript = document.createElement('script');
-            gtmScript.id = 'gtm-script';
-            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
-            gtmScript.async = true;
-            document.head.appendChild(gtmScript);
+        // Reproducir el video automáticamente
+        if (videoRef.current) {
+            videoRef.current.play();
         }
-
-        // Inicializar gtag
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function() { window.dataLayer.push(arguments); };
-        window.gtag('js', new Date());
-        window.gtag('config', 'AW-717135166');
     }, []);
 
     // Beneficios ofrecidos
@@ -71,7 +63,7 @@ function Hormigon() {
             <Carousel.Item key={i}>
                 <Row className="justify-content-center">
                     {hormigonTypes.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide).map((type, idx) => (
-                        <Col xs={12} md={10} className="text-center" key={idx}>
+                        <Col xs={12} md={6} className="text-center" key={idx}>
                             <Card className="hormigon-card">
                                 <Card.Body>
                                     <Card.Title className="font-weight-bold other-title">{type.title}</Card.Title>
@@ -115,79 +107,64 @@ function Hormigon() {
                 <title>Hormigón Elaborado - Darom SA</title>
                 <meta name="description" content="Ofrecemos hormigón elaborado de alta calidad y servicios de bombeo. Contacto rápido por WhatsApp." />
                 <meta name="keywords" content="hormigón, construcción, bombeo, calidad, servicio" />
-                <link rel="canonical" href="https://daromsa.com.ar/hormigon" /> {/* Cambia la URL a tu dominio */}
+                <link rel="canonical" href="https://daromsa.com.ar/hormigon" />
             </Helmet>
 
-            <div style={{
-                backgroundImage: 'url(/IMG_2913.webp)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                padding: '60px 0',
-                position: 'relative',
-                color: 'white',
-            }}>
-                <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                }}></div>
-                <Container className="mt-4" style={{ position: 'relative', zIndex: 1 }}>
-                    <Row className="text-center">
-                        <Col xs={12}>
-                            <h1 id="hormigon-heading" className="display-4 font-weight-bold title-highlight">HORMIGÓN ELABORADO Y SERVICIO DE BOMBEO</h1>
-                            <p className="lead text-highlight">
-                                <strong>La Solución Perfecta</strong> para tus Proyectos de Construcción. Estamos capacitados para producir una amplia variedad de mezclas de hormigón que se adaptan a las distintas necesidades y proyectos de nuestros clientes.
-                            </p>
-                        </Col>
-                    </Row>
+            {/* Video de fondo */}
+            <video 
+                ref={videoRef}
+                className="video-background"
+                autoPlay
+                muted
+                loop
+                playsInline
+            >
+                <source src="/IMG_20241112132439373.mp4" type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+            </video>
 
-                    {/* Carrusel de Tipos de Hormigón */}
-                    <Row className="text-center my-4">
-                        <Col>
-                            <h2 className="section-htitle text-highlight">TIPOS DE HORMIGÓN</h2>
-                            <Carousel className="d-md-none" controls>
-                                {renderHormigonCarouselItems()}
-                            </Carousel>
-                            <div className="d-none d-md-block">
-                                <div className="hormigon-cards">
-                                    {hormigonTypes.map((type, index) => (
-                                        <Card className="hormigon-card" key={index}>
-                                            <Card.Body>
-                                                <Card.Title className="font-weight-bold other-title">{type.title}</Card.Title>
-                                                <Card.Text>{type.text}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
+            {/* Contenido principal */}
+            <Container className="mt-4 position-relative">
+                <Row className="text-center">
+                    <Col xs={12}>
+                        <h1 id="hormigon-heading" className="display-4 font-weight-bold title-highlight">HORMIGÓN ELABORADO Y SERVICIO DE BOMBEO</h1>
+                        <p className="lead text-highlight">
+                            <strong>La Solución Perfecta</strong> para tus Proyectos de Construcción. Estamos capacitados para producir una amplia variedad de mezclas de hormigón que se adaptan a las distintas necesidades y proyectos de nuestros clientes.
+                        </p>
+                    </Col>
+                </Row>
 
-                    {/* Botón de contacto */}
-                    <Row className="text-center mb-4">
-                        <Col xs={12}>
-                            <Button 
-                                as="a" 
-                                href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="upload-button my-4" 
-                                aria-label="Contactar a un asesor por WhatsApp"
-                                onClick={gtag_report_conversion} // Seguimiento de conversión
-                            >
-                                <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
-                            </Button>
-                            <p className="lead text-highlight">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
+                {/* Carrusel de Tipos de Hormigón */}
+                <Row className="text-center my-4">
+                    <Col>
+                        <h2 className="section-htitle text-highlight">TIPOS DE HORMIGÓN</h2>
+                        <Carousel controls className="hormigon-carousel">
+                            {renderHormigonCarouselItems()}
+                        </Carousel>
+                    </Col>
+                </Row>
 
-            <Container className="mt-4">
-                {/* Beneficios Section */}
+                {/* Botón de contacto */}
+                <Row className="text-center mb-4">
+                    <Col xs={12}>
+                        <Button 
+                            as="a" 
+                            href="https://api.whatsapp.com/send/?phone=5492215739000&text&type=phone_number&app_absent=0" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="upload-button my-4" 
+                            aria-label="Contactar a un asesor por WhatsApp"
+                            onClick={gtag_report_conversion} // Seguimiento de conversión
+                        >
+                            <FaWhatsapp className="upload-icon" /> Contáctate con un Asesor
+                        </Button>
+                        <p className="lead text-highlight">¡Comparte tu lista o presupuesto con nosotros! Te ofrecemos los mejores precios y condiciones.</p>
+                    </Col>
+                </Row>
+            </Container>
+
+            {/* Beneficios Section */}
+            <Container>
                 <Row className="text-center mb-4">
                     <Col>
                         <h2 className="section-htitle other-title">SERVICIOS QUE NOS DIFERENCIAN</h2>

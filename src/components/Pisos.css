@@ -43,16 +43,19 @@ body {
     animation: fadeInDown 1s ease both;
 }
 
+/* Tarjetas de contenido */
 .pisos-material-card-custom {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     font-size: 1.2rem; /* Aumentar tamaño de texto */
     background-color: var(--container-bg-color-custom); /* Fondo de las tarjetas */
-    display: flex; /* Usar flexbox para alinear el contenido */
-    flex-wrap: wrap; /* Permitir que el contenido se ajuste en múltiples líneas */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Centrar verticalmente el contenido */
+    padding: 1rem; /* Espaciado interno */
     animation: fadeInUp 1s ease both;
 }
 
@@ -61,37 +64,61 @@ body {
     box-shadow: 0 10px 30px rgba(145, 71, 71, 0.3);
 }
 
+/* Texto dentro de las tarjetas */
 .pisos-text {
-    flex: 1 1 60%; /* Ocupa el 60% del ancho disponible */
-    padding: 10px;
+    flex: 1 1 50%; /* Ocupa el 50% del ancho disponible */
+    padding: 1rem;
 }
 
-.pisos-image-left, .pisos-image-right {
-    max-width: 40%; /* Tamaño máximo de las imágenes */
-    width: 100%; /* Ajustar ancho a 100% */
-    height: auto; /* Asegura que la altura sea automática */
-    display: block;
-    margin: 10px auto; /* Margen para espacio alrededor de las imágenes */
-    border-radius: 10px; /* Bordes redondeados para imágenes */
+.pisos-text h2 {
+    font-size: 2rem; /* Tamaño más grande para los títulos */
+    font-weight: 700; /* Negrita */
+    color: var(--primary-color); /* Color principal */
+    margin-bottom: 1rem;
+}
+
+.pisos-text p {
+    font-size: 1.2rem; /* Tamaño de texto más grande */
+    line-height: 1.8; /* Espaciado entre líneas */
+}
+
+.pisos-text strong {
+    color: var(--hover-color); /* Resaltar palabras clave */
+    font-weight: 700; /* Negrita */
+}
+
+/* Imágenes dentro de las tarjetas */
+.pisos-image {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho disponible */
+    max-width: 400px; /* Tamaño máximo de las imágenes */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 2px 8px rgba(129, 129, 129, 0.2);
+    margin: 1rem; /* Espaciado alrededor de la imagen */
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-    .pisos-material-card-custom {
-        flex-direction: column; /* Alinear en columna en móviles */
-    }
-
-    .pisos-text, .pisos-image-right, .pisos-image-left {
-        flex: 1 1 100%; /* Ocupa el 100% del ancho disponible */
-        margin: 10px 0; /* Espacio entre elementos en móviles */
-    }
-
-    .pisos-image-left, .pisos-image-right {
-        max-width: 100%; /* Ajustar ancho máximo a 100% en móviles */
-    }
+/* Ajustes para evitar imágenes consecutivas */
+.pisos-material-card-custom:nth-child(even) .pisos-image {
+    order: 2; /* Cambia el orden de las imágenes en las tarjetas pares */
 }
 
+.pisos-material-card-custom:nth-child(odd) .pisos-image {
+    order: 1; /* Cambia el orden de las imágenes en las tarjetas impares */
+}
+
+/* Video de fondo */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Coloca el video detrás del contenido */
+    opacity: 0.5; /* Efecto translúcido */
+}
+
+/* Botón de contacto */
 .upload-button {
     background-color: #ff0000; /* Color de botón */
     color: #fff;
@@ -113,6 +140,22 @@ body {
 
 .upload-icon {
     margin-right: 8px; /* Aumentar el margen para mejor separación */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .pisos-material-card-custom {
+        flex-direction: column; /* Alinear en columna en móviles */
+    }
+
+    .pisos-text, .pisos-image {
+        flex: 1 1 100%; /* Ocupa el 100% del ancho disponible */
+        margin: 10px 0; /* Espacio entre elementos en móviles */
+    }
+
+    .pisos-image {
+        max-width: 100%; /* Ajustar ancho máximo a 100% en móviles */
+    }
 }
 
 /* Animaciones */
