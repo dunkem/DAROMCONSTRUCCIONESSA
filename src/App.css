@@ -1,180 +1,335 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
 /* Variables CSS */
 :root {
-    --primary-color: #ff0000; /* Rojo */
-    --hover-color: #c70000; /* Rojo oscuro para hover */
-    --background-color: #ffffff; /* Blanco */
-    --container-bg-color: #f9f9f9; /* Fondo gris claro */
-    --text-color: #000000; /* Negro para el texto */
-    --border-color: #ddd; /* Color de borde */
-    --whatsapp-color: #25D366; /* Verde de WhatsApp */
-    --whatsapp-hover-color: #128C7E; /* Verde oscuro de WhatsApp */
+    --primary-color: #e63946;
+    --primary-dark: #c1121f;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --accent-color: #457b9d;
+    --whatsapp-color: #25d366;
+    --whatsapp-hover: #128c7e;
+    --text-color: #333;
+    --text-light: #f8f9fa;
+    --border-radius: 4px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
 /* Estilos Generales */
 body {
-    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', Arial, sans-serif;
+    background-color: var(--light-color);
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding-top: 80px;
 }
 
 /* Navbar */
 .navbar-custom {
-    background-color: var(--text-color) !important; /* Barra de navegación negra */
-    width: 100%;
-    padding: 0.5rem 1rem; /* Altura del fondo negro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-    position: relative;
-    z-index: 1000; /* Asegura que la barra esté por encima del video */
-}
-
-.navbar-brand img {
-    height: 50px; /* Altura del logo */
-}
-
-.navbar-nav {
-    flex-wrap: wrap;
-    justify-content: flex-end; /* Alinea los enlaces a la derecha */
-}
-
-.nav-link {
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--background-color) !important; /* Texto blanco */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Animación suave */
+    background-color: var(--dark-color) !important;
+    box-shadow: var(--box-shadow);
     padding: 0.5rem 1rem;
-    margin: 0 0.5rem; /* Espaciado entre enlaces */
-    border-radius: 5px; /* Bordes redondeados para un efecto moderno */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-.nav-link:hover {
-    color: var(--primary-color) !important; /* Color rojo en hover */
-    background-color: rgba(255, 0, 0, 0.1); /* Fondo rojo translúcido en hover */
+.navbar-logo {
+    height: 50px;
+    transition: var(--transition);
 }
 
-.navbar-toggler {
-    border: 1px solid rgba(255, 0, 0, 0.7); /* Borde en rojo */
-    padding: 0.25rem 0.5rem; /* Padding del botón */
-    background-color: rgba(255, 0, 0, 0.7); /* Fondo en rojo */
-    margin-left: 1rem; /* Espacio entre el logo y el botón */
+.navbar-logo:hover {
+    transform: scale(1.05);
 }
 
-.navbar-toggler-icon {
-    width: 24px; /* Ancho de las líneas del icono */
-    height: 24px; /* Altura de las líneas del icono */
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Líneas del botón en blanco */
+/* Items del Navbar */
+.nav-item-custom {
+    color: var(--light-color) !important;
+    font-weight: 600;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.5rem !important;
+    transition: var(--transition);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
 }
 
-.social-icons {
+.nav-item-custom:hover,
+.nav-item-custom:focus {
+    color: var(--primary-color) !important;
+}
+
+/* Hamburguesa Blanca */
+.custom-toggler {
+    border: none;
+    padding: 0.5rem;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: none;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--light-color);
+    transition: var(--transition);
+}
+
+.custom-toggler .navbar-toggler-icon::before,
+.custom-toggler .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--light-color);
+    left: 0;
+    transition: var(--transition);
+}
+
+.custom-toggler .navbar-toggler-icon::before {
+    transform: translateY(-8px);
+}
+
+.custom-toggler .navbar-toggler-icon::after {
+    transform: translateY(8px);
+}
+
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+}
+
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Contenedor de Redes y Carrito */
+.navbar-extra {
     display: flex;
-    justify-content: flex-end;
-    margin-left: auto; /* Asegura que los iconos de redes sociales estén a la derecha */
+    align-items: center;
+    margin-left: 1rem;
+    gap: 0.5rem;
 }
 
-.social-icons a {
-    color: var(--background-color) !important; /* Iconos blancos */
-    margin: 0 0.5rem;
-    transition: color 0.3s ease;
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.social-icons a:hover {
-    color: var(--primary-color) !important; /* Color rojo en hover */
+/* Iconos Sociales */
+.social-link {
+    padding: 0.25rem !important;
 }
 
-/* Estilo del NavDropdown */
-.navbar-nav .nav-item .dropdown-menu {
-    background-color: var(--text-color); /* Fondo negro */
-    color: var(--background-color); /* Texto blanco */
+.social-icon {
+    color: var(--light-color);
+    font-size: 1.2rem;
+    transition: var(--transition);
 }
 
-.navbar-nav .nav-item .dropdown-item {
-    color: var(--background-color); /* Texto blanco */
+.social-icon:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
 }
 
-.navbar-nav .nav-item .dropdown-item:hover {
-    background-color: rgba(255, 0, 0, 0.1); /* Fondo rojo translúcido en hover */
-    color: var(--primary-color); /* Texto rojo en hover */
+/* Carrito */
+.cart-dropdown .dropdown-toggle {
+    color: var(--light-color) !important;
+    font-size: 1.3rem;
+    padding: 0.25rem 0.75rem !important;
+    display: flex;
+    align-items: center;
 }
 
-/* Botón de Whatsapp Flotante */
+.cart-dropdown .dropdown-toggle:hover {
+    color: var(--primary-color) !important;
+}
+
+.cart-dropdown .dropdown-menu {
+    background-color: var(--dark-color);
+    border: none;
+    box-shadow: var(--box-shadow);
+    min-width: 250px;
+}
+
+.cart-dropdown .dropdown-item {
+    color: var(--light-color);
+    padding: 0.5rem 1rem;
+}
+
+.cart-dropdown .dropdown-item:hover,
+.cart-dropdown .dropdown-item:focus {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cart-badge {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+    position: relative;
+    top: -8px;
+}
+
+/* Botones Flotantes */
 .whatsapp-float {
     position: fixed;
-    bottom: 70px; /* Ajuste de la posición */
-    right: 20px;
-    background-color: var(--whatsapp-color); /* Color verde clásico de WhatsApp */
-    border-radius: 50%; /* Bordes redondeados */
-    padding: 15px; /* Tamaño ajustado */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: flex; /* Para centrar el icono dentro del botón */
-    align-items: center; /* Alineación vertical */
-    justify-content: center; /* Alineación horizontal */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--whatsapp-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    z-index: 999;
 }
 
 .whatsapp-float:hover {
-    background-color: var(--whatsapp-hover-color); /* Color más oscuro al pasar el ratón */
-    transform: scale(1.1); /* Efecto de agrandamiento */
+    background-color: var(--whatsapp-hover);
+    transform: scale(1.1);
 }
 
 .whatsapp-icon {
-    color: #ffffff !important; /* Color blanco */
+    font-size: 2rem;
 }
 
-/* Botón Flotante para Subir al Inicio */
 .scroll-to-top {
     position: fixed;
-    bottom: 20px; /* Posición desde el fondo */
-    left: 20px; /* Posición desde la izquierda */
-    background-color: #ffffff; /* Fondo blanco */
-    border: 1px solid var(--primary-color); /* Borde rojo */
-    border-radius: 50%; /* Forma redonda */
-    padding: 10px; /* Espaciado interno */
-    color: var(--primary-color); /* Color del icono */
-    cursor: pointer; /* Cambiar cursor al pasar */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    z-index: 999;
+    cursor: pointer;
 }
 
 .scroll-to-top:hover {
-    background-color: var(--hover-color); /* Color más oscuro al pasar el ratón */
-    transform: scale(1.1); /* Efecto de agrandamiento */
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
 }
 
-/* Media Queries */
-@media (max-width: 767px) {
+/* Responsive */
+@media (max-width: 1200px) {
+    .nav-item-custom {
+        padding: 0.5rem 0.7rem !important;
+        font-size: 0.8rem;
+        margin: 0 0.3rem !important;
+    }
+    
+    .navbar-extra {
+        margin-left: 0.5rem;
+        gap: 0.3rem;
+    }
+    
+    .social-icon {
+        font-size: 1.1rem;
+    }
+    
+    .cart-dropdown .dropdown-toggle {
+        font-size: 1.2rem;
+        padding: 0.2rem 0.5rem !important;
+    }
+}
+
+@media (max-width: 992px) {
     .navbar-nav {
-        flex-direction: column;
-        align-items: center; /* Alinea verticalmente los enlaces */
+        padding: 1rem 0;
     }
-
-    .nav-link {
-        padding: 0.5rem 0;
-        margin: 0.5rem 0; /* Espaciado vertical para enlaces en móviles */
+    
+    .nav-item-custom {
+        margin: 0.5rem 0 !important;
+        padding: 0.5rem 1rem !important;
     }
-
-    .social-icons {
+    
+    .navbar-extra {
+        margin: 0;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
         justify-content: center;
-        margin-top: 1rem;
-        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
     }
-
-    .navbar-toggler {
-        margin-left: auto; /* Asegura que el botón esté alineado a la derecha */
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        font-size: 1.5rem;
+    }
+    
+    .cart-dropdown .dropdown-toggle {
+        font-size: 1.5rem;
     }
 }
 
-/* Video de fondo */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* El video está detrás de todo */
-    opacity: 0.5; /* Efecto translúcido */
-    pointer-events: none; /* Permite que los clics pasen a través del video */
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 40px;
+    }
+    
+    .main-content {
+        padding-top: 70px;
+    }
+    
+    .nav-item-custom {
+        font-size: 0.9rem;
+    }
+    
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .scroll-to-top {
+        bottom: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+    }
 }

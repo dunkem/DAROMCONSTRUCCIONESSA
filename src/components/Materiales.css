@@ -1,169 +1,229 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-:root {
-    --primary-color: #ff4d4d; /* Rojo principal */
-    --hover-color: #e63939; /* Rojo más oscuro al pasar el mouse */
-    --background-color: #f9f9f9; /* Fondo gris claro */
-    --container-bg-color: #ffffff; /* Fondo blanco para contenedores */
-    --border-color: #ddd; /* Color de borde */
-    --text-color: #555; /* Color de texto gris */
-    --header-text-color: #000; /* Color de texto negro para encabezados */
+/* Hero Section - Versión con imagen de fondo */
+.heroc-section {
+  position: relative;
+  min-height: 80vh; /* Altura mínima del hero */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: white;
 }
 
-/* Estilos Generales */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    color: var(--text-color);
-    background-color: var(--background-color); /* Color de fondo */
+/* Imagen de fondo */
+.heroc-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('C:\Users\darom\OneDrive\Escritorio\DD\DAROM\DAROMCONSTRUCCIONESSA\public\portadacoralon.JPG') center/cover no-repeat;
+  z-index: 0;
 }
 
-/* Animaciones */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Overlay oscuro para mejorar legibilidad */
+.heroc-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Ajusta la opacidad según necesidad */
+  z-index: 1;
 }
 
-.materiales-container {
-    padding: 2rem;
-    background-color: var(--background-color);
-    animation: fadeInUp 1s ease both;
+/* Contenido del hero (sobre el overlay) */
+.heroc-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 2rem 0;
 }
 
-.materiales-title {
-    margin: 10px 0 20px;
-    text-align: center;
-    color: var(--header-text-color);
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+/* Estilos para el texto */
+.heroc-section h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Contenedor adjunto */
-.adjunta-lista-container {
-    margin: 20px auto;
-    padding: 15px;
-    background-color: var(--container-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.heroc-section .lead {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Botones */
-.adjunta-lista-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+/* Botón destacado */
+.heroc-section .btn-danger {
+  background-color: #d9232e;
+  border-color: #d9232e;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.adjunta-lista-btn:hover {
-    background-color: var(--hover-color);
-    transform: translateY(-2px);
+.heroc-section .btn-danger:hover {
+  background-color: #b51d27;
+  border-color: #b51d27;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.material-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    background-color: var(--container-bg-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.material-card img {
-    width: 100%;
-    height: 200px; /* Altura ajustada para todas las imágenes */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-    border-bottom: 1px solid var(--border-color); /* Borde inferior */
-}
-
-.material-card .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.material-card .btn {
-    background-color: #000;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.material-card .btn:hover {
-    background-color: #333;
-}
-
-.material-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.material-card h4 {
-    font-weight: 700;
-    margin: 10px 0;
-    text-transform: uppercase;
-    color: var(--header-text-color);
-}
-
-.material-card p {
-    font-size: 1rem;
-    color: var(--text-color);
-}
-
-/* Estilos para el carrusel de proveedores */
-.supplier-card {
-    background-color: var(--container-bg-color);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.supplier-logo {
-    width: 100%;
-    height: 100px; /* Ajustar altura para los logos */
-    object-fit: contain; /* Mantiene la proporción del logo */
-    padding: 10px; /* Espacio alrededor del logo */
+/* Responsive Design */
+@media (max-width: 992px) {
+  .heroc-section {
+    min-height: 70vh;
+  }
+  
+  .heroc-content {
+    padding: 4rem 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .materiales-container {
-        padding: 1rem;
-    }
+  .heroc-section {
+    min-height: 60vh;
+    text-align: center;
+  }
+  
+  .heroc-section h1 {
+    font-size: 2.2rem;
+  }
+  
+  .heroc-section .lead {
+    font-size: 1.2rem;
+  }
+  
+  .heroc-content {
+    padding: 3rem 1.5rem;
+  }
+}
 
-    .material-card {
-        margin-bottom: 1rem;
-    }
+@media (max-width: 576px) {
+  .heroc-section {
+    min-height: 50vh;
+  }
+  
+  .heroc-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .heroc-section .lead {
+    font-size: 1rem;
+  }
+}
 
-    .adjunta-lista-btn {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+/* Benefits Section */
+.benefit-card {
+  background: white;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
 
-    .adjunta-lista-text {
-        font-size: 12px;
-    }
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  color: #d9232e;
+}
+
+/* Product Cards */
+.product-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  padding: 15px;
+}
+
+.product-title {
+  font-size: 1rem;
+  color: #333;
+  min-height: 50px;
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* Sections */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: #d9232e;
+}
+
+/* Testimonials */
+.testimonial-card {
+  background: white;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.btn-danger {
+  background-color: #d9232e;
+  border-color: #d9232e;
+}
+
+.btn-danger:hover {
+  background-color: #b51d27;
+  border-color: #b51d27;
+}
+
+.btn-outline-danger {
+  color: #d9232e;
+  border-color: #d9232e;
+}
+
+.btn-outline-danger:hover {
+  background-color: #d9232e;
+  border-color: #d9232e;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  
+  .benefit-card {
+      margin-bottom: 15px;
+  }
 }

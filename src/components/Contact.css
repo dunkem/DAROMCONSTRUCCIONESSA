@@ -1,196 +1,235 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-/* Variables CSS */
 :root {
-    --primary-color: #ff0000; /* Rojo */
-    --hover-color: #c70000; /* Rojo oscuro para hover */
-    --background-color: #ffffff; /* Blanco */
-    --container-bg-color: #f9f9f9; /* Fondo gris claro */
-    --text-color: #000000; /* Negro para el texto */
-    --border-color: #ddd; /* Color de borde */
+    --primary-color: #e63946;
+    --primary-light: #f8a5a5;
+    --dark-color: #212529;
+    --light-color: #ffffff;
+    --text-color: #333333;
+    --light-gray: #f8f9fa;
+    --border-color: #dee2e6;
+    --transition: all 0.3s ease;
 }
 
-/* Estilos Generales */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: var(--background-color);
-    color: var(--text-color);
+/* Sección de contacto */
+.contact-section {
+    padding: 5rem 0;
+    background-color: var(--light-gray);
 }
 
-/* Contenedor de Contacto */
-.contact-container {
-    background-color: var(--container-bg-color);
-    padding: 2rem; /* Espaciado vertical aumentado */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Contenedor principal */
+.contact-content {
+    background: var(--light-color);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease both;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
 }
 
-/* Título del Formulario de Contacto */
-.contact-title {
-    color: var(--primary-color);
-    font-size: 2.2rem; /* Aumentado el tamaño de fuente */
-    font-weight: 700;
-    margin-bottom: 1rem; /* Aumentado el margen inferior */
-    text-transform: uppercase;
-    text-align: center;
-    animation: fadeInDown 1s ease both;
+/* Formulario */
+.contact-form-col {
+    padding: 3rem;
+    border-right: 1px solid var(--border-color);
 }
 
-/* Título de Información de Contacto */
-.contact-info-title {
-    font-size: 1.5rem; /* Reducido el tamaño de fuente */
-    font-weight: 700;
-    margin-bottom: 1rem; /* Aumentado el margen inferior */
-    color: var(--primary-color);
-    text-align: center;
-    animation: fadeInDown 1s ease both;
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
 }
 
-/* Elementos del Formulario de Contacto */
-.contact-form {
-    animation: fadeInUp 1s ease both;
-}
-
-.contact-form .form-control {
-    border-radius: 5px;
+.form-control {
+    padding: 0.75rem 1rem;
     border: 1px solid var(--border-color);
-    margin-bottom: 1rem; /* Reducido el margen inferior */
-    font-size: 1rem; /* Tamaño de fuente aumentado */
+    border-radius: 8px;
+    transition: var(--transition);
 }
 
-/* Botón de Envío del Formulario */
-.contact-submit-button {
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(230, 57, 70, 0.25);
+}
+
+.submit-btn {
     background-color: var(--primary-color);
-    color: #fff;
     border: none;
-    padding: 10px 20px; /* Aumentado el padding */
-    border-radius: 5px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Ancho completo del botón */
-    font-size: 1.1rem; /* Aumentado el tamaño de fuente */
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    width: 100%;
+    transition: var(--transition);
 }
 
-.contact-submit-button:hover {
-    background-color: var(--hover-color);
+.submit-btn:hover {
+    background-color: var(--dark-color);
+    transform: translateY(-2px);
 }
 
-/* Elementos de Información de Contacto */
-.contact-info-column {
-    background-color: var(--background-color);
-    padding: 2rem; /* Aumentado el padding */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 1s ease both;
-}
-
-.contact-info-item {
+/* Información de contacto */
+.contact-info-col {
+    padding: 3rem;
     display: flex;
-    align-items: center;
-    margin-bottom: 1rem; /* Aumentado el margen */
-    animation: fadeIn 1.2s ease both;
-    font-size: 1rem; /* Tamaño de fuente aumentado */
+    flex-direction: column;
+}
+
+.contact-info-card {
+    margin-bottom: 2rem;
+}
+
+.info-title {
+    font-size: 1.75rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.contact-method {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
 }
 
 .contact-icon {
     color: var(--primary-color);
-    margin-right: 10px;
-    font-size: 1.5rem; /* Tamaño de íconos ajustado */
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-top: 0.25rem;
 }
 
-/* Estilo específico para el ícono de email */
-.contact-info-item span {
-    display: flex;
-    flex-wrap: wrap; /* Asegura que el texto y los enlaces se ajusten en línea */
+.contact-method h4 {
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
 }
 
-.contact-info-item a {
+.contact-method a {
     color: var(--text-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: var(--transition);
 }
 
-.contact-info-item a:hover {
+.contact-method a:hover {
     color: var(--primary-color);
 }
 
-/* Ubicaciones de Contacto */
-.contact-location {
-    margin-top: 1.5rem; /* Reducido el margen superior */
-    animation: fadeIn 1.2s ease both;
+.emails-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.location-title {
+.email-item {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.email-item span {
+    font-weight: 600;
+}
+
+/* Mapas */
+.maps-row {
+    margin-top: auto;
+}
+
+.location-card {
+    background: var(--light-color);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.location-header {
     display: flex;
     align-items: center;
-    font-size: 1.2rem; /* Aumentado el tamaño de fuente */
     margin-bottom: 0.5rem;
-    color: var(--text-color);
 }
 
-.location-title svg {
+.location-icon {
+    color: var(--primary-color);
     margin-right: 0.5rem;
+    font-size: 1.25rem;
 }
 
-.map-container {
-    margin-top: 1rem;
+.location-card h5 {
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    margin: 0;
 }
 
-/* Estilos responsivos */
+.location-address {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.map-wrapper {
+    position: relative;
+    padding-bottom: 75%; /* Relación aspecto 4:3 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.location-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contact-form-col {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .contact-info-col {
+        padding-top: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .contact-container {
-        padding: 1rem; /* Ajuste de padding para dispositivos móviles */
+    .contact-section {
+        padding: 3rem 0;
     }
-
-    .contact-title {
-        font-size: 1.8rem; /* Ajuste de tamaño de fuente para dispositivos móviles */
+    
+    .section-title {
+        font-size: 2rem;
     }
-
-    .contact-info-title {
-        font-size: 1.4rem; /* Ajuste de tamaño de fuente para dispositivos móviles */
+    
+    .contact-form-col,
+    .contact-info-col {
+        padding: 2rem;
     }
-
-    .contact-info-item {
-        font-size: 0.9rem; /* Ajuste de tamaño de fuente para dispositivos móviles */
-    }
-
-    .contact-icon {
-        font-size: 1.3rem; /* Tamaño de ícono ajustado en móvil */
+    
+    .info-title {
+        font-size: 1.5rem;
     }
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+@media (max-width: 576px) {
+    .maps-row {
+        flex-direction: column;
     }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .email-item {
+        flex-direction: column;
+        gap: 0;
     }
 }
