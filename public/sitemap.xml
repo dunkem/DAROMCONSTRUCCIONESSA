@@ -1,45 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://daromsa.com.ar/</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://daromsa.com.ar/ultimologodarom.png</image:loc>
+      <image:title>Darom SA - Especialistas en construcción</image:title>
+    </image:image>
   </url>
+  
+  <!-- Servicios -->
   <url>
     <loc>https://daromsa.com.ar/services/hormigon</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+  
   <url>
     <loc>https://daromsa.com.ar/services/materiales</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+  
   <url>
     <loc>https://daromsa.com.ar/services/suelos</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://daromsa.com.ar/services/pisos</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Landing Page Especial -->
+  <url>
+    <loc>https://daromsa.com.ar/services/pisos/industriales-ad</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Información Corporativa -->
   <url>
     <loc>https://daromsa.com.ar/about</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
+  
   <url>
     <loc>https://daromsa.com.ar/contact</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority> <!-- Mayor prioridad para conversión -->
+  </url>
+  
+  <!-- Carrito (opcional, si quieres indexarlo) -->
+  <url>
+    <loc>https://daromsa.com.ar/cart</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

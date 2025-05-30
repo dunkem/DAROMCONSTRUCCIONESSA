@@ -1,315 +1,549 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-/* Variables CSS */
+/* Variables y Estilos Base */
 :root {
-    --primary-color: #000000; /* Color principal */
-    --hover-color: #ff0000; /* Color de hover */
-    --background-color: #f4f4f4; /* Color de fondo suave */
-    --text-color: #333; /* Color del texto */
-    --white: #fff; /* Blanco */
-    --black: #000; /* Negro */
+  --hormigon-red: #E30613;
+  --hormigon-black: #1a1a1a;
+  --hormigon-dark: #333;
+  --hormigon-light: #f8f9fa;
+  --hormigon-white: #ffffff;
+  --hormigon-overlay: rgba(26, 26, 26, 0.85);
+  --transition: all 0.3s ease;
 }
 
-/* Estilos Generales */
-body.hormigon {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    color: var(--text-color);
-    background-color: var(--background-color);
+.hormigon-container {
+  font-family: 'Roboto', sans-serif;
+  color: var(--hormigon-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Video de fondo */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Coloca el video detrás del contenido */
-    opacity: 0.5; /* Efecto translúcido */
+.hormigon-text-red { color: var(--hormigon-red) !important; }
+.hormigon-bg-red { background-color: var(--hormigon-red) !important; }
+.hormigon-bg-dark { background-color: var(--hormigon-black) !important; }
+
+/* Hero Section - Versión Optimizada */
+.hormigon-hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background-color: var(--hormigon-black);
+  display: flex;
+  align-items: center;
 }
 
-/* Overlay */
-.overlay {
-    position: relative;
-    background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para mejor contraste */
+.hormigon-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+.hormigon-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--hormigon-overlay);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hormigon-hero-content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 4rem 2rem;
+  background-color: rgba(88, 88, 88, 0.7);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  margin: 0 auto;
+  text-align: center; /* Añadido para centrar el texto */
+}
+
+.hormigon-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--hormigon-white);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hormigon-hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--hormigon-white);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.hormigon-benefits-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.hormigon-benefits-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Añadido para centrar los items de la lista */
+}
+
+.hormigon-check-icon {
+  color: var(--hormigon-red);
+  margin-right: 1rem;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.hormigon-hero-discount {
+  font-size: 1.3rem;
+  margin: 2rem 0;
+  color: var(--hormigon-white);
+  line-height: 1.5;
+}
+
+.hormigon-cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Tipos de Hormigón */
+.hormigon-types-section {
+  background-color: var(--hormigon-light);
+  padding: 4rem 0;
+}
+
+.hormigon-type-card {
+  background: var(--hormigon-white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  height: 100%;
+  border-top: 3px solid var(--hormigon-red);
+  transition: var(--transition);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hormigon-type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.hormigon-type-title {
+  font-size: 1.5rem;
+  color: var(--hormigon-black);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hormigon-type-description {
+  color: var(--hormigon-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* Beneficios */
+.hormigon-benefits-section {
+  background-color: var(--hormigon-white);
+  padding: 4rem 0;
+}
+
+.hormigon-benefit-card {
+  padding: 2rem;
+  background: var(--hormigon-white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(145, 50, 50, 0.05);
+  height: 100%;
+  transition: var(--transition);
+  border-top: 3px solid var(--hormigon-red);
+  margin-bottom: 2rem;
+}
+
+.hormigon-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.hormigon-benefit-logo-container {
+  height: 80px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hormigon-benefit-img {
+  max-height: 130px;
+  max-width: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.hormigon-benefit-card:hover .hormigon-benefit-img {
+  transform: scale(1.05);
+}
+
+.hormigon-benefit-title {
+  font-size: 1.3rem;
+  color: var(--hormigon-black);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hormigon-benefit-text {
+  color: var(--hormigon-dark);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Servicio de Bombeo */
+.hormigon-pumping-section {
+  background-color: var(--hormigon-black);
+  color: var(--hormigon-white);
+  padding: 4rem 0;
+}
+
+.hormigon-pumping-img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: var(--transition);
+}
+
+.hormigon-pumping-img:hover {
+  transform: scale(1.02);
+}
+
+/* Proveedores */
+.suppliers-carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+.supplier-card {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 0 10px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: var(--transition);
+}
+
+.supplier-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.supplier-logo {
+  max-height: 80px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.supplier-card:hover .supplier-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Sobre Nosotros */
+.hormigon-about-section {
+  background-color: var(--hormigon-white);
+  padding: 4rem 0;
+}
+
+.hormigon-about-img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: var(--transition);
+  height: 50vh;
+}
+
+.hormigon-about-img:hover {
+  transform: scale(1.02);
+}
+
+/* Secciones comunes */
+.hormigon-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.hormigon-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--hormigon-red);
+}
+
+.hormigon-section-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--hormigon-white);
+}
+
+.hormigon-section-subtitle2 {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: var(--hormigon-dark);
+}
+
+.hormigon-section-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hormigon-features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.hormigon-features-list li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Botones */
+.hormigon-cta-button {
+  background: var(--hormigon-red);
+  border: 2px solid var(--hormigon-red);
+  color: white;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  display: inline-block;
+  text-align: center;
+}
+
+.hormigon-cta-button:hover {
+  background: var(--hormigon-black);
+  border-color: var(--hormigon-red);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.hormigon-cta-button.light {
+  background: white;
+  color: var(--hormigon-red);
+  border-color: white;
+}
+
+.hormigon-cta-button.light:hover {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.hormigon-cta-button.outline-danger {
+  background: transparent;
+  border-color: var(--hormigon-red);
+  color: var(--hormigon-red);
+}
+
+.hormigon-cta-button.outline-danger:hover {
+  background: var(--hormigon-red);
+  color: white;
+}
+
+/* Controles del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(220, 53, 69, 0.9);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.carousel-control-prev {
+  left: -20px;
+}
+
+.carousel-control-next {
+  right: -20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .hormigon-hero-title {
+    font-size: 3rem;
+  }
+  
+  .hormigon-section-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hormigon-hero-section {
+    min-height: 600px;
+  }
+  
+  .hormigon-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hormigon-hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .hormigon-benefits-list {
+    font-size: 1.1rem;
+  }
+  
+  .hormigon-hero-discount {
+    font-size: 1.1rem;
+  }
+  
+  .hormigon-section-title {
+    font-size: 2rem;
+  }
+  
+  .hormigon-benefit-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    height: auto;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 40px;
-    color: var(--white); /* Texto en blanco */
-    transition: background 0.3s; /* Transición suave para el fondo */
-    text-align: center; /* Centrar texto en móviles */
-    background-size: cover; /* Asegura que la imagen de fondo cubra todo el contenedor */
-    background-position: center; /* Centrar la imagen de fondo */
-}
-
-.overlay:hover {
-    background: rgba(0, 0, 0, 0.9); /* Cambio de fondo en hover */
-}
-
-/* Animaciones */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* Botón de Carga */
-.upload-button {
-    background-color: var(--hover-color); /* Color rojo */
-    color: var(--white);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centrar contenido del botón */
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 20px auto; /* Centrar el botón */
-    width: fit-content;
-    animation: fadeInUp 0.5s ease both;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
-}
-
-.upload-button:hover {
-    background-color: #c70029; /* Color en hover */
-    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
-    animation: pulse 1s infinite; /* Pulso infinito */
-}
-
-.upload-icon {
-    margin-right: 5px;
-}
-
-/* Títulos y Texto */
-.text-highlight {
-    color: var(--black); /* Texto en negro */
-    font-weight: 500;
-}
-
-.title-highlight {
-    font-weight: 700;
-    color: var(--black); /* Título específico en negro */
-    position: relative;
-    margin-bottom: 20px;
-    font-size: 2.2rem; /* Tamaño aumentado */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1s ease both;
-}
-
-.section-htitle {
-    font-weight: 700;
-    color: var(--black); /* Título específico en negro */
-    position: relative;
-    margin-bottom: 20px;
-    font-size: 2.0rem; /* Tamaño aumentado */
-    animation: fadeInUp 1.5s ease both;
-}
-
-/* Otros Títulos en Negro */
-.other-title {
-    font-weight: 700;
-    color: var(--black); /* Otros títulos en negro */
-    position: relative;
-    margin-bottom: 20px;
-    animation: fadeInUp 1.5s ease both;
-}
-
-.other-title::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    height: 2px;
-    width: 0;
-    background-color: var(--hover-color); /* Subrayado rojo */
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.other-title:hover::after {
-    width: 100%;
-    left: 0;
-}
-
-/* Tarjetas de Hormigón */
-.hormigon-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-}
-
-.hormigon-card {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    flex: 1 1 240px;
-    color: var(--black); /* Color de texto ajustado */
-    transition: transform 0.3s, box-shadow 0.3s; /* Añadir transición para sombra */
-    text-align: center;
-    min-width: 240px;
-    animation: fadeInUp 2s ease both;
-}
-
-.hormigon-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Efecto de sombra al pasar el mouse */
-}
-
-.hormigon-card h4 {
-    font-weight: 500;
-    margin: 10px 0;
-    text-transform: uppercase;
-    position: relative;
-}
-
-.hormigon-card h4::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    height: 2px;
-    width: 0;
-    background-color: var(--hover-color);
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.hormigon-card:hover h4::after {
-    width: 100%;
-    left: 0;
-}
-
-.hormigon-card p {
-    font-size: 1rem;
-    color: var(--text-color); /* Color de texto ajustado */
-}
-
-/* Contenedor de Beneficios */
-.benefit-container {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    color: var(--black); /* Color de texto ajustado */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    min-height: 490px;
-    animation: fadeInUp 2.5s ease both;
+  }
 }
 
-.benefit-logo-large {
-    width: 160px;
-    margin-bottom: 10px;
-    animation: fadeInUp 2.7s ease both;
-}
-
-.benefit-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 10px 0;
-    animation: fadeInUp 2.9s ease both;
-}
-
-.benefit-description {
-    font-size: 1rem;
-    text-align: center;
-    animation: fadeInUp 3s ease both;
-}
-
-/* Imagen de Ancho Completo */
-.full-width-image {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 3.2s ease both;
-}
-
-/* Descripción de la Compañía */
-.company-hdescription {
-    font-size: 1.2rem;
-    color: var(--black); /* Cambiado a negro */
-    animation: fadeInUp 3.4s ease both;
-}
-
-/* Adaptaciones Responsivas */
 @media (max-width: 768px) {
-    .overlay {
-        padding: 20px;
-        justify-content: flex-start;
-        text-align: center; /* Centrar texto en móviles */
-        background-size: contain; /* Cambiar a contain para mejor visualización */
-        background-repeat: no-repeat; /* Evitar que la imagen se repita */
-    }
-
-    .upload-button {
-        width: 100%;
-        padding: 12px; /* Ajustar padding para móviles */
-        font-size: 1rem; /* Ajustar tamaño de fuente */
-        margin: 20px 0; /* Asegurar margen vertical */
-    }
-
-    .title-highlight {
-        font-size: 2.2rem; /* Ajustar tamaño de fuente para móviles */
-    }
-
-    .section-htitle {
-        font-size: 1.8rem; /* Ajustar tamaño de fuente para móviles */
-    }
-
-    .other-title {
-        font-size: 1.5rem; /* Ajustar tamaño de fuente para móviles */
-    }
-
-    .hormigon-cards {
-        flex-direction: column; /* Cambiar a columna en móviles */
-        align-items: center;
-        width: 100%;
-    }
-
-    .hormigon-card {
-        max-width: 100%;
-        margin-bottom: 30px;
-        padding: 15px; /* Ajustar padding para móviles */
-    }
-
-    .carousel-item .hormigon-card {
-        flex: 1 1 100%;
-        margin: 5px;
-    }
-
-    .benefit-title {
-        font-size: 1.2rem; /* Ajustar tamaño de fuente para móviles */
-    }
-
-    .benefit-description {
-        font-size: 0.9rem; /* Ajustar tamaño de fuente para móviles */
-    }
+  .hormigon-hero-section {
+    min-height: 500px;
+    height: 120vh;
+  }
+  
+  .hormigon-hero-title {
+    font-size: 2rem;
+  }
+  
+  .hormigon-hero-content-wrapper {
+    padding: 3rem 1rem;
+  }
+  
+  .hormigon-benefits-list {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .hormigon-benefit-logo-container {
+    height: 90px;
+  }
+  
+  .hormigon-benefit-img {
+    max-height: 110px;
+  }
+  
+  .supplier-card {
+    height: 120px;
+    padding: 15px;
+  }
+  
+  .supplier-logo {
+    max-height: 60px;
+  }
+  
+  .hormigon-cta-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hormigon-cta-button {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
 }
 
-.hormigon {
-    position: relative; /* Asegura un contexto de apilamiento correcto */
-    z-index: 1; /* Asegura que esté debajo del botón de WhatsApp */
+@media (max-width: 576px) {
+  .hormigon-hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hormigon-section-title {
+    font-size: 1.8rem;
+  }
+  
+  .hormigon-benefit-card {
+    padding: 1.2rem;
+    min-height: 250px;
+  }
+  
+  .hormigon-benefit-title {
+    font-size: 1.1rem;
+  }
+  
+  .hormigon-benefit-text {
+    font-size: 0.9rem;
+  }
+  
+  .supplier-card {
+    height: 100px;
+    padding: 15px;
+  }
+  
+  .supplier-logo {
+    max-height: 50px;
+  }
+}
+/* Asegura que el carrusel no tenga retraso en móviles */
+@media (max-width: 768px) {
+  .carousel {
+    -webkit-overflow-scrolling: touch; /* Mejor scroll en iOS */
+    overflow-anchor: none; /* Evita reflow */
+  }
+  
+  .carousel-item {
+    transition-duration: 0.3s !important; /* Transición más rápida */
+  }
 }
