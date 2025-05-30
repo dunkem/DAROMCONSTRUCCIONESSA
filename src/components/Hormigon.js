@@ -69,18 +69,19 @@ function Hormigon() {
 
   const suppliers = [
     { src: '/logolomanegra.png', alt: 'Loma Negra' },
-    { src: '/LOGOMAPEI.png', alt: 'Mapei' },
     { src: '/LOGOSIKA.png', alt: 'Sika' },
     { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
     { src: '/logodafre.jpg', alt: 'Dafre' },
-    { src: '/logo varsovia.jpg', alt: 'Cementos Avellaneda' },
-    { src: '/LOGOTECMA.PNG', alt: 'Cerámicas San Lorenzo' },
-    { src: '/logoeleprint.png', alt: 'Hidrotec' },
-    { src: '/logogoldir.png', alt: 'Plásticos Río' },
+    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
+    { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
+    { src: '/logoeleprint.png', alt: 'Eleprint' },
+    { src: '/logogoldir.png', alt: 'Goldir' },
+    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
+    { src: '/logoaubasa.png', alt: 'Aubasa' },
+    { src: '/logopfisterer.png', alt: 'Pfisterer' },
     { src: '/logoweber.png', alt: 'Weber' },
-    { src: '/logoctibor.png', alt: 'Ctibor' },
     { src: '/logofanelli.png', alt: 'Fanelli' },
-    { src: '/LOGOBLINKI.png', alt: 'Blinki' },
+    { src: '/logoctibor.png', alt: 'Ctibor' }
   ];
 
   const hormigonTypes = [
@@ -134,7 +135,7 @@ function Hormigon() {
         <meta name="description" content="Hormigón elaborado con garantía de calidad, servicio de bombeo y seguimiento satelital. ¡Solicita tu cotización hoy mismo!" />
       </Helmet>
 
-      {/* 1. HERO SECTION CON VIDEO OPTIMIZADO - Versión mejorada y centrada */}
+      {/* 1. HERO SECTION CON VIDEO OPTIMIZADO */}
 <section className="hormigon-hero-section position-relative">
   <video 
     ref={videoRef}
@@ -168,12 +169,12 @@ function Hormigon() {
             borderRadius: '8px'
           }}>
             <h1 className="hormigon-hero-title display-3 fw-bold mb-4">
-              <span className="d-block">HORMIGÓN ELABORADO</span> 
-              <span className="text-red">DE ALTA RESISTENCIA</span>
+              <span className="d-block">POTENCIÁ TUS PROYECTOS</span> 
+              <span className="text-red">CON NUESTO HORMIGÓN</span>
             </h1>
             
             <p className="hormigon-hero-subtitle lead mb-4">
-              <strong className="text-red">SOLUCIONES INTEGRALES PARA SU OBRA</strong>
+              <strong className="text-red">RESISTENCIA, VERSATILIDAD Y GARANTÍA</strong>
             </p>
             
             <ul className="hormigon-benefits-list list-unstyled mb-5 mx-auto" style={{maxWidth: '600px'}}>
@@ -202,72 +203,110 @@ function Hormigon() {
             </p>
             
             <div className="d-flex flex-column flex-sm-row justify-content-center gap-3">
-              <ContactButton text="SOLICITAR COTIZACIÓN" />
+              <ContactButton text="SOLICITAR PRESUPUESTO" />
             </div>
 
-            {/* Badge de Google moderno - Versión mejorada */}
-            <div className="google-rating-container mt-4">
-              <a 
-                href="#reviews" 
-                className="d-inline-flex align-items-center text-decoration-none py-2 px-3"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.95)',
-                  borderRadius: '24px',
-                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.12)',
-                  transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
-                  backdropFilter: 'blur(4px)'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = 'none';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.12)';
-                }}
-              >
-                {/* Logo Google */}
-                <div className="position-relative me-2" style={{ width: '28px', height: '28px' }}>
-                  <svg viewBox="0 0 24 24" width="28" height="28">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                  </svg>
-                </div>
-                
-                {/* Puntuación */}
-                <div className="d-flex align-items-center me-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FFD700" className="me-1">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                  </svg>
-                  <span style={{
-                    fontSize: '22px',
-                    fontWeight: '800',
-                    color: '#1a1a1a',
-                    letterSpacing: '-0.5px'
-                  }}>4.5</span>
-                </div>
-                
-                {/* Texto */}
-                <div style={{
-                  fontSize: '13px',
-                  color: '#555',
-                  borderLeft: '1px solid rgba(0, 0, 0, 0.08)',
-                  paddingLeft: '12px',
-                  lineHeight: '1.3'
-                }}>
-                  <div style={{ 
-                    fontWeight: '600',
-                    color: '#333'
-                  }}>+50 valoraciones</div>
-                  <div style={{ 
-                    fontSize: '12px',
-                    color: '#666'
-                  }}>Google Reviews</div>
-                </div>
-              </a>
+            {/* Badge de Google + Logo Loma Negra integrados */}
+<div className="d-flex justify-content-center align-items-center gap-3 mt-4 flex-wrap">
+  {/* Badge Google moderno */}
+  <a 
+    href="#reviews" 
+    className="d-inline-flex align-items-center text-decoration-none py-2 px-3"
+    style={{
+      background: 'rgba(255, 255, 255, 0.95)',
+      borderRadius: '20px',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+      transition: 'all 0.3s ease',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      backdropFilter: 'blur(4px)',
+      flexShrink: 0
+    }}
+    onMouseOver={(e) => {
+      e.currentTarget.style.transform = 'translateY(-2px)';
+      e.currentTarget.style.background = 'rgba(255, 255, 255, 1)';
+    }}
+    onMouseOut={(e) => {
+      e.currentTarget.style.transform = 'none';
+      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
+    }}
+  >
+    <div className="d-flex align-items-center me-2">
+      {/* Logo Google */}
+      <svg width="24" height="24" viewBox="0 0 24 24" className="me-2">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+      </svg>
+      
+      {/* Estrella y puntuación */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" className="me-1">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+      </svg>
+      <span style={{
+        fontSize: '18px',
+        fontWeight: '700',
+        color: '#333',
+        marginRight: '8px'
+      }}>4.5</span>
+      
+      {/* Separador y valoraciones */}
+      <div style={{
+        borderLeft: '1px solid rgba(0,0,0,0.1)',
+        paddingLeft: '8px',
+        lineHeight: '1.2'
+      }}>
+        <div style={{ fontSize: '12px', fontWeight: '600', color: '#1a1a1a' }}>+50 valoraciones</div>
+        <div style={{ fontSize: '11px', color: '#666' }}>Google</div>
+      </div>
+    </div>
+  </a>
+
+  {/* Separador visual */}
+  <div style={{
+    height: '40px',
+    width: '1px',
+    backgroundColor: 'rgba(255,255,255,0.3)'
+  }}></div>
+              {/* Separador visual */}
+              <div style={{
+                height: '40px',
+                width: '1px',
+                backgroundColor: 'rgba(255,255,255,0.3)'
+              }}></div>
+
+              {/* Logo Loma Negra mejorado */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '8px 16px',
+                backgroundColor: 'rgba(255,255,255,0.2)',
+                borderRadius: '8px',
+                backdropFilter: 'blur(4px)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                transition: 'all 0.3s ease'
+              }}>
+                <p className="text-white mb-1 small" style={{
+                  fontSize: '0.7rem',
+                  opacity: 0.9,
+                  letterSpacing: '0.5px',
+                  fontWeight: '500'
+                }}>RESPALDADOS POR</p>
+                <img 
+                  src="/logolomanegra.png" 
+                  alt="Loma Negra Partner" 
+                  style={{
+                    height: '40px',
+                    
+                    transition: 'all 0.3s ease',
+                    opacity: 1
+                  }}
+                  loading="lazy"
+                  onMouseOver={(e) => e.currentTarget.style.opacity = '1'}
+                  onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+                />
+              </div>
             </div>
           </div>
         </Col>
@@ -275,23 +314,39 @@ function Hormigon() {
     </Container>
   </div>
 </section>
-      {/* 2. TIPOS DE HORMIGÓN */}
-      <section className="hormigon-types-section py-5">
-        <Container>
-          <h2 className="hormigon-section-title text-center mb-5">TIPOS DE <span className="hormigon-text-red">HORMIGÓN</span></h2>
-          <Carousel indicators={false} interval={3000}>
-            {renderCarouselItems(hormigonTypes, 2, (type, idx) => (
-              <div className="hormigon-type-card p-4 text-left" key={idx}>
-                <h4 className="fw-bold hormigon-text-red">{type.title}</h4>
-                <p className="text-dark">{type.text}</p>
-              </div>
-            ))}
-          </Carousel>
-          <div className="text-center mt-4">
-            <ContactButton text="CONSULTAR POR RESISTENCIAS ESPECIALES" />
-          </div>
-        </Container>
-      </section>
+      {/* 2. TIPOS DE HORMIGÓN - Carrusel optimizado */}
+<section className="hormigon-types-section py-4 py-md-5">
+  <Container>
+    <h2 className="hormigon-section-title text-center mb-4 mb-md-5">
+      TIPOS DE <span className="hormigon-text-red">HORMIGÓN</span>
+    </h2>
+    
+    <Carousel 
+      indicators={false} 
+      interval={3000} // Aumenté ligeramente el intervalo para mejor lectura
+      touch={true} // Asegura que funcione el touch en móviles
+      pause={false} // Evita que se pause al interactuar
+      keyboard={false} // Mejor performance en móviles
+      slide={true} // Fuerza el slide animation
+      fade={false} // Más rápido que fade
+      swipeable={true} // Permite arrastrar en móviles
+    >
+      {renderCarouselItems(hormigonTypes, 2, (type, idx) => (
+        <div className="hormigon-type-card p-3 p-md-4 text-center text-md-left" key={idx}>
+          <h4 className="fw-bold hormigon-text-red mb-2 mb-md-3">{type.title}</h4>
+          <p className="text-dark mb-0">{type.text}</p>
+        </div>
+      ))}
+    </Carousel>
+
+    <div className="text-center mt-3 mt-md-4">
+      <ContactButton 
+        text="CONSULTAR POR RESISTENCIAS ESPECIALES" 
+        className="btn-sm" // Versión más compacta para móviles
+      />
+    </div>
+  </Container>
+</section>
 
       {/* 2. BENEFICIOS PRINCIPALES - Justo después del hero */}
             <section className="py-5 bg-white">
@@ -333,7 +388,7 @@ function Hormigon() {
       {/* 3. BENEFICIOS */}
       <section className="hormigon-benefits-section py-5">
         <Container>
-          <h2 className="hormigon-section-title text-center mb-5">BENEFICIOS <span className="hormigon-text-red">EXCLUSIVOS</span></h2>
+          <h2 className="hormigon-section-title text-center mb-5">BENEFICIOS <span className="hormigon-text-red">QUE NOS MARCAN</span></h2>
           <Row>
             {benefits.map((item, index) => (
               <Col md={3} sm={6} key={index} className="mb-4">

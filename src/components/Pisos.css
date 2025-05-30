@@ -323,6 +323,7 @@
 @media (max-width: 992px) {
   .pisos-hero-section {
     min-height: 600px;
+    height: 85vh;
   }
   
   .display-3 {
@@ -374,6 +375,7 @@
   
   .hero-features-list li {
     margin-bottom: 1rem !important;
+    text-align: center;
   }
   
   .d-flex.flex-sm-row {
@@ -389,3 +391,9 @@
     padding: 2rem 0 !important;
   }
 }
+.Pisosindustrialesad {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  

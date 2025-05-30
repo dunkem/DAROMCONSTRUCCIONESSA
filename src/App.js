@@ -13,7 +13,8 @@ import Materiales from './components/Materiales';
 import Suelos from './components/Suelos';
 import Pisos from './components/Pisos';
 import Footer from './components/Footer';
-import Pisosindustrialesad from './components/Pisosindustrialesad';
+
+import PisosCombinados from './components/PisosCombinados';
 
 import './App.css';
 
@@ -149,7 +150,7 @@ function App() {
                         <Route path="/services/materiales" element={<Materiales />} />
                         <Route path="/services/hormigon" element={<Hormigon />} />
                         <Route path="/services/suelos" element={<Suelos />} />
-                        <Route path="/services/pisos/industriales-ad" element={<Pisosindustrialesad />} />
+                        <Route path="/services/pisos/PisosCombinados" element={<PisosCombinados />} />
                         <Route path="/services/pisos" element={<Pisos />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />

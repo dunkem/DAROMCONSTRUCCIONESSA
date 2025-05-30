@@ -36,6 +36,23 @@ function About() {
         { src: "/obraxapor.jpg", title: "Complejo Xapor", description: "Desarrollo multifuncional" }
     ];
 
+    const suppliers = [
+    { src: '/logolomanegra.png', alt: 'Loma Negra' },
+    { src: '/LOGOSIKA.png', alt: 'Sika' },
+    { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
+    { src: '/logodafre.jpg', alt: 'Dafre' },
+    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
+    { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
+    { src: '/logoeleprint.png', alt: 'Eleprint' },
+    { src: '/logogoldir.png', alt: 'Goldir' },
+    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
+    { src: '/logoaubasa.png', alt: 'Aubasa' },
+    { src: '/logopfisterer.png', alt: 'Pfisterer' },
+    { src: '/logoweber.png', alt: 'Weber' },
+    { src: '/logofanelli.png', alt: 'Fanelli' },
+    { src: '/logoctibor.png', alt: 'Ctibor' }
+  ];
+
     // Función mejorada de tracking
     const trackConversion = (eventCategory, eventLabel, value = 1.0, nonInteraction = false) => {
         try {
@@ -179,6 +196,7 @@ function About() {
                                 <FaWhatsapp className="me-2" /> Conoce nuestro equipo
                             </Button>
                             
+                            
                         </Col>
 
                         
@@ -200,6 +218,63 @@ function About() {
                     </Row>
                 </Container>
             </section>
+
+            {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
+                  <section className="py-5 bg-light">
+                    <Container>
+                      <h2 className="text-center mb-5">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
+                      
+                      <div className="suppliers-carousel-container">
+                        {/* Versión Desktop (6 logos por fila) */}
+                        <div className="d-none d-md-block">
+                          <Carousel indicators={false} interval={3000} pause="hover" touch={true}>
+                            {Array.from({ length: Math.ceil(suppliers.length / 6) }).map((_, slideIndex) => (
+                              <Carousel.Item key={`desktop-${slideIndex}`}>
+                                <Row className="justify-content-center g-4">
+                                  {suppliers.slice(slideIndex * 6, (slideIndex + 1) * 6).map((supplier, idx) => (
+                                    <Col key={`desktop-${slideIndex}-${idx}`} md={2} className="text-center">
+                                      <div className="supplier-card">
+                                        <img 
+                                          src={supplier.src} 
+                                          alt={supplier.alt} 
+                                          className="supplier-logo img-fluid" 
+                                          loading="lazy"
+                                        />
+                                      </div>
+                                    </Col>
+                                  ))}
+                                </Row>
+                              </Carousel.Item>
+                            ))}
+                          </Carousel>
+                        </div>
+            
+                        {/* Versión Mobile (3 logos por fila) */}
+                        <div className="d-block d-md-none">
+                          <Carousel indicators={false} interval={3000} pause="hover" touch={true}>
+                            {Array.from({ length: Math.ceil(suppliers.length / 3) }).map((_, slideIndex) => (
+                              <Carousel.Item key={`mobile-${slideIndex}`}>
+                                <Row className="justify-content-center g-3">
+                                  {suppliers.slice(slideIndex * 3, (slideIndex + 1) * 3).map((supplier, idx) => (
+                                    <Col key={`mobile-${slideIndex}-${idx}`} xs={4} className="text-center">
+                                      <div className="supplier-card">
+                                        <img 
+                                          src={supplier.src} 
+                                          alt={supplier.alt} 
+                                          className="supplier-logo img-fluid" 
+                                          loading="lazy"
+                                        />
+                                      </div>
+                                    </Col>
+                                  ))}
+                                </Row>
+                              </Carousel.Item>
+                            ))}
+                          </Carousel>
+                        </div>
+                      </div>
+                    </Container>
+                  </section>
 
             {/* Historia */}
             <section className="about-section">

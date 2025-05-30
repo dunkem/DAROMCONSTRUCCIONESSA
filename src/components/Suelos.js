@@ -48,14 +48,20 @@ function Suelos() {
 
   // Datos para el carrusel de proveedores
   const suppliers = [
-    { src: "/logolomanegra.png", alt: "Loma Negra" },
-    { src: "/LOGOSIKA.png", alt: "Sika" },
-    { src: "/logodafre.jpg", alt: "Dafre" },
-    { src: "/logo varsovia.jpg", alt: "Grupo Varsovia" },
-    { src: "/LOGOTECMA.PNG", alt: "Tecma" },
-    { src: "/logoeleprint.png", alt: "Eleprint" },
-    { src: "/logolomanegra.png", alt: "Loma Negra" },
-    { src: "/dycasalogo.jpg", alt: "Ieb Construcciones" }
+    { src: '/logolomanegra.png', alt: 'Loma Negra' },
+    { src: '/LOGOSIKA.png', alt: 'Sika' },
+    { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
+    { src: '/logodafre.jpg', alt: 'Dafre' },
+    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
+    { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
+    { src: '/logoeleprint.png', alt: 'Eleprint' },
+    { src: '/logogoldir.png', alt: 'Goldir' },
+    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
+    { src: '/logoaubasa.png', alt: 'Aubasa' },
+    { src: '/logopfisterer.png', alt: 'Pfisterer' },
+    { src: '/logoweber.png', alt: 'Weber' },
+    { src: '/logofanelli.png', alt: 'Fanelli' },
+    { src: '/logoctibor.png', alt: 'Ctibor' }
   ];
 
   const testimonios = [
@@ -189,91 +195,105 @@ function Suelos() {
   
   
   {/* Contenido principal */}
-  <div className="darom-hero-overlay position-relative" style={{zIndex: 2}}>
-    <Container>
-      <Row className="justify-content-center">
-        <Col lg={8} className="text-center">
-          {/* Título principal */}
-          <h1 className="text-white display-4 fw-bold mb-4">
-            LA BASE SÓLIDA PARA TU PROYECTO <span className="text-danger">COMIENZA AQUÍ</span>
-          </h1>
-          
-          {/* Subtítulo */}
-          <p className="text-white lead fs-3 mb-4">
-            <strong>PAQUETE SUELO DRM</strong> - Soluciones integrales para cimentaciones seguras
-          </p>
-          
-          {/* Lista de beneficios */}
-          <ul className="list-unstyled fs-4 mb-4 mx-auto" style={{ maxWidth: '600px' }}>
-            <li className="mb-2 d-flex justify-content-center align-items-center text-white">
-              <FaCheck className="text-danger me-2" />
-              <span>Estudio geotécnico completo</span>
-            </li>
-            <li className="mb-2 d-flex justify-content-center align-items-center text-white">
-              <FaCheck className="text-danger me-2" />
-              <span>Movimiento de suelos optimizado</span>
-            </li>
-            <li className="mb-2 d-flex justify-content-center align-items-center text-white">
-              <FaCheck className="text-danger me-2" />
-              <span>Compactación certificada</span>
-            </li>
-            <li className="mb-2 d-flex justify-content-center align-items-center text-white">
-              <FaCheck className="text-danger me-2" />
-              <span>Informe para normativas</span>
-            </li>
-          </ul>
-          
-          {/* Badge de Google con tus especificaciones exactas */}
-          <div className="google-rating-container mb-4">
-            <a 
-              href="#reviews" 
-              className="d-inline-flex align-items-center text-decoration-none py-2 px-3 bg-white rounded-4"
-              style={{
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.3)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'none';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
-              }}
-            >
-              <div className="d-flex align-items-center me-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" className="me-1">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FFD700">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                </svg>
-                <span className="fw-bold ms-1" style={{fontSize: '1.4rem', color: '#333'}}>4.5</span>
-              </div>
-              <div style={{
-                fontSize: '0.75rem',
-                color: '#555',
-                borderLeft: '1px solid #eee',
-                paddingLeft: '0.5rem',
-                lineHeight: '1.2'
-              }}>
-                <div>+50 valoraciones</div>
-                <div style={{fontSize: '0.65rem'}}>Google</div>
-              </div>
-            </a>
-          </div>
-          
-          {/* Botón de contacto */}
-          <div className="d-flex justify-content-center">
-            <ContactButton />
-          </div>
-        </Col>
-      </Row>
-    </Container>
-  </div>
+<div className="darom-hero-overlay position-relative" style={{zIndex: 2}}>
+  <Container>
+    <Row className="justify-content-center">
+      <Col lg={9} className="text-center">
+        {/* Título principal - Versión mejorada */}
+        <h1 className="text-white display-3 fw-bold mb-3 animate__animated animate__fadeIn">
+          <span className="d-block">Te ayudamos a construir</span>
+          <span className="text-danger">la base perfecta</span> para tu proyecto
+        </h1>
+        
+        {/* Subtítulo más impactante */}
+        <p className="text-white lead fs-2 mb-4" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
+          <strong>PAQUETE SUELO DRM</strong> - Cimentaciones seguras con respaldo técnico certificado
+        </p>
+        
+        {/* Lista de beneficios mejorada */}
+<div 
+  className="benefits-container p-4 rounded-3 mb-4 mx-auto" 
+  style={{
+    maxWidth: '700px',
+    backgroundColor: 'rgba(0, 0, 0, 0.15)', // Fondo negro al 15% de opacidad
+    backdropFilter: 'blur(4px)',
+    border: '1px solid rgba(255, 255, 255, 0.1)' // Borde sutil para mejor contraste
+  }}
+>
+  <ul className="list-unstyled fs-5 row g-3 g-md-4 text-start">
+    <li className="col-md-6 d-flex align-items-start text-white">
+      <FaCheck className="text-danger mt-1 me-2 flex-shrink-0" />
+      <span>Estudio geotécnico completo con informes normativos</span>
+    </li>
+    <li className="col-md-6 d-flex align-items-start text-white">
+      <FaCheck className="text-danger mt-1 me-2 flex-shrink-0" />
+      <span>Movimiento de suelos optimizado para tu proyecto</span>
+    </li>
+    <li className="col-md-6 d-flex align-items-start text-white">
+      <FaCheck className="text-danger mt-1 me-2 flex-shrink-0" />
+      <span>Compactación certificada con equipos de última generación</span>
+    </li>
+    <li className="col-md-6 d-flex align-items-start text-white">
+      <FaCheck className="text-danger mt-1 me-2 flex-shrink-0" />
+      <span>Solución integral desde el análisis hasta la ejecución</span>
+    </li>
+  </ul>
+</div>
+        {/* Botón de contacto más prominente */}
+        <div className="d-flex justify-content-center mb-4">
+          <ContactButton 
+            className="btn-lg px-4 py-3 fw-bold" 
+            style={{fontSize: '1.2rem'}}
+          />
+        </div>
+        
+        {/* Badge de Google movido bajo el botón como solicitaste */}
+        <div className="google-rating-container animate__animated animate__fadeInUp">
+          <a 
+            href="#reviews" 
+            className="d-inline-flex align-items-center text-decoration-none py-2 px-3 bg-white rounded-4"
+            style={{
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+              transition: 'all 0.3s ease',
+              transform: 'scale(0.95)'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.2)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'scale(0.95)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            }}
+          >
+            <div className="d-flex align-items-center me-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" className="me-1">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FFD700">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <span className="fw-bold ms-1" style={{fontSize: '1.2rem', color: '#333'}}>4.5</span>
+            </div>
+            <div style={{
+              fontSize: '0.75rem',
+              color: '#555',
+              borderLeft: '1px solid #eee',
+              paddingLeft: '0.5rem',
+              lineHeight: '1.2'
+            }}>
+              <div>+50 valoraciones</div>
+              <div style={{fontSize: '0.65rem'}}>Google Reviews</div>
+            </div>
+          </a>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</div>
 </section>
       {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
 <section className="py-5 bg-light">

@@ -65,18 +65,19 @@ function Pisos() {
 
   const suppliers = [
     { src: '/logolomanegra.png', alt: 'Loma Negra' },
-    { src: '/LOGOMAPEI.png', alt: 'Mapei' },
     { src: '/LOGOSIKA.png', alt: 'Sika' },
     { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
     { src: '/logodafre.jpg', alt: 'Dafre' },
-    { src: '/logo varsovia.jpg', alt: 'Cementos Avellaneda' },
-    { src: '/LOGOTECMA.PNG', alt: 'Cerámicas San Lorenzo' },
-    { src: '/logoeleprint.png', alt: 'Hidrotec' },
-    { src: '/logogoldir.png', alt: 'Plásticos Río' },
+    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
+    { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
+    { src: '/logoeleprint.png', alt: 'Eleprint' },
+    { src: '/logogoldir.png', alt: 'Goldir' },
+    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
+    { src: '/logoaubasa.png', alt: 'Aubasa' },
+    { src: '/logopfisterer.png', alt: 'Pfisterer' },
     { src: '/logoweber.png', alt: 'Weber' },
-    { src: '/logoctibor.png', alt: 'Ctibor' },
     { src: '/logofanelli.png', alt: 'Fanelli' },
-    { src: '/LOGOBLINKI.png', alt: 'Blinki' },
+    { src: '/logoctibor.png', alt: 'Ctibor' }
   ];
 
   const testimonios = [
@@ -171,8 +172,8 @@ function Pisos() {
                 <Col xl={9} lg={10} className="text-center">
                   {/* Título más compacto */}
                   <h1 className="display-4 fw-bold mb-3 text-white">
-                    <span className="d-block">PRIMERA HORMIGONERA QUE DESARROLLA</span>
-                    <span className="text-red">TU PISO INDUSTRIAL CON UN SOLO PROVEEDOR</span>
+                    <span className="d-block">CONSTRUÍ TU PISO INDUSTRIAL MÁS RÁPIDO Y</span>
+                    <span className="text-red">SIN CONTRATAR MÚLTIPLES PROVEEDORES</span>
                   </h1>
                   
                   <p className="hero-subtitle lead mb-4 text-white">
@@ -422,7 +423,7 @@ function Pisos() {
                   "Todo lo del Paquete Base +",
                   "Hormigón con Macrofibra Sika Fiber 48™",
                   "Control Hormigón Certificado DRM360™",
-                  "Nivelación láser de alta precisión"
+                  "Mano de Obra Especializada con nivelación láser de alta precisión"
                 ],
                 garantia: "FullCover™ 5 Años: Corrección sin costo",
                 premium: true
@@ -621,19 +622,71 @@ function Pisos() {
     <h2 className="mb-4 fw-bold">¿LISTO PARA TRANSFORMAR TUS PISOS INDUSTRIALES?</h2>
     <div className="lead mb-4">
       <div className="d-flex align-items-center justify-content-center mb-3">
-        <i className="bi bi-check-circle-fill me-3"></i>
+        <span className="me-3" style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '24px',
+          height: '24px',
+          borderRadius: '50%',
+          background: 'white',
+          flexShrink: 0
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M5 13L9 17L19 7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
         <span>Obtén una evaluación gratuita con nuestros especialistas</span>
       </div>
       <div className="d-flex align-items-center justify-content-center mb-3">
-        <i className="bi bi-check-circle-fill me-3"></i>
+        <span className="me-3" style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '24px',
+          height: '24px',
+          borderRadius: '50%',
+          background: 'white',
+          flexShrink: 0
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M5 13L9 17L19 7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
         <span>Servicio sin retrasos por falta de coordinación entre proveedores</span>
       </div>
       <div className="d-flex align-items-center justify-content-center mb-3">
-        <i className="bi bi-check-circle-fill me-3"></i>
+        <span className="me-3" style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '24px',
+          height: '24px',
+          borderRadius: '50%',
+          background: 'white',
+          flexShrink: 0
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M5 13L9 17L19 7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
         <span>Sin sobreprecios al contratar servicios por separado</span>
       </div>
       <div className="d-flex align-items-center justify-content-center mb-4">
-        <i className="bi bi-check-circle-fill me-3"></i>
+        <span className="me-3" style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '24px',
+          height: '24px',
+          borderRadius: '50%',
+          background: 'white',
+          flexShrink: 0
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M5 13L9 17L19 7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
         <span>4 servicios en 1, con garantía unificada FULLCOVER™</span>
       </div>
     </div>
@@ -644,6 +697,7 @@ function Pisos() {
     />
   </Container>
 </section>
+
     </Container>
   );
 }

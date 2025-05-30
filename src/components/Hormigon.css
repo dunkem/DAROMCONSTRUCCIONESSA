@@ -460,6 +460,7 @@
 @media (max-width: 768px) {
   .hormigon-hero-section {
     min-height: 500px;
+    height: 120vh;
   }
   
   .hormigon-hero-title {
@@ -533,5 +534,16 @@
   
   .supplier-logo {
     max-height: 50px;
+  }
+}
+/* Asegura que el carrusel no tenga retraso en móviles */
+@media (max-width: 768px) {
+  .carousel {
+    -webkit-overflow-scrolling: touch; /* Mejor scroll en iOS */
+    overflow-anchor: none; /* Evita reflow */
+  }
+  
+  .carousel-item {
+    transition-duration: 0.3s !important; /* Transición más rápida */
   }
 }

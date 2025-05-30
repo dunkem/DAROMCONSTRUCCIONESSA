@@ -79,10 +79,16 @@ function Home() {
     { src: '/LOGOSIKA.png', alt: 'Sika' },
     { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
     { src: '/logodafre.jpg', alt: 'Dafre' },
-    { src: '/logo varsovia.jpg', alt: 'Cementos Avellaneda' },
-    { src: '/LOGOTECMA.PNG', alt: 'Cerámicas San Lorenzo' },
-    { src: '/logoeleprint.png', alt: 'Hidrotec' },
-    { src: '/logogoldir.png', alt: 'Plásticos Río' }
+    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
+    { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
+    { src: '/logoeleprint.png', alt: 'Eleprint' },
+    { src: '/logogoldir.png', alt: 'Goldir' },
+    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
+    { src: '/logoaubasa.png', alt: 'Aubasa' },
+    { src: '/logopfisterer.png', alt: 'Pfisterer' },
+    { src: '/logoweber.png', alt: 'Weber' },
+    { src: '/logofanelli.png', alt: 'Fanelli' },
+    { src: '/logoctibor.png', alt: 'Ctibor' }
   ];
   const testimonios = [
   { 
@@ -217,8 +223,8 @@ function Home() {
     <Container>
       <Row className="align-items-center">
         <Col lg={8} className="text-center text-lg-start">
-          <h1>COMPROMETIDOS CON LA CALIDAD Y LA CONFIANZA</h1>
-          <p className="lead mb-4">TRANSFORMA TUS PROYECTOS CON NUESTRA EXPERIENCIA E INNOVACIÓN EN CADA ETAPA DE CONSTRUCCIÓN.</p>
+          <h1>TE ACOMPAÑAMOS EN LA CONSTRUCCIÓN DE TU PROYECTO</h1>
+          <p className="lead mb-4">TRANSFORMAMOS TUS PROYECTOS CON NUESTRA EXPERIENCIA E INNOVACIÓN EN CADA ETAPA DE CONSTRUCCIÓN.</p>
           
           <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start align-items-center">
             {/* Botón WhatsApp */}
@@ -297,21 +303,8 @@ function Home() {
           </div>
         </Col>
         
-        <Col lg={4} className="text-center mt-4 mt-lg-0">
-          <div className="partner-logo-container">
-            <p className="text-white mb-3 small">RESPALDADOS POR</p>
-            <img 
-              src="/logolomanegra.png" 
-              alt="Loma Negra" 
-              className="img-fluid" 
-              style={{maxHeight: '200px'}}
-              loading="lazy" 
-            />
-          </div>
-        </Col>
-      </Row>
-      
-      {/* Versión móvil del badge (centrada debajo de todo) */}
+        
+        {/* Versión móvil del badge (centrada debajo de todo) */}
       
       <Row className="d-lg-none justify-content-center mt-4">
         <Col xs="auto">
@@ -364,62 +357,87 @@ function Home() {
               }}>Google Reviews</div>
             </div>
           </a>
+          
+        </Col>
+        
+      </Row>
+      <Col lg={4} className="text-center mt-4 mt-lg-0">
+          <div className="partner-logo-container">
+            <p className="text-white mb-3 small">RESPALDADOS POR</p>
+            <img 
+              src="/logolomanegra.png" 
+              alt="Loma Negra" 
+              className="img-fluid" 
+              style={{maxHeight: '200px'}}
+              loading="lazy" 
+            />
+          </div>
         </Col>
       </Row>
+      
+      
     </Container>
   </div>
 </section>
 
       {/* Compromiso Section */}
-      <section className="py-5 bg-light position-relative">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={6} className="mb-4 mb-md-0 pe-md-5">
-              <h2 className="section-title">NUESTRO COMPROMISO</h2>
-              <div className="commitment-grid">
-                <div className="commitment-item">
-                  <FaCheckCircle className="text-danger" size={24} />
-                  <div>
-                    <h5>Garantía de Calidad</h5>
-                    <p>Materiales certificados y procesos controlados</p>
-                  </div>
-                </div>
-                <div className="commitment-item">
-                  <FaHandshake className="text-danger" size={24} />
-                  <div>
-                    <h5>Asesoramiento Especializado</h5>
-                    <p>Ingenieros disponibles para optimizar tu proyecto</p>
-                  </div>
-                </div>
-                <div className="commitment-item">
-                  <FaBuilding className="text-danger" size={24} />
-                  <div>
-                    <h5>+3000 Proyectos</h5>
-                    <p>Experiencia respaldada por nuestros clientes</p>
-                  </div>
-                </div>
-                <div className="commitment-item">
-                  <FaVials className="text-danger" size={24} />
-                  <div>
-                    <h5>Control de Calidad</h5>
-                    <p>Pruebas y seguimiento en cada etapa</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col md={6}>
-              <div className="ratio ratio-16x9 rounded overflow-hidden shadow">
-                <iframe 
-                  src="https://www.youtube.com/embed/--7y8f63ZPk" 
-                  title="Video institucional Darom SA" 
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+<section className="py-5 bg-light position-relative">
+  <Container>
+    <Row className="align-items-center">
+      <Col md={6} className="mb-4 mb-md-0 pe-md-5">
+        <h2 className="section-title">NUESTRO COMPROMISO</h2>
+        <p className="lead mb-4">Soluciones estructurales confiables para proyectos exigentes</p>
+        
+        <div className="commitment-grid">
+          <div className="commitment-item">
+            <FaCheckCircle className="text-danger" size={24} />
+            <div>
+              <h5>Calidad Garantizada</h5>
+              <p>Materiales certificados y procesos controlados para resultados duraderos</p>
+            </div>
+          </div>
+          
+          <div className="commitment-item">
+            <FaHandshake className="text-danger" size={24} />
+            <div>
+              <h5>Asesoría Personalizada</h5>
+              <p>Expertos disponibles para guiarte en cada etapa de tu proyecto</p>
+            </div>
+          </div>
+          
+          <div className="commitment-item">
+            <FaBuilding className="text-danger" size={24} />
+            <div>
+              <h5>Experiencia Comprobada</h5>
+              <p>+3000 proyectos ejecutados con éxito en múltiples industrias</p>
+            </div>
+          </div>
+          
+          <div className="commitment-item">
+            <FaVials className="text-danger" size={24} />
+            <div>
+              <h5>Control Riguroso</h5>
+              <p>Pruebas de calidad en cada fase de producción</p>
+            </div>
+          </div>
+
+        </div>
+      </Col>
+      
+      <Col md={6}>
+        <div className="ratio ratio-16x9 rounded overflow-hidden shadow">
+          <iframe 
+            src="https://www.youtube.com/embed/--7y8f63ZPk" 
+            title="Video institucional Darom SA" 
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
+
+      </Col>
+    </Row>
+  </Container>
+</section>
 
       {/* Servicios Section */}
       <section className="py-5">

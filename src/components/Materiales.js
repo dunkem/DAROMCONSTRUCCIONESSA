@@ -141,40 +141,46 @@ function Materiales() {
         }
     };
 
-    // Empresas que confían en nosotros
     const suppliers = [
-        { src: '/logolomanegra.png', alt: 'Loma Negra' },
-        { src: '/LOGOMAPEI.png', alt: 'Mapei' },
-        { src: '/LOGOSIKA.png', alt: 'Sika' },
-        { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
-        { src: '/logoweber.png', alt: 'Weber' },
-        { src: '/logoctibor.png', alt: 'Ctibor' },
-        { src: '/logofanelli.png', alt: 'Fanelli' },
-        { src: '/LOGOBLINKI.png', alt: 'Blinki' },
-    ];
+    { src: '/logolomanegra.png', alt: 'Loma Negra' },
+    { src: '/LOGOSIKA.png', alt: 'Sika' },
+    { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
+    { src: '/logodafre.jpg', alt: 'Dafre' },
+    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
+    { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
+    { src: '/logoeleprint.png', alt: 'Eleprint' },
+    { src: '/logogoldir.png', alt: 'Goldir' },
+    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
+    { src: '/logoaubasa.png', alt: 'Aubasa' },
+    { src: '/logopfisterer.png', alt: 'Pfisterer' },
+    { src: '/logoweber.png', alt: 'Weber' },
+    { src: '/logofanelli.png', alt: 'Fanelli' },
+    { src: '/logoctibor.png', alt: 'Ctibor' }
+  ];
 
     // Beneficios de comprar en Darom SA
     const benefits = [
-        { 
-            icon: <FaCheck className="text-danger" size={24} />, 
-            title: "Entrega Rápida", 
-            description: "Despachos en 24/48hs en Mar del Plata y zona" 
-        },
+        
         { 
             icon: <FaCheck className="text-danger" size={24} />, 
             title: "Precios Competitivos", 
-            description: "Las mejores condiciones del mercado" 
+            description: "Las mejores condiciones del mercado gracias a nuestra gama de proveedores" 
         },
         { 
             icon: <FaCheck className="text-danger" size={24} />, 
             title: "Calidad Garantizada", 
-            description: "Productos de primeras marcas" 
+            description: "Productos de primeras marcas para la construcción desde 19678" 
         },
         { 
             icon: <FaCheck className="text-danger" size={24} />, 
             title: "Asesoramiento", 
-            description: "Expertos en construcción a tu disposición" 
-        }
+            description: "Expertos en construcción a tu disposición en cada etapa de tu obra" 
+        },
+        { 
+            icon: <FaCheck className="text-danger" size={24} />, 
+            title: "Entrega Rápida", 
+            description: "Despachos en 24/48hs" 
+        },
     ];
 
     const testimonios = [
@@ -279,8 +285,8 @@ function Materiales() {
         <div className="heroc-content text-center" style={{position: 'relative', zIndex: 2}}>
             <Row className="justify-content-center">
                 <Col lg={8} xl={6}>
-                    <h1 className="display-4 fw-bold mb-4">MATERIALES DE CONSTRUCCIÓN DE PRIMERA CALIDAD</h1>
-                    <p className="lead mb-4">Distribuidores mayoristas en zona sur del Gran Buenos Aires</p>
+                    <h1 className="display-4 fw-bold mb-4">CONSTRUÍ SIN LÍMITES CON NUESTRO SOPORTE 360°</h1>
+                    <p className="lead mb-4">Distribuidores mayoristas de materiales para la construcción en zona sur del Gran Buenos Aires</p>
                     
                     {/* Beneficios centrados */}
                     <div className="benefits-grid mb-4 mx-auto" style={{maxWidth: '800px'}}>
@@ -310,7 +316,7 @@ function Materiales() {
                             onClick={trackConversion}
                             className="mt-2 px-4 mb-3"
                         >
-                            <FaWhatsapp className="me-2" /> Cotizá por WhatsApp
+                            <FaWhatsapp className="me-2" /> SOLICITAR PRESUPUESTO
                         </Button>
                         
                         {/* Badge de Google moderno - Debajo del botón */}
