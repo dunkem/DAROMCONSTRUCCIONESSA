@@ -21,7 +21,7 @@ import './App.css';
 function App() {
     const [expanded, setExpanded] = useState(false);
     const location = useLocation();
-    const isLandingPage = location.pathname === '/services/pisos/industriales-ad';
+    const isLandingPage = location.pathname === '/services/pisos/pisosCombinados';
 
     useEffect(() => {
         setExpanded(false);
