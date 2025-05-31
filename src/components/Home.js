@@ -140,90 +140,81 @@ function Home() {
 ];
 
   // Componentes
-  const ServiceCard = ({ service }) => (
-    <Card className="service-card shadow-lg">
-      <div className="service-image-container">
-        <Card.Img variant="top" src={service.src} alt={service.title} loading="lazy" />
-        {service.backup && (
-          <div className="backup-badge">
-            <span>{service.backup.text}</span>
-            <img src={service.backup.logo} alt="Logo proveedor" loading="lazy" />
-          </div>
-        )}
-      </div>
-      <Card.Body>
-        <Card.Title>{service.title}</Card.Title>
-        <Card.Text>{service.description}</Card.Text>
-        <Link to={service.link}>
-          <Button 
-            variant="danger" 
-            onClick={() => trackConversion('Servicios', `Click - ${service.title}`)}
-          >
-            VER MÁS
-          </Button>
-        </Link>
-      </Card.Body>
-    </Card>
-  );
+const ServiceCard = ({ service }) => (
+  <Card className="service-card shadow-lg">
+    <div className="service-image-container">
+      <Card.Img variant="top" src={service.src} alt={service.title} loading="lazy" />
+      {service.backup && (
+        <div className="backup-badge">
+          <span>{service.backup.text}</span>
+          <img 
+            src={service.backup.logo} 
+            alt="Logo proveedor" 
+            loading="lazy"
+            style={{ width: '120px', height: 'auto' }}
+          />
+        </div>
+      )}
+    </div>
+    <Card.Body>
+      <Card.Title>{service.title}</Card.Title>
+      <Card.Text>{service.description}</Card.Text>
+      <Link to={service.link}>
+        <Button 
+          variant="danger" 
+          onClick={() => trackConversion('Servicios', `Click - ${service.title}`)}
+        >
+          VER MÁS
+        </Button>
+      </Link>
+    </Card.Body>
+  </Card>
+);
 
-  const ProductCard = ({ product }) => (
-    <Card className="product-card text-center h-100">
-      <Card.Img variant="top" src={product.src} alt={product.name} loading="lazy" />
-      <Card.Body className="d-flex flex-column">
-        <Card.Title>{product.name}</Card.Title>
-        <Link to={product.link} className="mt-auto">
-          <Button 
-            variant="outline-danger" 
-            onClick={() => trackConversion('Productos', `Click - ${product.name}`)}
-          >
-            DETALLES
-          </Button>
-        </Link>
-      </Card.Body>
-    </Card>
-  );
+const ProductCard = ({ product }) => (
+  <Card className="product-card text-center h-100">
+    <Card.Img variant="top" src={product.src} alt={product.name} loading="lazy" />
+    <Card.Body className="d-flex flex-column">
+      <Card.Title>{product.name}</Card.Title>
+      <Link to={product.link} className="mt-auto">
+        <Button 
+          variant="outline-danger" 
+          onClick={() => trackConversion('Productos', `Click - ${product.name}`)}
+        >
+          DETALLES
+        </Button>
+      </Link>
+    </Card.Body>
+  </Card>
+);
 
-  const renderCarouselItems = (items, Component, itemsPerSlide = 4) => {
-    return Array.from({ length: Math.ceil(items.length / itemsPerSlide) }).map((_, slideIndex) => (
-      <Carousel.Item key={slideIndex}>
-        <Row>
-          {items.slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide).map((item, idx) => (
-            <Col key={idx} lg={3} md={6} className="mb-4">
-              <Component {...(Component === ProductCard ? {product: item} : {service: item})} />
-            </Col>
-          ))}
-        </Row>
-      </Carousel.Item>
-    ));
-  };
+// Eliminé completamente la función renderCarouselItems
 
-  return (
-    <Container fluid className="px-0">
-      <Helmet>
-        <title>Darom SA - Soluciones Integrales en Construcción</title>
-        <meta name="description" content="Líderes en hormigón elaborado, materiales de construcción y pisos industriales. Calidad garantizada desde 1978." />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Darom SA",
-            "url": "https://www.daromsa.com.ar",
-            "logo": "https://www.daromsa.com.ar/logo-darom.png",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+542215739000",
-              "contactType": "sales",
-              "areaServed": "Argentina"
-            }
-          })}
-        </script>
-      </Helmet>
+return (
+  <Container fluid className="px-0">
+    <Helmet>
+      <title>Darom SA - Soluciones Integrales en Construcción</title>
+      <meta name="description" content="Líderes en hormigón elaborado, materiales de construcción y pisos industriales. Calidad garantizada desde 1978." />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Darom SA",
+          "url": "https://www.daromsa.com.ar",
+          "logo": "https://www.daromsa.com.ar/logo-darom.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+542215739000",
+            "contactType": "sales",
+            "areaServed": "Argentina"
+          }
+        })}
+      </script>
+    </Helmet>
 
       {/* Hero Section con Validación Social Completa */}
-<section 
-  className="hero-section position-relative"
-  style={{ backgroundImage: `url(${portada})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
->
+<section className="hero-section position-relative" style={{ backgroundImage: `url(${portada})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+
   <div className="hero-overlay">
     <Container>
       <Row className="align-items-center">
@@ -439,15 +430,19 @@ function Home() {
   </Container>
 </section>
 
-      {/* Servicios Section */}
-      <section className="py-5">
-        <Container>
-          <h2 className="section-title text-center mb-5">NUESTROS SERVICIOS</h2>
-          <Carousel indicators={false} interval={null}>
-            {renderCarouselItems(services, ServiceCard)}
-          </Carousel>
-        </Container>
-      </section>
+      {/* Servicios Section - Versión sin Carrusel */}
+<section className="py-5">
+  <Container>
+    <h2 className="section-title text-center mb-5">NUESTROS SERVICIOS</h2>
+    <Row>
+      {services.map((service, index) => (
+        <Col key={index} lg={3} md={6} className="mb-4">
+          <ServiceCard service={service} />
+        </Col>
+      ))}
+    </Row>
+  </Container>
+</section>
 
 {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
 <section className="py-2 bg-light">
