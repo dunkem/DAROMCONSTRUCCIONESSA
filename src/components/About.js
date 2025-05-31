@@ -361,29 +361,45 @@ function About() {
                     >
                         {renderCarouselItems()}
                     </Carousel>
+                     {/* Botón de WhatsApp */}
+                            <div className="whatsapp-button-container mt-6">
+                                <Button 
+                                    variant="danger"
+                                    className="whatsapp-button"
+                                    onClick={() => handleWhatsAppClick('team')}
+                                >
+                                    <FaWhatsapp className="me-2" size={24} />
+                                    Contactar por WhatsApp
+                                </Button>
+                            </div>
                 </Container>
+               
             </section>
 
             {/* Equipo */}
-            <section className="team-section">
-                <Container>
-                    <Row className="align-items-center">
-                        <Col lg={6}>
-                            <img 
-                                src="\portadanuestroequipo.jpg" 
-                                alt="Equipo Darom SA" 
-                                className="team-image" 
-                                loading="lazy"
-                            />
-                        </Col>
-                        <Col lg={6}>
-                            <h2 className="section-title">Nuestro Equipo</h2>
-                            <p className="team-description">
-                                Contamos con más de 50 profesionales altamente capacitados en todas las áreas de la construcción. 
-                                Desde ingenieros civiles hasta especialistas en logística, nuestro equipo multidisciplinario 
-                                garantiza la excelencia en cada proyecto.
-                            </p>
-                            <div className="stats-container">
+<section className="team-section">
+    <Container>
+        <Row className="align-items-center">
+            {/* Columna de imagen - Solo se muestra en desktop */}
+            <Col lg={6} className="d-none d-lg-block">
+                <img 
+                    src="/portadanuestroequipo.jpg" 
+                    alt="Equipo Darom SA" 
+                    className="team-image" 
+                    loading="lazy"
+                />
+            </Col>
+                        
+                        {/* Columna de contenido - Siempre visible */}
+            <Col xs={12} lg={6}>
+                <h2 className="section-title">Nuestro Equipo</h2>
+                <p className="team-description">
+                    Contamos con más de 50 profesionales altamente capacitados en todas las áreas de la construcción. 
+                    Desde ingenieros civiles hasta especialistas en logística, nuestro equipo multidisciplinario 
+                    garantiza la excelencia en cada proyecto.
+                </p>
+                
+                <div className="stats-container">
                                 <div 
                                     className="stat-item"
                                     onClick={() => trackConversion('Stat_Click', 'Experience', 0.4)}
@@ -405,6 +421,7 @@ function About() {
                                     <div className="stat-number">3000+</div>
                                     <div className="stat-label">Proyectos completados</div>
                                 </div>
+                                
                             </div>
 
                             {/* Botón de WhatsApp */}
@@ -419,6 +436,15 @@ function About() {
                                 </Button>
                             </div>
                         </Col>
+                        {/* Columna de imagen - Solo se muestra en mobile (debajo del contenido) */}
+            <Col xs={12} className="d-lg-none mt-4">
+                <img 
+                    src="/portadanuestroequipo.jpg" 
+                    alt="Equipo Darom SA" 
+                    className="mobile-team-image" 
+                    loading="lazy"
+                />
+            </Col>
                     </Row>
                 </Container>
             </section>
