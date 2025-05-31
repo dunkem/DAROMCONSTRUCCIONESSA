@@ -131,7 +131,7 @@ function Pisos() {
   return (
     <Container fluid className="px-0 pisos-container">
       <Helmet>
-        <title>Pisos Industriales Premium Sin Riesgos | Darom SA</title>
+        <title>Pisos Industriales Premium | Darom SA</title>
         <meta name="description" content="Primer hormigonera que desarrolla tu Piso Industrial sin Riesgos y sin contratar múltiples proveedores. Garantía integrada en el PAQUETE SUELO DRM 360™." />
       </Helmet>
 
@@ -301,9 +301,9 @@ function Pisos() {
       </section>
 
       {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
-      <section className="py-5 bg-light">
+      <section className="py-1 bg-light">
         <Container>
-          <h2 className="text-center mb-5">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
+          <h2 className="text-center mb-1">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
           
           <div className="suppliers-carousel-container">
             {/* Versión Desktop (6 logos por fila) */}
@@ -508,7 +508,7 @@ function Pisos() {
 </section>
 
       {/* 4. PROCESO SIMPLIFICADO */}
-<section className="py-5 bg-light">
+<section className="py-2 bg-light">
   <Container className="text-center">
     <h2 className="mb-4">Comenzar es Muy Sencillo</h2>
     <p className="text-muted mb-5">En solo 3 pasos, podés tener el piso industrial que tu empresa necesita, sin complicaciones.</p>

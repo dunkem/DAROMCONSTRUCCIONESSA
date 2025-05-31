@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container, Button, Row, Col, Carousel } from 'react-bootstrap';
-import { FaWhatsapp, FaCheck, FaRuler, FaTruck, FaCompressArrowsAlt, FaTimes } from 'react-icons/fa';
+import { FaWhatsapp, FaCheck, FaRuler, FaTruck, FaChartLine, FaUsers, FaCompressArrowsAlt, FaTimes, FaShieldAlt  } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
 import './Suelos.css';
 
@@ -130,41 +130,56 @@ function Suelos() {
     }
   ];
 
-  const equiposMovimiento = [
+ const equiposMovimiento = [
     { 
-      name: "Excavadoras", 
-      spec: "Capacidad 1.2 m³", 
+      name: "Excavadora Hidráulica", 
+      spec: "Cuchara de 1.2 m³ (ideal para zanjas y cimentaciones)", 
       img: "/portadamov6.jpg" 
     },
     { 
-      name: "Bulldozer", 
-      spec: "350 HP", 
+      name: "Bulldozer de Alto Rendimiento", 
+      spec: "Motor 350 HP (para desplome de terrenos difíciles)", 
       img: "/portadamov4.jpg" 
     },
     { 
-      name: "Compactadoras", 
-      spec: "13 Ton de fuerza", 
+      name: "Compactadora Vibratoria", 
+      spec: "Fuerza de compactación: 13 toneladas (suelos estables en menos tiempo)", 
       img: "/portadamovofi.jpg" 
     }
-  ];
+];
 
   const garantiasData = [
     { 
       icon: <FaRuler />, 
-      title: "Precisión Milimétrica", 
-      text: "Equipos topográficos de última generación" 
+      title: "Medición Exacta", 
+      text: "Precisión de ±1mm con escáner láser 3D" 
     },
     { 
       icon: <FaTruck />, 
-      title: "Movimientos Eficientes", 
-      text: "30% más rápido que métodos tradicionales" 
+      title: "Entrega Rápida", 
+      text: "Resultados en 48 horas (garantizado)" 
     },
     { 
       icon: <FaCompressArrowsAlt />, 
-      title: "Compactación Certificada", 
-      text: "Garantía de densidad óptima" 
+      title: "Suelos Compactos", 
+      text: "Compactación certificada ≥95% (norma ASTM D698)" 
+    },
+    { 
+      icon: <FaShieldAlt />, 
+      title: "Cumplimiento Legal", 
+      text: "100% conforme a regulaciones municipales y nacionales" 
+    },
+    { 
+      icon: <FaChartLine />, 
+      title: "Análisis Profesional", 
+      text: "Informes con estadísticas y gráficos comprensibles" 
+    },
+    { 
+      icon: <FaUsers />, 
+      title: "Asesoría Personalizada", 
+      text: "Soporte técnico especializado durante y después del estudio" 
     }
-  ];
+];
 
   return (
     <div className="darom-body">
@@ -201,8 +216,8 @@ function Suelos() {
       <Col lg={9} className="text-center">
         {/* Título principal - Versión mejorada */}
         <h1 className="text-white display-3 fw-bold mb-3 animate__animated animate__fadeIn">
-          <span className="d-block">Te ayudamos a construir</span>
-          <span className="text-danger">la base perfecta</span> para tu proyecto
+          <span className="d-block">TE AYUDAMOS A CONSTRUIR</span>
+          <span className="text-danger">LA BASE PERFECTA</span> PARA TU PROYECTO
         </h1>
         
         {/* Subtítulo más impactante */}
@@ -296,9 +311,9 @@ function Suelos() {
 </div>
 </section>
       {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
-<section className="py-5 bg-light">
+<section className="py-3 bg-light">
   <Container>
-    <h2 className="text-center mb-5">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
+    <h2 className="text-center mb-2">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
     
     <div className="suppliers-carousel-container">
       {/* Versión Desktop (6 logos por fila) */}
@@ -355,8 +370,8 @@ function Suelos() {
       {/* --- Sección Problemas --- */}
       <section className="darom-section darom-section-dark">
         <Container>
-          <h2 className="darom-section-title">¿RIESGOS DE NO HACER UN BUEN ESTUDIO DE SUELOS? <span>NOSOTROS LOS EVITAMOS</span></h2>
-          <Row className="g-4 my-4">
+          <h2 className="darom-section-title">RIESGOS DE NO HACER UN CORRECTO ESTUDIO DE SUELO</h2>
+          <Row className="g-4 my-2">
             {[
               "Grietas en estructuras por asentamientos",
               "Inundaciones por napas freáticas no detectadas",
@@ -480,7 +495,7 @@ function Suelos() {
             ))}
           </Row>
           <div className="text-center mt-4">
-            <ContactButton text="CONOCE NUESTROS EQUIPOS" />
+            <ContactButton text="HABLA CON UN ASESOR" />
           </div>
         </Container>
       </section>

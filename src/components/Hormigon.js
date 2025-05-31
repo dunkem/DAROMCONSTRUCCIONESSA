@@ -174,7 +174,7 @@ function Hormigon() {
             </h1>
             
             <p className="hormigon-hero-subtitle lead mb-4">
-              <strong className="text-red">RESISTENCIA, VERSATILIDAD Y GARANTÍA</strong>
+              <strong className="text-red">CONFIANZA, VERSATILIDAD Y GARANTÍA</strong>
             </p>
             
             <ul className="hormigon-benefits-list list-unstyled mb-5 mx-auto" style={{maxWidth: '600px'}}>
@@ -355,7 +355,7 @@ function Hormigon() {
                   <Col md={6} className="pe-md-5">
                     <h2 className="fw-bold mb-4">MÁS DE <span className="text-red">3.000.000 m²</span> CONSTRUIDOS </h2>
                     <p className="mb-4">
-                      Hemos desarrollado un servicio que integra todas las soluciones para pisos industriales:
+                      Hemos desarrollado un servicio que integra todas las soluciones para tu obra:
                     </p>
                     <ul className="features-list mb-4">
                       <li><span className="check-icon">✓</span> Control de calidad en tiempo real</li>
@@ -386,7 +386,7 @@ function Hormigon() {
             </section>
 
       {/* 3. BENEFICIOS */}
-      <section className="hormigon-benefits-section py-5">
+      <section className="hormigon-benefits-section py-2">
         <Container>
           <h2 className="hormigon-section-title text-center mb-5">BENEFICIOS <span className="hormigon-text-red">QUE NOS MARCAN</span></h2>
           <Row>
@@ -443,9 +443,9 @@ function Hormigon() {
       </section>
 
       {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
-<section className="py-5 bg-light">
+<section className="py-3 bg-light">
   <Container>
-    <h2 className="text-center mb-5">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
+    <h2 className="text-center mb-2">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
     
     <div className="suppliers-carousel-container">
       {/* Versión Desktop (6 logos por fila) */}

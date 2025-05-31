@@ -450,9 +450,9 @@ function Home() {
       </section>
 
 {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
-<section className="py-5 bg-light">
+<section className="py-2 bg-light">
   <Container>
-    <h2 className="text-center mb-5">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
+    <h2 className="text-center mb-2">EMPRESAS QUE <span className="text-red">CONFÍAN EN NOSOTROS</span></h2>
     
     <div className="suppliers-carousel-container">
       {/* Versión Desktop (6 logos por fila) */}

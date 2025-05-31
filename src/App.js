@@ -21,7 +21,7 @@ import './App.css';
 function App() {
     const [expanded, setExpanded] = useState(false);
     const location = useLocation();
-    const isLandingPage = location.pathname === '/services/pisos/pisosCombinados';
+    const isLandingPage = location.pathname === '/services/pisos/pisoscombinados';
 
     useEffect(() => {
         setExpanded(false);
@@ -150,7 +150,7 @@ function App() {
                         <Route path="/services/materiales" element={<Materiales />} />
                         <Route path="/services/hormigon" element={<Hormigon />} />
                         <Route path="/services/suelos" element={<Suelos />} />
-                        <Route path="/services/pisos/PisosCombinados" element={<PisosCombinados />} />
+                        <Route path="/services/pisos/pisoscombinados" element={<PisosCombinados />} />
                         <Route path="/services/pisos" element={<Pisos />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
