@@ -154,70 +154,79 @@ function About() {
                 </script>
             </Helmet>
 
-            {/* Hero Section */}
-            <section className="about-hero">
-                <Container>
-                    <Row className="align-items-center py-5">
-                        <Col lg={6} className="py-4">
-                            <div className="hero-badge mb-4">
-                                <span className="badge bg-light text-primary-color fs-5 fw-normal px-3 py-2">Desde 1978</span>
-                            </div>
-                            
-                            <h1 className="hero-title">
-                                Construyendo el futuro <span className="text-light">con excelencia</span>
-                            </h1>
-                            
-                            <p className="hero-subtitle">
-                                Líderes en innovación y calidad en la industria de la construcción
-                            </p>
-                            
-                            <div className="hero-features mb-5">
-                                <ul className="list-unstyled">
-                                    <li className="mb-3 d-flex align-items-center">
-                                        <FaCheck className="text-light me-3 fs-5" />
-                                        <span>+40 años de experiencia</span>
-                                    </li>
-                                    <li className="mb-3 d-flex align-items-center">
-                                        <FaCheck className="text-light me-3 fs-5" />
-                                        <span>+3,000 proyectos completados</span>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <FaCheck className="text-light me-3 fs-5" />
-                                        <span>Tecnología de punta en construcción</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            <Button 
-                                variant="primary" 
-                                className="btn-primary-color px-4 py-3 fw-bold"
-                                onClick={() => handleWhatsAppClick('hero')}
-                            >
-                                <FaWhatsapp className="me-2" /> Conoce nuestro equipo
-                            </Button>
-                            
-                            
-                        </Col>
-
-                        
-                        
-                        <Col lg={6} className="d-none d-lg-block">
-                            <div className="hero-image-container position-relative">
-                                <img 
-                                    src="/obra50.png" 
-                                    alt="Equipo de construcción" 
-                                    className="hero-image" 
-                                    loading="eager"
-                                />
-                                <div className="experience-badge bg-primary-color text-white p-3 rounded-4 shadow position-absolute bottom-0 start-0 translate-middle">
-                                    <div className="fs-1 fw-bold">40+</div>
-                                    <div className="fs-5">Años</div>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </section>
+         {/* Hero Section */}
+<section className="about-hero position-relative"> {/* Añadido position-relative */}
+  {/* Div para el fondo con la imagen */}
+  <div 
+    className="position-absolute w-100 h-100"
+    style={{
+      top: 0,
+      left: 0,
+      backgroundImage: "url('/portoficial1.jpg')",
+      backgroundRepeat: 'repeat',
+      opacity: 0.05,
+      zIndex: 1
+    }}
+  ></div>
+  
+  <Container className="position-relative" style={{zIndex: 2}}> {/* Añadido position-relative y z-index mayor */}
+    <Row className="align-items-center py-5">
+      <Col lg={6} className="py-4">
+        <div className="hero-badge mb-4">
+          <span className="badge bg-light text-primary-color fs-5 fw-normal px-3 py-2">Desde 1978</span>
+        </div>
+        
+        <h1 className="hero-title">
+          Construyendo el futuro <span className="text-light">con excelencia</span>
+        </h1>
+        
+        <p className="hero-subtitle">
+          Líderes en innovación y calidad en la industria de la construcción
+        </p>
+        
+        <div className="hero-features mb-5">
+          <ul className="list-unstyled">
+            <li className="mb-3 d-flex align-items-center">
+              <FaCheck className="text-light me-3 fs-5" />
+              <span>+40 años de experiencia</span>
+            </li>
+            <li className="mb-3 d-flex align-items-center">
+              <FaCheck className="text-light me-3 fs-5" />
+              <span>+3,000 proyectos completados</span>
+            </li>
+            <li className="d-flex align-items-center">
+              <FaCheck className="text-light me-3 fs-5" />
+              <span>Tecnología de punta en construcción</span>
+            </li>
+          </ul>
+        </div>
+        
+        <Button 
+          variant="primary" 
+          className="btn-primary-color px-4 py-3 fw-bold"
+          onClick={() => handleWhatsAppClick('hero')}
+        >
+          <FaWhatsapp className="me-2" /> Conoce nuestro equipo
+        </Button>
+      </Col>
+      
+      <Col lg={6} className="d-none d-lg-block">
+        <div className="hero-image-container position-relative">
+          <img 
+            src="/obra50.png" 
+            alt="Equipo de construcción" 
+            className="hero-image" 
+            loading="eager"
+          />
+          <div className="experience-badge bg-primary-color text-white p-3 rounded-4 shadow position-absolute bottom-0 start-0 translate-middle">
+            <div className="fs-1 fw-bold">40+</div>
+            <div className="fs-5">Años</div>
+          </div>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</section>
 
             {/* 4. PRUEBA SOCIAL - Construcción de confianza */}
                   <section className="py-5 bg-light">

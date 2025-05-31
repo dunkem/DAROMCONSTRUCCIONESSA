@@ -280,7 +280,17 @@ function Materiales() {
             </Helmet>
 
             {/* Hero Section - Full Width Centrado con Badge Google */}
-<div className="heroc-section bg-dark text-white py-5 d-flex align-items-center" style={{minHeight: '100vh', position: 'relative'}}>
+<div 
+  className="heroc-section bg-dark text-white py-5 d-flex align-items-center" 
+  style={{
+    minHeight: '100vh',
+    position: 'relative',
+    backgroundImage: 'url(/portadacoralon.JPG)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  }}
+>
     <Container>
         <div className="heroc-content text-center" style={{position: 'relative', zIndex: 2}}>
             <Row className="justify-content-center">
