@@ -62,7 +62,7 @@ function App() {
     };
 
     // Determinar si mostrar el botón de WhatsApp y otros elementos flotantes
-    const showFloatingElements = !['/services/suelos', '/services/pisos', '/services/Pisos/Pisoscombinados',].includes(location.pathname);
+    const showFloatingElements = !['/services/suelos', '/services/pisos', '/services/pisos/pisoscombinados',].includes(location.pathname);
 
     return (
         <CartProvider>
