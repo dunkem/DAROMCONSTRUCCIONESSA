@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Container, Row, Col, Button, Table } from 'react-bootstrap';
 import { CartContext } from '../contexts/CartContext';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -6,11 +6,21 @@ import { Helmet } from 'react-helmet';
 
 function Cart() {
     const { cart, removeFromCart } = useContext(CartContext);
-    const totalPrice = cart.reduce((acc, item) => acc + (item.price || 0), 0);
+    const totalPrice = cart.reduce((acc, item) => acc + (item.price || 0) * (item.quantity || 1), 0);
+    const topRef = useRef(null);
+
+    // Scroll al inicio al cargar
+    useEffect(() => {
+        if (topRef.current) {
+            window.scrollTo({
+                top: topRef.current.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    }, []);
 
     // Inicialización de gtag
     useEffect(() => {
-        // Solo cargar en producción o si no está definido
         if (!window.gtag) {
             window.dataLayer = window.dataLayer || [];
             window.gtag = function() { window.dataLayer.push(arguments); };
@@ -28,7 +38,6 @@ function Cart() {
         const phone = '5492215739000';
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
-        // Track conversion con detalles del pedido
         trackConversion('WhatsApp_Order', 'Complete_Order', totalPrice, {
             items: cart.map(item => ({
                 id: item.id,
@@ -44,7 +53,6 @@ function Cart() {
     const trackConversion = (eventCategory, eventLabel, value = 1.0, params = {}) => {
         try {
             if (typeof window.gtag === 'function') {
-                // Evento para Google Ads
                 window.gtag('event', 'conversion', {
                     'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
                     'value': value > 0 ? value : 1.0,
@@ -55,7 +63,6 @@ function Cart() {
                     ...params
                 });
 
-                // Evento para GA4 con más detalles
                 window.gtag('event', 'purchase', {
                     'currency': 'ARS',
                     'value': value,
@@ -73,7 +80,7 @@ function Cart() {
     };
 
     return (
-        <Container className="mt-4">
+        <Container className="mt-4 cart-container" ref={topRef}>
             <Helmet>
                 <title>Carrito de Compras - Darom SA</title>
                 <meta name="description" content="Finaliza tu compra de materiales de construcción y hormigón elaborado con Darom SA" />
@@ -95,7 +102,7 @@ function Cart() {
                 <Col>
                     <h1>Carrito</h1>
                     {cart.length > 0 ? (
-                        <>
+                        <div className="cart-table">
                             <Table striped bordered hover responsive>
                                 <thead>
                                     <tr>
@@ -134,15 +141,15 @@ function Cart() {
                                     })}
                                 </tbody>
                             </Table>
-                            <h3>Total: ${totalPrice}</h3>
+                            <h3 className="mt-4">Total: ${totalPrice}</h3>
                             <Button 
                                 variant="success" 
                                 onClick={handleSendToWhatsApp} 
-                                className="d-flex align-items-center whatsapp-btn"
+                                className="d-flex align-items-center whatsapp-btn mt-3"
                             >
                                 <FaWhatsapp size={20} className="me-2" /> Enviar Pedido por WhatsApp
                             </Button>
-                        </>
+                        </div>
                     ) : (
                         <p>El carrito está vacío</p>
                     )}

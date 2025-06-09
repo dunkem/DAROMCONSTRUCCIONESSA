@@ -62,14 +62,14 @@ function App() {
     };
 
     // Determinar si mostrar el botón de WhatsApp y otros elementos flotantes
-    const showFloatingElements = !['/services/suelos', '/services/pisos', '/services/pisos/industriales-ad'].includes(location.pathname);
+    const showFloatingElements = !['/services/suelos', '/services/pisos', '/services/Pisos/Pisoscombinados',].includes(location.pathname);
 
     return (
         <CartProvider>
             <Helmet>
                 <title>Darom SA - Soluciones Integrales en Construcción</title>
                 <meta name="description" content="Darom SA ofrece hormigón elaborado, materiales de construcción, pisos industriales y servicios de estudio y movimiento de suelos." />
-                <meta name="keywords" content="hormigón, construcción, materiales, pisos industriales, movimiento de suelos" />
+                <meta name="keywords" content="hormigón elaborado, construcción, materiales, pisos industriales, movimiento de suelos, estudio de suelos" />
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
