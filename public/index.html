@@ -11,16 +11,15 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Darom SA - Líder en hormigón elaborado, materiales de construcción y pisos industriales en Buenos Aires. Calidad garantizada desde 1978.">
-  <meta name="keywords" content="hormigón elaborado, materiales construcción, pisos industriales, movimiento de suelos, construcción Buenos Aires, Darom SA">
+  <meta name="description" content="Darom SA - Líder en hormigón elaborado, materiales de construcción, pisos industriales, estudio y movimiento de suelos en Buenos Aires. Calidad garantizada desde 1978.">
+  <meta name="keywords" content="hormigón elaborado, materiales construcción, pisos industriales, estudio y movimiento de suelos, construcción en zona sur de Buenos Aires, Darom SA">
   <meta name="author" content="Darom SA">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#000000">
-  <title>Darom SA | Hormigón Elaborado y Materiales de Construcción en Buenos Aires</title>
+  <title>Darom SA | Hormigón Elaborado, Materiales de Construcción, Estudio y Movimiento de suelos en Buenos Aires</title>
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Darom SA | Especialistas en Hormigón y Construcción">
+  <meta property="og:title" content="Darom SA | Especialistas en Hormigón elaborado y Construcción">
   <meta property="og:description" content="Soluciones integrales en construcción desde 1978. Hormigón elaborado, materiales, pisos industriales y movimiento de suelos.">
   <meta property="og:image" content="https://daromsa.com.ar/images/og-image.jpg">
   <meta property="og:url" content="https://daromsa.com.ar/">
@@ -36,42 +35,17 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://daromsa.com.ar/" />
 
-  <!-- Favicon completo con múltiples formatos y tamaños -->
-  <!-- Favicon moderno (PNG) -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=2">
-  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-  
-  <!-- Apple Touch Icon (sin efecto brillo) -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-  
-  <!-- Safari Pinned Tab -->
-  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#000000">
-  
-  <!-- Favicon clásico (para navegadores antiguos) -->
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  
-  <!-- Microsoft Metro -->
-  <meta name="msapplication-TileColor" content="#000000">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=2">
-  
-  <!-- Android/Chrome Manifest -->
-  <link rel="manifest" href="/site.webmanifest?v=2">
-  
-  <!-- Preload de fuentes críticas -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"></noscript>
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Preconnect a dominios importantes -->
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.google-analytics.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  
-  <!-- Forzar actualización de caché -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
+  <!-- Preload y preconnect optimizados -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -88,7 +62,25 @@
 
   <div id="root"></div>
 
-  <!-- Schema Markup para el footer (se inyectará dinámicamente) -->
-  <script type="application/ld+json" id="organization-schema"></script>
+  <!-- Carga diferida del schema markup -->
+  <script>
+    window.addEventListener('load', function() {
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Darom SA",
+        "url": "https://www.daromsa.com.ar",
+        "logo": "https://www.daromsa.com.ar/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+54 221 573-9000",
+          "contactType": "customer service"
+        }
+      });
+      document.body.appendChild(schemaScript);
+    });
+  </script>
 </body>
 </html>

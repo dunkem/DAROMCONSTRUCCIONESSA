@@ -92,22 +92,13 @@ function Hormigon() {
     { title: 'ESPECIALES', text: 'Livianos, vistos, hidrófugos, con fibra y formulaciones a medida' },
   ];
 
-  const trackConversion = () => {
-    if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-        'value': 1.0,
-        'currency': 'ARS',
-      });
-    }
-  };
+  
 
   const ContactButton = ({ text = "CONTACTAR ASESOR", variant = "danger" }) => (
     <Button 
       href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%20Darom%20SA,%20estoy%20interesado%20en%20sus%20servicios%20de%20hormigón%20elaborado.%20¿Podrían%20brindarme%20más%20información%20y%20cotización?" 
       target="_blank"
       className={`hormigon-cta-button my-3 ${variant}`}
-      onClick={trackConversion}
     >
       <FaWhatsapp className="me-2" /> {text}
     </Button>

@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://daromsa.com.ar/</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,62 +15,84 @@
     </image:image>
   </url>
   
-  <!-- Servicios -->
+  <!-- Servicios principales -->
   <url>
     <loc>https://daromsa.com.ar/services/hormigon</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://daromsa.com.ar/portadaplumamixer.jpg</image:loc>
+      <image:title>Hormigón Elaborado y Bombeo - Darom SA</image:title>
+    </image:image>
   </url>
   
   <url>
     <loc>https://daromsa.com.ar/services/materiales</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://daromsa.com.ar/portadacoralon.JPG</image:loc>
+      <image:title>Materiales de Construcción - Darom SA</image:title>
+    </image:image>
   </url>
   
   <url>
     <loc>https://daromsa.com.ar/services/suelos</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://daromsa.com.ar/portadamovofi.jpg</image:loc>
+      <image:title>Estudio y Movimiento de Suelos - Darom SA</image:title>
+    </image:image>
   </url>
   
+  <!-- PISOS INDUSTRIALES (página principal) -->
   <url>
     <loc>https://daromsa.com.ar/services/pisos</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://daromsa.com.ar/portadapisosindustriales.png</image:loc>
+      <image:title>Pisos Industriales - Soluciones Duraderas - Darom SA</image:title>
+    </image:image>
   </url>
   
-  <!-- Landing Page Especial -->
+  <!-- PISOS COMBINADOS (variante de pisos industriales) -->
   <url>
-    <loc>https://daromsa.com.ar/services/pisos/industriales-ad</loc>
-    <lastmod>2025-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://daromsa.com.ar/services/pisos/pisoscombinados</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq> <!-- Frecuencia menor al ser variante -->
+    <priority>0.7</priority> <!-- Prioridad menor que la página principal -->
+    <image:image>
+      <image:loc>https://daromsa.com.ar/portadapisosindustriales.png</image:loc>
+      <image:title>Sistema de Pisos Combinados - Darom SA</image:title>
+    </image:image>
   </url>
   
   <!-- Información Corporativa -->
   <url>
     <loc>https://daromsa.com.ar/about</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
+  <!-- Contacto -->
   <url>
     <loc>https://daromsa.com.ar/contact</loc>
-    <lastmod>2025-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority> <!-- Mayor prioridad para conversión -->
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
-  <!-- Carrito (opcional, si quieres indexarlo) -->
+  <!-- Carrito -->
   <url>
     <loc>https://daromsa.com.ar/cart</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

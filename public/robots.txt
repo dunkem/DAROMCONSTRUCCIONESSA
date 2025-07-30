@@ -1,5 +1,25 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt para Darom SA - Versión 2025
 User-agent: *
-Disallow:
+Allow: /
 
+# Bloquear parámetros de sesión o tracking (preventivo)
+Disallow: /*?*
+Disallow: /*&*
+
+# Priorizar el crawl de secciones importantes
 Sitemap: https://daromsa.com.ar/sitemap.xml
+Sitemap: https://daromsa.com.ar/sitemap-images.xml
+
+# Configuración especial para imágenes (indexación controlada)
+User-agent: Googlebot-Image
+Allow: /services/materiales/
+Disallow: /services/materiales/*?*
+Crawl-delay: 1
+
+# Bloquear crawlers de IA (protección de contenido)
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: GPTBot
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /

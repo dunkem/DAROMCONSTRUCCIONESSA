@@ -43,42 +43,9 @@ function Contact() {
         window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'auto' // Comportamiento instantáneo
+            behavior: 'auto'
         });
-
-        // Inicialización de Google Tag Manager
-        if (!window.dataLayer) {
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function() { window.dataLayer.push(arguments); };
-            window.gtag('js', new Date());
-            window.gtag('config', 'AW-717135166');
-        }
     }, []);
-
-    // Función mejorada para reportar conversiones
-    const trackConversion = (eventCategory = 'form_submission', eventLabel = 'contact_form') => {
-        try {
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', 'conversion', {
-                    'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-                    'value': 1.0,
-                    'currency': 'ARS',
-                    'event_category': eventCategory,
-                    'event_label': eventLabel,
-                    'transaction_id': `CONTACT_${Date.now()}`
-                });
-
-                // Evento adicional para Google Analytics 4
-                window.gtag('event', 'generate_lead', {
-                    'method': 'contact_form',
-                    'page_location': window.location.href,
-                    'page_title': document.title
-                });
-            }
-        } catch (e) {
-            console.error('Error tracking conversion:', e);
-        }
-    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -102,14 +69,25 @@ function Contact() {
                 setSubmitted(true);
                 setError('');
                 form.reset();
-                trackConversion('form_submission', 'contact_success');
+                // Envía evento al dataLayer para GTM
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'form_submission',
+                    'form_type': 'contact',
+                    'status': 'success'
+                });
             } else {
                 throw new Error('Error en el servidor');
             }
         } catch (err) {
             setError('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
             setSubmitted(false);
-            trackConversion('form_error', 'contact_error');
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'form_error',
+                'form_type': 'contact',
+                'status': 'error'
+            });
         }
     };
 

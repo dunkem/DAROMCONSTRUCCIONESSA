@@ -13,9 +13,7 @@ import Materiales from './components/Materiales';
 import Suelos from './components/Suelos';
 import Pisos from './components/Pisos';
 import Footer from './components/Footer';
-
 import PisosCombinados from './components/PisosCombinados';
-
 import './App.css';
 
 function App() {
@@ -25,51 +23,21 @@ function App() {
 
     useEffect(() => {
         setExpanded(false);
-        
-        // Cargar GTM si no está en localhost
-        if (window.location.hostname !== 'localhost' && !window.dataLayer) {
-            const gtmScript = document.createElement('script');
-            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
-            gtmScript.async = true;
-            document.head.appendChild(gtmScript);
-
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function() { window.dataLayer.push(arguments); };
-            window.gtag('js', new Date());
-            window.gtag('config', 'AW-717135166');
-            window.gtag('config', 'G-340030138');
-        }
     }, [location]);
-
-    const trackConversion = (eventCategory, eventLabel, value = 1.0) => {
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {
-                'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-                'value': value,
-                'currency': 'ARS',
-                'event_category': eventCategory,
-                'event_label': eventLabel
-            });
-        }
-    };
-
-    const trackNavigation = (page) => {
-        trackConversion('Navigation', `Nav_${page}`);
-    };
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     // Determinar si mostrar el botón de WhatsApp y otros elementos flotantes
-    const showFloatingElements = !['/services/suelos', '/services/pisos', '/services/pisos/pisoscombinados',].includes(location.pathname);
+    const showFloatingElements = !['/services/suelos', '/services/pisos', '/services/pisos/pisoscombinados'].includes(location.pathname);
 
     return (
         <CartProvider>
             <Helmet>
                 <title>Darom SA - Soluciones Integrales en Construcción</title>
                 <meta name="description" content="Darom SA ofrece hormigón elaborado, materiales de construcción, pisos industriales y servicios de estudio y movimiento de suelos." />
-                <meta name="keywords" content="hormigón elaborado, construcción, materiales, pisos industriales, movimiento de suelos, estudio de suelos" />
+                <meta name="keywords" content="hormigón elaborado, construcción, materiales, pisos industriales, movimiento de suelos, estudio de suelos, zona sur de Buenos Aires" />
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -96,7 +64,7 @@ function App() {
                 {!isLandingPage && (
                     <Navbar bg="black" expand="lg" className="navbar-custom" expanded={expanded}>
                         <Container fluid>
-                            <Navbar.Brand as={Link} to="/" className="me-0 me-lg-3" onClick={() => trackNavigation('Home')}>
+                            <Navbar.Brand as={Link} to="/" className="me-0 me-lg-3">
                                 <img 
                                     src="/ultimologodarom.png" 
                                     alt="Darom SA - Especialistas en construcción" 
@@ -118,26 +86,26 @@ function App() {
                             
                             <Navbar.Collapse id="main-navbar">
                                 <Nav className="mx-auto flex-wrap justify-content-center">
-                                    <Nav.Link as={Link} to="/services/hormigon" onClick={() => { trackNavigation('Hormigón'); setExpanded(false); }} className="nav-item-custom">Hormigón Elaborado</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/materiales" onClick={() => { trackNavigation('Materiales'); setExpanded(false); }} className="nav-item-custom">Materiales</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/suelos" onClick={() => { trackNavigation('Suelos'); setExpanded(false); }} className="nav-item-custom">Estudio y Movimiento de Suelos</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/pisos" onClick={() => { trackNavigation('Pisos'); setExpanded(false); }} className="nav-item-custom">Pisos Industriales</Nav.Link>
-                                    <Nav.Link as={Link} to="/about" onClick={() => { trackNavigation('Empresa'); setExpanded(false); }} className="nav-item-custom">La Empresa</Nav.Link>
-                                    <Nav.Link as={Link} to="/contact" onClick={() => { trackNavigation('Contacto'); setExpanded(false); }} className="nav-item-custom">Contacto</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/hormigon" onClick={() => setExpanded(false)} className="nav-item-custom">Hormigón Elaborado</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/materiales" onClick={() => setExpanded(false)} className="nav-item-custom">Materiales</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/suelos" onClick={() => setExpanded(false)} className="nav-item-custom">Estudio y Movimiento de Suelos</Nav.Link>
+                                    <Nav.Link as={Link} to="/services/pisos" onClick={() => setExpanded(false)} className="nav-item-custom">Pisos Industriales</Nav.Link>
+                                    <Nav.Link as={Link} to="/about" onClick={() => setExpanded(false)} className="nav-item-custom">La Empresa</Nav.Link>
+                                    <Nav.Link as={Link} to="/contact" onClick={() => setExpanded(false)} className="nav-item-custom">Contacto</Nav.Link>
                                 </Nav>
                                 <div className="navbar-extra d-flex align-items-center">
                                     <div className="social-links d-flex">
-                                        <Nav.Link href="https://www.facebook.com/DAROMSRL" target="_blank" rel="noopener noreferrer nofollow" onClick={() => trackNavigation('Facebook')} className="social-link" aria-label="Facebook">
+                                        <Nav.Link href="https://www.facebook.com/DAROMSRL" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="Facebook">
                                             <FaFacebook className="social-icon" />
                                         </Nav.Link>
-                                        <Nav.Link href="https://www.instagram.com/daromsa/" target="_blank" rel="noopener noreferrer nofollow" onClick={() => trackNavigation('Instagram')} className="social-link" aria-label="Instagram">
+                                        <Nav.Link href="https://www.instagram.com/daromsa/" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="Instagram">
                                             <FaInstagram className="social-icon" />
                                         </Nav.Link>
-                                        <Nav.Link href="https://www.youtube.com/watch?v=--7y8f63ZPk" target="_blank" rel="noopener noreferrer nofollow" onClick={() => trackNavigation('YouTube')} className="social-link" aria-label="YouTube">
+                                        <Nav.Link href="https://www.youtube.com/watch?v=--7y8f63ZPk" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="YouTube">
                                             <FaYoutube className="social-icon" />
                                         </Nav.Link>
                                     </div>
-                                    <CartSummary trackConversion={trackConversion} />
+                                    <CartSummary />
                                 </div>
                             </Navbar.Collapse>
                         </Container>
@@ -166,7 +134,6 @@ function App() {
                             rel="noopener noreferrer nofollow" 
                             className="whatsapp-float" 
                             aria-label="Contactar por WhatsApp"
-                            onClick={() => trackConversion('WhatsApp', 'Float_Button')}
                         >
                             <FaWhatsapp className="whatsapp-icon" />
                         </a>
@@ -187,7 +154,7 @@ function App() {
     );
 }
 
-function CartSummary({ trackConversion }) {
+function CartSummary() {
     const { cart } = useContext(CartContext);
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
@@ -201,10 +168,9 @@ function CartSummary({ trackConversion }) {
             </>} 
             id="cart-dropdown"
             className="cart-dropdown"
-            onClick={() => trackConversion('Cart', 'Cart_Icon_Click')}
             aria-label="Carrito de compras"
         >
-            <NavDropdown.Item as={Link} to="/cart" onClick={() => trackConversion('Cart', 'View_Cart')}>Ver Carrito</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/cart">Ver Carrito</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item disabled>Artículos: {totalItems}</NavDropdown.Item>
             <NavDropdown.Item disabled>Total: ${totalPrice.toFixed(2)}</NavDropdown.Item>

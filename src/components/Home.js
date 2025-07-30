@@ -10,34 +10,7 @@ import portada from './portada.webp';
 function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    loadGTM();
   }, []);
-
-  const loadGTM = () => {
-    if (window.location.hostname !== 'localhost' && !window.dataLayer) {
-      const gtmScript = document.createElement('script');
-      gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-717135166";
-      gtmScript.async = true;
-      document.head.appendChild(gtmScript);
-
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function() { window.dataLayer.push(arguments); };
-      window.gtag('js', new Date());
-      window.gtag('config', 'AW-717135166');
-    }
-  };
-
-  const trackConversion = (eventCategory, eventLabel) => {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-        'value': 1.0,
-        'currency': 'ARS',
-        'event_category': eventCategory,
-        'event_label': eventLabel
-      });
-    }
-  };
 
   // Datos de servicios
   const services = [
@@ -162,7 +135,6 @@ const ServiceCard = ({ service }) => (
       <Link to={service.link}>
         <Button 
           variant="danger" 
-          onClick={() => trackConversion('Servicios', `Click - ${service.title}`)}
         >
           VER MÁS
         </Button>
@@ -179,7 +151,6 @@ const ProductCard = ({ product }) => (
       <Link to={product.link} className="mt-auto">
         <Button 
           variant="outline-danger" 
-          onClick={() => trackConversion('Productos', `Click - ${product.name}`)}
         >
           DETALLES
         </Button>
@@ -229,7 +200,6 @@ return (
               size="lg" 
               href="https://wa.me/542215739000?text=Hola%20Darom%20SA,%20vi%20su%20página%20web%20y%20me%20interesa%20solicitar%20información" 
               target="_blank"
-              onClick={() => trackConversion('CTA Final', 'Click - WhatsApp')}
               className="whatsapp-btn me-3"
             >
               <FaWhatsapp className="me-2" /> SOLICITA TU PRESUPUESTO
@@ -560,7 +530,7 @@ return (
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn-outline-danger"
-              onClick={() => trackConversion('Reseñas', 'Click - Dejar Reseña')}
+
             >
               <FaGoogle className="me-2" /> Dejá tu reseña
             </a>
@@ -607,7 +577,6 @@ return (
                 size="lg" 
                 href="https://wa.me/542215739000?text=Hola%20Darom%20SA,%20vi%20su%20página%20web%20y%20me%20interesa%20solicitar%20información" 
                 target="_blank"
-                onClick={() => trackConversion('CTA Final', 'Click - WhatsApp')}
                 className="whatsapp-btn"
               >
                 <FaWhatsapp className="me-2" /> WhatsApp

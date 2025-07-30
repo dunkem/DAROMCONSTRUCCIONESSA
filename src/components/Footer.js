@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import { FaMapMarkerAlt, FaClock, FaArrowRight } from 'react-icons/fa';
@@ -8,40 +7,6 @@ import './Footer.css';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
-    // Inicializar gtag si no existe
-    useEffect(() => {
-        if (!window.gtag) {
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function() { window.dataLayer.push(arguments); };
-            window.gtag('js', new Date());
-            window.gtag('config', 'AW-717135166');
-        }
-    }, []);
-
-    const trackConversion = (eventCategory, eventLabel, value = 0.5) => {
-        try {
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', 'conversion', {
-                    'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC',
-                    'value': value,
-                    'currency': 'ARS',
-                    'event_category': eventCategory,
-                    'event_label': eventLabel,
-                    'transaction_id': `FOOTER_${eventCategory}_${Date.now()}`,
-                    'page_path': window.location.pathname
-                });
-
-                // Evento adicional para GA4
-                window.gtag('event', eventCategory, {
-                    'method': 'footer_interaction',
-                    'interaction_type': eventLabel,
-                    'page_location': window.location.href
-                });
-            }
-        } catch (e) {
-            console.error('Error tracking footer conversion:', e);
-        }
-    };
 
     return (
         <>
@@ -96,7 +61,6 @@ const Footer = () => {
                                     <Link 
                                         to="/about" 
                                         className="footer-nav-link"
-                                        onClick={() => trackConversion('Navigation', 'Footer_About', 0.3)}
                                     >
                                         <FaArrowRight className="nav-icon" />
                                         Sobre Nosotros
@@ -106,7 +70,6 @@ const Footer = () => {
                                     <Link 
                                         to="/contact" 
                                         className="footer-nav-link"
-                                        onClick={() => trackConversion('Navigation', 'Footer_Contact', 0.7)}
                                     >
                                         <FaArrowRight className="nav-icon" />
                                         Contáctanos
@@ -133,7 +96,6 @@ const Footer = () => {
                                     target="_blank" 
                                     rel="noopener noreferrer" 
                                     className="dtecno-link"
-                                    onClick={() => trackConversion('External', 'DTECNO_Link', 0.2)}
                                 >
                                     <strong>DTECNO</strong>
                                 </a>
