@@ -575,7 +575,7 @@ function Materiales() {
             <Helmet>
                 <title>Materiales de Construcción en zona sur del Gran Buenos Aires | Darom SA</title>
                 <meta name="description" content="Distribuidor mayorista de materiales para construcción en Mar del Plata. Productos de calidad al mejor precio. ¡Consultanos!" />
-                <meta name="keywords" content="materiales construcción, corralón mar del plata, ladrillos, cemento, hierros, áridos, materiales para construcción" />
+                <meta name="keywords" content="materiales construcción, corralón, ladrillos, cemento, hierros, áridos, materiales para construcción, viguetas, hidrofugos, mallas" />
                 <link rel="canonical" href="https://daromsa.com.ar/materiales" />
             </Helmet>
 
@@ -621,7 +621,7 @@ function Materiales() {
                         <Button 
                             variant="danger" 
                             size="lg"
-                            href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+materiales.&type=phone_number&app_absent=0" 
+                            href="https://wa.me/542215739000?text=Hola%20Darom%20SA,%20vi%20su%20página%20web%20y%20me%20interesa%20solicitar%20información" 
                             target="_blank"
                             className="mt-2 px-4 mb-3"
                         >
@@ -761,7 +761,7 @@ function Materiales() {
                             <Button 
                                 variant="light" 
                                 size="lg" 
-                                href="https://api.whatsapp.com/send/?phone=5492215739000&text=Hola%2C+estoy+interesado+en+sus+materiales.&type=phone_number&app_absent=0" 
+                                href="https://wa.me/542215739000?text=Hola%20Darom%20SA,%20vi%20su%20página%20web%20y%20me%20interesa%20solicitar%20información" 
                                 target="_blank"
                                 className="fw-bold"
                             >

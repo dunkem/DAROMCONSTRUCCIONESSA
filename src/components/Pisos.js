@@ -47,7 +47,7 @@ function Pisos() {
 
   const ContactButton = ({ text = "HABLA CON UN ASESOR", variant = "danger" }) => (
     <Button 
-      href="https://api.whatsapp.com/send/?phone=5492216394407&text=Hola%20Darom%20SA,%20estoy%20interesado%20en%20sus%20soluciones%20de%20pisos%20industriales%20DRM%20360%E2%84%A2.%20%C2%BFPodr%C3%ADan%20enviarme%20m%C3%A1s%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20personalizada?"  
+      href="https://wa.me/5492216394407?text=Hola%20Darom%20SA,%20estoy%20interesado%20en%20sus%20soluciones%20de%20pisos%20industriales%20DRM%20360%E2%84%A2.%20%C2%BFPodr%C3%ADan%20enviarme%20m%C3%A1s%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%20personalizada?"  
       target="_blank"
       className={`cta-button my-3 ${variant}`}
     >

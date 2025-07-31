@@ -36,7 +36,7 @@ function Suelos() {
 
   const ContactButton = ({ text = "HABLA CON UN ASESOR", variant = "danger", className = "" }) => (
     <Button 
-      href="https://api.whatsapp.com/send/?phone=5492216394407&text=Hola%20Darom%20SA,%20estoy%20interesado%20en%20sus%20servicios%20de%20suelos%20industriales.%20%C2%BFPodr%C3%ADan%20brindarme%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20soluciones%20DRM%20360%E2%84%A2?"  
+      href="https://wa.me/send/?phone=5492216394407&text=Hola%20Darom%20SA,%20estoy%20interesado%20en%20sus%20servicios%20de%20suelos%20industriales.%20%C2%BFPodr%C3%ADan%20brindarme%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20soluciones%20DRM%20360%E2%84%A2?"  
       target="_blank"
       rel="noopener noreferrer"
       className={`darom-cta-button ${variant} darom-track-button ${className}`}
