@@ -7,32 +7,7 @@ import './Suelos.css';
 function Suelos() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Configuración de eventos para Google Analytics
-    const trackButtons = document.querySelectorAll('.darom-track-button');
-    trackButtons.forEach(button => {
-      button.addEventListener('click', trackConversion);
-    });
-    
-    return () => {
-      trackButtons.forEach(button => {
-        button.removeEventListener('click', trackConversion);
-      });
-    };
   }, []);
-
-  const trackConversion = () => {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-717135166/PXf2CJL65fgZEL66-tUC'
-      });
-    }
-    
-    // Evento para Facebook Pixel
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'Contact');
-    }
-  };
 
   const ContactButton = ({ text = "HABLA CON UN ASESOR", variant = "danger", className = "" }) => (
     <Button 
@@ -40,7 +15,6 @@ function Suelos() {
       target="_blank"
       rel="noopener noreferrer"
       className={`darom-cta-button ${variant} darom-track-button ${className}`}
-      onClick={trackConversion}
     >
       <FaWhatsapp className="me-2" /> {text}
     </Button>
