@@ -391,11 +391,11 @@ function Pisos() {
 </section>
 
       {/* 3. SOLUCIONES/PAQUETES - Producto principal */}
-      <section className="py-5 bg-dark text-white">
-        <Container>
-          <h2 className="fw-bold mb-5 text-center">SOLUCIONES INTEGRALES <span className="text-red">DRM 360™</span></h2>
-          <Row className="g-4">
-            {[
+<section className="py-5 bg-dark"> {/* QUITA text-white de aquí */}
+  <Container>
+    <h2 className="fw-bold mb-5 text-center text-white">SOLUCIONES INTEGRALES <span className="text-red">DRM 360™</span></h2> {/* AGREGA text-white aquí */}
+    <Row className="g-4">
+      {[
               {
                 title: "OFERTA 1 — PAQUETE BASE",
                 subtitle: "Diagnóstico preciso y base compactada con garantía certificada",
@@ -433,30 +433,30 @@ function Pisos() {
                 premium: false
               }
             ].map((paquete, idx) => (
-              <Col md={4} key={idx}>
-                <div className={`paquete-card p-4 h-100 text-dark ${paquete.premium ? 'premium' : ''}`}>
-                  {paquete.premium && <div className="premium-badge">RECOMENDADO</div>}
-                  <h3 className="text-red">{paquete.title}</h3>
-                  <p className="fw-bold">"{paquete.subtitle}"</p>
-                  <ul className="mb-4">
-                    {paquete.features.map((feature, i) => (
-                      <li key={i}><span className="check-icon">✓</span> {feature}</li>
-                    ))}
-                  </ul>
-                  <div className="garantia-box mb-3">
-                    <h5 className="text-red">GARANTÍA TÉCNICA</h5>
-                    <p>{paquete.garantia}</p>
-                  </div>
-                  <ContactButton 
-                    text="COTIZAR PAQUETE" 
-                    variant={paquete.premium ? "danger" : "outline-danger"} 
-                  />
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
+        <Col md={4} key={idx}>
+          <div className={`paquete-card p-4 h-100 text-dark ${paquete.premium ? 'premium' : ''}`}>
+            {paquete.premium && <div className="premium-badge">RECOMENDADO</div>}
+            <h3 className="text-red">{paquete.title}</h3>
+            <p className="fw-bold">"{paquete.subtitle}"</p>
+            <ul className="mb-4">
+              {paquete.features.map((feature, i) => (
+                <li key={i}><span className="check-icon">✓</span> {feature}</li>
+              ))}
+            </ul>
+            <div className="garantia-box mb-3">
+              <h5 className="text-red">GARANTÍA TÉCNICA</h5>
+              <p>{paquete.garantia}</p>
+            </div>
+            <ContactButton 
+              text="COTIZAR PAQUETE" 
+              variant={paquete.premium ? "danger" : "outline-danger"} 
+            />
+          </div>
+        </Col>
+      ))}
+    </Row>
+  </Container>
+</section>
 
       
 <section className="py-5 bg-light">

@@ -36,7 +36,7 @@
   border: 1px solid #ddd;
   position: relative;
   transition: all 0.3s ease;
-  color: var(--industrial-dark);
+  color: var(--industrial-dark) !important; /* FORZAR TEXTO OSCURO */
   height: 100%;
 }
 
@@ -48,6 +48,23 @@
 .paquete-card.premium {
   border: 3px solid var(--industrial-red);
   box-shadow: 0 5px 20px rgba(230, 57, 70, 0.2);
+}
+
+/* FORZAR TEXTO OSCURO EN TODOS LOS ELEMENTOS DE PAQUETE-CARD */
+.paquete-card,
+.paquete-card h3,
+.paquete-card p,
+.paquete-card ul,
+.paquete-card li,
+.paquete-card .garantia-box,
+.paquete-card .garantia-box p {
+  color: #000000 !important;
+}
+
+/* Mantener el rojo en los títulos y elementos específicos */
+.paquete-card .text-red,
+.paquete-card h3.text-red {
+  color: var(--industrial-red) !important;
 }
 
 .premium-badge {

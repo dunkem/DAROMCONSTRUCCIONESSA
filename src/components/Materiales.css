@@ -1,14 +1,39 @@
-/* Hero Section - Versión con imagen de fondo */
+/* Materiales.css - Versión Corregida para Darom SA */
+:root {
+  --darom-red: #ff0000;
+  --darom-red-dark: #ff0000;
+  --darom-black: #212529;
+  --darom-white: #ffffff;
+  --darom-gray-light: #f8f9fa;
+  --darom-gray: #6c757d;
+  --darom-gray-dark: #495057;
+  --darom-yellow: #ffc107;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 15px 40px rgba(0, 0, 0, 0.2);
+  --border-radius: 15px;
+}
+
+/* ===== RESET Y ESTILOS BASE ===== */
+.materiales-container {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* ===== HERO SECTION CORREGIDA - OVERLAY GRISÁCEO ===== */
 .heroc-section {
   position: relative;
-  min-height: 80vh; /* Altura mínima del hero */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
   color: white;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-/* Imagen de fondo */
+/* OVERLAY GRISÁCEO/TRANSLÚCIDO BLANQUIZO */
 .heroc-section::before {
   content: '';
   position: absolute;
@@ -16,213 +41,471 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-}
-
-/* Overlay oscuro para mejorar legibilidad */
-.heroc-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Ajusta la opacidad según necesidad */
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(0, 0, 0, 0.7) 100%
+  );
   z-index: 1;
 }
 
-/* Contenido del hero (sobre el overlay) */
 .heroc-content {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
-/* Estilos para el texto */
+/* TÍTULOS MEJORADOS - BLANCO Y ROJO */
 .heroc-section h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+  color: var(--darom-white);
 }
 
+/* Span específico para "MAYORISTA Y MINORISTA" en rojo */
+.hero-highlight {
+    color: var(--darom-red) !important;
+    text-shadow: 2px 2px 6px rgba(151, 20, 20, 0.6);
+    background: linear-gradient(135deg, var(--darom-red) 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+/* Texto lead mejorado */
 .heroc-section .lead {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
 }
 
-/* Botón destacado */
-.heroc-section .btn-danger {
-  background-color: #d9232e;
-  border-color: #d9232e;
-  padding: 0.75rem 2rem;
+/* Subtítulo específico en amarillo */
+.hero-subtitle {
+  color: #ffd700 !important;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-.heroc-section .btn-danger:hover {
-  background-color: #b51d27;
-  border-color: #b51d27;
+/* ===== SELECTOR DE CATEGORÍAS CON RECUADRO ===== */
+.category-selector {
+  position: relative;
+  background: var(--darom-white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid #e9ecef;
+  margin-bottom: 2rem;
+}
+
+.category-selector .category-subtitle {
+  color: var(--darom-black) !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.category-selector .btn-group {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  background: var(--darom-white);
+  border: 1px solid #dee2e6;
+  padding: 5px;
+}
+
+.category-selector .btn {
+  padding: 12px 20px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  margin: 2px;
+  border-radius: 10px !important;
+}
+
+.category-selector .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(217, 35, 46, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.category-selector .btn:hover::before {
+  left: 100%;
+}
+
+.category-selector .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .heroc-section {
-    min-height: 70vh;
-  }
-  
-  .heroc-content {
-    padding: 4rem 2rem;
-  }
+.category-selector .btn-outline-dark {
+  border-color: #dee2e6;
+  color: var(--darom-black);
+  background: var(--darom-white);
 }
 
-@media (max-width: 768px) {
-  .heroc-section {
-    min-height: 60vh;
-    text-align: center;
-  }
-  
-  .heroc-section h1 {
-    font-size: 2.2rem;
-  }
-  
-  .heroc-section .lead {
-    font-size: 1.2rem;
-  }
-  
-  .heroc-content {
-    padding: 3rem 1.5rem;
-  }
+.category-selector .btn-outline-dark:hover {
+  background: linear-gradient(135deg, var(--darom-red) 0%, var(--darom-red-dark) 100%);
+  border-color: var(--darom-red);
+  color: white;
+  box-shadow: 0 6px 20px rgba(217, 35, 46, 0.3);
 }
 
-@media (max-width: 576px) {
-  .heroc-section {
-    min-height: 50vh;
-  }
-  
-  .heroc-section h1 {
-    font-size: 1.8rem;
-  }
-  
-  .heroc-section .lead {
-    font-size: 1rem;
-  }
+/* ===== SECCIÓN DUAL CTA CON TEXTO NEGRO ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--darom-white) 0%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid var(--darom-red);
+  border-bottom: 3px solid var(--darom-red);
 }
 
-/* Benefits Section */
-.benefit-card {
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d9232e' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Textos en negro para la sección CTA */
+.cta-section .text-white {
+  color: var(--darom-black) !important;
+}
+
+.cta-section .text-light {
+  color: var(--darom-gray-dark) !important;
+}
+
+.cta-section .card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  border: 2px solid #e9ecef;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  z-index: 2;
+  background: var(--darom-white);
+}
+
+.cta-section .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--darom-red) 0%, var(--darom-red-dark) 100%);
+}
+
+.cta-section .card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--darom-red);
+}
+
+.cta-icon {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* ===== BOTONES PREMIUM ===== */
+.btn-darom-primary {
+  background: linear-gradient(135deg, var(--darom-red) 0%, var(--darom-red-dark) 100%);
+  border: none;
+  padding: 16px 32px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-darom-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-darom-primary:hover::after {
+  left: 100%;
+}
+
+.btn-darom-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(217, 35, 46, 0.4);
+}
+
+.btn-darom-outline {
+  padding: 16px 32px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-darom-outline:hover {
   background: white;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  border: 1px solid #e0e0e0;
+  color: var(--darom-red);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
 }
 
-.benefit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+/* ===== GRID DE BENEFICIOS MEJORADO ===== */
+.benefits-grid .benefit-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefits-grid .benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.benefits-grid .benefit-item:hover::before {
+  left: 100%;
+}
+
+.benefits-grid .benefit-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-heavy);
 }
 
 .benefit-icon {
-  color: #d9232e;
+  flex-shrink: 0;
+  margin-top: 5px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Product Cards */
+/* ===== PRODUCT CARDS PREMIUM ===== */
 .product-card {
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background: white;
+  border: 1px solid #e8e8e8;
+  position: relative;
+  box-shadow: var(--shadow-light);
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--darom-red) 0%, var(--darom-red-dark) 100%);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover::before {
+  transform: scaleX(1);
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--darom-red);
 }
 
 .product-image {
-  height: 200px;
-  object-fit: cover;
+  height: 220px;
+  object-fit: contain;
   object-position: center;
-  padding: 15px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  transition: all 0.4s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
 }
 
 .product-title {
   font-size: 1rem;
-  color: #333;
+  color: var(--darom-black);
   min-height: 50px;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .product-title {
+  color: var(--darom-red);
 }
 
 .product-badge {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  border-radius: 4px;
+  top: 15px;
+  right: 15px;
+  padding: 10px 18px;
+  border-radius: 25px;
   color: white;
   font-size: 0.75rem;
-  font-weight: bold;
-  z-index: 1;
+  font-weight: 800;
+  z-index: 3;
+  background: linear-gradient(135deg, var(--darom-red) 0%, var(--darom-red-dark) 100%);
+  box-shadow: 0 6px 20px rgba(217, 35, 46, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Sections */
+/* ===== MEJORAS DE ACCESIBILIDAD Y PERFORMANCE ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible para mejor accesibilidad */
+.btn:focus-visible,
+.form-control:focus-visible {
+  outline: 3px solid var(--darom-red);
+  outline-offset: 2px;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .heroc-section {
+    min-height: 80vh;
+    background-attachment: scroll;
+  }
+  
+  .category-selector {
+    padding: 1.5rem;
+  }
+  
+  .category-selector .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .client-selector .btn-group {
+    flex-direction: column;
+    border-radius: var(--border-radius);
+  }
+  
+  .client-selector .btn {
+    border-radius: 0;
+    padding: 16px 20px;
+  }
+  
+  .client-selector .btn:first-child {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+  
+  .client-selector .btn:last-child {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+  
+  .benefits-grid .benefit-item {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Animaciones mejoradas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animaciones con delays escalonados */
+.heroc-content > * {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.heroc-content > *:nth-child(1) { animation-delay: 0.1s; }
+.heroc-content > *:nth-child(2) { animation-delay: 0.2s; }
+.heroc-content > *:nth-child(3) { animation-delay: 0.3s; }
+.heroc-content > *:nth-child(4) { animation-delay: 0.4s; }
+.heroc-content > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Mejoras específicas para Darom SA */
 .section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #000;
   position: relative;
-  padding-bottom: 15px;
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
-.section-title:after {
+.section-title::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 80px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
   height: 4px;
-  background: #d9232e;
+  background: linear-gradient(135deg, var(--darom-red) 0%, var(--darom-red-dark) 100%);
+  border-radius: 2px;
 }
 
-/* Testimonials */
-.testimonial-card {
-  background: white;
-  border-radius: 8px;
-}
-
-/* Buttons */
-.btn-danger {
-  background-color: #d9232e;
-  border-color: #d9232e;
-}
-
-.btn-danger:hover {
-  background-color: #b51d27;
-  border-color: #b51d27;
-}
-
-.btn-outline-danger {
-  color: #d9232e;
-  border-color: #d9232e;
-}
-
-.btn-outline-danger:hover {
-  background-color: #d9232e;
-  border-color: #d9232e;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  
-  .benefit-card {
-      margin-bottom: 15px;
-  }
+/* Badges corporativos */
+.badge-darom {
+  background: linear-gradient(135deg, var(--darom-red) 0%, var(--darom-red-dark) 100%);
+  color: white;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(217, 35, 46, 0.3);
 }
