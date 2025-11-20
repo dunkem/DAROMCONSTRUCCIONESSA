@@ -146,7 +146,7 @@ function Hormigon() {
         </div>
         <div className="google-rating-details border-start ps-3">
           <div className="fw-semibold">+50 valoraciones</div>
-          <div className="small">Google Reviews</div>
+          <div className="small">Google Maps</div>
         </div>
       </div>
     </a>

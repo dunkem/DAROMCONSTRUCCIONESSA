@@ -164,25 +164,7 @@ body {
   text-align: center;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  border-radius: 2px;
-}
 
-.bg-dark .section-title {
-  color: white;
-}
-
-.bg-dark .section-title::after {
-  background: white;
-}
 
 /* CARDS CORREGIDAS - FONDO BLANCO Y TEXTO NEGRO */
 .service-card {
@@ -492,7 +474,7 @@ body {
 }
 
 .coverage-map-sm {
-  max-height: 350px !important;
+  max-height: 450px !important;
   width: 100%;
   object-fit: contain;
   border-radius: var(--border-radius);

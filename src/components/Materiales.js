@@ -649,129 +649,158 @@ function Materiales() {
             </Helmet>
 
             {/* Enhanced Hero Section */}
-            <div className={`heroc-section bg-dark text-white py-5 d-flex align-items-center ${animateHero ? 'animate-in' : ''}`} 
-                style={{
-                    minHeight: '100vh',
-                    position: 'relative',
-                    backgroundImage: 'url(/portadacoralon.JPG)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundAttachment: 'fixed'
-                }}>
-                <Container>
-                    <div className="heroc-content text-center" style={{position: 'relative', zIndex: 2}}>
-                        <Row className="justify-content-center">
-                            <Col lg={10} xl={8}>
-                                {/* Enhanced Badges */}
-                                <div className="mb-4 animate-delay-1">
-                                    <Badge bg="danger" className="me-2 mb-2 p-3 fs-6 badge-darom">MAYORISTA</Badge>
-                                    <Badge bg="warning" text="dark" className="me-2 mb-2 p-3 fs-6">MINORISTA</Badge>
-                                    <Badge bg="success" className="me-2 mb-2 p-3 fs-6">ZONA SUR GBA</Badge>
-                                </div>
-                                
-                                <h1 className="display-4 fw-bold mb-4 animate-delay-2">
-    CORRALÓN EN ZONA SUR GBA<br />
-    <span className="hero-highlight">MAYORISTA Y MINORISTA</span>
-</h1>
-                                
-                                <p className="lead mb-4 fs-5 animate-delay-3">
-                                    <strong>Distribuidores líderes</strong> de materiales para la construcción en zona sur del Gran Buenos Aires. 
-                                    <br /><span className="text-warning fw-bold hero-subtitle">Precios mayoristas exclusivos para corralones, constructoras y revendedores.</span>
-                                </p>
-                                
-                                {/* Enhanced Client Selector */}
-                                <div className="client-selector mb-4 animate-delay-4">
-                                    <div className="text-center mb-3">
-                                        <small className="text-light opacity-75">SELECCIONÁ TU TIPO DE CLIENTE</small>
-                                    </div>
-                                    <ButtonGroup className="mb-3 client-btn-group">
-                                        <Button
-                                            variant={clientType === 'minorista' ? "danger" : "outline-light"}
-                                            onClick={() => setClientType('minorista')}
-                                            className="fw-bold px-4 py-3 client-btn"
-                                        >
-                                            <FaBuilding className="me-2" />
-                                            CLIENTE MINORISTA
-                                        </Button>
-                                        <Button
-                                            variant={clientType === 'mayorista' ? "warning" : "outline-light"}
-                                            onClick={() => setClientType('mayorista')}
-                                            className="fw-bold px-4 py-3 client-btn"
-                                        >
-                                            <FaTruck className="me-2" />
-                                            CLIENTE MAYORISTA
-                                        </Button>
-                                    </ButtonGroup>
-                                </div>
+<div className={`heroc-section bg-dark text-white py-5 d-flex align-items-center ${animateHero ? 'animate-in' : ''}`} 
+    style={{
+        minHeight: '100vh',
+        position: 'relative',
+        backgroundImage: 'url(/portadacoralon.JPG)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+    }}>
+    <Container>
+        <div className="heroc-content text-center" style={{position: 'relative', zIndex: 2}}>
+            <Row className="justify-content-center">
+                <Col lg={10} xl={8}>
+                    {/* Enhanced Badges */}
+                    <div className="mb-4 animate-delay-1">
+                        <Badge bg="danger" className="me-2 mb-2 p-3 fs-6 badge-darom">MAYORISTA</Badge>
+                        <Badge bg="warning" text="dark" className="me-2 mb-2 p-3 fs-6">MINORISTA</Badge>
+                        <Badge bg="success" className="me-2 mb-2 p-3 fs-6">ZONA SUR GBA</Badge>
+                    </div>
+                    
+                    <h1 className="display-4 fw-bold mb-4 animate-delay-2">
+                        CORRALÓN EN ZONA SUR GBA<br />
+                        <span className="hero-highlight">MAYORISTA Y MINORISTA</span>
+                    </h1>
+                    
+                    <p className="lead mb-4 fs-5 animate-delay-3">
+                        <strong>Distribuidores líderes</strong> de materiales para la construcción en zona sur del Gran Buenos Aires. 
+                        <br /><span className="text-warning fw-bold hero-subtitle">Precios mayoristas exclusivos para corralones, constructoras y revendedores.</span>
+                    </p>
+                    
+                    {/* Enhanced Client Selector */}
+                    <div className="client-selector mb-4 animate-delay-4">
+                        <div className="text-center mb-3">
+                            <small className="text-light opacity-75">SELECCIONÁ TU TIPO DE CLIENTE</small>
+                        </div>
+                        <ButtonGroup className="mb-3 client-btn-group">
+                            <Button
+                                variant={clientType === 'minorista' ? "danger" : "outline-light"}
+                                onClick={() => setClientType('minorista')}
+                                className="fw-bold px-4 py-3 client-btn"
+                            >
+                                <FaBuilding className="me-2" />
+                                CLIENTE MINORISTA
+                            </Button>
+                            <Button
+                                variant={clientType === 'mayorista' ? "warning" : "outline-light"}
+                                onClick={() => setClientType('mayorista')}
+                                className="fw-bold px-4 py-3 client-btn"
+                            >
+                                <FaTruck className="me-2" />
+                                CLIENTE MAYORISTA
+                            </Button>
+                        </ButtonGroup>
+                    </div>
 
-                                {/* Enhanced Benefits Grid */}
-                                <div className="benefits-grid mb-4 mx-auto animate-delay-5" style={{maxWidth: '900px'}}>
-                                    <Row className="g-3 justify-content-center">
-                                        {benefits.map((benefit, index) => (
-                                            <Col md={6} lg={5} key={index}>
-                                                <div className="benefit-item d-flex align-items-start px-3 py-3">
-                                                    <div className="benefit-icon me-3">
-                                                        {benefit.icon}
-                                                    </div>
-                                                    <div className="text-start">
-                                                        <h5 className="fw-bold mb-2 text-warning">{benefit.title}</h5>
-                                                        <p className="small mb-0 text-light">{benefit.description}</p>
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        ))}
-                                    </Row>
+                    {/* Enhanced Benefits Grid */}
+                    <div className="benefits-grid mb-4 mx-auto animate-delay-5" style={{maxWidth: '900px'}}>
+                        <Row className="g-3 justify-content-center">
+                            {benefits.map((benefit, index) => (
+                                <Col md={6} lg={5} key={index}>
+                                    <div className="benefit-item d-flex align-items-start px-3 py-3">
+                                        <div className="benefit-icon me-3">
+                                            {benefit.icon}
+                                        </div>
+                                        <div className="text-start">
+                                            <h5 className="fw-bold mb-2 text-warning">{benefit.title}</h5>
+                                            <p className="small mb-0 text-light">{benefit.description}</p>
+                                        </div>
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>
+                    </div>
+                    
+                    {/* Google Rating Badge - Tamaño medio, centrado arriba de los botones */}
+<div className="text-center mb-3 animate-delay-6">
+    <a 
+        href="#reviews" 
+        className="google-rating-badge-md d-inline-flex align-items-center text-decoration-none py-2 px-3"
+    >
+        <div className="d-flex align-items-center me-2">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+        </div>
+        
+        <div className="d-flex align-items-center me-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FFD700">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <span className="rating-value-md">4.7</span>
+        </div>
+        
+        <div className="rating-details-md">
+            <div className="rating-count-md">+50 valoraciones</div>
+            <div className="rating-source-md">Google Maps</div>
+        </div>
+    </a>
+</div>
+                    
+                    {/* Enhanced Contact Buttons */}
+                    <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 mb-4 animate-delay-7">
+                        <Button 
+                            variant="danger" 
+                            size="lg"
+                            href={getWhatsappLink()}
+                            target="_blank"
+                            className="px-5 py-3 fw-bold btn-darom-primary"
+                        >
+                            <FaWhatsapp className="me-2" size={20} />
+                            {clientType === 'mayorista' ? 'COTIZACIÓN MAYORISTA' : 'SOLICITAR PRESUPUESTO'}
+                        </Button>
+                        
+                        <Button 
+                            variant="outline-light" 
+                            size="lg"
+                            href="#productos"
+                            className="px-5 py-3 fw-bold btn-darom-outline"
+                        >
+                            <FaSearch className="me-2" />
+                            VER PRODUCTOS
+                        </Button>
+                    </div>
+                    
+                    {/* Enhanced Contact Info */}
+                    <div className="contact-info mt-4 p-4 animate-delay-8">
+                        <Row className="g-4 justify-content-center">
+                            <Col xs={12} sm={5} className="text-center">
+                                <div className="mb-2">
+                                    <FaBuilding className="text-light me-2" />
+                                    <small className="text-light">CLIENTES MINORISTAS</small>
                                 </div>
-                                
-                                {/* Enhanced Contact Buttons */}
-                                <div className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 mb-4 animate-delay-6">
-                                    <Button 
-                                        variant="danger" 
-                                        size="lg"
-                                        href={getWhatsappLink()}
-                                        target="_blank"
-                                        className="px-5 py-3 fw-bold btn-darom-primary"
-                                    >
-                                        <FaWhatsapp className="me-2" size={20} />
-                                        {clientType === 'mayorista' ? 'COTIZACIÓN MAYORISTA' : 'SOLICITAR PRESUPUESTO'}
-                                    </Button>
-                                    
-                                    <Button 
-                                        variant="outline-light" 
-                                        size="lg"
-                                        href="#productos"
-                                        className="px-5 py-3 fw-bold btn-darom-outline"
-                                    >
-                                        <FaSearch className="me-2" />
-                                        VER PRODUCTOS
-                                    </Button>
+                                <div className="fw-bold fs-5 contact-phone">+54 221 573-9000</div>
+                            </Col>
+                            <Col xs={12} sm={5} className="text-center">
+                                <div className="mb-2">
+                                    <FaTruck className="text-warning me-2" />
+                                    <small className="text-warning">CLIENTES MAYORISTAS</small>
                                 </div>
-                                
-                                {/* Enhanced Contact Info */}
-                                <div className="contact-info mt-4 p-4 animate-delay-7">
-                                    <Row className="g-4 justify-content-center">
-                                        <Col xs={12} sm={5} className="text-center">
-                                            <div className="mb-2">
-                                                <FaBuilding className="text-light me-2" />
-                                                <small className="text-light">CLIENTES MINORISTAS</small>
-                                            </div>
-                                            <div className="fw-bold fs-5 contact-phone">+54 221 573-9000</div>
-                                        </Col>
-                                        <Col xs={12} sm={5} className="text-center">
-                                            <div className="mb-2">
-                                                <FaTruck className="text-warning me-2" />
-                                                <small className="text-warning">CLIENTES MAYORISTAS</small>
-                                            </div>
-                                            <div className="fw-bold fs-5 text-warning contact-phone">+54 9 11 2831-2705</div>
-                                        </Col>
-                                    </Row>
-                                </div>
+                                <div className="fw-bold fs-5 text-warning contact-phone">+54 9 11 2831-2705</div>
                             </Col>
                         </Row>
                     </div>
-                </Container>
-            </div>
+                </Col>
+            </Row>
+        </div>
+    </Container>
+</div>
 
             {/* Enhanced Product Categories Section */}
             <section id="productos" className="categories-section py-5 bg-light" ref={productGridRef}>

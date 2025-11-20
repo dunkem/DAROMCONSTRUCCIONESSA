@@ -176,53 +176,53 @@ function Home() {
   ], []);
 
   const ServiceCard = useCallback(({ service }) => (
-  <Card className="home-service-card shadow-lg h-100">
-    <div className="service-image-container position-relative">
-      <Card.Img 
-        variant="top" 
-        src={service.src} 
-        alt={service.title} 
-        loading="lazy"
-        className="service-img"
-      />
-      {service.backup && (
-        <div className="backup-badge">
-          <small className="text-muted">{service.backup.text}</small>
-          <img 
-            src={service.backup.logo} 
-            alt="Logo proveedor" 
-            loading="lazy"
-            className="supplier-logo-small"
-          />
-        </div>
-      )}
-    </div>
-    <Card.Body className="d-flex flex-column position-relative" style={{ zIndex: 10 }}>
-      <Card.Title className="h5">{service.title}</Card.Title>
-      <Card.Text className="flex-grow-1">{service.description}</Card.Text>
-      
-      {/* Features list */}
-      <ul className="service-features list-unstyled small mb-3">
-        {service.features?.map((feature, idx) => (
-          <li key={idx} className="mb-1">
-            <FaCheckCircle className="text-warning me-2" size={12} />
-            {feature}
-          </li>
-        ))}
-      </ul>
-      
-      <Button 
-        as={Link}
-        to={service.link}
-        variant="warning" 
-        className="w-100 mt-auto position-relative"
-        style={{ zIndex: 20 }}
-      >
-        VER MÁS DETALLES
-      </Button>
-    </Card.Body>
-  </Card>
-), []);
+    <Card className="home-service-card shadow-lg h-100">
+      <div className="service-image-container position-relative">
+        <Card.Img 
+          variant="top" 
+          src={service.src} 
+          alt={service.title} 
+          loading="lazy"
+          className="service-img"
+        />
+        {service.backup && (
+          <div className="backup-badge">
+            <small className="text-muted">{service.backup.text}</small>
+            <img 
+              src={service.backup.logo} 
+              alt="Logo proveedor" 
+              loading="lazy"
+              className="supplier-logo-small"
+            />
+          </div>
+        )}
+      </div>
+      <Card.Body className="d-flex flex-column position-relative" style={{ zIndex: 10 }}>
+        <Card.Title className="h5">{service.title}</Card.Title>
+        <Card.Text className="flex-grow-1">{service.description}</Card.Text>
+        
+        {/* Features list */}
+        <ul className="service-features list-unstyled small mb-3">
+          {service.features?.map((feature, idx) => (
+            <li key={idx} className="mb-1">
+              <FaCheckCircle className="text-warning me-2" size={12} />
+              {feature}
+            </li>
+          ))}
+        </ul>
+        
+        <Button 
+          as={Link}
+          to={service.link}
+          variant="warning" 
+          className="w-100 mt-auto position-relative"
+          style={{ zIndex: 20 }}
+        >
+          VER MÁS DETALLES
+        </Button>
+      </Card.Body>
+    </Card>
+  ), []);
 
   const ProductCard = useCallback(({ product }) => (
     <Card className="product-card text-center h-100 shadow-sm">
@@ -346,7 +346,7 @@ function Home() {
                     
                     <div className="rating-details">
                       <div className="rating-count">+50 valoraciones</div>
-                      <div className="rating-source">Google Reviews</div>
+                      <div className="rating-source">Google Maps</div>
                     </div>
                   </a>
                 </div>
@@ -382,7 +382,7 @@ function Home() {
         </Container>
       </section>
 
-      {/* Compromiso Section REORGANIZADA */}
+      {/* Compromiso Section CORREGIDA */}
       <section className="py-5 bg-light">
         <Container>
           <Row className="align-items-center">
@@ -402,12 +402,17 @@ function Home() {
               </div>
             </Col>
             
-            {/* Columna del contenido con badge arriba */}
-            <Col md={6} className="ps-md-5">
-              <div className="text-center text-md-start mb-4">
+            {/* Columna del contenido CORREGIDA */}
+            <Col md={6}>
+              {/* BADGE CENTRADO EN TODAS LAS PANTALLAS */}
+              <div className="text-center mb-4">
                 <Badge bg="outline-danger" className="mb-3">NUESTRO COMPROMISO</Badge>
               </div>
-              <h2 className="section-title mb-4 text-center text-md-start">Calidad que Perdura por Generaciones</h2>
+              
+              {/* TÍTULO SIN SUBRAYADO - CLASE MODIFICADA */}
+              <h2 className="section-title-custom mb-4 text-center text-md-start">
+                Calidad que Perdura por Generaciones
+              </h2>
               
               <div className="commitment-grid">
                 <div className="commitment-item">
@@ -455,13 +460,20 @@ function Home() {
         </Container>
       </section>
 
-      {/* Servicios Section */}
+      {/* Servicios Section CORREGIDA */}
       <section id="servicios" className="py-5">
         <Container>
           <Row className="text-center mb-5">
             <Col>
-              <Badge bg="outline-danger" className="mb-3">NUESTROS SERVICIOS</Badge>
-              <h2 className="section-title">Soluciones Integrales para Cada Etapa Constructiva</h2>
+              {/* BADGE CENTRADO */}
+              <div className="text-center mb-4">
+                <Badge bg="outline-danger" className="mb-3">NUESTROS SERVICIOS</Badge>
+              </div>
+              
+              {/* TÍTULO SIN SUBRAYADO */}
+              <h2 className="section-title-custom mb-3">
+                Soluciones Integrales para Cada Etapa Constructiva
+              </h2>
               <p className="lead">Desde la cimentación hasta los acabados finales</p>
             </Col>
           </Row>
@@ -478,7 +490,7 @@ function Home() {
       {/* Proveedores Section Mejorada */}
       <section className="py-5 bg-light">
         <Container>
-          <h2 className="text-center mb-5">ALIANZAS ESTRATÉGICAS DE <span className="text-danger">PRIMER NIVEL</span></h2>
+          <h2 className="section-title-custom text-center mb-5">ALIANZAS ESTRATÉGICAS DE <span className="text-danger">PRIMER NIVEL</span></h2>
           
           <div className="suppliers-section">
             <Row className="justify-content-center g-4">
@@ -500,13 +512,18 @@ function Home() {
         </Container>
       </section>
 
-      {/* Testimonios Section Mejorada */}
+      {/* Testimonios Section CORREGIDA */}
       <section id="reviews" className="py-5 bg-white">
         <Container>
           <Row className="text-center mb-5">
             <Col>
-              <Badge bg="outline-danger" className="mb-3">OPINIONES VERIFICADAS</Badge>
-              <h2 className="section-title">Lo que Dicen Nuestros Clientes</h2>
+              {/* BADGE CENTRADO */}
+              <div className="text-center mb-4">
+                <Badge bg="outline-danger" className="mb-3">OPINIONES VERIFICADAS</Badge>
+              </div>
+              
+              {/* TÍTULO SIN SUBRAYADO */}
+              <h2 className="section-title-custom">Lo que Dicen Nuestros Clientes</h2>
             </Col>
           </Row>
           
@@ -547,13 +564,18 @@ function Home() {
         </Container>
       </section>
 
-      {/* Productos Destacados */}
+      {/* Productos Destacados CORREGIDA */}
       <section className="py-5 bg-light">
         <Container>
           <Row className="text-center mb-5">
             <Col>
-              <Badge bg="outline-danger" className="mb-3">PRODUCTOS DESTACADOS</Badge>
-              <h2 className="section-title">Materiales de Primera Calidad</h2>
+              {/* BADGE CENTRADO */}
+              <div className="text-center mb-4">
+                <Badge bg="outline-danger" className="mb-3">PRODUCTOS DESTACADOS</Badge>
+              </div>
+              
+              {/* TÍTULO SIN SUBRAYADO */}
+              <h2 className="section-title-custom">Materiales de Primera Calidad</h2>
             </Col>
           </Row>
           
@@ -603,13 +625,20 @@ function Home() {
         </Container>
       </section>
 
-      {/* Zona de Cobertura Mejorada */}
+      {/* Zona de Cobertura CORREGIDA */}
       <section className="py-5 bg-dark text-white">
         <Container>
           <Row className="align-items-center">
             <Col lg={6} className="mb-4 mb-lg-0">
-              <Badge bg="outline-light" className="mb-3">COBERTURA GARANTIZADA</Badge>
-              <h2 className="section-title mb-4 text-white">Entregas en Toda Zona Sur</h2>
+              {/* BADGE CENTRADO EN MÓVIL, IZQUIERDA EN ESCRITORIO */}
+              <div className="text-center text-lg-start mb-4">
+                <Badge bg="outline-light" className="mb-3">COBERTURA GARANTIZADA</Badge>
+              </div>
+              
+              {/* TÍTULO SIN SUBRAYADO */}
+              <h2 className="section-title-custom mb-4 text-white text-center text-lg-start">
+                Entregas en Toda Zona Sur
+              </h2>
               
               <p className="mb-4 text-white">
                 Desde nuestro Parque Industrial Tecnológico en Florencio Varela, cubrimos 
@@ -658,12 +687,6 @@ function Home() {
                   className="coverage-map-sm rounded shadow"
                   loading="lazy"
                 />
-                <div className="map-overlay-info">
-                  <div className="info-card bg-white rounded p-3 shadow-sm">
-                    <h6 className="mb-2 text-dark">📍 Base Operativa</h6>
-                    <p className="small mb-0 text-dark">Parque Industrial Florencio Varela</p>
-                  </div>
-                </div>
               </div>
             </Col>
           </Row>
