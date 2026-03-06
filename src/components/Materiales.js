@@ -177,11 +177,7 @@ function Materiales() {
         { id: 146, name: "Ladrillo retak® U 50 15 [48 un]", img: "/mat101408_01.jpg" },
         { id: 147, name: "Ladrillo retak® U 50 20 [40 un]", img: "/mat101408_01.jpg" }
     ],
-      lanasAislantes: [
-        { id: 150, name: "LANA ISOVER FIL/LIV 50 1.2X18M", img: "/matisover-1.jpg" },
-        { id: 151, name: "LANA ISOVER ROLACPL100 1.2X11", img: "/matisover-1.jpg" }
-    ],
-
+      
     mallas: [
         { id: 152, name: "malla # 4 [15x15] 2x3 mts [Trifilada]", img: "/matmallas.jpg" },
         { id: 153, name: "Malla # 4 [15x15] 2x5 mts [Trafilada]", img: "/matmallas.jpg" },
@@ -250,15 +246,6 @@ function Materiales() {
         { id: 227, name: "Klaukol RAPIBRICK X 30 Kg Pegamento Para Ladrillos C/ MANGA", img: "/matD_NQ_NP_835217-MLA50349123978_062022-O.jpg" }
     ],
 
-    perfiles: [
-        { id: 228, name: "PERFIL C GALVANIZ. 120x50x15x2.0x BARRA", img: "/matmontanomeysolera.jpg" },
-        { id: 229, name: "PERFIL CANTONERA x 2.60 ", img: "/matmontanomeysolera.jpg" },
-        { id: 230, name: "PERFIL MONTANTE 35mm x 2.60 Mts.", img: "/matmontanomeysolera.jpg" },
-        { id: 231, name: "PERFIL MONTANTE 70mm x 2.60 Mts.", img: "/matmontanomeysolera.jpg" },
-        { id: 232, name: "PERFIL OMEGA 13X69X2.6 DRYWALL", img: "/matmontanomeysolera.jpg" },
-        { id: 233, name: "PERFIL SOLERA 35mm x 2.60 Mts.", img: "/matmontanomeysolera.jpg" },
-        { id: 234, name: "PERFIL SOLERA 70mm x 2.60 Mts.", img: "/matmontanomeysolera.jpg" }
-    ],
 
     piedras: [
         { id: 237, name: "PIEDRA 6/20 X TONELADA", img: "/matpiedraadranel.jpg" },
@@ -277,11 +264,8 @@ function Materiales() {
     ],
 
     placas: [
-        { id: 254, name: "Placa Fenólico 18 Mm Ind 1.22 X 2.44 Mts", img: "/matD_NQ_NP_835745-MLA44877269064_022021-O.jpg" },
         { id: 255, name: "Placa retak® 50 5 [80 un]", img: "/mat1970733-1.jpg" },
         { id: 256, name: "Placa Revest RETAK 50x25x5 [80 X PALLET]", img: "/matplaca-revest-retak-50x25x5cm1-aaf503b17f0d46d81916936627310412-480-0.jpg" },
-        { id: 257, name: "PLACA YESO KNAUF 9.5 X 2.4", img: "/mat1970733-1.jpg" },
-        { id: 258, name: "PLACA YESO KNAUF STD 12.5 X 2.4", img: "/mat1970733-1.jpg" },
         { id: 259, name: "M2 PLACA EPS 1000X1000X20 MM. STD.", img: "/matD_602333-MLA78138176398_082024-C.jpg" },
         { id: 260, name: "MASTROPLAC 20MM ALTA DENSIDAD 20KG", img: "/matD_602333-MLA78138176398_082024-C.jpg" },
         { id: 261, name: "MASTROPLAC 25MM ALTA DENSIDAD 20KG", img: "/matD_602333-MLA78138176398_082024-C.jpg" },
