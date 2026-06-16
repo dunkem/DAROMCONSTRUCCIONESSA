@@ -1,72 +1,36 @@
-# DAROMCONSTRUCCIONESSA
+# Darom SA - Soluciones Integrales en Construcción
 
-## Getting Started with Create React App
+Sitio web corporativo y plataforma de cotización para **Darom SA**, empresa líder con más de 45 años de trayectoria en el mercado de la construcción en Zona Sur del Gran Buenos Aires.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+La plataforma ofrece un sistema de catálogo y carrito de cotizaciones integrado con WhatsApp para la venta minorista y mayorista de materiales, además de secciones dedicadas a Hormigón Elaborado, Estudio/Movimiento de Suelos y Pisos Industriales (Paquete DRM 360™).
 
-## Available Scripts
+## 🚀 Stack Tecnológico
 
-In the project directory, you can run:
+*   **Frontend:** React (SPA)
+*   **Estilos y UI:** React Bootstrap & CSS3 personalizado
+*   **Iconos:** React Icons (FontAwesome)
+*   **Ruteo:** React Router Dom v6
+*   **SEO:** React Helmet (Meta tags dinámicos y Schema.org JSON-LD local)
+*   **Despliegue e Infraestructura:** Netlify
 
-### `npm start`
+## 📁 Estructura Clave del Proyecto
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However, we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+├── public/
+│   ├── site.webmanifest       # Configuración PWA y Favicons unificados
+│   ├── sitemap.xml            # Mapa del sitio optimizado para Google y bots de IA
+│   └── robots.txt             # Configuración de rastreo abierta para SEO y Ads
+├── src/
+│   ├── components/            # Componentes visuales puros y secciones de la app
+│   │   ├── Home.jsx           # Landing page principal
+│   │   ├── Materiales.jsx     # Catálogo con grilla optimizada
+│   │   ├── Hormigon.jsx       # Sección Hormigón con control de video nativo
+│   │   ├── Suelos.jsx         # Paquetes de estudio geotécnico
+│   │   └── Pisos.jsx          # Soluciones industriales DRM 360™
+│   ├── contexts/
+│   │   └── CartContext.js     # Estado global del carrito con persistencia en LocalStorage
+│   ├── data/
+│   │   └── materialesData.js  # Base de datos indexada del catálogo (Separada de la UI)
+│   ├── App.js                 # Manejo central de rutas y Layout corporativo
+│   └── index.html             # Entry point con carga diferida de Google Fonts y GTM
+└── _redirects                 # Configuración de Netlify (SPA fallback y mudanza SRL a SA)

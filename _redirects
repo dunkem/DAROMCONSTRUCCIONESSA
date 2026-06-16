@@ -1,5 +1,9 @@
-# Redirigir www.daromsrl.com.ar a daromsa.com.ar
-https://www.daromsrl.com.ar/* https://daromsa.com.ar/:splat 301!
+# 1. Redirigir el dominio viejo (SRL) al nuevo (SA) con estado 301 (Permanente)
+https://daromsrl.com.ar/* https://daromsa.com.ar/:splat  301!
+https://www.daromsrl.com.ar/* https://daromsa.com.ar/:splat  301!
 
-# Permitir acceso a index.html
-/*    /index.html   200
+# 2. Forzar que si alguien entra con WWW en el dominio nuevo, vaya a la versión limpia (SEO oficial)
+https://www.daromsa.com.ar/* https://daromsa.com.ar/:splat  301!
+
+# 3. Regla de oro para React Router (SPA) - Siempre al final
+/* /index.html   200

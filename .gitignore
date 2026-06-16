@@ -1,38 +1,56 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# .gitignore para Darom SA - Versión 2026
+# Ver https://help.github.com/articles/ignoring-files/ para más detalles.
 
-# Dependency directories
+# Directorios de dependencias obligatorios
 /node_modules/
 /.pnp
 .pnp.js
 
-# Testing coverage reports
+# Reportes de cobertura de testing
 /coverage/
 
-# Production build
+# Carpetas de compilación para producción (Soporta CRA y Vite)
 /build/
+/dist/
+/out/
 
-# Miscellaneous system files
+# Caché de linters y formateadores
+.eslintcache
+*.cache
+
+# Archivos basura del Sistema Operativo
 .DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
 
-# Environment variables
+# Variables de entorno secretas (¡CRÍTICO no subirlas nunca!)
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env/*.local
 
-# Log files
+# Archivos de logs de NPM / Yarn / PNPM
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+*.log
 
-# Editor directories and files
-/.idea
-/.vscode
+# Carpetas de configuración de Editores e IDEs
+/.idea/
+/.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 *.swp
 *.swo
 
-# Temporary files
-/tmp
+# Archivos y carpetas temporales
+/tmp/
 *.tmp
 *.temp
