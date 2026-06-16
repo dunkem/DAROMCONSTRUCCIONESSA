@@ -7,10 +7,10 @@ import './Footer.css';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
-
     return (
         <>
             <Helmet>
+                {/* Nota: Es recomendable cargar FontAwesome en el index.html en lugar de aquí, pero si lo usas solo en el footer, está bien */}
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -58,19 +58,13 @@ const Footer = () => {
                             <h5 className="footer-heading">Navegación</h5>
                             <ul className="footer-nav-list">
                                 <li>
-                                    <Link 
-                                        to="/about" 
-                                        className="footer-nav-link"
-                                    >
+                                    <Link to="/about" className="footer-nav-link">
                                         <FaArrowRight className="nav-icon" />
                                         Sobre Nosotros
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link 
-                                        to="/contact" 
-                                        className="footer-nav-link"
-                                    >
+                                    <Link to="/contact" className="footer-nav-link">
                                         <FaArrowRight className="nav-icon" />
                                         Contáctanos
                                     </Link>

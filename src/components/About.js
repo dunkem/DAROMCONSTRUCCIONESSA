@@ -1,11 +1,70 @@
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Carousel, Card, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import { FaAward, FaChartLine, FaHardHat, FaWhatsapp, FaCheck } from 'react-icons/fa';
 import './About.css';
-import React, { useEffect } from 'react';
 
+// --------------------------------------------------------
+// 1. DATOS ESTÁTICOS Y FUNCIONES AUXILIARES (Afuera del componente)
+// --------------------------------------------------------
+const WHATSAPP_MESSAGE = "Hola Darom SA, vi su página web y me interesa conocer más sobre sus servicios";
+const WHATSAPP_URL = `https://wa.me/5492215739000?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+const obras = [
+    { src: "/obraconstrumex.jpg", title: "Obra Construmex", description: "Proyecto de infraestructura comercial" },
+    { src: "/obracorredoresverdes.jpg", title: "Corredores Verdes", description: "Desarrollo urbano sostenible" },
+    { src: "/obraecas.jpg", title: "Complejo ECAS", description: "Edificios corporativos" },
+    { src: "/obralibertatyfrench.jpg", title: "Libertad y French", description: "Remodelación urbana" },
+    { src: "/obramagallanes.jpg", title: "Magallanes", description: "Proyecto residencial" },
+    { src: "/obrapavimentacionmitre.jpg", title: "Pavimentación Mitre", description: "Infraestructura vial" },
+    { src: "/obrasvarias (3).jpg", title: "Parque Industrial", description: "Desarrollo industrial" },
+    { src: "/obrasvarias (4).jpg", title: "Centro Comercial", description: "Espacios comerciales" },
+    { src: "/obrasvarias (5).jpg", title: "Torre Corporativa", description: "Edificio de oficinas" },
+    { src: "/obrasvarias (7).jpg", title: "Conjunto Habitacional", description: "Viviendas sociales" },
+    { src: "/obraxapor.jpg", title: "Complejo Xapor", description: "Desarrollo multifuncional" }
+];
+
+const suppliers = [
+    { src: '/logolomanegra.png', alt: 'Loma Negra' },
+    { src: '/LOGOSIKA.png', alt: 'Sika' },
+    { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
+    { src: '/logodafre.jpg', alt: 'Dafre' },
+    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
+    { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
+    { src: '/logoeleprint.png', alt: 'Eleprint' },
+    { src: '/logogoldir.png', alt: 'Goldir' },
+    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
+    { src: '/logoaubasa.png', alt: 'Aubasa' },
+    { src: '/logopfisterer.png', alt: 'Pfisterer' },
+    { src: '/logoweber.png', alt: 'Weber' },
+    { src: '/logofanelli.png', alt: 'Fanelli' },
+    { src: '/logoctibor.png', alt: 'Ctibor' }
+];
+
+const valores = [
+    { icon: <FaAward size={40} />, title: "Calidad", description: "Estrictos controles en todos nuestros procesos" },
+    { icon: <FaHardHat size={40} />, title: "Compromiso", description: "Dedicación total a cada proyecto" },
+    { icon: <FaChartLine size={40} />, title: "Innovación", description: "Tecnología de punta en construcción" }
+];
+
+// Función helper para agrupar arrays
+const chunkArray = (arr, size) => {
+    const chunks = [];
+    for (let i = 0; i < arr.length; i += size) {
+        chunks.push(arr.slice(i, i + size));
+    }
+    return chunks;
+};
+
+// Pre-calculamos los grupos una sola vez para ahorrar memoria
+const groupedObras = chunkArray(obras, 3);
+const suppliersDesktop = chunkArray(suppliers, 6);
+const suppliersMobile = chunkArray(suppliers, 3);
+
+// --------------------------------------------------------
+// 2. COMPONENTE PRINCIPAL
+// --------------------------------------------------------
 function About() {
-    // Scroll al inicio
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -13,79 +72,6 @@ function About() {
             behavior: 'auto'
         });
     }, []);
-
-    const obras = [
-        { src: "/obraconstrumex.jpg", title: "Obra Construmex", description: "Proyecto de infraestructura comercial" },
-        { src: "/obracorredoresverdes.jpg", title: "Corredores Verdes", description: "Desarrollo urbano sostenible" },
-        { src: "/obraecas.jpg", title: "Complejo ECAS", description: "Edificios corporativos" },
-        { src: "/obralibertatyfrench.jpg", title: "Libertad y French", description: "Remodelación urbana" },
-        { src: "/obramagallanes.jpg", title: "Magallanes", description: "Proyecto residencial" },
-        { src: "/obrapavimentacionmitre.jpg", title: "Pavimentación Mitre", description: "Infraestructura vial" },
-        { src: "/obrasvarias (3).jpg", title: "Parque Industrial", description: "Desarrollo industrial" },
-        { src: "/obrasvarias (4).jpg", title: "Centro Comercial", description: "Espacios comerciales" },
-        { src: "/obrasvarias (5).jpg", title: "Torre Corporativa", description: "Edificio de oficinas" },
-        { src: "/obrasvarias (7).jpg", title: "Conjunto Habitacional", description: "Viviendas sociales" },
-        { src: "/obraxapor.jpg", title: "Complejo Xapor", description: "Desarrollo multifuncional" }
-    ];
-
-    const suppliers = [
-        { src: '/logolomanegra.png', alt: 'Loma Negra' },
-        { src: '/LOGOSIKA.png', alt: 'Sika' },
-        { src: '/LOGOACINDAR.png', alt: 'Red Acindar' },
-        { src: '/logodafre.jpg', alt: 'Dafre' },
-        { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia' },
-        { src: '/LOGOTECMA.PNG', alt: 'Tecma' },
-        { src: '/logoeleprint.png', alt: 'Eleprint' },
-        { src: '/logogoldir.png', alt: 'Goldir' },
-        { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones' },
-        { src: '/logoaubasa.png', alt: 'Aubasa' },
-        { src: '/logopfisterer.png', alt: 'Pfisterer' },
-        { src: '/logoweber.png', alt: 'Weber' },
-        { src: '/logofanelli.png', alt: 'Fanelli' },
-        { src: '/logoctibor.png', alt: 'Ctibor' }
-    ];
-
-    // Agrupar obras en grupos de 3 para el carrusel
-    const groupedObras = [];
-    for (let i = 0; i < obras.length; i += 3) {
-        groupedObras.push(obras.slice(i, i + 3));
-    }
-
-    const valores = [
-        { icon: <FaAward size={40} />, title: "Calidad", description: "Estrictos controles en todos nuestros procesos" },
-        { icon: <FaHardHat size={40} />, title: "Compromiso", description: "Dedicación total a cada proyecto" },
-        { icon: <FaChartLine size={40} />, title: "Innovación", description: "Tecnología de punta en construcción" }
-    ];
-
-    const renderCarouselItems = () => {
-        return groupedObras.map((group, index) => (
-            <Carousel.Item key={index}>
-                <div className="d-flex justify-content-around projects-row">
-                    {group.map((obra, idx) => (
-                        <div 
-                            className="project-card mx-2" 
-                            key={idx}
-                        >
-                            <img
-                                className="project-image"
-                                src={obra.src}
-                                alt={`Imagen de ${obra.title}`}
-                                loading="lazy"
-                            />
-                            <div className="project-overlay">
-                                <h3>{obra.title}</h3>
-                                <p>{obra.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </Carousel.Item>
-        ));
-    };
-
-    // Mensaje predefinido para WhatsApp
-    const whatsappMessage = "Hola Darom SA, vi su página web y me interesa conocer más sobre sus servicios";
-    const whatsappUrl = `https://wa.me/5492215739000?text=${encodeURIComponent(whatsappMessage)}`;
 
     return (
         <>
@@ -155,7 +141,7 @@ function About() {
                             
                             <Button 
                                 as="a"
-                                href={whatsappUrl}
+                                href={WHATSAPP_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 variant="primary" 
@@ -192,10 +178,10 @@ function About() {
                         {/* Versión Desktop (6 logos por fila) */}
                         <div className="d-none d-md-block">
                             <Carousel indicators={false} interval={3000} pause="hover" touch={true}>
-                                {Array.from({ length: Math.ceil(suppliers.length / 6) }).map((_, slideIndex) => (
+                                {suppliersDesktop.map((group, slideIndex) => (
                                     <Carousel.Item key={`desktop-${slideIndex}`}>
                                         <Row className="justify-content-center g-4">
-                                            {suppliers.slice(slideIndex * 6, (slideIndex + 1) * 6).map((supplier, idx) => (
+                                            {group.map((supplier, idx) => (
                                                 <Col key={`desktop-${slideIndex}-${idx}`} md={2} className="text-center">
                                                     <div className="supplier-card">
                                                         <img 
@@ -216,10 +202,10 @@ function About() {
                         {/* Versión Mobile (3 logos por fila) */}
                         <div className="d-block d-md-none">
                             <Carousel indicators={false} interval={3000} pause="hover" touch={true}>
-                                {Array.from({ length: Math.ceil(suppliers.length / 3) }).map((_, slideIndex) => (
+                                {suppliersMobile.map((group, slideIndex) => (
                                     <Carousel.Item key={`mobile-${slideIndex}`}>
                                         <Row className="justify-content-center g-3">
-                                            {suppliers.slice(slideIndex * 3, (slideIndex + 1) * 3).map((supplier, idx) => (
+                                            {group.map((supplier, idx) => (
                                                 <Col key={`mobile-${slideIndex}-${idx}`} xs={4} className="text-center">
                                                     <div className="supplier-card">
                                                         <img 
@@ -310,13 +296,33 @@ function About() {
                         indicators={false} 
                         className="projects-carousel"
                     >
-                        {renderCarouselItems()}
+                        {groupedObras.map((group, index) => (
+                            <Carousel.Item key={index}>
+                                <div className="d-flex justify-content-around projects-row">
+                                    {group.map((obra, idx) => (
+                                        <div className="project-card mx-2" key={idx}>
+                                            <img
+                                                className="project-image"
+                                                src={obra.src}
+                                                alt={`Imagen de ${obra.title}`}
+                                                loading="lazy"
+                                            />
+                                            <div className="project-overlay">
+                                                <h3>{obra.title}</h3>
+                                                <p>{obra.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Carousel.Item>
+                        ))}
                     </Carousel>
+                    
                     {/* Botón de WhatsApp */}
                     <div className="whatsapp-button-container mt-6">
                         <Button 
                             as="a"
-                            href={whatsappUrl}
+                            href={WHATSAPP_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             variant="danger"
@@ -371,7 +377,7 @@ function About() {
                             <div className="whatsapp-button-container mt-4">
                                 <Button 
                                     as="a"
-                                    href={whatsappUrl}
+                                    href={WHATSAPP_URL}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     variant="danger"

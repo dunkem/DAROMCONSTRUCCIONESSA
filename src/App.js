@@ -13,13 +13,11 @@ import Materiales from './components/Materiales';
 import Suelos from './components/Suelos';
 import Pisos from './components/Pisos';
 import Footer from './components/Footer';
-import PisosCombinados from './components/PisosCombinados';
 import './App.css';
 
 function App() {
     const [expanded, setExpanded] = useState(false);
     const location = useLocation();
-    const isLandingPage = location.pathname === '/services/pisos/pisoscombinados';
 
     useEffect(() => {
         setExpanded(false);
@@ -30,7 +28,7 @@ function App() {
     };
 
     // Determinar si mostrar el botón de WhatsApp y otros elementos flotantes
-    const showFloatingElements = !['/services/suelos', '/services/pisos', '/services/pisos/pisoscombinados'].includes(location.pathname);
+    const showFloatingElements = !['/services/suelos', '/services/pisos'].includes(location.pathname);
 
     return (
         <CartProvider>
@@ -61,56 +59,54 @@ function App() {
             </Helmet>
 
             <div className="app-container">
-                {!isLandingPage && (
-                    <Navbar bg="black" expand="lg" className="navbar-custom" expanded={expanded}>
-                        <Container fluid>
-                            <Navbar.Brand as={Link} to="/" className="me-0 me-lg-3">
-                                <img 
-                                    src="/ultimologodarom.png" 
-                                    alt="Darom SA - Especialistas en construcción" 
-                                    className="navbar-logo"
-                                    width="180"
-                                    height="60"
-                                    loading="lazy"
-                                />
-                            </Navbar.Brand>
-                            
-                            <Navbar.Toggle 
-                                aria-controls="main-navbar" 
-                                onClick={() => setExpanded(!expanded)}
-                                className="custom-toggler"
-                                aria-label="Toggle navigation"
-                            >
-                                <span className="navbar-toggler-icon"></span>
-                            </Navbar.Toggle>
-                            
-                            <Navbar.Collapse id="main-navbar">
-                                <Nav className="mx-auto flex-wrap justify-content-center">
-                                    <Nav.Link as={Link} to="/services/hormigon" onClick={() => setExpanded(false)} className="nav-item-custom">Hormigón Elaborado</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/materiales" onClick={() => setExpanded(false)} className="nav-item-custom">Materiales</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/suelos" onClick={() => setExpanded(false)} className="nav-item-custom">Estudio y Movimiento de Suelos</Nav.Link>
-                                    <Nav.Link as={Link} to="/services/pisos" onClick={() => setExpanded(false)} className="nav-item-custom">Pisos Industriales</Nav.Link>
-                                    <Nav.Link as={Link} to="/about" onClick={() => setExpanded(false)} className="nav-item-custom">La Empresa</Nav.Link>
-                                    <Nav.Link as={Link} to="/contact" onClick={() => setExpanded(false)} className="nav-item-custom">Contacto</Nav.Link>
-                                </Nav>
-                                <div className="navbar-extra d-flex align-items-center">
-                                    <div className="social-links d-flex">
-                                        <Nav.Link href="https://www.facebook.com/DAROMSRL" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="Facebook">
-                                            <FaFacebook className="social-icon" />
-                                        </Nav.Link>
-                                        <Nav.Link href="https://www.instagram.com/daromsa/" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="Instagram">
-                                            <FaInstagram className="social-icon" />
-                                        </Nav.Link>
-                                        <Nav.Link href="https://www.youtube.com/watch?v=--7y8f63ZPk" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="YouTube">
-                                            <FaYoutube className="social-icon" />
-                                        </Nav.Link>
-                                    </div>
-                                    <CartSummary />
+                <Navbar bg="black" expand="lg" className="navbar-custom" expanded={expanded}>
+                    <Container fluid>
+                        <Navbar.Brand as={Link} to="/" className="me-0 me-lg-3">
+                            <img 
+                                src="/ultimologodarom.png" 
+                                alt="Darom SA - Especialistas en construcción" 
+                                className="navbar-logo"
+                                width="180"
+                                height="60"
+                                loading="lazy"
+                            />
+                        </Navbar.Brand>
+                        
+                        <Navbar.Toggle 
+                            aria-controls="main-navbar" 
+                            onClick={() => setExpanded(!expanded)}
+                            className="custom-toggler"
+                            aria-label="Toggle navigation"
+                        >
+                            <span className="navbar-toggler-icon"></span>
+                        </Navbar.Toggle>
+                        
+                        <Navbar.Collapse id="main-navbar">
+                            <Nav className="mx-auto flex-wrap justify-content-center">
+                                <Nav.Link as={Link} to="/services/hormigon" onClick={() => setExpanded(false)} className="nav-item-custom">Hormigón Elaborado</Nav.Link>
+                                <Nav.Link as={Link} to="/services/materiales" onClick={() => setExpanded(false)} className="nav-item-custom">Materiales</Nav.Link>
+                                <Nav.Link as={Link} to="/services/suelos" onClick={() => setExpanded(false)} className="nav-item-custom">Estudio y Movimiento de Suelos</Nav.Link>
+                                <Nav.Link as={Link} to="/services/pisos" onClick={() => setExpanded(false)} className="nav-item-custom">Pisos Industriales</Nav.Link>
+                                <Nav.Link as={Link} to="/about" onClick={() => setExpanded(false)} className="nav-item-custom">La Empresa</Nav.Link>
+                                <Nav.Link as={Link} to="/contact" onClick={() => setExpanded(false)} className="nav-item-custom">Contacto</Nav.Link>
+                            </Nav>
+                            <div className="navbar-extra d-flex align-items-center">
+                                <div className="social-links d-flex">
+                                    <Nav.Link href="https://www.facebook.com/DAROMSRL" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="Facebook">
+                                        <FaFacebook className="social-icon" />
+                                    </Nav.Link>
+                                    <Nav.Link href="https://www.instagram.com/daromsa/" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="Instagram">
+                                        <FaInstagram className="social-icon" />
+                                    </Nav.Link>
+                                    <Nav.Link href="https://www.youtube.com/watch?v=--7y8f63ZPk" target="_blank" rel="noopener noreferrer nofollow" className="social-link" aria-label="YouTube">
+                                        <FaYoutube className="social-icon" />
+                                    </Nav.Link>
                                 </div>
-                            </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                )}
+                                <CartSummary />
+                            </div>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
                 
                 <main className="main-content">
                     <Routes>
@@ -118,7 +114,6 @@ function App() {
                         <Route path="/services/materiales" element={<Materiales />} />
                         <Route path="/services/hormigon" element={<Hormigon />} />
                         <Route path="/services/suelos" element={<Suelos />} />
-                        <Route path="/services/pisos/pisoscombinados" element={<PisosCombinados />} />
                         <Route path="/services/pisos" element={<Pisos />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
@@ -148,7 +143,7 @@ function App() {
                     </>
                 )}
 
-                {!isLandingPage && <Footer />}
+                <Footer />
             </div>
         </CartProvider>
     );

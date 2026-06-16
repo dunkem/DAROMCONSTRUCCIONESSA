@@ -1,18 +1,30 @@
-import React, { createContext, useState, useCallback } from 'react';
+import React, { createContext, useState, useCallback, useEffect, useMemo } from 'react';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+    // 1. Inicializamos el estado leyendo el Local Storage por si el usuario ya tenía cosas guardadas
+    const [cart, setCart] = useState(() => {
+        try {
+            const localData = localStorage.getItem('darom_cart');
+            return localData ? JSON.parse(localData) : [];
+        } catch (error) {
+            console.error("Error leyendo el carrito del LocalStorage", error);
+            return [];
+        }
+    });
+
+    // 2. Cada vez que el carrito cambia, lo guardamos automáticamente en el Local Storage
+    useEffect(() => {
+        localStorage.setItem('darom_cart', JSON.stringify(cart));
+    }, [cart]);
 
     // Añadir al carrito con manejo de cantidades
     const addToCart = useCallback((item) => {
         setCart(prevCart => {
-            // Verificar si el item ya está en el carrito
             const existingItemIndex = prevCart.findIndex(cartItem => cartItem.id === item.id);
             
             if (existingItemIndex >= 0) {
-                // Si existe, actualizar la cantidad
                 const updatedCart = [...prevCart];
                 updatedCart[existingItemIndex] = {
                     ...updatedCart[existingItemIndex],
@@ -20,7 +32,6 @@ export const CartProvider = ({ children }) => {
                 };
                 return updatedCart;
             } else {
-                // Si no existe, añadirlo al carrito
                 return [...prevCart, { 
                     ...item, 
                     quantity: item.quantity || 1 
@@ -51,27 +62,24 @@ export const CartProvider = ({ children }) => {
         setCart([]);
     }, []);
 
-    // Calcular el total de items en el carrito
-    const totalItems = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    // 3. Memorizamos el valor del contexto y los cálculos pesados para evitar re-renderizados innecesarios en la app
+    const contextValue = useMemo(() => {
+        const totalItems = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+        const totalPrice = cart.reduce((total, item) => total + (item.price || 0) * (item.quantity || 1), 0);
 
-    // Calcular el precio total
-    const totalPrice = cart.reduce(
-        (total, item) => total + (item.price || 0) * (item.quantity || 1), 
-        0
-    );
+        return {
+            cart,
+            addToCart,
+            removeFromCart,
+            updateQuantity,
+            clearCart,
+            totalItems,
+            totalPrice
+        };
+    }, [cart, addToCart, removeFromCart, updateQuantity, clearCart]);
 
     return (
-        <CartContext.Provider 
-            value={{ 
-                cart,
-                addToCart,
-                removeFromCart,
-                updateQuantity,
-                clearCart,
-                totalItems,
-                totalPrice
-            }}
-        >
+        <CartContext.Provider value={contextValue}>
             {children}
         </CartContext.Provider>
     );

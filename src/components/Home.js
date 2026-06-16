@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Card, Carousel, Button, Image, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -7,256 +8,261 @@ import {
   FaTruck, FaIndustry, FaAward, FaUsers
 } from 'react-icons/fa';
 import './Home.css';
-import React, { useEffect, useMemo, useCallback } from 'react';
 import portada from './portada.webp';
 
+// --------------------------------------------------------
+// 1. DATOS ESTÁTICOS AFUERA (Sin necesidad de useMemo)
+// --------------------------------------------------------
+const services = [
+  {
+    src: '/portadaplumamixer.jpg',
+    title: 'HORMIGÓN ELABORADO Y BOMBEO',
+    description: 'Calidad certificada IRAM con servicios de bombeo para proyectos de cualquier escala. Dosificación precisa y control de calidad en tiempo real.',
+    features: ['Certificación IRAM', 'Bombeo hasta 100m', 'Control tecnológico', 'Entrega programada'],
+    backup: { text: 'ALIADO ESTRATÉGICO', logo: '/logolomanegra.png' },
+    link: '/services/hormigon'
+  },
+  {
+    src: '/portadacoralon.JPG',
+    title: 'MATERIALES DE CONSTRUCCIÓN',
+    description: 'Amplia gama de materiales seleccionados para cada etapa constructiva. Stock permanente y asesoramiento técnico especializado.',
+    features: ['+200 productos', 'Stock garantizado', 'Asesoramiento técnico', 'Logística eficiente'],
+    link: '/services/materiales'
+  },
+  {
+    src: '/portadamovofi.jpg',
+    title: 'ESTUDIO Y MOVIMIENTO DE SUELOS',
+    description: 'Análisis precisos y preparación de terreno para cimentaciones seguras. Equipos modernos y personal calificado.',
+    features: ['Estudios geotécnicos', 'Maquinaria especializada', 'Compactación controlada', 'Informes técnicos'],
+    link: '/services/suelos'
+  },
+  {
+    src: '/portadapisosindustriales.png',
+    title: 'PISOS INDUSTRIALES',
+    description: 'Soluciones duraderas para superficies de alto tránsito. Tecnología Sika y ejecución certificada.',
+    features: ['Tecnología Sika', 'Resistencia superior', 'Acabados perfectos', 'Garantía extendida'],
+    backup: { text: 'TECNOLOGÍA SIKA', logo: '/LOGOSIKA.png' },
+    link: '/services/pisos'
+  }
+];
+
+const featuredProducts = [
+  { 
+    src: '/mathidrofugosika20l.jpg', 
+    name: 'Hidrofugo Sika 20 lts', 
+    category: 'Impermeabilizantes',
+    price: 'Consultar',
+    link: '/services/materiales' 
+  },
+  { 
+    src: '/matlad12.jpg', 
+    name: 'Ladrillo 12x12x18', 
+    category: 'Cerámicos',
+    price: 'Consultar',
+    link: '/services/materiales' 
+  },
+  { 
+    src: '/matbolsonarena.jpg', 
+    name: 'Arena en Bolsón', 
+    category: 'Áridos',
+    price: 'Consultar',
+    link: '/services/materiales' 
+  },
+  { 
+    src: '/matcementoloma50kg.jpg', 
+    name: 'Cemento Loma Negra 50kg', 
+    category: 'Cementos',
+    price: 'Consultar',
+    link: '/services/materiales' 
+  }
+];
+
+const suppliers = [
+  { src: '/logolomanegra.png', alt: 'Loma Negra', category: 'Materiales' },
+  { src: '/LOGOSIKA.png', alt: 'Sika', category: 'Tecnología' },
+  { src: '/LOGOACINDAR.png', alt: 'Red Acindar', category: 'Aceros' },
+  { src: '/logodafre.jpg', alt: 'Dafre', category: 'Materiales' },
+  { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia', category: 'Desarrollo' },
+  { src: '/LOGOTECMA.PNG', alt: 'Tecma', category: 'Tecnología' },
+  { src: '/logoeleprint.png', alt: 'Eleprint', category: 'Innovación' },
+  { src: '/logogoldir.png', alt: 'Goldir', category: 'Constructora' },
+  { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones', category: 'Constructora' },
+  { src: '/logoaubasa.png', alt: 'Aubasa', category: 'Infraestructura' },
+  { src: '/logopfisterer.png', alt: 'Pfisterer', category: 'Tecnología' },
+  { src: '/logoweber.png', alt: 'Weber', category: 'Materiales' },
+  { src: '/logofanelli.png', alt: 'Fanelli', category: 'Materiales' },
+  { src: '/posesalogo.jpg', alt: 'Pose sa', category: 'Constructora' },
+  { src: '/logoctibor.png', alt: 'Ctibor', category: 'Tecnología' }
+];
+
+const testimonios = [
+  { 
+    text: "Excelente experiencia. Muy organizado, con seguimiento GPS del trayecto del camión, y el conductor, súper amable y muy colaborativo para facilitar la descarga. Recomiendo!", 
+    author: "Sebastian Leis",
+    project: "Cliente Particular",
+    rating: 5
+  },
+  { 
+    text: "Excelente desde la atención del vendedor hasta la logística. Muy profesionales! Recomiendo. Compromiso y Puntualidad eso genera la confianza!", 
+    author: "Adriana Rosende",
+    project: "Cliente Particular",
+    rating: 5
+  },
+  { 
+    text: "Excelente atención y logística. Fueron puntuales y organizados. Salió perfecto el trabajo, volveremos a contratarlos seguramente.", 
+    author: "Construcciones La Plata",
+    project: "Empresa Constructora",
+    rating: 5
+  },
+  { 
+    text: "Empresa muy profesional. Excelente atención y cumplimiento de lo pautado. La recomiendo.", 
+    author: "Magda Cibei",
+    project: "Cliente Particular",
+    rating: 5
+  },
+  { 
+    text: "Los super recomiendo. Tan amables desde el inicio de compra hasta el fin de obra. Te asesoran en todo y te responden todas tus dudas sin problemas. Gracias Darom.", 
+    author: "Carina Zeiss",
+    project: "Cliente Particular",
+    rating: 5
+  },
+  { 
+    text: "Los mejores! Compré todo el hierro, ladrillos, materiales para mi casa, llené la platea y 3 losas de hormigón de ellos, todo 10 puntos! Se destaca la atención, los productos y el servicio de entrega!", 
+    author: "Pablo Laurito",
+    project: "Casa Particular",
+    rating: 5
+  },
+  { 
+    text: "Super puntuales y están siempre al contacto con vos! Ya homigonamos unas 6 veces y siempre llegaron siempre horario, un lujo!", 
+    author: "Ricardo Ramos",
+    project: "Cliente Recurrente",
+    rating: 5
+  },
+  { 
+    text: "Muy buena atención. Eficaces y rapidez. Y sobre todo puntualidad y calidad. Excelente logística para una buena atención a sus clientes. Gracias…", 
+    author: "Sebastian Godoy",
+    project: "Empresa Constructora",
+    rating: 5
+  },
+  { 
+    text: "Excelente servicio de atención, no demoran las entregas, y hay seguimiento de los pedidos. Respuesta inmediata siempre y asesoramiento sobre materiales. Muy conforme!", 
+    author: "Leonardo Yanson",
+    project: "Cliente Particular",
+    rating: 5
+  },
+  { 
+    text: "Excelente servicio, cumplieron con los tiempos y todo lo pactado. Quiero destacar la buena predisposición y atención de Guillermo y su impecable programación. Los recomiendo!", 
+    author: "Laura Scandroglio",
+    project: "Reforma Integral",
+    rating: 5
+  },
+  { 
+    text: "La atención y la comunicación con sus clientes es impecable. Destaco la predisposición permanente al servicio de la resolución de problemas. Muy recomendable.", 
+    author: "Arq. De los Santos",
+    project: "Proyecto Arquitectónico",
+    rating: 5
+  }
+];
+
+const stats = [
+  { value: '45+', label: 'Años de Experiencia', icon: FaAward },
+  { value: '3000+', label: 'Proyectos Completados', icon: FaBuilding },
+  { value: '3M+', label: 'm² Construidos', icon: FaUsers },
+  { value: '60+', label: 'Profesionales', icon: FaUsers }
+];
+
+// --------------------------------------------------------
+// 2. SUB-COMPONENTES AFUERA (Sin necesidad de useCallback)
+// --------------------------------------------------------
+const ServiceCard = ({ service }) => (
+  <Card className="home-service-card shadow-lg h-100">
+    <div className="service-image-container position-relative">
+      <Card.Img 
+        variant="top" 
+        src={service.src} 
+        alt={service.title} 
+        loading="lazy"
+        className="service-img"
+      />
+      {service.backup && (
+        <div className="backup-badge">
+          <small className="text-muted">{service.backup.text}</small>
+          <img 
+            src={service.backup.logo} 
+            alt="Logo proveedor" 
+            loading="lazy"
+            className="supplier-logo-small"
+          />
+        </div>
+      )}
+    </div>
+    <Card.Body className="d-flex flex-column position-relative" style={{ zIndex: 10 }}>
+      <Card.Title className="h5">{service.title}</Card.Title>
+      <Card.Text className="flex-grow-1">{service.description}</Card.Text>
+      
+      <ul className="service-features list-unstyled small mb-3">
+        {service.features?.map((feature, idx) => (
+          <li key={idx} className="mb-1">
+            <FaCheckCircle className="text-warning me-2" size={12} />
+            {feature}
+          </li>
+        ))}
+      </ul>
+      
+      <Button 
+        as={Link}
+        to={service.link}
+        variant="warning" 
+        className="w-100 mt-auto position-relative"
+        style={{ zIndex: 20 }}
+      >
+        VER MÁS DETALLES
+      </Button>
+    </Card.Body>
+  </Card>
+);
+
+const ProductCard = ({ product }) => (
+  <Card className="product-card text-center h-100 shadow-sm">
+    <Card.Img 
+      variant="top" 
+      src={product.src} 
+      alt={product.name} 
+      loading="lazy"
+      className="product-img"
+    />
+    <Card.Body className="d-flex flex-column">
+      <Badge bg="outline-danger" className="mb-2 align-self-center">{product.category}</Badge>
+      <Card.Title className="h6">{product.name}</Card.Title>
+      <div className="product-price mb-2">
+        <strong className="text-danger">{product.price}</strong>
+      </div>
+      <Link to={product.link} className="mt-auto">
+        <Button variant="outline-danger" size="sm" className="w-100">
+          COTIZAR PRODUCTO
+        </Button>
+      </Link>
+    </Card.Body>
+  </Card>
+);
+
+const StatsCard = ({ stat }) => {
+  const IconComponent = stat.icon;
+  return (
+    <div className="text-center text-white">
+      <IconComponent size={48} className="mb-3 opacity-75" />
+      <h3 className="display-6 fw-bold mb-2">{stat.value}</h3>
+      <p className="mb-0 opacity-90">{stat.label}</p>
+    </div>
+  );
+};
+
+// --------------------------------------------------------
+// 3. COMPONENTE PRINCIPAL
+// --------------------------------------------------------
 function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  // Datos de servicios optimizados con useMemo
-  const services = useMemo(() => [
-    {
-      src: '/portadaplumamixer.jpg',
-      title: 'HORMIGÓN ELABORADO Y BOMBEO',
-      description: 'Calidad certificada IRAM con servicios de bombeo para proyectos de cualquier escala. Dosificación precisa y control de calidad en tiempo real.',
-      features: ['Certificación IRAM', 'Bombeo hasta 100m', 'Control tecnológico', 'Entrega programada'],
-      backup: { text: 'ALIADO ESTRATÉGICO', logo: '/logolomanegra.png' },
-      link: '/services/hormigon'
-    },
-    {
-      src: '/portadacoralon.JPG',
-      title: 'MATERIALES DE CONSTRUCCIÓN',
-      description: 'Amplia gama de materiales seleccionados para cada etapa constructiva. Stock permanente y asesoramiento técnico especializado.',
-      features: ['+200 productos', 'Stock garantizado', 'Asesoramiento técnico', 'Logística eficiente'],
-      link: '/services/materiales'
-    },
-    {
-      src: '/portadamovofi.jpg',
-      title: 'ESTUDIO Y MOVIMIENTO DE SUELOS',
-      description: 'Análisis precisos y preparación de terreno para cimentaciones seguras. Equipos modernos y personal calificado.',
-      features: ['Estudios geotécnicos', 'Maquinaria especializada', 'Compactación controlada', 'Informes técnicos'],
-      link: '/services/suelos'
-    },
-    {
-      src: '/portadapisosindustriales.png',
-      title: 'PISOS INDUSTRIALES',
-      description: 'Soluciones duraderas para superficies de alto tránsito. Tecnología Sika y ejecución certificada.',
-      features: ['Tecnología Sika', 'Resistencia superior', 'Acabados perfectos', 'Garantía extendida'],
-      backup: { text: 'TECNOLOGÍA SIKA', logo: '/LOGOSIKA.png' },
-      link: '/services/pisos'
-    }
-  ], []);
-
-  const featuredProducts = useMemo(() => [
-    { 
-      src: '/mathidrofugosika20l.jpg', 
-      name: 'Hidrofugo Sika 20 lts', 
-      category: 'Impermeabilizantes',
-      price: 'Consultar',
-      link: '/services/materiales' 
-    },
-    { 
-      src: '/matlad12.jpg', 
-      name: 'Ladrillo 12x12x18', 
-      category: 'Cerámicos',
-      price: 'Consultar',
-      link: '/services/materiales' 
-    },
-    { 
-      src: '/matbolsonarena.jpg', 
-      name: 'Arena en Bolsón', 
-      category: 'Áridos',
-      price: 'Consultar',
-      link: '/services/materiales' 
-    },
-    { 
-      src: '/matcementoloma50kg.jpg', 
-      name: 'Cemento Loma Negra 50kg', 
-      category: 'Cementos',
-      price: 'Consultar',
-      link: '/services/materiales' 
-    }
-  ], []);
-
-  const suppliers = useMemo(() => [
-    { src: '/logolomanegra.png', alt: 'Loma Negra', category: 'Materiales' },
-    { src: '/LOGOSIKA.png', alt: 'Sika', category: 'Tecnología' },
-    { src: '/LOGOACINDAR.png', alt: 'Red Acindar', category: 'Aceros' },
-    { src: '/logodafre.jpg', alt: 'Dafre', category: 'Materiales' },
-    { src: '/logo varsovia.jpg', alt: 'Grupo Varsovia', category: 'Desarrollo' },
-    { src: '/LOGOTECMA.PNG', alt: 'Tecma', category: 'Tecnología' },
-    { src: '/logoeleprint.png', alt: 'Eleprint', category: 'Innovación' },
-    { src: '/logogoldir.png', alt: 'Goldir', category: 'Constructora' },
-    { src: '/dycasalogo.jpg', alt: 'Ieb Construcciones', category: 'Constructora' },
-    { src: '/logoaubasa.png', alt: 'Aubasa', category: 'Infraestructura' },
-    { src: '/logopfisterer.png', alt: 'Pfisterer', category: 'Tecnología' },
-    { src: '/logoweber.png', alt: 'Weber', category: 'Materiales' },
-    { src: '/logofanelli.png', alt: 'Fanelli', category: 'Materiales' },
-    { src: '/posesalogo.jpg', alt: 'Pose sa', category: 'Constructora' },
-    { src: '/logoctibor.png', alt: 'Ctibor', category: 'Tecnología' }
-  ], []);
-
-  const testimonios = useMemo(() => [
-    { 
-      text: "Excelente experiencia. Muy organizado, con seguimiento GPS del trayecto del camión, y el conductor, súper amable y muy colaborativo para facilitar la descarga. Recomiendo!", 
-      author: "Sebastian Leis",
-      project: "Cliente Particular",
-      rating: 5
-    },
-    { 
-      text: "Excelente desde la atención del vendedor hasta la logística. Muy profesionales! Recomiendo. Compromiso y Puntualidad eso genera la confianza!", 
-      author: "Adriana Rosende",
-      project: "Cliente Particular",
-      rating: 5
-    },
-    { 
-      text: "Excelente atención y logística. Fueron puntuales y organizados. Salió perfecto el trabajo, volveremos a contratarlos seguramente.", 
-      author: "Construcciones La Plata",
-      project: "Empresa Constructora",
-      rating: 5
-    },
-    { 
-      text: "Empresa muy profesional. Excelente atención y cumplimiento de lo pautado. La recomiendo.", 
-      author: "Magda Cibei",
-      project: "Cliente Particular",
-      rating: 5
-    },
-    { 
-      text: "Los super recomiendo. Tan amables desde el inicio de compra hasta el fin de obra. Te asesoran en todo y te responden todas tus dudas sin problemas. Gracias Darom.", 
-      author: "Carina Zeiss",
-      project: "Cliente Particular",
-      rating: 5
-    },
-    { 
-      text: "Los mejores! Compré todo el hierro, ladrillos, materiales para mi casa, llené la platea y 3 losas de hormigón de ellos, todo 10 puntos! Se destaca la atención, los productos y el servicio de entrega!", 
-      author: "Pablo Laurito",
-      project: "Casa Particular",
-      rating: 5
-    },
-    { 
-      text: "Super puntuales y están siempre al contacto con vos! Ya homigonamos unas 6 veces y siempre llegaron siempre horario, un lujo!", 
-      author: "Ricardo Ramos",
-      project: "Cliente Recurrente",
-      rating: 5
-    },
-    { 
-      text: "Muy buena atención. Eficaces y rapidez. Y sobre todo puntualidad y calidad. Excelente logística para una buena atención a sus clientes. Gracias…", 
-      author: "Sebastian Godoy",
-      project: "Empresa Constructora",
-      rating: 5
-    },
-    { 
-      text: "Excelente servicio de atención, no demoran las entregas, y hay seguimiento de los pedidos. Respuesta inmediata siempre y asesoramiento sobre materiales. Muy conforme!", 
-      author: "Leonardo Yanson",
-      project: "Cliente Particular",
-      rating: 5
-    },
-    { 
-      text: "Excelente servicio, cumplieron con los tiempos y todo lo pactado. Quiero destacar la buena predisposición y atención de Guillermo y su impecable programación. Los recomiendo!", 
-      author: "Laura Scandroglio",
-      project: "Reforma Integral",
-      rating: 5
-    },
-    { 
-      text: "La atención y la comunicación con sus clientes es impecable. Destaco la predisposición permanente al servicio de la resolución de problemas. Muy recomendable.", 
-      author: "Arq. De los Santos",
-      project: "Proyecto Arquitectónico",
-      rating: 5
-    }
-  ], []);
-
-  // Estadísticas de la empresa actualizadas
-  const stats = useMemo(() => [
-    { value: '45+', label: 'Años de Experiencia', icon: FaAward },
-    { value: '3000+', label: 'Proyectos Completados', icon: FaBuilding },
-    { value: '3M+', label: 'm² Construidos', icon: FaUsers },
-    { value: '60+', label: 'Profesionales', icon: FaUsers }
-  ], []);
-
-  const ServiceCard = useCallback(({ service }) => (
-    <Card className="home-service-card shadow-lg h-100">
-      <div className="service-image-container position-relative">
-        <Card.Img 
-          variant="top" 
-          src={service.src} 
-          alt={service.title} 
-          loading="lazy"
-          className="service-img"
-        />
-        {service.backup && (
-          <div className="backup-badge">
-            <small className="text-muted">{service.backup.text}</small>
-            <img 
-              src={service.backup.logo} 
-              alt="Logo proveedor" 
-              loading="lazy"
-              className="supplier-logo-small"
-            />
-          </div>
-        )}
-      </div>
-      <Card.Body className="d-flex flex-column position-relative" style={{ zIndex: 10 }}>
-        <Card.Title className="h5">{service.title}</Card.Title>
-        <Card.Text className="flex-grow-1">{service.description}</Card.Text>
-        
-        {/* Features list */}
-        <ul className="service-features list-unstyled small mb-3">
-          {service.features?.map((feature, idx) => (
-            <li key={idx} className="mb-1">
-              <FaCheckCircle className="text-warning me-2" size={12} />
-              {feature}
-            </li>
-          ))}
-        </ul>
-        
-        <Button 
-          as={Link}
-          to={service.link}
-          variant="warning" 
-          className="w-100 mt-auto position-relative"
-          style={{ zIndex: 20 }}
-        >
-          VER MÁS DETALLES
-        </Button>
-      </Card.Body>
-    </Card>
-  ), []);
-
-  const ProductCard = useCallback(({ product }) => (
-    <Card className="product-card text-center h-100 shadow-sm">
-      <Card.Img 
-        variant="top" 
-        src={product.src} 
-        alt={product.name} 
-        loading="lazy"
-        className="product-img"
-      />
-      <Card.Body className="d-flex flex-column">
-        <Badge bg="outline-danger" className="mb-2 align-self-center">{product.category}</Badge>
-        <Card.Title className="h6">{product.name}</Card.Title>
-        <div className="product-price mb-2">
-          <strong className="text-danger">{product.price}</strong>
-        </div>
-        <Link to={product.link} className="mt-auto">
-          <Button variant="outline-danger" size="sm" className="w-100">
-            COTIZAR PRODUCTO
-          </Button>
-        </Link>
-      </Card.Body>
-    </Card>
-  ), []);
-
-  const StatsCard = useCallback(({ stat }) => {
-    const IconComponent = stat.icon;
-    return (
-      <div className="text-center text-white">
-        <IconComponent size={48} className="mb-3 opacity-75" />
-        <h3 className="display-6 fw-bold mb-2">{stat.value}</h3>
-        <p className="mb-0 opacity-90">{stat.label}</p>
-      </div>
-    );
   }, []);
 
   return (
@@ -292,7 +298,7 @@ function Home() {
         </script>
       </Helmet>
 
-      {/* Hero Section Mejorada */}
+      {/* Hero Section */}
       <section className="hero-section">
         <div 
           className="hero-background"
@@ -318,12 +324,12 @@ function Home() {
                     size="lg" 
                     href="https://wa.me/542215739000?text=Hola%20Darom%20SA,%20vi%20su%20página%20web%20y%20me%20interesa%20solicitar%20información" 
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="whatsapp-btn fw-bold px-4"
                   >
                     <FaWhatsapp className="me-2" /> COTIZAR PROYECTO
                   </Button>
                   
-                  {/* Google Rating Badge - Versión anterior mejorada */}
                   <a 
                     href="#reviews" 
                     className="google-rating-badge d-flex align-items-center text-decoration-none py-2 px-3"
@@ -382,11 +388,10 @@ function Home() {
         </Container>
       </section>
 
-      {/* Compromiso Section CORREGIDA */}
+      {/* Compromiso Section */}
       <section className="py-5 bg-light">
         <Container>
           <Row className="align-items-center">
-            {/* Columna del video primero */}
             <Col md={6} className="mb-4 mb-md-0">
               <div className="ratio ratio-16x9 rounded overflow-hidden shadow-lg">
                 <iframe 
@@ -402,14 +407,11 @@ function Home() {
               </div>
             </Col>
             
-            {/* Columna del contenido CORREGIDA */}
             <Col md={6}>
-              {/* BADGE CENTRADO EN TODAS LAS PANTALLAS */}
               <div className="text-center mb-4">
                 <Badge bg="outline-danger" className="mb-3">NUESTRO COMPROMISO</Badge>
               </div>
               
-              {/* TÍTULO SIN SUBRAYADO - CLASE MODIFICADA */}
               <h2 className="section-title-custom mb-4 text-center text-md-start">
                 Calidad que Perdura por Generaciones
               </h2>
@@ -460,17 +462,14 @@ function Home() {
         </Container>
       </section>
 
-      {/* Servicios Section CORREGIDA */}
+      {/* Servicios Section */}
       <section id="servicios" className="py-5">
         <Container>
           <Row className="text-center mb-5">
             <Col>
-              {/* BADGE CENTRADO */}
               <div className="text-center mb-4">
                 <Badge bg="outline-danger" className="mb-3">NUESTROS SERVICIOS</Badge>
               </div>
-              
-              {/* TÍTULO SIN SUBRAYADO */}
               <h2 className="section-title-custom mb-3">
                 Soluciones Integrales para Cada Etapa Constructiva
               </h2>
@@ -487,7 +486,7 @@ function Home() {
         </Container>
       </section>
 
-      {/* Proveedores Section Mejorada */}
+      {/* Proveedores Section */}
       <section className="py-5 bg-light">
         <Container>
           <h2 className="section-title-custom text-center mb-5">ALIANZAS ESTRATÉGICAS DE <span className="text-danger">PRIMER NIVEL</span></h2>
@@ -512,17 +511,14 @@ function Home() {
         </Container>
       </section>
 
-      {/* Testimonios Section CORREGIDA */}
+      {/* Testimonios Section */}
       <section id="reviews" className="py-5 bg-white">
         <Container>
           <Row className="text-center mb-5">
             <Col>
-              {/* BADGE CENTRADO */}
               <div className="text-center mb-4">
                 <Badge bg="outline-danger" className="mb-3">OPINIONES VERIFICADAS</Badge>
               </div>
-              
-              {/* TÍTULO SIN SUBRAYADO */}
               <h2 className="section-title-custom">Lo que Dicen Nuestros Clientes</h2>
             </Col>
           </Row>
@@ -555,6 +551,7 @@ function Home() {
                   variant="outline-danger" 
                   href="https://g.page/r/CYU8aD9k5psMEAE/review" 
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaGoogle className="me-2" /> Dejar Mi Reseña
                 </Button>
@@ -564,17 +561,14 @@ function Home() {
         </Container>
       </section>
 
-      {/* Productos Destacados CORREGIDA */}
+      {/* Productos Destacados */}
       <section className="py-5 bg-light">
         <Container>
           <Row className="text-center mb-5">
             <Col>
-              {/* BADGE CENTRADO */}
               <div className="text-center mb-4">
                 <Badge bg="outline-danger" className="mb-3">PRODUCTOS DESTACADOS</Badge>
               </div>
-              
-              {/* TÍTULO SIN SUBRAYADO */}
               <h2 className="section-title-custom">Materiales de Primera Calidad</h2>
             </Col>
           </Row>
@@ -599,7 +593,7 @@ function Home() {
         </Container>
       </section>
 
-      {/* CTA Final Mejorado */}
+      {/* CTA Final */}
       <section className="py-5 bg-gradient-custom text-white">
         <Container>
           <Row className="align-items-center text-center text-lg-start">
@@ -616,6 +610,7 @@ function Home() {
                 size="lg" 
                 href="https://wa.me/542215739000?text=Hola%20Darom%20SA,%20me%20interesa%20cotizar%20un%20proyecto%20y%20necesito%20asesoramiento%20" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="fw-bold px-4"
               >
                 <FaWhatsapp className="me-2" /> COTIZAR AHORA
@@ -625,17 +620,15 @@ function Home() {
         </Container>
       </section>
 
-      {/* Zona de Cobertura CORREGIDA */}
+      {/* Zona de Cobertura */}
       <section className="py-5 bg-dark text-white">
         <Container>
           <Row className="align-items-center">
             <Col lg={6} className="mb-4 mb-lg-0">
-              {/* BADGE CENTRADO EN MÓVIL, IZQUIERDA EN ESCRITORIO */}
               <div className="text-center text-lg-start mb-4">
                 <Badge bg="outline-light" className="mb-3">COBERTURA GARANTIZADA</Badge>
               </div>
               
-              {/* TÍTULO SIN SUBRAYADO */}
               <h2 className="section-title-custom mb-4 text-white text-center text-lg-start">
                 Entregas en Toda Zona Sur
               </h2>

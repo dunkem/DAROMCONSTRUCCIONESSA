@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Form, Button, Alert, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Alert, Row, Col, Spinner } from 'react-bootstrap';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 import './Contact.css';
 
+// --------------------------------------------------------
+// 1. DATOS ESTÁTICOS
+// --------------------------------------------------------
 const contactInfo = {
     phone: '0810-333-4567', 
     emails: {
@@ -13,6 +17,9 @@ const contactInfo = {
     plantAddress: 'Parque industrial tecnológico de Florencio Varela',
 };
 
+// --------------------------------------------------------
+// 2. SUB-COMPONENTES PUROS
+// --------------------------------------------------------
 const LocationMap = ({ title, address, mapSrc }) => (
     <div className="location-card">
         <div className="location-header">
@@ -33,9 +40,13 @@ const LocationMap = ({ title, address, mapSrc }) => (
     </div>
 );
 
+// --------------------------------------------------------
+// 3. COMPONENTE PRINCIPAL
+// --------------------------------------------------------
 function Contact() {
     const [validated, setValidated] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
 
     // Scroll al inicio cuando el componente se monta
@@ -57,18 +68,26 @@ function Contact() {
             return;
         }
 
+        setIsSubmitting(true);
+        setError('');
+
         try {
             const formData = new FormData(form);
+            
+            // Transformar los datos al formato que Netlify exige de manera nativa
+            const urlEncodedData = new URLSearchParams(formData).toString();
+
             const response = await fetch('/', {
                 method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: urlEncodedData,
             });
 
             if (response.ok) {
                 setSubmitted(true);
-                setError('');
                 form.reset();
+                setValidated(false); // Reseteamos la validación visual de Bootstrap
+                
                 // Envía evento al dataLayer para GTM
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
@@ -82,17 +101,42 @@ function Contact() {
         } catch (err) {
             setError('Error al enviar el formulario. Por favor, inténtalo de nuevo.');
             setSubmitted(false);
+            
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'form_error',
                 'form_type': 'contact',
                 'status': 'error'
             });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
     return (
         <section id="contacto" className="contact-section">
+            <Helmet>
+                <title>Contacto | Darom SA - Presupuestos y Asesoramiento</title>
+                <meta name="description" content="Comunicate con Darom SA para solicitar presupuesto de hormigón elaborado, pisos industriales o materiales. Estamos en Florencio Varela y Hudson." />
+                {/* Datos estructurados para negocios locales (Ideal para páginas de contacto) */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "name": "Darom SA",
+                        "telephone": contactInfo.phone,
+                        "email": contactInfo.emails.ventas,
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "C. 152 6352",
+                            "addressLocality": "Guillermo Enrique Hudson",
+                            "addressRegion": "Buenos Aires",
+                            "addressCountry": "AR"
+                        }
+                    })}
+                </script>
+            </Helmet>
+
             <Container>
                 <h2 className="section-title">CONTÁCTENOS</h2>
                 <p className="section-subtitle">Estamos listos para responder a sus consultas</p>
@@ -117,6 +161,7 @@ function Contact() {
                                     type="text" 
                                     name="name" 
                                     placeholder="Ingrese su nombre" 
+                                    disabled={isSubmitting}
                                 />
                             </Form.Group>
                             
@@ -127,6 +172,7 @@ function Contact() {
                                     type="email"
                                     name="email"
                                     placeholder="ejemplo@email.com"
+                                    disabled={isSubmitting}
                                 />
                             </Form.Group>
                             
@@ -138,19 +184,34 @@ function Contact() {
                                     rows={5}
                                     name="message"
                                     placeholder="Escriba su consulta aquí..."
+                                    disabled={isSubmitting}
                                 />
                             </Form.Group>
                             
-                            <Button variant="primary" type="submit" className="submit-btn">
-                                Enviar mensaje
+                            <Button 
+                                variant="primary" 
+                                type="submit" 
+                                className="submit-btn"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? (
+                                    <>
+                                        <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" className="me-2" />
+                                        Enviando...
+                                    </>
+                                ) : 'Enviar mensaje'}
                             </Button>
                             
                             {submitted && (
-                                <Alert variant="success" className="mt-3">
+                                <Alert variant="success" className="mt-3 animate__animated animate__fadeIn">
                                     ¡Mensaje enviado con éxito! Nos contactaremos pronto.
                                 </Alert>
                             )}
-                            {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
+                            {error && (
+                                <Alert variant="danger" className="mt-3 animate__animated animate__fadeIn">
+                                    {error}
+                                </Alert>
+                            )}
                         </Form>
                     </Col>
                     

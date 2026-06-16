@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -11,15 +11,20 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Color corporativo para la barra de navegación en móviles -->
+  <meta name="theme-color" content="#E30613">
+  
+  <!-- SEO Fallback (React Helmet sobreescribirá esto después) -->
   <meta name="description" content="Darom SA - Líder en hormigón elaborado, materiales de construcción, pisos industriales, estudio y movimiento de suelos en Buenos Aires. Calidad garantizada desde 1978.">
   <meta name="keywords" content="hormigón elaborado, materiales construcción, pisos industriales, estudio y movimiento de suelos, construcción en zona sur de Buenos Aires, Darom SA">
   <meta name="author" content="Darom SA">
   <meta name="robots" content="index, follow">
-  <title>Darom SA | Hormigón Elaborado, Materiales de Construcción, Estudio y Movimiento de suelos en Buenos Aires</title>
+  <title>Darom SA | Soluciones Integrales en Construcción</title>
 
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph / Social Media Fallback -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Darom SA | Especialistas en Hormigón elaborado y Construcción">
+  <meta property="og:title" content="Darom SA | Especialistas en Hormigón y Construcción">
   <meta property="og:description" content="Soluciones integrales en construcción desde 1978. Hormigón elaborado, materiales, pisos industriales y movimiento de suelos.">
   <meta property="og:image" content="https://daromsa.com.ar/images/og-image.jpg">
   <meta property="og:url" content="https://daromsa.com.ar/">
@@ -32,7 +37,7 @@
   <meta name="twitter:description" content="Soluciones integrales en construcción desde 1978. Hormigón elaborado, materiales, pisos industriales y movimiento de suelos.">
   <meta name="twitter:image" content="https://daromsa.com.ar/images/twitter-image.jpg">
 
-  <!-- Canonical URL -->
+  <!-- Canonical URL Fallback -->
   <link rel="canonical" href="https://daromsa.com.ar/" />
 
   <!-- Favicon -->
@@ -41,11 +46,17 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Preload y preconnect optimizados -->
+  <!-- Preload y preconnect optimizados para Google Fonts -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Carga diferida (Lazy Load) de tipografías -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  </noscript>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -54,33 +65,15 @@
   <!-- End Google Tag Manager (noscript) -->
   
   <noscript>
-    <div class="noscript-warning">
-      <h1>JavaScript requerido</h1>
-      <p>Para una experiencia óptima en nuestro sitio, por favor habilita JavaScript en tu navegador.</p>
+    <div style="background-color: #E30613; color: white; padding: 20px; text-align: center; font-family: sans-serif;">
+      <h1>JavaScript Requerido</h1>
+      <p>Para una experiencia óptima y poder visualizar nuestros productos, por favor habilita JavaScript en tu navegador.</p>
     </div>
   </noscript>
 
   <div id="root"></div>
-
-  <!-- Carga diferida del schema markup -->
-  <script>
-    window.addEventListener('load', function() {
-      const schemaScript = document.createElement('script');
-      schemaScript.type = 'application/ld+json';
-      schemaScript.text = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Darom SA",
-        "url": "https://www.daromsa.com.ar",
-        "logo": "https://www.daromsa.com.ar/logo.png",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+54 221 573-9000",
-          "contactType": "customer service"
-        }
-      });
-      document.body.appendChild(schemaScript);
-    });
-  </script>
+  
+  <!-- Nota: El Schema.org (JSON-LD) fue removido de aquí porque React Helmet 
+       se encarga de inyectarlo dinámicamente desde App.js y otros componentes -->
 </body>
 </html>
